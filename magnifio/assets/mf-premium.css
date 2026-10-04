@@ -1,0 +1,91 @@
+/* ==========================================================================
+   MAGNIFIO · Premium Layer (MASTER-AUDIT 2026-10)
+   Richtung: Clean Fashion Editorial / Quiet Luxury – bestehende Gestaltung
+   verfeinert, nicht ersetzt. Ein orchestrierter Moment (Hero), sonst Ruhe.
+   ========================================================================== */
+:root{
+  --mf-ease-out:cubic-bezier(.16,1,.3,1);
+  --mf-ease-inout:cubic-bezier(.65,0,.35,1);
+  --mf-ink:#141414;--mf-muted:#5f5f5f;--mf-line:#e8e6e2;--mf-stone:#f4f3f1;
+}
+
+/* --- Typografie: Amiri als Editorial-Stimme, Futura für Interface --- */
+.mfc-hero__title{
+  font-family:var(--font-heading-family)!important;
+  text-transform:none!important;letter-spacing:-.005em!important;
+  font-size:clamp(4rem,2.4rem + 4.6vw,8.8rem)!important;line-height:1!important;
+  margin:0 0 2.8rem!important;font-weight:400!important;
+  text-wrap:balance;
+}
+.mfc-hero__eyebrow{letter-spacing:.18em!important;font-size:1.1rem!important}
+.mfc-h2{
+  font-family:var(--font-heading-family)!important;text-transform:none!important;
+  letter-spacing:0!important;font-size:clamp(2.6rem,2rem + 1.4vw,3.6rem)!important;line-height:1.1!important;
+}
+.mfc-rail__head{align-items:baseline!important;margin-bottom:2.4rem!important}
+.mfc-tile__title{font-family:var(--font-heading-family)!important;text-transform:none!important;letter-spacing:0!important;font-size:clamp(2.4rem,1.8rem + 1.3vw,3.4rem)!important;margin-bottom:1.4rem!important}
+.mfc-cat__title{letter-spacing:.04em!important;text-transform:none!important;font-size:1.4rem!important}
+.product__title h1,.product__title .h1{
+  font-family:var(--font-heading-family)!important;text-transform:none!important;letter-spacing:0!important;
+  font-size:clamp(2.6rem,2.2rem + 1vw,3.4rem)!important;line-height:1.15!important;font-weight:400!important;
+}
+.collection-hero__title,.main-page-title,.title--primary{text-transform:none;letter-spacing:0;font-family:var(--font-heading-family)}
+
+/* --- Karten: ruhig statt "Lift & Shadow" --- */
+.card-wrapper,.card-wrapper:hover{transform:none!important;box-shadow:none!important}
+.card__media img,.mfc-card__media img{transition:opacity .6s var(--mf-ease-out),transform 1.4s var(--mf-ease-out)!important}
+@media (hover:hover){
+  .card-wrapper:hover .card__media img:only-child,.mfc-card:hover .mfc-card__media img:not(.mfc-card__alt){transform:scale(1.025)}
+}
+.mfc-card__title{font-size:1.35rem!important;margin-top:1.2rem!important}
+.mfc-badge{letter-spacing:.08em!important;text-transform:none!important;font-size:1.1rem!important}
+
+/* --- Buttons: präziser Hover statt Springen --- */
+.button:hover{transform:none!important;opacity:1!important}
+.mfc-btn{transition:background .35s var(--mf-ease-out),color .35s var(--mf-ease-out),border-color .35s var(--mf-ease-out)!important}
+
+/* --- Hero: der eine orchestrierte Moment --- */
+.mfc-hero__img img{transform-origin:50% 40%}
+.js .mfc-hero:not(.is-ready) .mfc-hero__img img{transform:scale(1.06)}
+.js .mfc-hero .mfc-hero__img img{transition:transform 2.2s var(--mf-ease-out)}
+.js .mfc-hero .mfc-hero__line{display:block;overflow:hidden;padding-bottom:.06em}
+.js .mfc-hero .mfc-hero__line>span{display:block;transform:translateY(105%);transition:transform 1.1s var(--mf-ease-out)}
+.js .mfc-hero .mfc-hero__line:nth-child(2)>span{transition-delay:.12s}
+.js .mfc-hero .mfc-hero__eyebrow,.js .mfc-hero .mfc-hero__ctas{opacity:0;transform:translateY(8px);transition:opacity .9s var(--mf-ease-out) .45s,transform .9s var(--mf-ease-out) .45s}
+.js .mfc-hero.is-ready .mfc-hero__line>span{transform:none}
+.js .mfc-hero.is-ready .mfc-hero__eyebrow,.js .mfc-hero.is-ready .mfc-hero__ctas{opacity:1;transform:none}
+.js .mfc-hero .mfc-hero__eyebrow{transition-delay:.2s}
+
+/* --- Akkordeons: weiches Öffnen (Progressive Enhancement) --- */
+@supports (interpolate-size:allow-keywords){
+  :root{interpolate-size:allow-keywords}
+  details.mf-warranty::details-content,.product__accordion details::details-content,.collapsible-content details::details-content{
+    block-size:0;overflow:clip;transition:block-size .45s var(--mf-ease-out),content-visibility .45s allow-discrete;
+  }
+  details.mf-warranty[open]::details-content,.product__accordion details[open]::details-content,.collapsible-content details[open]::details-content{block-size:auto}
+}
+.accordion summary,.mf-warranty__summary{min-height:44px}
+
+/* --- Warenkorb-Drawer: ruhigeres Ein-/Ausblenden --- */
+.drawer__inner{transition:transform .55s var(--mf-ease-out)!important}
+.drawer{transition:visibility .55s var(--mf-ease-out),background-color .55s var(--mf-ease-out)!important}
+
+/* --- Mobile Sticky Add-to-Cart --- */
+.mf-sticky-atc{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;gap:1.2rem;
+  padding:1rem max(1.6rem,env(safe-area-inset-left)) calc(1rem + env(safe-area-inset-bottom)) max(1.6rem,env(safe-area-inset-right));
+  background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--mf-line);
+  transform:translateY(110%);transition:transform .45s var(--mf-ease-out)}
+.mf-sticky-atc.is-visible{transform:none}
+.mf-sticky-atc__info{flex:1;min-width:0}
+.mf-sticky-atc__title{margin:0;font-size:1.3rem;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--mf-ink)}
+.mf-sticky-atc__price{margin:.2rem 0 0;font-size:1.3rem;color:var(--mf-muted)}
+.mf-sticky-atc__btn{flex:0 0 auto;min-height:48px;padding:0 2rem!important;font-size:1.2rem!important;background:var(--mf-ink)!important;color:#fff!important;border:0!important;cursor:pointer;letter-spacing:.12em;text-transform:uppercase}
+.mf-sticky-atc__btn[disabled]{opacity:.45;cursor:not-allowed}
+@media (min-width:750px){.mf-sticky-atc{display:none}}
+
+/* --- Bewegungsreduktion: alles statisch --- */
+@media (prefers-reduced-motion:reduce){
+  .js .mfc-hero:not(.is-ready) .mfc-hero__img img,.js .mfc-hero .mfc-hero__line>span{transform:none!important}
+  .js .mfc-hero .mfc-hero__eyebrow,.js .mfc-hero .mfc-hero__ctas{opacity:1!important;transform:none!important}
+  .mf-sticky-atc{transition:none}
+}

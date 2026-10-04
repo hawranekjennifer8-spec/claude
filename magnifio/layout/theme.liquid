@@ -1,6 +1,8 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     {% comment %}
       Google Analytics 4 – RECHTSUPDATE 2026-10:
       gtag.js wird erst NACH Einwilligung (Statistik) ueber das Shopify-Cookie-Banner geladen
@@ -51,9 +53,7 @@
       })();
     </script>
     <meta name="p:domain_verify" content="13bb5861a8717799c9f82f0a438fb689"/>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
     {%- if settings.favicon != blank -%}
@@ -64,8 +64,8 @@
     {%- endunless -%}
     <title>
       {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- if current_tags %} &ndash; Filter: {{ current_tags | join: ', ' }}{% endif -%}
+      {%- if current_page != 1 %} &ndash; Seite {{ current_page }}{% endif -%}
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
     {% if page_description %}
@@ -188,6 +188,7 @@
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'mf-motion.js' | asset_url }}" defer="defer"></script>
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
@@ -377,6 +378,7 @@
     {% endstyle %}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'magnifio-luxury.css' | asset_url | stylesheet_tag }}
+    {{ 'mf-premium.css' | asset_url | stylesheet_tag }}
     {% render 'mf-legal-styles' %}
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>

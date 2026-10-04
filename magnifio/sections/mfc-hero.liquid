@@ -1,0 +1,44 @@
+{%- liquid
+  assign has2 = false
+  if section.settings.image_2 != blank or section.settings.image_2_url != blank
+    assign has2 = true
+  endif
+  assign title_lines = section.settings.title | split: '|'
+  assign title_plain = section.settings.title | replace: '|', ' '
+-%}
+<section class="mfc-hero{% unless has2 %} mfc-hero--single{% endunless %}" aria-label="{{ title_plain | escape }}">
+  <div class="mfc-hero__img">
+    {%- if section.settings.image_1 != blank -%}
+      {{ section.settings.image_1 | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600,900,1200,1800', sizes: '(min-width: 750px) 50vw, 100vw', alt: section.settings.image_1.alt }}
+    {%- elsif section.settings.image_1_url != blank -%}
+      {%- assign u = section.settings.image_1_url -%}
+      <img src="{{ u }}&width=1400" srcset="{{ u }}&width=700 700w, {{ u }}&width=1100 1100w, {{ u }}&width=1600 1600w" sizes="(min-width: 750px) 50vw, 100vw" alt="{{ title_plain | escape }}" loading="eager" fetchpriority="high" decoding="async" width="1600" height="2400">
+    {%- endif -%}
+  </div>
+  {%- if has2 -%}
+  <div class="mfc-hero__img mfc-hero__img--2">
+    {%- if section.settings.image_2 != blank -%}
+      {{ section.settings.image_2 | image_url: width: 1800 | image_tag: loading: 'eager', widths: '600,900,1200,1800', sizes: '50vw', alt: section.settings.image_2.alt }}
+    {%- else -%}
+      {%- assign u = section.settings.image_2_url -%}
+      <img src="{{ u }}&width=1400" srcset="{{ u }}&width=700 700w, {{ u }}&width=1100 1100w, {{ u }}&width=1600 1600w" sizes="50vw" alt="" loading="eager" decoding="async" width="1600" height="2400">
+    {%- endif -%}
+  </div>
+  {%- endif -%}
+  <span class="mfc-hero__shade"></span>
+  <div class="mfc-hero__copy">
+    {%- if section.settings.eyebrow != blank -%}<p class="mfc-hero__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    {%- if section.settings.title != blank -%}
+      <h1 class="mfc-hero__title">
+        {%- for line in title_lines -%}<span class="mfc-hero__line"><span>{{ line | strip }}</span></span>{%- endfor -%}
+      </h1>
+    {%- endif -%}
+    <div class="mfc-hero__ctas">
+      {%- if section.settings.btn_1 != blank -%}<a class="mfc-btn mfc-btn--light" href="{{ section.settings.link_1 | default: '/collections/all' }}">{{ section.settings.btn_1 }}</a>{%- endif -%}
+      {%- if section.settings.btn_2 != blank -%}<a class="mfc-btn mfc-btn--ghost" href="{{ section.settings.link_2 | default: '/collections/all' }}">{{ section.settings.btn_2 }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"MF Clean – Hero","settings":[{"type":"image_picker","id":"image_1","label":"Bild links"},{"type":"text","id":"image_1_url","label":"Bild links (URL, falls kein Bild gewählt)"},{"type":"image_picker","id":"image_2","label":"Bild rechts (nur Desktop)"},{"type":"text","id":"image_2_url","label":"Bild rechts (URL, falls kein Bild gewählt)"},{"type":"text","id":"eyebrow","label":"Kleine Zeile","default":"Herbst / Winter 2026"},{"type":"text","id":"title","label":"Überschrift","info":"Zeilenumbruch mit | setzen, z. B. Die Herbst-|Edit","default":"Die Herbst-Edit"},{"type":"text","id":"btn_1","label":"Button 1","default":"Kollektion shoppen"},{"type":"url","id":"link_1","label":"Link 1"},{"type":"text","id":"btn_2","label":"Button 2","default":"New In"},{"type":"url","id":"link_2","label":"Link 2"}],"presets":[{"name":"MF Clean – Hero"}]}
+{% endschema %}
