@@ -1,0 +1,207 @@
+<style>
+  .lj-wr{max-width:700px;margin:0 auto;padding:8px 0 48px;color:#111;font-family:inherit}
+  .lj-wr h2{font-size:1.25em;margin:0 0 8px;color:#111;font-weight:600;line-height:1.35}
+  .lj-wr p{line-height:1.7}
+  .lj-wr .lj-intro{background:#f6f5f2;border-left:2px solid #111;padding:16px 20px;margin:0 0 24px;font-size:.95em}
+  .lj-wr .lj-steps{display:flex;gap:6px;white-space:nowrap;list-style:none;padding:0;margin:0 0 20px;font-size:.8em;letter-spacing:.08em;text-transform:uppercase;color:#6b6b6b;flex-wrap:wrap}
+  .lj-wr .lj-steps li{display:flex;align-items:center;gap:6px}
+  .lj-wr .lj-steps li+li::before{content:"";width:14px;height:1px;background:#ccc;display:inline-block}
+  .lj-wr .lj-steps [aria-current="step"]{color:#111;font-weight:600}
+  .lj-wr .lj-btn{display:inline-flex;align-items:center;justify-content:center;background:#111;color:#fff;border:1px solid #111;padding:14px 28px;font:inherit;font-size:.95em;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:0;cursor:pointer;min-height:48px;transition:background .2s,color .2s}
+  .lj-wr .lj-btn:hover{background:#000}
+  .lj-wr .lj-btn--ghost{background:transparent;color:#111}
+  .lj-wr .lj-btn--ghost:hover{background:#f6f5f2}
+  .lj-wr .lj-btn:focus-visible{outline:2px solid #111;outline-offset:3px}
+  .lj-wr .lj-btn[disabled]{opacity:.6;cursor:wait}
+  .lj-wr .lj-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+  .lj-wr .lj-panel{border:1px solid #e6e4e0;padding:clamp(18px,4vw,28px);margin-top:20px;background:#fff}
+  .lj-wr .lj-fg{margin-bottom:18px}
+  .lj-wr label{display:block;font-weight:600;font-size:.9em;margin-bottom:6px}
+  .lj-wr .lj-hint{display:block;font-weight:400;font-size:.85em;color:#5f5f5f;margin-top:4px}
+  .lj-wr input,.lj-wr textarea{width:100%;box-sizing:border-box;padding:12px;border:1px solid #8a8a8a;border-radius:0;font:inherit;font-size:16px;background:#fff;color:#111}
+  .lj-wr input:focus,.lj-wr textarea:focus{outline:2px solid #111;outline-offset:1px}
+  .lj-wr textarea{min-height:90px;resize:vertical}
+  .lj-wr [aria-invalid="true"]{border-color:#b00020}
+  .lj-wr .lj-err{color:#b00020;font-size:.9em;margin-top:4px}
+  .lj-wr .lj-alert{background:#fff0f0;border:1px solid #b00020;color:#7a0016;padding:14px 16px;margin-top:16px}
+  .lj-wr dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 16px;margin:12px 0 16px}
+  .lj-wr dt{font-weight:600}
+  .lj-wr dd{margin:0;overflow-wrap:anywhere}
+  .lj-wr .lj-statement{background:#f6f5f2;padding:14px 16px;margin:0 0 16px;font-size:.95em}
+  .lj-wr .lj-ok{background:#f1f8f2;border:1px solid #2e7d32;padding:20px 22px;margin-top:20px}
+  .lj-wr [hidden]{display:none!important}
+  @media (max-width:480px){.lj-wr dl{grid-template-columns:1fr;gap:2px 0}.lj-wr dt{margin-top:8px}.lj-wr .lj-actions .lj-btn{width:100%}}
+</style>
+
+<div class="lj-wr" id="lj-wr">
+
+  <div class="lj-intro">
+    <p style="margin:0">Hier können Sie einen mit uns geschlossenen Vertrag während der Widerrufsfrist online widerrufen (§ 356a BGB). Ein Kundenkonto oder Login ist nicht erforderlich. Nach dem Absenden erhalten Sie unverzüglich eine Eingangsbestätigung per E-Mail mit dem Inhalt Ihrer Widerrufserklärung sowie Datum und Uhrzeit des Eingangs. Alle Einzelheiten zum Widerrufsrecht finden Sie in unserer <a href="/pages/widerrufsrecht">Widerrufsbelehrung</a>.</p>
+  </div>
+
+  <ol class="lj-steps" id="lj-steps" aria-label="Ablauf" hidden>
+    <li data-step="1">1 Angaben</li>
+    <li data-step="2">2 Prüfen</li>
+    <li data-step="3">3 Fertig</li>
+  </ol>
+
+  <!-- Schritt 0: Widerrufsfunktion -->
+  <div id="lj-step1">
+    <button type="button" class="lj-btn" id="lj-open" aria-controls="lj-form-panel" aria-expanded="false">Vertrag widerrufen</button>
+  </div>
+
+  <!-- Schritt 1: Angaben -->
+  <form class="lj-panel" id="lj-form-panel" hidden novalidate>
+    <h2 tabindex="-1" id="lj-form-title">Angaben zu Ihrem Widerruf</h2>
+    <p style="font-size:.9em;color:#5f5f5f">Pflichtfelder sind mit * gekennzeichnet.</p>
+
+    <div class="lj-fg">
+      <label for="lj-name">Ihr Name *</label>
+      <input type="text" id="lj-name" name="name" autocomplete="name" required aria-describedby="lj-name-err">
+      <div class="lj-err" id="lj-name-err" hidden>Bitte geben Sie Ihren Namen an.</div>
+    </div>
+
+    <div class="lj-fg">
+      <label for="lj-order">Bestellnummer *<span class="lj-hint">Steht in Ihrer Bestellbestätigung, z. B. #1234</span></label>
+      <input type="text" id="lj-order" name="order" required aria-describedby="lj-order-err">
+      <div class="lj-err" id="lj-order-err" hidden>Bitte geben Sie die Bestellnummer an.</div>
+    </div>
+
+    <div class="lj-fg">
+      <label for="lj-email">E-Mail-Adresse für die Eingangsbestätigung *</label>
+      <input type="email" id="lj-email" name="email" autocomplete="email" required aria-describedby="lj-email-err">
+      <div class="lj-err" id="lj-email-err" hidden>Bitte geben Sie eine gültige E-Mail-Adresse an.</div>
+    </div>
+
+    <div class="lj-fg">
+      <label for="lj-items">Welche Artikel möchten Sie widerrufen? (optional)<span class="lj-hint">Leer lassen, wenn Sie den gesamten Vertrag (alle Artikel der Bestellung) widerrufen möchten.</span></label>
+      <textarea id="lj-items" name="items"></textarea>
+    </div>
+
+    <div class="lj-fg">
+      <label for="lj-date">Bestelldatum (optional)</label>
+      <input type="date" id="lj-date" name="order_date">
+    </div>
+
+    <p style="font-size:.9em">Eine Begründung ist nicht erforderlich. Hinweise zur Verarbeitung Ihrer Angaben: <a href="/pages/datenschutzerklarung#widerrufsformular">Datenschutzerklärung</a>.</p>
+
+    <div class="lj-actions">
+      <button type="submit" class="lj-btn" id="lj-next">Weiter zur Zusammenfassung</button>
+    </div>
+  </form>
+
+  <!-- Schritt 2: Zusammenfassung + Bestaetigungsfunktion -->
+  <div class="lj-panel" id="lj-summary" hidden>
+    <h2 tabindex="-1" id="lj-summary-title">Bitte prüfen Sie Ihre Angaben</h2>
+    <dl>
+      <dt>Name</dt><dd id="lj-s-name"></dd>
+      <dt>Bestellnummer</dt><dd id="lj-s-order"></dd>
+      <dt>E-Mail</dt><dd id="lj-s-mail"></dd>
+      <dt>Umfang</dt><dd id="lj-s-items"></dd>
+      <dt>Bestelldatum</dt><dd id="lj-s-date"></dd>
+    </dl>
+    <p class="lj-statement" id="lj-s-text"></p>
+    <p style="font-size:.9em">Mit Klick auf „Widerruf bestätigen“ erklären Sie den Widerruf des oben bezeichneten Vertrags bzw. der angegebenen Artikel.</p>
+    <div class="lj-actions">
+      <button type="button" class="lj-btn" id="lj-confirm">Widerruf bestätigen</button>
+      <button type="button" class="lj-btn lj-btn--ghost" id="lj-back">Angaben ändern</button>
+    </div>
+    <div class="lj-alert" id="lj-fail" role="alert" hidden>
+      Der Widerruf konnte technisch nicht übermittelt werden. Bitte versuchen Sie es erneut oder senden Sie Ihre Widerrufserklärung per E-Mail an <a href="mailto:info@magnifio.de">info@magnifio.de</a>.
+    </div>
+  </div>
+
+  <!-- Schritt 3: Eingangsbestaetigung -->
+  <div class="lj-ok" id="lj-done" hidden tabindex="-1" role="status">
+    <h2>Ihr Widerruf ist bei uns eingegangen</h2>
+    <p>Eine Eingangsbestätigung wurde an <strong id="lj-done-mail"></strong> gesendet. Bitte prüfen Sie ggf. auch Ihren Spam-Ordner.</p>
+    <dl>
+      <dt>Eingang</dt><dd id="lj-done-time"></dd>
+      <dt>Erklärung</dt><dd id="lj-done-text"></dd>
+    </dl>
+    <p style="margin-top:16px">Bitte senden Sie die Ware an:<br>MAGNIFIO, Jennifer Hawranek, Justus-Liebig-Straße 15, 63538 Großkrotzenburg, Deutschland.</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+  /* EmailJS ueber REST-API (ohne externes CDN-Skript). Vorlage muss die Parameter
+     widerruf_text, eingang_datum, eingang_uhrzeit enthalten und an {{kunden_email}} senden. */
+  var EJ_SERVICE='service_b129lbo', EJ_TEMPLATE='template_9qblabv', EJ_KEY='sjn_bYQRws5ezdo23';
+  var $=function(id){return document.getElementById(id);};
+  var open=$('lj-open'), form=$('lj-form-panel'), sum=$('lj-summary'), steps=$('lj-steps');
+  var data=null;
+
+  function setStep(n){
+    steps.hidden=false;
+    Array.prototype.forEach.call(steps.querySelectorAll('li'),function(li){
+      if(li.getAttribute('data-step')==String(n)) li.setAttribute('aria-current','step'); else li.removeAttribute('aria-current');
+    });
+  }
+
+  open.addEventListener('click',function(){
+    form.hidden=false; open.setAttribute('aria-expanded','true'); setStep(1);
+    $('lj-name').focus();
+  });
+
+  function check(id,ok){
+    var el=$(id), err=$(id+'-err');
+    el.setAttribute('aria-invalid', ok?'false':'true');
+    if(err) err.hidden=ok;
+    return ok;
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=$('lj-name').value.trim(), order=$('lj-order').value.trim(),
+        mail=$('lj-email').value.trim(), items=$('lj-items').value.trim(),
+        odate=$('lj-date').value;
+    var ok=[check('lj-name',!!name), check('lj-order',!!order),
+            check('lj-email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail))];
+    if(ok.indexOf(false)>-1){ var f=form.querySelector('[aria-invalid="true"]'); if(f) f.focus(); return; }
+    var odateDE=odate?odate.split('-').reverse().join('.'):'';
+    var text='Hiermit widerrufe ich, '+name+', den mit MAGNIFIO geschlossenen Vertrag (Bestellnummer '+order+')'+
+             (items?(' hinsichtlich folgender Artikel: '+items):' insgesamt')+'.'+
+             (odate?(' Bestelldatum: '+odateDE+'.'):'');
+    data={name:name,order:order,mail:mail,items:items,odate:odate,text:text};
+    $('lj-s-name').textContent=name; $('lj-s-order').textContent=order; $('lj-s-mail').textContent=mail;
+    $('lj-s-items').textContent=items||'gesamter Vertrag (alle Artikel der Bestellung)';
+    $('lj-s-date').textContent=odateDE||'nicht angegeben';
+    $('lj-s-text').textContent=text;
+    form.hidden=true; sum.hidden=false; $('lj-fail').hidden=true; setStep(2);
+    $('lj-summary-title').focus();
+  });
+
+  $('lj-back').addEventListener('click',function(){
+    sum.hidden=true; form.hidden=false; setStep(1); $('lj-form-title').focus();
+  });
+
+  $('lj-confirm').addEventListener('click',function(){
+    if(!data) return;
+    var now=new Date(), tz={timeZone:'Europe/Berlin'};
+    var d=now.toLocaleDateString('de-DE',Object.assign({day:'2-digit',month:'2-digit',year:'numeric'},tz));
+    var t=now.toLocaleTimeString('de-DE',Object.assign({hour:'2-digit',minute:'2-digit',second:'2-digit'},tz))+' Uhr';
+    var btn=$('lj-confirm'), back=$('lj-back');
+    btn.disabled=true; back.disabled=true; btn.textContent='Wird übermittelt …'; $('lj-fail').hidden=true;
+
+    fetch('https://api.emailjs.com/api/v1.0/email/send',{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({service_id:EJ_SERVICE, template_id:EJ_TEMPLATE, user_id:EJ_KEY, template_params:{
+        kunden_email:data.mail, kundenname:data.name, bestellnummer:data.order, bestelldatum:data.odate||'nicht angegeben',
+        warenerhalt:'nicht angegeben', artikel:data.items||'gesamter Vertrag', grund:'',
+        shop:'MAGNIFIO', shop_email:'info@magnifio.de', datum:d+', '+t, eingang_datum:d, eingang_uhrzeit:t, widerruf_text:data.text
+      }})
+    }).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
+    .then(function(){
+      sum.hidden=true; $('lj-step1').hidden=true; setStep(3);
+      $('lj-done-mail').textContent=data.mail; $('lj-done-time').textContent=d+', '+t; $('lj-done-text').textContent=data.text;
+      var done=$('lj-done'); done.hidden=false; done.focus();
+    }).catch(function(err){
+      console.error('Widerruf: Uebermittlung fehlgeschlagen',err);
+      btn.disabled=false; back.disabled=false; btn.textContent='Widerruf bestätigen'; $('lj-fail').hidden=false;
+    });
+  });
+})();
+</script>
