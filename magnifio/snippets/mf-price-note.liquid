@@ -1,0 +1,20 @@
+{%- comment -%}
+  Preis-Microcopy (MASTER-AUDIT 2026-10)
+  - § 19 UStG: Umsaetze der Kleinunternehmerin sind seit 01.01.2025 steuerfrei -> kein USt-Ausweis, kein "inkl. MwSt.".
+  - § 6 Abs. 1 Nr. 2, Abs. 2 PAngV: Angabe, ob Versandkosten anfallen (Hoehe auf /pages/versand).
+  - Marktabhaengig, passend zum Versandprofil "Allgemeines Profil" (Stand 04.10.2026):
+      Markt "de" -> Versand 0,00 EUR | Markt "eu" -> Versand 0,00 EUR | sonst -> zzgl. Versand (11,99 EUR)
+    WICHTIG: Bei Aenderung der Versandraten diese Logik anpassen.
+  Parameter: compact (Produktkarten), nolink (innerhalb von Links, z. B. Produktkarten)
+{%- endcomment -%}
+{%- liquid
+  assign mf_mh = localization.market.handle
+  if mf_mh == 'de'
+    assign mf_ship = 'Kostenloser Versand DE'
+  elsif mf_mh == 'eu'
+    assign mf_ship = 'Kostenloser Versand EU'
+  else
+    assign mf_ship = 'zzgl. Versand'
+  endif
+-%}
+<p class="mf-price-note{% if compact %} mf-price-note--compact{% endif %}">Umsatzsteuerfrei gem. &sect;&nbsp;19&nbsp;UStG<span class="mf-price-note__sep" aria-hidden="true">&middot;</span><span class="visually-hidden">, </span>{% if nolink %}{{ mf_ship }}{% else %}<a href="/pages/versand">{{ mf_ship }}</a>{% endif %}</p>

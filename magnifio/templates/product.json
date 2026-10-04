@@ -1,0 +1,236 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "mf_style": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>/* MAGNIFIO Autumn 2026 — premium overrides */\n.card-wrapper,.card-wrapper:hover{transform:none!important;box-shadow:none!important}\n.card__media{background:#f3ebe1!important}\n.card__media img{object-position:center 15%!important;transition:opacity .6s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)!important}\n.card-wrapper:hover .card__media img{transform:scale(1.035)!important}\n.card__content{padding:12px 2px 6px!important}\n.card__heading,.card__heading a{font-size:12px!important;letter-spacing:.1em!important;line-height:1.35!important;font-family:var(--font-body-family)!important}\n.card-information .price,.card .price{font-size:13px!important}\n.collection .grid,.product-grid{column-gap:clamp(8px,1vw,16px)!important;row-gap:clamp(18px,2vw,32px)!important}\n/* trust bar: calm single row */\n.mf-trust{background:#fdfaf5!important;border:0!important;border-top:1px solid rgba(26,21,18,.08)!important;border-bottom:1px solid rgba(26,21,18,.08)!important}\n.mf-trust__inner{max-width:1400px!important;padding:22px clamp(16px,3vw,40px)!important;gap:0!important;justify-content:space-between!important}\n.mf-trust__item{background:none!important;border:0!important;box-shadow:none!important;padding:0 12px!important;flex-direction:row!important;gap:10px!important}\n.mf-trust__item:hover{transform:none!important}\n.mf-trust__item::before{display:none!important}\n.mf-trust__svg{width:20px!important;height:20px!important}\n.mf-trust__item span{font-size:11px!important;letter-spacing:.2em!important}\n@media(max-width:749px){.mf-trust__inner{display:grid!important;grid-template-columns:1fr 1fr;row-gap:14px!important}.mf-trust__item{justify-content:flex-start!important}.mf-trust__item span{font-size:10px!important}}\n/* product page */\n.product__title h1,.product__title{font-size:clamp(20px,2vw,26px)!important;letter-spacing:.08em!important}\n.product-form__input--dropdown .select__select{border-radius:0!important;font-size:13px;letter-spacing:.06em;min-height:48px}\n.product-form__input input[type=radio]+label{border-radius:0!important;min-width:56px;padding:10px 14px!important;font-size:12px!important;letter-spacing:.1em;border:1px solid rgba(26,21,18,.18)!important;background:transparent!important;color:#1a1512!important;margin:0 6px 8px 0!important}\n.product-form__input input[type=radio]:checked+label{background:#1a1512!important;color:#fdfaf5!important;border-color:#1a1512!important}\n.product-form__submit{background:#1a1512!important;color:#fdfaf5!important;border:0!important;min-height:54px}\n.product-form__submit:hover{background:#c17a54!important}\n.product__media-item img{object-fit:cover!important}\n.mf-desc{font-size:14px;line-height:1.75;color:#1a1512}.mf-desc p{opacity:1!important;font-size:14px!important}.mf-desc .mf-lead{font-size:16px!important;line-height:1.65;margin:0 0 6px}.mf-desc h3{font-family:var(--font-body-family);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin:26px 0 10px}.mf-list{list-style:none;padding:0;margin:0}.mf-list li{padding:8px 0;border-bottom:1px solid rgba(26,21,18,.08)}.mf-list strong{font-weight:600}.mf-size{width:100%;border-collapse:collapse;font-size:13px;margin:4px 0 0}.mf-size th,.mf-size td{padding:10px 8px;text-align:center;border-bottom:1px solid rgba(26,21,18,.1)}.mf-size th:first-child,.mf-size td:first-child{text-align:left}.mf-size thead th{background:#f3ebe1;font-weight:600;font-size:12px;letter-spacing:.06em}.mf-sizenote{font-size:12px;opacity:.65;margin:8px 0 0}</style>",
+        "color_scheme": "scheme-4b7499ff-3567-4a48-b29c-8494a2889ce2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "MAGNIFIO · Herbst 2026",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "klarna_on_site_messaging_app_block_Mae9Nf": {
+          "type": "shopify://apps/klarna-on-site-messaging/blocks/app-block/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "top-strip-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "0",
+            "messagePrefix": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown",
+            "swatch_shape": "none"
+          }
+        },
+        "inventory_RF4AB3": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "uppercase",
+            "inventory_threshold": 0,
+            "show_inventory_quantity": false
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "legal_info": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p class=\"mf-ship-info\">Lieferzeit: Deutschland 5&ndash;8 Werktage &middot; international 6&ndash;10 Werktage</p>{% render 'mf-warranty-notice' %}"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Teilen"
+          }
+        },
+        "complementary_NDY8hT": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Passt perfekt dazu",
+            "make_collapsible_row": false,
+            "icon": "heart",
+            "product_list_limit": 10,
+            "products_per_page": 4,
+            "pagination_style": "dots",
+            "image_ratio": "portrait",
+            "enable_quick_add": false
+          }
+        },
+        "size_note": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.description contains 'mf-size' -%}<p class=\"mf-sizenote\">Maße des Kleidungsstücks in cm – Abweichungen von 1–2 cm sind möglich. Tipp: Miss ein gut sitzendes Teil aus deinem Schrank nach und vergleiche. Unsicher? Schreib uns – wir beraten dich gern.</p>{%- endif -%}"
+          }
+        },
+        "tab_care": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Material & Pflege",
+            "icon": "washing",
+            "content": "<p>Wir empfehlen eine schonende Wäsche bei max. 30 °C, auf links gedreht. Strick bitte liegend trocknen und nicht in den Trockner geben. Bitte beachte immer das Pflegeetikett im Kleidungsstück.</p>",
+            "page": ""
+          }
+        },
+        "tab_ship": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Versand & Widerruf",
+            "icon": "truck",
+            "content": "<p><strong>Versand:</strong> innerhalb Deutschlands und in die EU kostenlos, in weitere Länder 11,99 €. Lieferzeit innerhalb Deutschlands 5–8 Werktage, international 6–10 Werktage. Details auf der Seite <a href=\"/pages/versand\">Versand</a>.</p><p><strong>Widerruf:</strong> Informationen zu deinem gesetzlichen Widerrufsrecht findest du in der <a href=\"/pages/widerrufsrecht\">Widerrufsbelehrung</a>. Den Widerruf kannst du auch online über <a href=\"/pages/widerruf\">„Vertrag widerrufen“</a> erklären.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "klarna_on_site_messaging_app_block_Mae9Nf",
+        "variant_picker",
+        "inventory_RF4AB3",
+        "buy_buttons",
+        "legal_info",
+        "description",
+        "size_note",
+        "tab_care",
+        "tab_ship",
+        "share",
+        "complementary_NDY8hT"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-4b7499ff-3567-4a48-b29c-8494a2889ce2",
+        "media_size": "large",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "1723542360c4193531": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Das könnte dir auch gefallen",
+        "heading_size": "h2",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-4b7499ff-3567-4a48-b29c-8494a2889ce2",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "collection_list_78wkMB": {
+      "type": "collection-list",
+      "blocks": {
+        "c1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pullover-1"
+          }
+        },
+        "c2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "jacken"
+          }
+        },
+        "c3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "hosen"
+          }
+        },
+        "c4": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "kleider"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "title": "Shop by Category",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-4b7499ff-3567-4a48-b29c-8494a2889ce2",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 56
+      }
+    }
+  },
+  "order": [
+    "mf_style",
+    "main",
+    "1723542360c4193531",
+    "related-products",
+    "collection_list_78wkMB"
+  ]
+}

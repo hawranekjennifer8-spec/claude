@@ -1,0 +1,87 @@
+{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  MASTER-AUDIT 2026-10: Legal-Page-System
+  Rechtsseiten erhalten ein eigenes, responsives Layout (Lesebreite ~780px, clamp()-Typografie,
+  kein horizontaler Overflow, keine riesige H1). Uebrige Seiten behalten das bisherige Layout.
+{%- endcomment -%}
+{%- assign mf_legal_handles = 'impressum,datenschutzerklarung,agbs,widerrufsrecht,widerruf,versand,retoure,gewaehrleistung' | split: ',' -%}
+{%- assign mf_is_legal = false -%}
+{%- if mf_legal_handles contains page.handle -%}{%- assign mf_is_legal = true -%}{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- if mf_is_legal -%}
+  <article class="mf-legal-page section-{{ section.id }}-padding" aria-labelledby="mf-legal-title-{{ section.id }}">
+    <header class="mf-legal-page__header">
+      <p class="mf-legal-page__eyebrow">Rechtliches</p>
+      <h1 id="mf-legal-title-{{ section.id }}" class="mf-legal-page__title">{{ page.title | escape }}</h1>
+    </header>
+    <div class="mf-legal-page__body rte">
+      {{ page.content }}
+    </div>
+    <nav class="mf-legal-page__nav" aria-label="Weitere rechtliche Informationen">
+      <a href="/pages/impressum">Impressum</a>
+      <a href="/pages/datenschutzerklarung">Datenschutz</a>
+      <a href="/pages/agbs">AGB</a>
+      <a href="/pages/widerrufsrecht">Widerrufsbelehrung</a>
+      <a href="/pages/widerruf">Vertrag widerrufen</a>
+      <a href="/pages/versand">Versand</a>
+    </nav>
+  </article>
+{%- else -%}
+  <div class="page-width page-width--narrow section-{{ section.id }}-padding">
+    <h1 class="main-page-title page-title h1{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {{ page.title | escape }}
+    </h1>
+    <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {{ page.content }}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

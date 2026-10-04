@@ -1,0 +1,75 @@
+<style>
+/* ===== MASTER-AUDIT 2026-10 · Legal UI, Price-Microcopy, Legal-Page-System ===== */
+:root{--mf-ink:#111;--mf-muted:#5f5f5f;--mf-line:#e6e4e0;--mf-soft:#f6f5f2;--mf-measure:780px}
+
+/* Price-Microcopy: sekundaer, aber gut lesbar (§ 1 Abs. 3 PAngV) */
+.mf-price-note{margin:.5rem 0 0;font-size:1.25rem;line-height:1.5;letter-spacing:.03em;color:var(--mf-muted)}
+.mf-price-note a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.25em;text-decoration-color:rgba(17,17,17,.35);transition:text-decoration-color .2s}
+.mf-price-note a:hover{text-decoration-color:currentColor}
+.mf-price-note__sep{display:inline-block;margin:0 .5em;opacity:.6}
+.mf-price-note--compact{font-size:1.15rem;margin-top:.25rem;letter-spacing:.02em}
+.price .mf-price-note{flex-basis:100%;width:100%}
+.product__tax:empty,.product__tax{display:none}
+.cart-drawer__footer .mf-price-note,.cart__footer .mf-price-note{text-align:right;margin-top:.6rem}
+@media (max-width:749px){.cart__footer .mf-price-note{text-align:center}}
+.mf-cart-links{font-size:1.2rem;color:var(--mf-muted);margin:.8rem 0 0}
+.mf-cart-links a{color:inherit}
+
+/* Lieferzeit auf der Produktseite: eine ruhige Zeile */
+.mf-ship-info{font-size:1.3rem;line-height:1.55;margin:1.2rem 0 0;color:var(--mf-muted);letter-spacing:.02em}
+
+/* Harmonisierte Gewaehrleistungsmitteilung (offizielle Datei, unveraendert) */
+.mf-warranty{margin:1rem 0 0;border:1px solid var(--mf-line);background:#fff}
+.mf-warranty__summary{cursor:pointer;padding:1.1rem 1.4rem;min-height:44px;font-size:1.25rem;letter-spacing:.06em;display:flex;align-items:center;gap:.8rem;list-style:none;color:var(--mf-ink)}
+.mf-warranty__summary::-webkit-details-marker{display:none}
+.mf-warranty__summary::after{content:"+";margin-left:auto;font-size:1.6rem;line-height:1;transition:transform .25s ease}
+.mf-warranty[open] .mf-warranty__summary::after{transform:rotate(45deg)}
+.mf-warranty__body{padding:0 1.4rem 1.4rem}
+.mf-warranty__img{display:block;width:100%;max-width:620px;height:auto}
+.mf-warranty__link{font-size:1.15rem;margin:.5rem 0 0;color:var(--mf-muted);overflow-wrap:anywhere}
+.mf-warranty__link a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
+.mf-warranty-missing{padding:1rem;border:2px dashed #b00;color:#b00;font-size:1.3rem}
+
+/* Footer-Rechtsleiste */
+.mf-legal{padding:2.4rem 0 2.8rem;border-top:1px solid var(--mf-line)}
+.mf-legal .mf-warranty{max-width:640px}
+.mf-legal__nav ul{list-style:none;margin:1.8rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 2rem}
+.mf-legal__nav a{display:inline-block;padding:.6rem 0;font-size:1.25rem;letter-spacing:.06em;color:var(--mf-ink);text-decoration:none}
+.mf-legal__nav a:hover{text-decoration:underline;text-underline-offset:.3em}
+.mf-legal__withdraw{font-weight:600}
+
+/* ===== Legal-Page-System ===== */
+.mf-legal-page{box-sizing:border-box;width:100%;max-width:calc(var(--mf-measure) + 2*clamp(16px,4vw,40px));margin:0 auto;padding-inline:max(clamp(16px,4vw,40px),env(safe-area-inset-left));overflow-wrap:break-word}
+.mf-legal-page *,.mf-legal-page *::before,.mf-legal-page *::after{box-sizing:border-box}
+.mf-legal-page__header{margin:0 0 clamp(2.4rem,4vw,4rem);padding-bottom:clamp(1.6rem,2.5vw,2.4rem);border-bottom:1px solid var(--mf-line)}
+.mf-legal-page__eyebrow{margin:0 0 .8rem;font-family:var(--font-body-family);font-size:1.1rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mf-muted)}
+.mf-legal-page__title{margin:0;font-family:var(--font-heading-family);font-weight:400;font-size:clamp(2.6rem,1.9rem + 2.2vw,4.2rem);line-height:1.15;letter-spacing:.01em;color:var(--mf-ink);overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+.mf-legal-page__body{font-size:clamp(1.5rem,1.45rem + .2vw,1.65rem);line-height:1.75;color:#2a2a2a;hyphens:auto;-webkit-hyphens:auto}
+.mf-legal-page__body>*{max-width:100%}
+.mf-legal-page__body h2{font-family:var(--font-body-family);font-size:clamp(1.6rem,1.5rem + .4vw,1.9rem);font-weight:600;line-height:1.35;letter-spacing:.01em;margin:3.2rem 0 1rem;color:var(--mf-ink);hyphens:manual}
+.mf-legal-page__body h3{font-family:var(--font-body-family);font-size:clamp(1.45rem,1.4rem + .2vw,1.6rem);font-weight:600;line-height:1.4;margin:2.4rem 0 .8rem;color:var(--mf-ink);hyphens:manual}
+.mf-legal-page__body h4{font-size:1.45rem;font-weight:600;margin:2rem 0 .6rem}
+.mf-legal-page__body p,.mf-legal-page__body li{margin:0 0 1.1rem}
+.mf-legal-page__body ul,.mf-legal-page__body ol{padding-left:1.4em;margin:0 0 1.4rem}
+.mf-legal-page__body a{color:var(--mf-ink);text-decoration:underline;text-underline-offset:.2em;overflow-wrap:anywhere;word-break:normal}
+.mf-legal-page__body strong{font-weight:600;color:var(--mf-ink)}
+.mf-legal-page__body table{width:100%;border-collapse:collapse;margin:1rem 0 2rem;font-size:.95em;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mf-legal-page__body th,.mf-legal-page__body td{padding:1rem 1.2rem;border-bottom:1px solid var(--mf-line);text-align:left;vertical-align:top;min-width:9rem}
+.mf-legal-page__body th{font-weight:600;background:var(--mf-soft)}
+.mf-legal-page__body img,.mf-legal-page__body iframe,.mf-legal-page__body video{max-width:100%;height:auto}
+.mf-legal-page__body pre,.mf-legal-page__body code{white-space:pre-wrap;overflow-wrap:anywhere}
+.mf-legal-page__body blockquote{margin:1.6rem 0;padding:1.2rem 1.6rem;border-left:2px solid var(--mf-ink);background:var(--mf-soft)}
+.mf-legal-page__body .lj-wr{padding-top:0!important}
+.mf-legal-page__nav{display:flex;flex-wrap:wrap;gap:.2rem 2rem;margin:clamp(3.2rem,5vw,5.6rem) 0 0;padding-top:2rem;border-top:1px solid var(--mf-line)}
+.mf-legal-page__nav a{display:inline-block;padding:.8rem 0;font-size:1.25rem;letter-spacing:.06em;color:var(--mf-muted);text-decoration:none}
+.mf-legal-page__nav a:hover{color:var(--mf-ink);text-decoration:underline;text-underline-offset:.3em}
+@media (max-width:360px){.mf-legal-page__title{font-size:2.4rem}.mf-legal-page__body{font-size:1.45rem}}
+
+/* Generische Seiten: keine Riesen-H1 auf Mobile */
+.main-page-title{font-size:clamp(2.6rem,2rem + 2vw,4rem);overflow-wrap:break-word;hyphens:auto}
+
+/* A11y */
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--mf-ink);outline-offset:3px}
+html,body{overflow-x:clip}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>

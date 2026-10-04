@@ -1,0 +1,315 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "mfc_chips": {
+      "type": "mfc-chips",
+      "blocks": {
+        "c1": {
+          "type": "chip",
+          "settings": {
+            "title": "New In",
+            "link": "shopify://collections/frontpage"
+          }
+        },
+        "c2": {
+          "type": "chip",
+          "settings": {
+            "title": "Jacken & Mäntel",
+            "link": "shopify://collections/jacken"
+          }
+        },
+        "c3": {
+          "type": "chip",
+          "settings": {
+            "title": "Pullover & Strick",
+            "link": "shopify://collections/pullover-1"
+          }
+        },
+        "c4": {
+          "type": "chip",
+          "settings": {
+            "title": "Sets",
+            "link": "shopify://collections/zweiteiler"
+          }
+        },
+        "c5": {
+          "type": "chip",
+          "settings": {
+            "title": "Kleider",
+            "link": "shopify://collections/kleider"
+          }
+        },
+        "c6": {
+          "type": "chip",
+          "settings": {
+            "title": "Taschen",
+            "link": "shopify://collections/taschen-1"
+          }
+        },
+        "c7": {
+          "type": "chip",
+          "settings": {
+            "title": "Bestseller",
+            "link": "/collections/all?sort_by=best-selling"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7"
+      ],
+      "settings": {
+        "label": "Gerade angesagt"
+      }
+    },
+    "mfc_hero": {
+      "type": "mfc-hero",
+      "settings": {
+        "image_1_url": "https://cdn.shopify.com/s/files/1/0836/4979/0296/files/0605302-531-M0.jpg?v=1764083918",
+        "image_2_url": "https://cdn.shopify.com/s/files/1/0836/4979/0296/files/0605144-901-M2.jpg?v=1764084431",
+        "eyebrow": "Herbst / Winter 2026",
+        "title": "Die Herbst-Edit",
+        "btn_1": "Kollektion shoppen",
+        "link_1": "shopify://collections/herbst-kollektion",
+        "btn_2": "New In",
+        "link_2": "shopify://collections/frontpage"
+      }
+    },
+    "mfc_rail_new": {
+      "type": "mfc-rail",
+      "settings": {
+        "heading": "New In",
+        "collection": "frontpage",
+        "limit": 12,
+        "link_label": "Alle ansehen"
+      }
+    },
+    "mfc_split": {
+      "type": "mfc-split",
+      "blocks": {
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0836/4979/0296/files/0605524-M0.jpg?v=1764083444",
+            "title": "Pullover & Strick",
+            "cta": "Jetzt shoppen",
+            "link": "shopify://collections/pullover-1"
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0836/4979/0296/files/d1fdc880-3ccf-4d80-ad1b-54db414e84c7.jpg?v=1765186348",
+            "title": "Jacken & Mäntel",
+            "cta": "Jetzt shoppen",
+            "link": "shopify://collections/jacken"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2"
+      ],
+      "settings": {}
+    },
+    "mfc_rail_best": {
+      "type": "mfc-rail",
+      "settings": {
+        "heading": "Mehr entdecken",
+        "collection": "all",
+        "limit": 12,
+        "link_label": "Alle ansehen"
+      }
+    },
+    "mfc_cats": {
+      "type": "mfc-categories",
+      "blocks": {
+        "k1": {
+          "type": "cat",
+          "settings": {
+            "collection": "kleider",
+            "title": "Kleider"
+          }
+        },
+        "k2": {
+          "type": "cat",
+          "settings": {
+            "collection": "zweiteiler",
+            "title": "Sets"
+          }
+        },
+        "k3": {
+          "type": "cat",
+          "settings": {
+            "collection": "taschen-1",
+            "title": "Taschen"
+          }
+        },
+        "k4": {
+          "type": "cat",
+          "settings": {
+            "collection": "accessoires",
+            "title": "Accessoires"
+          }
+        }
+      },
+      "block_order": [
+        "k1",
+        "k2",
+        "k3",
+        "k4"
+      ],
+      "settings": {
+        "heading": "Nach Kategorie shoppen"
+      }
+    },
+    "trust_bar_luxury": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class='mf-trust'><div class='mf-trust__inner'><a class='mf-trust__item' href='/pages/versand' style='color:inherit;text-decoration:none'><svg class='mf-trust__svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><rect x='1' y='3' width='15' height='13' rx='1'/><path d='M16 8h4l3 3v5h-7V8z'/><circle cx='5.5' cy='18.5' r='2.5'/><circle cx='18.5' cy='18.5' r='2.5'/></svg><span>VERSANDKOSTENFREI IN DE &amp; EU</span></a><div class='mf-trust__sep'></div><div class='mf-trust__item'><svg class='mf-trust__svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg><span>SICHERE ZAHLUNG</span></div><div class='mf-trust__sep'></div><a class='mf-trust__item' href='/pages/contact' style='color:inherit;text-decoration:none'><svg class='mf-trust__svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/></svg><span>SCHREIB UNS</span></a></div></div><style>.mf-trust{background:#fff!important}</style>",
+        "color_scheme": "scheme-4b7499ff-3567-4a48-b29c-8494a2889ce2",
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "collapsible_content_MEkDhN": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_AfyfAV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Wann wird meine Bestellung versendet?",
+            "icon": "question_mark",
+            "row_content": "<p>Deine Bestellung wird innerhalb von 2–3 <strong>Werktagen</strong> bearbeitet und versandt.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yG6jJj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Wie lange dauert der Versand?",
+            "icon": "truck",
+            "row_content": "<p>Deutschland: 5–8 Werktage. International: 6–10 Werktage. Versandkosten: <a href=\"/pages/versand\">Versand</a>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_drMAVy": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Wie funktioniert der Widerruf?",
+            "icon": "return",
+            "row_content": "<p>Alle Informationen zu deinem gesetzlichen Widerrufsrecht findest du in der <a href=\"/pages/widerrufsrecht\">Widerrufsbelehrung</a>. Den Widerruf kannst du online über <a href=\"/pages/widerruf\">„Vertrag widerrufen“</a> erklären.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dKyqLE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Ich habe Fragen oder ein Anliegen",
+            "icon": "chat_bubble",
+            "row_content": "<p>Per <a href='/pages/contact'>Kontaktformular</a> oder E-Mail: info@magnifio.de. Erreichbar Mo–Fr 10:00–17:00 Uhr.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_AfyfAV",
+        "collapsible_row_yG6jJj",
+        "collapsible_row_drMAVy",
+        "collapsible_row_dKyqLE"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "FAQ",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-4b7499ff-3567-4a48-b29c-8494a2889ce2",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "newsletter_8FNWHG": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_LwxNfx": {
+          "type": "heading",
+          "settings": {
+            "heading": "BE THE FIRST TO KNOW",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph_rHTYY9": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Exklusive Angebote und neue Drops zuerst. Mit deiner Anmeldung willigst du ein, dass wir dir unseren Newsletter per E-Mail senden. Du kannst dich jederzeit über den Abmeldelink in jeder E-Mail abmelden. Mehr in der <a href=\"/pages/datenschutzerklarung#newsletter\" title=\"Datenschutzerklärung\">Datenschutzerklärung</a>.</p>"
+          }
+        },
+        "email_form_MMCkAE": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_LwxNfx",
+        "paragraph_rHTYY9",
+        "email_form_MMCkAE"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "17235392243572cc74": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1716754468d6a2aa14": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "172353915376e2b5f6": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "mfc_chips",
+    "mfc_hero",
+    "mfc_rail_new",
+    "mfc_split",
+    "mfc_rail_best",
+    "mfc_cats",
+    "trust_bar_luxury",
+    "collapsible_content_MEkDhN",
+    "newsletter_8FNWHG",
+    "17235392243572cc74",
+    "1716754468d6a2aa14",
+    "172353915376e2b5f6"
+  ]
+}

@@ -1,0 +1,39 @@
+{%- comment -%}
+  Harmonisierte Mitteilung ueber das gesetzliche Gewaehrleistungsrecht
+  (DVO (EU) 2025/1960 Anhang I; seit 27.09.2026).
+
+  Es wird ausschliesslich die OFFIZIELLE Datei der EU-Kommission angezeigt (Deutsch, Farbe, RGB),
+  unveraendert, ungeschnitten, QR-Code im Original. Datei: Inhalte > Dateien >
+  gesetzliche-gewaehrleistung-eu-mitteilung-de.png (2481 x 3508 px, aus der offiziellen PDF der
+  Kommission gerendert, QR-Ziel geprueft: europa.eu/youreurope ... guarantees-returns/index_de.htm).
+
+  Darstellung nach den Practical Guidelines der Kommission (04/2026):
+  - als allgemeiner Hinweis auf der Website (Footer, Warenkorb, Produktseite),
+  - Anzeige der vollstaendigen Mitteilung beim ersten Klick zulaessig,
+  - ein anklickbarer Link zum Ziel des QR-Codes ist immer sichtbar,
+  - bei Standardanzeigegroesse lesbar (max. 620 px breit, Vollbild per Klick).
+  Kein GARAN-Label (keine nachgewiesene gewerbliche Haltbarkeitsgarantie).
+  Parameter: open (true) – sofort aufgeklappt.
+{%- endcomment -%}
+{%- assign mf_notice = images['gesetzliche-gewaehrleistung-eu-mitteilung-de.png'] -%}
+{%- if mf_notice != blank -%}
+  <details class="mf-warranty"{% if open %} open{% endif %}>
+    <summary class="mf-warranty__summary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Deine gesetzlichen Gew&auml;hrleistungsrechte
+    </summary>
+    <div class="mf-warranty__body">
+      <a href="{{ mf_notice | image_url }}" target="_blank" rel="noopener" class="mf-warranty__imglink" aria-label="Harmonisierte EU-Mitteilung zum gesetzlichen Gew&auml;hrleistungsrecht in voller Gr&ouml;&szlig;e &ouml;ffnen (neues Fenster)">
+        <img src="{{ mf_notice | image_url: width: 1240 }}"
+          srcset="{{ mf_notice | image_url: width: 620 }} 620w, {{ mf_notice | image_url: width: 930 }} 930w, {{ mf_notice | image_url: width: 1240 }} 1240w"
+          sizes="(min-width: 750px) 620px, calc(100vw - 6rem)"
+          alt="{{ mf_notice.alt | default: 'Harmonisierte Mitteilung der Europäischen Union über das gesetzliche Gewährleistungsrecht (offizielle Fassung, Deutsch)' | escape }}"
+          width="{{ mf_notice.width }}" height="{{ mf_notice.height }}"
+          loading="lazy" decoding="async" class="mf-warranty__img">
+      </a>
+    </div>
+  </details>
+  <p class="mf-warranty__link">Mehr zum gesetzlichen Gew&auml;hrleistungsrecht: <a href="https://europa.eu/youreurope/citizens/consumers/shopping/guarantees-returns/index_de.htm" target="_blank" rel="noopener">europa.eu/youreurope/garantien</a></p>
+{%- elsif request.design_mode -%}
+  <p class="mf-warranty-missing" role="note">ANGABE ERFORDERLICH: Datei gesetzliche-gewaehrleistung-eu-mitteilung-de.png fehlt unter Inhalte &gt; Dateien.</p>
+{%- endif -%}
