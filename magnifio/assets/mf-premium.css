@@ -83,6 +83,14 @@
 .mf-sticky-atc__btn[disabled]{opacity:.45;cursor:not-allowed}
 @media (min-width:750px){.mf-sticky-atc{display:none}}
 
+
+/* --- Lenis Smooth Scroll (nur Desktop, per JS aktiviert) --- */
+html.lenis,html.lenis body{height:auto}
+html.lenis.lenis-smooth{scroll-behavior:auto!important}
+html.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+html.lenis.lenis-stopped{overflow:clip}
+html.mf-lenis{scroll-behavior:auto!important}
+
 /* --- Bewegungsreduktion: alles statisch --- */
 @media (prefers-reduced-motion:reduce){
   .js .mfc-hero:not(.is-ready) .mfc-hero__img img,.js .mfc-hero .mfc-hero__line>span{transform:none!important}
