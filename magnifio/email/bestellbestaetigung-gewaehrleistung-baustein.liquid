@@ -1,0 +1,28 @@
+{%- comment -%}
+  MAGNIFIO – Baustein für die Shopify-Benachrichtigung "Bestellbestätigung"
+  Zweck: Harmonisierte EU-Mitteilung zum gesetzlichen Gewährleistungsrecht (DVO (EU) 2025/1960),
+  laut Practical Guidelines der EU-Kommission (04/2026) auch in der Bestätigungs-E-Mail.
+  Einfügen: Shopify-Admin > Einstellungen > Benachrichtigungen > Kundenbenachrichtigungen >
+  Bestellbestätigung > "Code bearbeiten" – direkt VOR dem Abschnitt mit der Fußzeile
+  (Suchbegriff: <table class="row footer">) einfügen, speichern, Testmail senden.
+  Die Grafik ist die offizielle Datei aus Inhalte > Dateien (unverändert, QR-Code im Original).
+{%- endcomment -%}
+<table class="row section" style="width:100%;border-spacing:0;border-collapse:collapse;border-top:1px solid #e5e5e5;">
+  <tr>
+    <td class="section__cell" style="padding:32px 0;">
+      <center>
+        <table class="container" style="width:560px;text-align:left;border-spacing:0;border-collapse:collapse;margin:0 auto;">
+          <tr>
+            <td>
+              <h3 style="font-weight:normal;font-size:18px;margin:0 0 12px;color:#141414;">Deine gesetzlichen Gewährleistungsrechte</h3>
+              <a href="https://cdn.shopify.com/s/files/1/0836/4979/0296/files/gesetzliche-gewaehrleistung-eu-mitteilung-de.png" target="_blank">
+                <img src="https://cdn.shopify.com/s/files/1/0836/4979/0296/files/gesetzliche-gewaehrleistung-eu-mitteilung-de.png?width=1120" width="560" alt="Harmonisierte Mitteilung der Europäischen Union über das gesetzliche Gewährleistungsrecht (offizielle Fassung, Deutsch)" style="display:block;width:100%;max-width:560px;height:auto;border:0;">
+              </a>
+              <p style="color:#777;line-height:150%;font-size:14px;margin:12px 0 0;">Mehr zum gesetzlichen Gewährleistungsrecht: <a href="https://europa.eu/youreurope/citizens/consumers/shopping/guarantees-returns/index_de.htm" style="color:#141414;">europa.eu/youreurope/garantien</a></p>
+            </td>
+          </tr>
+        </table>
+      </center>
+    </td>
+  </tr>
+</table>
