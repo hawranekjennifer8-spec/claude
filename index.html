@@ -141,7 +141,7 @@ body.tone-dark .cursor{border-color:var(--night-fg)}
 /* ---------- projects: strict 2 columns ---------- */
 .s-proj .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr);gap:clamp(32px,5vw,88px);align-items:center;max-width:1520px;margin:0 auto}
 .p-info{display:flex;flex-direction:column;gap:clamp(16px,2.6vh,26px);min-width:0}
-.p-info .display{font-size:clamp(44px,5.6vw,104px);overflow-wrap:anywhere}
+.p-info .display{font-size:clamp(44px,5.6vw,104px);overflow-wrap:normal;word-break:keep-all;hyphens:none}
 .p-claim{font-family:var(--display);font-style:italic;font-size:clamp(18px,1.6vw,24px);line-height:1.35;margin:0;max-width:28ch}
 .hair{height:1px;background:var(--line);border:0;margin:0;width:100%}
 .p-meta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 26px;font-size:13px;line-height:1.5;margin:0}
@@ -407,6 +407,8 @@ function layoutRing(){
 }
 for(var i=0;i<N;i++){var c=document.createElement('div');c.className='card';c.innerHTML='<img src="'+poster(KEYS[i%KEYS.length])+'" alt="" decoding="async">';ring.appendChild(c)}
 layoutRing(); addEventListener('resize',layoutRing);
+function fitTitles(){document.querySelectorAll('.p-info .display').forEach(function(h){h.style.fontSize='';var box=h.parentNode.clientWidth;if(!box)return;var words=h.textContent.trim().split(/\s+/);var m=document.createElement('span');m.style.cssText='position:absolute;visibility:hidden;white-space:nowrap;left:0;top:0;font-style:italic';h.appendChild(m);var fs=parseFloat(getComputedStyle(h).fontSize),n=0;function over(){for(var i=0;i<words.length;i++){m.textContent=words[i];if(m.offsetWidth*1.04>box)return true}return false}while(over()&&fs>24&&n<60){fs-=2;h.style.fontSize=fs+'px';n++}h.removeChild(m)})}
+fitTitles();addEventListener('resize',fitTitles);if(document.fonts)document.fonts.ready.then(fitTitles);
 
 /* grid */
 function addTiles(el,list,start){list.forEach(function(p,i){
