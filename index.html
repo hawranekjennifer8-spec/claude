@@ -149,6 +149,9 @@ body.tone-dark .cursor{border-color:var(--night-fg)}
 .p-meta dd{margin:0;min-width:0}
 .status{display:inline-flex;align-items:center;gap:8px}
 .status::before{content:"";width:7px;height:7px;border-radius:50%;background:#5c9a5f}
+.status.demo::before{background:var(--gold)}
+.tiles.t4{grid-template-columns:repeat(4,minmax(0,1fr));max-width:min(1400px,calc((100svh - 400px) * 6.4))}
+.s-grid .lead{margin-top:-6px}
 .plink{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
 .plink:hover{border-color:currentColor}
 .p-media{min-width:0;opacity:0;transform:translateY(36px);transition:opacity 1.1s ease .3s,transform 1.5s var(--ease) .3s}
@@ -206,7 +209,7 @@ body.tone-dark .cursor{border-color:var(--night-fg)}
   .p-info{gap:14px}
   .p-meta{font-size:12.5px}
   .wall{height:38svh;order:2}
-  .tiles{grid-template-columns:repeat(2,minmax(0,1fr));max-width:min(720px,calc((100svh - 300px) * 1.05))}
+  .tiles,.tiles.t4{grid-template-columns:repeat(2,minmax(0,1fr));max-width:min(720px,calc((100svh - 300px) * 1.05))}
   .steps{grid-template-columns:1fr 1fr;row-gap:24px}
   .step:nth-child(3){border-left:0;padding-left:0}
   .sec-name,.hud-r .yr{display:none}
@@ -342,7 +345,7 @@ body.tone-dark .cursor{border-color:var(--night-fg)}
 
 <script>
 /* media map: poster (local), video + small video (hosted) */
-window.MEDIA = window.MEDIA || {graziella:{p:'media/graziella.jpg',v:'media/graziella.mp4',vs:'media/graziella-sm.mp4'},zitra:{p:'media/zitra.jpg',v:'media/zitra.mp4',vs:'media/zitra-sm.mp4'},pyro:{p:'media/pyro.jpg',v:'media/pyro.mp4',vs:'media/pyro-sm.mp4'},magnifio:{p:'media/magnifio.jpg',v:'media/magnifio.mp4',vs:'media/magnifio-sm.mp4'},luminoso:{p:'media/luminoso.jpg',v:'media/luminoso.mp4',vs:'media/luminoso-sm.mp4'},zoia:{p:'media/zoia.jpg',v:'media/zoia.mp4',vs:'media/zoia-sm.mp4'}};
+window.MEDIA = window.MEDIA || {graziella:{p:'media/graziella.jpg',v:'media/graziella.mp4',vs:'media/graziella-sm.mp4'},zitra:{p:'media/zitra.jpg',v:'media/zitra.mp4',vs:'media/zitra-sm.mp4'},pyro:{p:'media/pyro.jpg',v:'media/pyro.mp4',vs:'media/pyro-sm.mp4'},magnifio:{p:'media/magnifio.jpg',v:'media/magnifio.mp4',vs:'media/magnifio-sm.mp4'},luminoso:{p:'media/luminoso.jpg',v:'media/luminoso.mp4',vs:'media/luminoso-sm.mp4'},zoia:{p:'media/zoia.jpg',v:'media/zoia.mp4',vs:'media/zoia-sm.mp4'},mira:{p:'media/mira.jpg',v:'media/mira.mp4',vs:'media/mira-sm.mp4'},goldwabe:{p:'media/goldwabe.jpg',v:'media/goldwabe.mp4',vs:'media/goldwabe-sm.mp4'},rheinkante:{p:'media/rheinkante.jpg',v:'media/rheinkante.mp4',vs:'media/rheinkante-sm.mp4'},lina:{p:'media/lina.jpg',v:'media/lina.mp4',vs:'media/lina-sm.mp4'}};
 </script>
 <script>
 (function(){
@@ -353,7 +356,11 @@ var P=[
  {k:'pyro',cat:'Streetwear',name:'PYRO',claim:'Streetwear mit italienischer Haltung, clean und hell inszeniert.',client:'PYRO · Riviera Club',svc:'Shopify-Shop · Model-Bildwelt · Branding',url:'pyrothebrand.com',href:'https://pyrothebrand.com',bg:'#e8e6e1'},
  {k:'magnifio',cat:'Fashion',name:'MAGNIFIO',claim:'Mode für jede Saison, erzählt wie ein Modemagazin.',client:'MAGNIFIO',svc:'Shopify-Shop · Landingpage · SEO-Texte',url:'magnifio.de',href:'https://magnifio.de',bg:'#efe5dc'},
  {k:'luminoso',cat:'Schmuck',name:'LUMINOSO',claim:'Feiner Schmuck auf dunkler Bühne. Jedes Detail bekommt sein Licht.',client:'LUMINOSO Jewelry',svc:'Luxus-Theme · Katalog · Rechtssicherheit',url:'luminosojewelry.de',href:'https://www.luminosojewelry.de',bg:'#0f0d0b',dark:1},
- {k:'zoia',cat:'Kindermode',name:'ZOIA <i>Kids</i>',claim:'Personalisierte Geschenke und Montessori-Spielzeug, liebevoll wie in einem kleinen Concept Store.',client:'ZOIA Kids Store',svc:'Shopify-Shop · Theme · Rechtssicherheit',url:'zoia-kids-store.de',href:'https://zoia-kids-store.de',bg:'#efe9e2'}
+ {k:'zoia',cat:'Kindermode',name:'ZOIA <i>Kids</i>',claim:'Personalisierte Geschenke und Montessori-Spielzeug, liebevoll wie in einem kleinen Concept Store.',client:'ZOIA Kids Store',svc:'Shopify-Shop · Theme · Rechtssicherheit',url:'zoia-kids-store.de',href:'https://zoia-kids-store.de',bg:'#efe9e2'},
+ {k:'mira',concept:1,cat:'Konzept · Café',name:'MIRA <i>Kaffeebar</i>',claim:'Ein Cappuccino zerlegt sich beim Scrollen in Bohne, Shot und Schaum.',client:'Cafés &amp; Kaffeebars',svc:'Hero-Video · Scroll-Story · Hover-Karte',url:'mira-kaffeebar.vercel.app',href:'https://mira-kaffeebar.vercel.app',bg:'#efe6da'},
+ {k:'goldwabe',concept:1,cat:'Konzept · Honigmarke',name:'GOLDWABE',claim:'Flüssiges Gold im Gegenlicht, das Glas öffnet sich Schicht für Schicht.',client:'Imkereien &amp; Manufakturen',svc:'Hero-Video · Object Breakdown · Shop-Sorten',url:'goldwabe-honig.vercel.app',href:'https://goldwabe-honig.vercel.app',bg:'#17130d',dark:1},
+ {k:'rheinkante',concept:1,cat:'Konzept · Bauunternehmen',name:'RHEINKANTE',claim:'Drohnenflug über den Rohbau, danach baut sich das Haus Ebene für Ebene auf.',client:'Bau &amp; Handwerk',svc:'Drohnen-Hero · Explosionsansicht · Leistungen',url:'rheinkante-bau.vercel.app',href:'https://rheinkante-bau.vercel.app',bg:'#e4e0d8'},
+ {k:'lina',concept:1,cat:'Konzept · Pasta-Restaurant',name:'Pastificio <i>Lina</i>',claim:'Pasta tanzt mit ihren Zutaten, abends bei Kerzenlicht in der Trattoria.',client:'Restaurants &amp; Trattorien',svc:'Hero-Video · Zutaten-Ballett · Speisekarte',url:'pastificio-lina.vercel.app',href:'https://pastificio-lina.vercel.app',bg:'#22291c',dark:1}
 ];
 var KEYS=P.map(function(p){return p.k});
 function poster(k){return (M[k]&&M[k].p)||''}
@@ -363,8 +370,16 @@ function frame(k,small){
 }
 
 var deck=document.getElementById('deck'), anchor=document.getElementById('wallSlide');
+var REAL=P.filter(function(p){return !p.concept}), CON=P.filter(function(p){return p.concept});
+var divIndex=2+REAL.length;
 P.forEach(function(p,i){
-  var n=String(i+3).padStart(2,'0'), s=document.createElement('section');
+  if(p.concept&&!document.getElementById('conSlide')){
+    var d=document.createElement('section');d.className='slide s-grid';d.id='conSlide';d.dataset.name='Konzepte';
+    d.innerHTML='<div class="wrap"><div class="grid-head"><h2 class="display"><span class="ln"><span>Konzepte für <i>Ihre Branche</i></span></span></h2><span class="label rv" style="--d:2">[ '+String(divIndex+1).padStart(2,'0')+' · Demo-Seiten ]</span></div>'+
+      '<p class="lead rv" style="--d:3;max-width:1320px;width:100%;margin:0 auto">So könnte Ihre Website aussehen. Jede Demo hat ein Hero-Video, eine Scroll-Story, eine Explosionsansicht, Hover-Effekte und butterweiche Animationen.</p><div class="tiles t4" id="tiles2"></div></div>';
+    deck.insertBefore(d,anchor);
+  }
+  var n=String(i+3+(p.concept?1:0)).padStart(2,'0'), s=document.createElement('section');
   s.className='slide s-proj'+(p.dark?' dark':''); s.dataset.name=p.name.replace(/<[^>]+>/g,'');
   if(p.dark) s.dataset.tone='dark'; s.style.setProperty('--bg',p.bg);
   var web=p.href?'<a class="plink" href="'+p.href+'" target="_blank" rel="noopener">'+p.url+' ↗</a>':p.url;
@@ -373,7 +388,7 @@ P.forEach(function(p,i){
     '<span class="label rv" style="--d:0">[ <b>'+n+'</b> · '+p.cat+' ]</span>'+
     '<h2 class="display"><span class="ln" style="--d:1"><span>'+p.name+'</span></span></h2>'+
     '<p class="p-claim rv" style="--d:3">'+p.claim+'</p><hr class="hair rv" style="--d:4">'+
-    '<dl class="p-meta rv" style="--d:5"><dt class="opt">Kunde</dt><dd class="opt">'+p.client+'</dd><dt>Leistung</dt><dd>'+p.svc+'</dd><dt class="opt">Status</dt><dd class="opt"><span class="status">Live</span></dd><dt>Web</dt><dd>'+web+'</dd></dl></div>'+
+    '<dl class="p-meta rv" style="--d:5"><dt class="opt">'+(p.concept?'Für':'Kunde')+'</dt><dd class="opt">'+p.client+'</dd><dt>Leistung</dt><dd>'+p.svc+'</dd><dt class="opt">Status</dt><dd class="opt"><span class="status'+(p.concept?' demo':'')+'">'+(p.concept?'Konzept-Demo':'Live')+'</span></dd><dt>Web</dt><dd>'+web+'</dd></dl></div>'+
     '<div class="p-media">'+open+'<div class="chrome"><i></i><i></i><i></i><span>'+p.url+'</span></div>'+frame(p.k)+(p.href?'</a>':'</div>')+'</div></div>';
   deck.insertBefore(s,anchor);
 });
@@ -391,12 +406,13 @@ for(var i=0;i<N;i++){var c=document.createElement('div');c.className='card';c.in
 layoutRing(); addEventListener('resize',layoutRing);
 
 /* grid */
-var tiles=document.getElementById('tiles');
-P.forEach(function(p,i){
-  var f=document.createElement('figure');f.className='tile';f.dataset.go=i+2;f.dataset.hover='';f.style.setProperty('--i',i);
-  f.innerHTML=frame(p.k,1)+'<figcaption><b>'+p.name.replace(/<[^>]+>/g,'')+'</b><span>'+p.cat+'</span></figcaption>';
-  tiles.appendChild(f);
-});
+function addTiles(el,list,start){list.forEach(function(p,i){
+  var f=document.createElement('figure');f.className='tile';f.dataset.go=start+i;f.dataset.hover='';f.style.setProperty('--i',i);
+  f.innerHTML=frame(p.k,1)+'<figcaption><b>'+p.name.replace(/<[^>]+>/g,'')+'</b><span>'+p.cat.replace('Konzept · ','')+'</span></figcaption>';
+  el.appendChild(f);
+});}
+addTiles(document.getElementById('tiles'),REAL,2);
+addTiles(document.getElementById('tiles2'),CON,divIndex+1);
 
 /* wall: three columns, list doubled for a seamless loop */
 var wall=document.getElementById('wall');
