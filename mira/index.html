@@ -73,7 +73,8 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .story .phase:not(.on){pointer-events:none}
 .tags{position:absolute;inset:0;z-index:2;pointer-events:none}
 .tag{position:absolute;display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:0;transform:translateX(-12px);transition:opacity .6s ease,transform .8s var(--ease);white-space:nowrap}
-.tag::before{content:"";width:46px;height:1px;background:var(--ink);opacity:.5}
+.tag::before{content:"";width:56px;height:1px;background:var(--ink);opacity:.45}
+.tag b{font-weight:600}
 .tags.on .tag{opacity:1;transform:none}
 .tags.on .tag:nth-child(2){transition-delay:.1s}.tags.on .tag:nth-child(3){transition-delay:.2s}.tags.on .tag:nth-child(4){transition-delay:.3s}
 .story .bar{position:absolute;left:var(--gx);right:var(--gr);bottom:28px;z-index:2;display:flex;gap:10px}
@@ -134,7 +135,7 @@ footer a{border-bottom:1px solid var(--line)}
   .story .chap .h{font-size:32px}
   .story .chap p{font-size:14px}
   .story .stick::after{content:"";position:absolute;inset:auto 0 0 0;height:55%;background:linear-gradient(transparent,var(--soft) 55%);z-index:1}
-  .tag{font-size:9.5px;letter-spacing:.14em}.tag::before{width:22px}
+  .tags{display:none}
   .r{grid-template-columns:40px minmax(0,1fr) auto;gap:12px;padding:20px 0}
   .r .d{grid-column:2/4;grid-row:2}
   .r .thumb{display:block;grid-column:1/4;border-radius:14px;overflow:hidden;max-height:0;transition:max-height .6s var(--ease)}
@@ -171,7 +172,7 @@ footer a{border-bottom:1px solid var(--line)}
   <div class="stick">
     <canvas id="seq"></canvas>
     <div class="chap"><div class="phase"><div class="num">01</div><h3 class="h">Die Bohne</h3><p>Fair gehandelt und hell geröstet, in kleinen Chargen aus der Region.</p></div><div class="phase"><div class="num">02</div><h3 class="h">Der Shot</h3><p>18 Gramm, 28 Sekunden. Ein dichter, haselnussbrauner Crema-Teppich.</p></div><div class="phase"><div class="num">03</div><h3 class="h">Der Schaum</h3><p>Seidig gezogene Milch. Latte Art aus der Hand, nicht aus der Maschine.</p></div></div>
-    <div class="tags" id="tags"><span class="tag" style="left:58%;top:20%">Latte Art</span><span class="tag" style="left:58%;top:33%">Crema</span><span class="tag" style="left:70%;top:14%">Bohnen</span><span class="tag" style="left:58%;top:76%">Cup &amp; Saucer</span></div>
+    <div class="tags" id="tags"><span class="tag" style="left:71%;top:17%">Latte Art</span><span class="tag" style="left:71%;top:30%">Crema</span><span class="tag" style="left:71%;top:50%">Tasse</span><span class="tag" style="left:71%;top:74%">Untertasse</span></div>
     <div class="bar"><i><b></b></i><i><b></b></i><i><b></b></i></div>
   </div>
 </section>
@@ -242,11 +243,12 @@ gsap.utils.toArray('.split .txt,.info .grid>div,.r').forEach(function(el){gsap.f
 
 /* image sequence (scroll storyline + object breakdown) */
 var cv=document.getElementById('seq'),cx=cv.getContext('2d'),imgs=[],cur=-1,dir=mobile?'media/seq-m/':'media/seq/';
+function edgeColor(im){try{var c=document.createElement('canvas');c.width=c.height=4;var g=c.getContext('2d');g.drawImage(im,2,2,8,8,0,0,4,4);var d=g.getImageData(0,0,1,1).data;return 'rgb('+d[0]+','+d[1]+','+d[2]+')'}catch(e){return getComputedStyle(document.body).getPropertyValue('--soft')}}
 function pad(n){return String(n).padStart(3,'0')}
 for(var i=0;i<FRAMES;i++){var im=new Image();im.decoding='async';im.src=dir+pad(i+1)+'.webp';imgs.push(im)}
 function size(){var r=Math.min(devicePixelRatio||1,2);cv.width=cv.clientWidth*r;cv.height=cv.clientHeight*r;draw(Math.max(cur,0),true)}
 function draw(i,force){i=Math.max(0,Math.min(FRAMES-1,i|0));if(i===cur&&!force)return;var im=imgs[i];if(!im.complete||!im.naturalWidth){for(var k=i;k>=0;k--){if(imgs[k].complete&&imgs[k].naturalWidth){im=imgs[k];break}}if(!im.naturalWidth)return}
-  cur=i;var W=cv.width,H=cv.height,s=Math.max(W/im.naturalWidth,H/im.naturalHeight)*0.92,w=im.naturalWidth*s,h=im.naturalHeight*s;cx.fillStyle=getComputedStyle(document.body).getPropertyValue('--soft');cx.fillRect(0,0,W,H);cx.drawImage(im,(W-w)/2+W*0.12,(H-h)/2,w,h)}
+  cur=i;var W=cv.width,H=cv.height,edge=im._edge||(im._edge=edgeColor(im)),s=Math.max(W/im.naturalWidth,H/im.naturalHeight)*0.92,w=im.naturalWidth*s,h=im.naturalHeight*s;cx.fillStyle=edge;cx.fillRect(0,0,W,H);cx.drawImage(im,(W-w)/2+W*0.12,(H-h)/2,w,h)}
 imgs[0].onload=function(){size()};addEventListener('resize',size);
 var phases=[].slice.call(document.querySelectorAll('.story .phase')),bars=[].slice.call(document.querySelectorAll('.story .bar b')),tags=document.getElementById('tags'),nP=phases.length;
 ScrollTrigger.create({trigger:'#story',start:'top top',end:'bottom bottom',scrub:true,onUpdate:function(st){
