@@ -152,6 +152,8 @@ body.tone-dark .cursor{border-color:var(--night-fg)}
 .status.demo::before{background:var(--gold)}
 .tiles.t4{grid-template-columns:repeat(2,minmax(0,1fr));max-width:min(1080px,calc((100svh - 420px) * 1.5))}
 #conSlide .wrap{justify-content:center;min-height:100%}
+.tile{container-type:inline-size}.tile figcaption>*{white-space:nowrap}
+@container (max-width:330px){.tile figcaption>:not(b){display:none}}
 .s-grid .lead{margin-top:-6px}
 .plink{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
 .plink:hover{border-color:currentColor}
