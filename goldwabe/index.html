@@ -88,17 +88,17 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 .list-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
 .list-head .h{font-size:clamp(40px,6vw,96px)}
 .rows{border-top:1px solid var(--line)}
-.r{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1.1fr) auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .5s var(--ease),color .4s}
+.r{display:grid;grid-template-columns:56px minmax(0,1fr) minmax(0,1fr) auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .5s var(--ease),color .4s}
 .r .n{font-size:12px;letter-spacing:.2em;color:var(--muted)}
 .r .t{font-family:var(--display);font-size:clamp(26px,3vw,46px);font-weight:500;line-height:1.05}
 .r .d{font-size:14.5px;color:var(--muted);line-height:1.55}
 .r .p{font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .r .thumb{display:none}
 @media (hover:hover){.r:hover{padding-left:22px}.rows:hover .r:not(:hover){color:var(--muted)}}
-.floater{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/5;z-index:30;pointer-events:none;border-radius:4px;overflow:hidden;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:opacity .35s ease,transform .5s var(--ease)}
-.floater.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.floater img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s}
-.floater img.on{opacity:1}
+.list-body{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(32px,4vw,64px);align-items:start}
+.preview{position:sticky;top:110px;aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:var(--soft)}
+.preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .6s ease,transform 1.2s var(--ease)}
+.preview img.on{opacity:1;transform:none}
 
 /* split gallery */
 .split{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px;padding-block:20px clamp(90px,14vh,160px)}
@@ -145,7 +145,8 @@ footer a{border-bottom:1px solid var(--line)}
   .r .thumb img{width:100%;aspect-ratio:16/10;object-fit:cover}
   .split .a,.split .b,.split .txt{grid-column:1/13;margin-top:0}
   .info .grid{grid-template-columns:1fr;gap:28px}
-  .floater{display:none}
+  .list-body{grid-template-columns:1fr}
+  .preview{display:none}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.word>span{transform:none}}
 </style>
@@ -181,9 +182,8 @@ footer a{border-bottom:1px solid var(--line)}
 
 <section class="list pad" id="liste">
   <div class="list-head"><h2 class="h split-words">Unsere <em>Sorten</em></h2><span class="eyebrow" style="color:var(--muted)">500-g-Glas</span></div>
-  <div class="rows" id="rows"><div class="r" data-img="0"><span class="n">01</span><span class="t">Frühjahrsblüte</span><span class="d">Cremig gerührt, mild, aus Raps und Obstblüte</span><span class="p">8,90 €</span><div class="thumb"><img src="media/f0.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="1"><span class="n">02</span><span class="t">Akazie</span><span class="d">Flüssig, hell und zart blumig</span><span class="p">10,50 €</span><div class="thumb"><img src="media/f1.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="2"><span class="n">03</span><span class="t">Sommertracht</span><span class="d">Linde, Klee und Wildblumen</span><span class="p">9,50 €</span><div class="thumb"><img src="media/f2.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="3"><span class="n">04</span><span class="t">Waldhonig</span><span class="d">Dunkel, malzig, kräftig</span><span class="p">11,50 €</span><div class="thumb"><img src="media/f3.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="1"><span class="n">05</span><span class="t">Wabenhonig</span><span class="d">Das Stück Wabe direkt aus dem Rähmchen</span><span class="p">14,00 €</span><div class="thumb"><img src="media/f1.jpg" alt="" loading="lazy"></div></div></div>
+  <div class="list-body"><div class="rows" id="rows"><div class="r" data-img="0"><span class="n">01</span><span class="t">Frühjahrsblüte</span><span class="d">Cremig gerührt, mild, aus Raps und Obstblüte</span><span class="p">8,90 €</span><div class="thumb"><img src="media/f0.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="1"><span class="n">02</span><span class="t">Akazie</span><span class="d">Flüssig, hell und zart blumig</span><span class="p">10,50 €</span><div class="thumb"><img src="media/f1.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="2"><span class="n">03</span><span class="t">Sommertracht</span><span class="d">Linde, Klee und Wildblumen</span><span class="p">9,50 €</span><div class="thumb"><img src="media/f2.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="3"><span class="n">04</span><span class="t">Waldhonig</span><span class="d">Dunkel, malzig, kräftig</span><span class="p">11,50 €</span><div class="thumb"><img src="media/f3.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="1"><span class="n">05</span><span class="t">Wabenhonig</span><span class="d">Das Stück Wabe direkt aus dem Rähmchen</span><span class="p">14,00 €</span><div class="thumb"><img src="media/f1.jpg" alt="" loading="lazy"></div></div></div><div class="preview" id="floater" aria-hidden="true"><img src="media/f0.jpg" alt=""><img src="media/f1.jpg" alt=""><img src="media/f2.jpg" alt=""><img src="media/f3.jpg" alt=""></div></div>
 </section>
-<div class="floater" id="floater"><img src="media/f0.jpg" alt=""><img src="media/f1.jpg" alt=""><img src="media/f2.jpg" alt=""><img src="media/f3.jpg" alt=""></div>
 
 <section class="split pad">
   <figure class="a"><img src="media/g1.jpg" alt="Honigwabe im Gegenlicht" loading="lazy" data-speed="-8"></figure>
@@ -250,7 +250,7 @@ function pad(n){return String(n).padStart(3,'0')}
 for(var i=0;i<FRAMES;i++){var im=new Image();im.decoding='async';im.src=dir+pad(i+1)+'.webp';imgs.push(im)}
 function size(){var r=Math.min(devicePixelRatio||1,2);cv.width=cv.clientWidth*r;cv.height=cv.clientHeight*r;draw(Math.max(cur,0),true)}
 function draw(i,force){i=Math.max(0,Math.min(FRAMES-1,i|0));if(i===cur&&!force)return;var im=imgs[i];if(!im.complete||!im.naturalWidth){for(var k=i;k>=0;k--){if(imgs[k].complete&&imgs[k].naturalWidth){im=imgs[k];break}}if(!im.naturalWidth)return}
-  cur=i;var W=cv.width,H=cv.height,edge=im._edge||(im._edge=edgeColor(im)),s=Math.max(W/im.naturalWidth,H/im.naturalHeight)*0.95,w=im.naturalWidth*s,h=im.naturalHeight*s;cx.fillStyle=edge;cx.fillRect(0,0,W,H);cx.drawImage(im,(W-w)/2+W*0.1,(H-h)/2,w,h)}
+  cur=i;var W=cv.width,H=cv.height,edge=im._edge||(im._edge=edgeColor(im)),s=Math.max(W/im.naturalWidth,H/im.naturalHeight)*(mobile?1:1.04),w=im.naturalWidth*s,h=im.naturalHeight*s,sh=mobile?0:Math.min(W*0.1,(w-W)/2);cx.fillStyle=edge;cx.fillRect(0,0,W,H);cx.drawImage(im,(W-w)/2+sh,(H-h)/2,w,h)}
 imgs[0].onload=function(){size()};addEventListener('resize',size);
 var phases=[].slice.call(document.querySelectorAll('.story .phase')),bars=[].slice.call(document.querySelectorAll('.story .bar b')),tags=document.getElementById('tags'),nP=phases.length;
 ScrollTrigger.create({trigger:'#story',start:'top top',end:'bottom bottom',scrub:true,onUpdate:function(st){
@@ -263,14 +263,14 @@ ScrollTrigger.create({trigger:'#story',start:'top top',end:'bottom bottom',scrub
 phases[0].classList.add('on');
 
 /* hover reveal */
-var fl=document.getElementById('floater'),fimgs=[].slice.call(fl.querySelectorAll('img')),fx=0,fy=0,tx=0,ty=0;
+var fl=document.getElementById('floater'),fimgs=[].slice.call(fl.querySelectorAll('img'));
+function showImg(n){fimgs.forEach(function(m,k){m.classList.toggle('on',k===n)})}
+showImg(0);
 document.querySelectorAll('.r').forEach(function(r,i){
-  r.addEventListener('mouseenter',function(){fl.classList.add('on');fimgs.forEach(function(m,k){m.classList.toggle('on',k===(+r.dataset.img))})});
-  r.addEventListener('mouseleave',function(){fl.classList.remove('on')});
+  r.addEventListener('mouseenter',function(){showImg(+r.dataset.img)});
   r.addEventListener('click',function(){if(mobile){var o=r.classList.contains('open');document.querySelectorAll('.r.open').forEach(function(x){x.classList.remove('open')});if(!o)r.classList.add('open')}});
 });
-addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY});
-(function loop(){fx+=(tx-fx)*.12;fy+=(ty-fy)*.12;fl.style.left=fx+'px';fl.style.top=fy+'px';requestAnimationFrame(loop)})();
+
 
 /* parallax */
 document.querySelectorAll('[data-speed]').forEach(function(img){gsap.fromTo(img,{yPercent:-(+img.dataset.speed)},{yPercent:+img.dataset.speed,ease:'none',scrollTrigger:{trigger:img.parentNode,start:'top bottom',end:'bottom top',scrub:true}})});
