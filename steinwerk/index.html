@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>STEINWERK Bau Wiesbaden</title>
+<meta name="description" content="STEINWERK – Neubau, Rohbau und Sanierung im Rhein-Main-Gebiet. Konzept-Website.">
+<meta property="og:title" content="STEINWERK Bau Wiesbaden">
+<meta property="og:image" content="media/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231C1D1F'/%3E%3Ctext x='32' y='43' font-family='Georgia' font-size='32' text-anchor='middle' fill='%23B8743F'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,500;112,700;125,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#ECE8E0;--ink:#1C1D1F;--acc:#B8743F;--soft:#E3DED6;--muted:#6E6A64;--line:rgba(28,29,31,.16);
+--display:"Archivo","Arial Black",sans-serif;--body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;--ease:cubic-bezier(.16,1,.3,1);--gx:max(24px,env(safe-area-inset-left,0px));--gr:max(24px,env(safe-area-inset-right,0px));color-scheme:light}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,canvas{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+.pad{padding-left:var(--gx);padding-right:var(--gr)}
+.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500}
+.h{font-family:var(--display);font-weight:700;letter-spacing:-.035em;line-height:.95;margin:0;text-wrap:balance}
+.h em{font-style:normal;color:var(--acc)}
+.word{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}.word>span{display:inline-block;transform:translateY(105%)}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:18px 30px;border-radius:0px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;transition:transform .5s var(--ease),background .4s,color .4s}
+.btn.solid{background:var(--acc);color:#FFFFFF}.btn.ghost{border:1px solid currentColor}
+.btn:hover{transform:translateY(-3px)}
+.btn svg{width:18px;height:10px}
+
+/* preloader */
+.pre{position:fixed;inset:0;z-index:100;background:var(--ink);color:var(--bg);display:grid;place-items:center;transition:clip-path 1.2s var(--ease) .2s;clip-path:inset(0 0 0 0)}
+.pre.done{clip-path:inset(0 0 100% 0)}
+.pre .h{font-size:clamp(40px,8vw,96px);opacity:0;animation:pin 1s var(--ease) .2s forwards}
+@keyframes pin{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:calc(18px + env(safe-area-inset-top,0px)) var(--gr) 18px var(--gx);color:#fff;mix-blend-mode:difference}
+.logo{font-family:var(--display);font-size:24px;font-weight:700;letter-spacing:.08em}
+.nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.nav .cta{font-size:12px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:4px}
+.dots{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:12px;mix-blend-mode:difference}
+.dots a{width:7px;height:7px;border-radius:50%;border:1px solid #fff;transition:background .3s,transform .3s}
+.dots a.on{background:#fff;transform:scale(1.3)}
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--acc);z-index:60}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;color:#fff;background:#111}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,.35),rgba(10,10,12,0) 35%,rgba(10,10,12,.7))}
+.hero .in{position:absolute;inset:auto 0 0 0;z-index:2;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:end;gap:32px;padding-bottom:clamp(40px,8vh,90px)}
+.hero .h{font-size:clamp(52px,9.4vw,168px)}
+.hero p{max-width:40ch;font-size:16px;line-height:1.65;opacity:.88;margin:0 0 26px}
+.hero .side{display:flex;flex-direction:column;align-items:flex-start;justify-self:end}
+.cue{position:absolute;left:50%;bottom:22px;z-index:2;transform:translateX(-50%);font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.75;display:flex;flex-direction:column;align-items:center;gap:10px}
+.cue i{width:1px;height:40px;background:linear-gradient(#fff,transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* intro statement */
+.intro{padding-block:clamp(90px,16vh,180px)}
+.intro .h{font-size:clamp(34px,4.8vw,78px);max-width:20ch}
+.intro .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;align-items:start}
+.reveal-line{opacity:.14;transition:opacity .2s}
+
+/* story / breakdown */
+.story{position:relative;height:420vh;background:var(--soft)}
+.story .stick{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;place-items:center}
+.story canvas{position:absolute;inset:0;width:100%;height:100%}
+.story .chap{position:absolute;left:var(--gx);top:50%;transform:translateY(-50%);width:min(420px,38vw);z-index:2}
+.story .chap .num{font-family:var(--display);font-size:clamp(60px,8vw,120px);color:var(--acc);line-height:1}
+.story .chap .h{font-size:clamp(34px,4vw,64px);margin:6px 0 16px}
+.story .chap p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0;max-width:34ch}
+.story .phase{position:absolute;inset:0;opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .9s var(--ease)}
+.story .phase.on{opacity:1;transform:none;position:relative}
+.story .phase:not(.on){pointer-events:none}
+.tags{position:absolute;inset:0;z-index:2;pointer-events:none}
+.tag{position:absolute;display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:0;transform:translateX(-12px);transition:opacity .6s ease,transform .8s var(--ease);white-space:nowrap}
+.tag::before{content:"";width:46px;height:1px;background:var(--ink);opacity:.5}
+.tags.on .tag{opacity:1;transform:none}
+.tags.on .tag:nth-child(2){transition-delay:.1s}.tags.on .tag:nth-child(3){transition-delay:.2s}.tags.on .tag:nth-child(4){transition-delay:.3s}
+.story .bar{position:absolute;left:var(--gx);right:var(--gr);bottom:28px;z-index:2;display:flex;gap:10px}
+.story .bar i{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}
+.story .bar i b{position:absolute;inset:0;background:var(--ink);transform-origin:0 50%;transform:scaleX(0)}
+
+/* hover reveal list */
+.list{padding-block:clamp(90px,14vh,160px)}
+.list-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.list-head .h{font-size:clamp(40px,6vw,96px)}
+.rows{border-top:1px solid var(--line)}
+.r{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1.1fr) auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .5s var(--ease),color .4s}
+.r .n{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.r .t{font-family:var(--display);font-size:clamp(26px,3vw,46px);font-weight:700;line-height:1.05}
+.r .d{font-size:14.5px;color:var(--muted);line-height:1.55}
+.r .p{font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.r .thumb{display:none}
+@media (hover:hover){.r:hover{padding-left:22px}.rows:hover .r:not(:hover){color:var(--muted)}}
+.floater{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/5;z-index:30;pointer-events:none;border-radius:0px;overflow:hidden;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:opacity .35s ease,transform .5s var(--ease)}
+.floater.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.floater img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s}
+.floater img.on{opacity:1}
+
+/* split gallery */
+.split{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px;padding-block:20px clamp(90px,14vh,160px)}
+.split figure{margin:0;overflow:hidden;border-radius:0px}
+.split figure img{width:100%;height:118%;object-fit:cover;will-change:transform}
+.split .a{grid-column:1/8;aspect-ratio:4/3}.split .b{grid-column:8/13;aspect-ratio:4/5;margin-top:22vh}
+.split .txt{grid-column:2/8;padding-top:40px}
+.split .txt .h{font-size:clamp(30px,3.6vw,58px)}
+.split .txt p{color:var(--muted);line-height:1.7;max-width:46ch}
+
+/* info */
+.info{background:var(--ink);color:var(--bg);padding-block:clamp(80px,12vh,140px)}
+.info .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.info .grid div{border-top:1px solid rgba(255,255,255,.18);padding-top:22px}
+.info .grid h3{font-family:var(--display);font-weight:700;font-size:28px;margin:0 0 12px}
+.info .grid p{margin:0;opacity:.75;line-height:1.7;font-size:15px}
+
+/* final */
+.final{position:relative;min-height:90svh;display:grid;place-items:center;text-align:center;overflow:hidden;color:#fff;background:#111}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);will-change:transform}
+.final::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.42)}
+.final .in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:28px}
+.final .h{font-size:clamp(46px,8vw,140px)}
+footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:30px calc(30px + env(safe-area-inset-bottom,0px));font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+footer a{border-bottom:1px solid var(--line)}
+
+@media (max-width:860px){
+  .nav ul{display:none}
+  .dots{display:none}
+  .hero .in{grid-template-columns:1fr}
+  .hero .side{justify-self:start}
+  .intro .row{grid-template-columns:1fr;gap:16px}
+  .story{height:360vh}
+  .story .chap{left:var(--gx);right:var(--gr);width:auto;top:auto;bottom:70px;transform:none}
+  .story .chap .num{font-size:52px}
+  .story .chap .h{font-size:32px}
+  .story .chap p{font-size:14px}
+  .story .stick::after{content:"";position:absolute;inset:auto 0 0 0;height:55%;background:linear-gradient(transparent,var(--soft) 55%);z-index:1}
+  .tag{font-size:9.5px;letter-spacing:.14em}.tag::before{width:22px}
+  .r{grid-template-columns:40px minmax(0,1fr) auto;gap:12px;padding:20px 0}
+  .r .d{grid-column:2/4;grid-row:2}
+  .r .thumb{display:block;grid-column:1/4;border-radius:0px;overflow:hidden;max-height:0;transition:max-height .6s var(--ease)}
+  .r.open .thumb{max-height:320px;margin-top:6px}
+  .r .thumb img{width:100%;aspect-ratio:16/10;object-fit:cover}
+  .split .a,.split .b,.split .txt{grid-column:1/13;margin-top:0}
+  .info .grid{grid-template-columns:1fr;gap:28px}
+  .floater{display:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.word>span{transform:none}}
+</style>
+</head>
+<body>
+<div class="pre" id="pre"><div class="h">STEINWERK</div></div>
+<div class="progress" id="prog"></div>
+<nav class="nav"><a class="logo" href="#top">STEINWERK</a><ul><li><a href="#story">Wie wir bauen</a></li><li><a href="#liste">Leistungen</a></li><li><a href="#kontakt">Kontakt</a></li></ul><a class="cta" href="#kontakt">Projekt anfragen</a></nav>
+<div class="dots" id="dots"><a href="#top" aria-label="Start"></a><a href="#story" aria-label="Story"></a><a href="#liste" aria-label="Angebot"></a><a href="#kontakt" aria-label="Kontakt"></a></div>
+
+<header class="hero" id="top">
+  <img class="poster" src="media/hero.jpg" alt="">
+  <video autoplay muted loop playsinline poster="media/hero.jpg" id="heroVid"><source src="media/hero.mp4" type="video/mp4"></video>
+  <div class="in pad">
+    <h1 class="h split-words">Wir bauen <em>Räume,</em> die bleiben.</h1>
+    <div class="side"><p class="fade">Neubau, Rohbau und Sanierung im Rhein-Main-Gebiet. Aus einer Hand, vom Fundament bis zum Dach.</p><a class="btn solid fade" href="#liste">Leistungen <svg viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h16M12 1l4 4-4 4"/></svg></a></div>
+  </div>
+  <div class="cue"><span>Scroll</span><i></i></div>
+</header>
+
+<section class="intro pad">
+  <div class="row"><span class="eyebrow" style="color:var(--acc)">Bauunternehmen · Rhein-Main</span><h2 class="h" id="introH">Gutes Bauen ist Präzision, die man später nicht mehr sieht. Wir planen sauber, bauen termingerecht und übergeben besenrein.</h2></div>
+</section>
+
+<section class="story" id="story">
+  <div class="stick">
+    <canvas id="seq"></canvas>
+    <div class="chap"><div class="phase"><div class="num">01</div><h3 class="h">Fundament</h3><p>Bodengutachten, Bodenplatte und Abdichtung. Die Basis für Jahrzehnte.</p></div><div class="phase"><div class="num">02</div><h3 class="h">Rohbau</h3><p>Wände, Decken und Treppen in Beton und Mauerwerk, millimetergenau.</p></div><div class="phase"><div class="num">03</div><h3 class="h">Ausbau</h3><p>Fenster, Haustechnik und Innenausbau mit festen Partnerbetrieben.</p></div><div class="phase"><div class="num">04</div><h3 class="h">Dach</h3><p>Flach- oder Satteldach, gedämmt und dicht. Danach ziehen Sie ein.</p></div></div>
+    <div class="tags" id="tags"><span class="tag" style="left:62%;top:16%">Dach &amp; Dachterrasse</span><span class="tag" style="left:64%;top:36%">Obergeschoss</span><span class="tag" style="left:64%;top:56%">Erdgeschoss</span><span class="tag" style="left:62%;top:80%">Bodenplatte</span></div>
+    <div class="bar"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+  </div>
+</section>
+
+<section class="list pad" id="liste">
+  <div class="list-head"><h2 class="h split-words">Unsere <em>Leistungen</em></h2><span class="eyebrow" style="color:var(--muted)">Alles aus einer Hand</span></div>
+  <div class="rows" id="rows"><div class="r" data-img="0"><span class="n">01</span><span class="t">Neubau</span><span class="d">Einfamilien- und Mehrfamilienhäuser schlüsselfertig</span><span class="p">ab Planung</span><div class="thumb"><img src="media/f0.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="1"><span class="n">02</span><span class="t">Rohbau</span><span class="d">Beton, Mauerwerk, Decken und Treppen</span><span class="p">Festpreis</span><div class="thumb"><img src="media/f1.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="2"><span class="n">03</span><span class="t">Sanierung</span><span class="d">Altbau, Energie und Statik</span><span class="p">Vor-Ort-Termin</span><div class="thumb"><img src="media/f2.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="3"><span class="n">04</span><span class="t">Umbau &amp; Anbau</span><span class="d">Mehr Raum im Bestand</span><span class="p">Beratung</span><div class="thumb"><img src="media/f3.jpg" alt="" loading="lazy"></div></div><div class="r" data-img="1"><span class="n">05</span><span class="t">Projektsteuerung</span><span class="d">Termine, Kosten, Gewerke</span><span class="p">Ein Ansprechpartner</span><div class="thumb"><img src="media/f1.jpg" alt="" loading="lazy"></div></div></div>
+</section>
+<div class="floater" id="floater"><img src="media/f0.jpg" alt=""><img src="media/f1.jpg" alt=""><img src="media/f2.jpg" alt=""><img src="media/f3.jpg" alt=""></div>
+
+<section class="split pad">
+  <figure class="a"><img src="media/g1.jpg" alt="Fertiges Wohnzimmer" loading="lazy" data-speed="-8"></figure>
+  <figure class="b"><img src="media/g2.jpg" alt="Bauplanbesprechung" loading="lazy" data-speed="8"></figure>
+  <div class="txt"><span class="eyebrow" style="color:var(--acc)">Übergabe</span><h2 class="h" style="margin:16px 0 18px">Am Ende zählt der <em>Einzug</em></h2><p>Wir bauen mit festen Teams und festen Terminen. Sie haben einen Ansprechpartner von der ersten Skizze bis zur Schlüsselübergabe.</p></div>
+</section>
+
+<section class="info pad" id="kontakt">
+  <div class="grid"><div><h3>Büro</h3><p>Mo – Fr 7:00 – 16:30</p></div><div><h3>Adresse</h3><p>Industriestraße 8<br>65203 Wiesbaden</p></div><div><h3>Anfrage</h3><p>projekte@steinwerk-bau.de<br>0611 000 000</p></div></div>
+</section>
+
+<section class="final">
+  <img src="media/final.jpg" alt="" loading="lazy" id="finalImg">
+  <div class="in pad"><span class="eyebrow">Ihr nächstes Projekt</span><h2 class="h split-words">Lassen Sie uns <em>bauen.</em></h2><a class="btn solid" href="#kontakt">Projekt anfragen <svg viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h16M12 1l4 4-4 4"/></svg></a></div>
+</section>
+<footer class="pad"><span>© 2026 STEINWERK · Wiesbaden</span><span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span><span>Konzept-Entwurf von <a href="https://jh-digital-atelier.vercel.app" target="_blank" rel="noopener">J.H. Digital Atelier</a></span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+var FRAMES=96, mobile=matchMedia('(max-width:860px)').matches;
+gsap.registerPlugin(ScrollTrigger);
+var lenis=null;
+try{ lenis=new Lenis({lerp:.09,smoothWheel:true}); lenis.on('scroll',ScrollTrigger.update); gsap.ticker.add(function(t){lenis.raf(t*1000)}); gsap.ticker.lagSmoothing(0);}catch(e){}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var el=document.querySelector(id);if(!el)return;e.preventDefault();lenis?lenis.scrollTo(el,{duration:1.6}):el.scrollIntoView({behavior:'smooth'})})});
+
+/* split words */
+document.querySelectorAll('.split-words').forEach(function(h){
+  var html=h.innerHTML.split(/(<em>.*?<\/em>|\s+)/).filter(Boolean).map(function(p){
+    if(/^\s+$/.test(p))return ' ';
+    if(p.indexOf('<em>')===0){return p.replace(/<em>(.*?)<\/em>/,function(m,t){return t.split(' ').map(function(w){return '<span class="word"><span><em>'+w+'</em></span></span>'}).join(' ')})}
+    return '<span class="word"><span>'+p+'</span></span>';
+  }).join('');
+  h.innerHTML=html;
+});
+function wordsIn(el,delay){gsap.to(el.querySelectorAll('.word>span'),{y:0,duration:1.2,ease:'expo.out',stagger:.06,delay:delay||0})}
+
+/* preloader + hero */
+function start(){
+  document.getElementById('pre').classList.add('done');
+  wordsIn(document.querySelector('.hero .h'),.5);
+  gsap.from('.hero .fade',{opacity:0,y:24,duration:1.1,ease:'expo.out',stagger:.12,delay:.9});
+  gsap.to('.hero video,.hero .poster',{scale:1,duration:2.4,ease:'expo.out',delay:.3});
+}
+setTimeout(start,1100);
+gsap.to('.hero .in',{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('#prog',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.3}});
+
+/* intro: words light up while scrolling */
+var ih=document.getElementById('introH');
+ih.innerHTML=ih.innerHTML.split(/(\s+)/).map(function(w){return /^\s+$/.test(w)?w:'<span class="reveal-line">'+w+'</span>'}).join('');
+gsap.to(ih.querySelectorAll('.reveal-line'),{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:ih,start:'top 80%',end:'bottom 45%',scrub:true}});
+
+/* reveal other headings */
+document.querySelectorAll('.list .h,.final .h').forEach(function(h){ScrollTrigger.create({trigger:h,start:'top 85%',once:true,onEnter:function(){wordsIn(h)}})});
+gsap.utils.toArray('.split .txt,.info .grid>div,.r').forEach(function(el){gsap.from(el,{opacity:0,y:40,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}})});
+
+/* image sequence (scroll storyline + object breakdown) */
+var cv=document.getElementById('seq'),cx=cv.getContext('2d'),imgs=[],cur=-1,dir=mobile?'media/seq-m/':'media/seq/';
+function pad(n){return String(n).padStart(3,'0')}
+for(var i=0;i<FRAMES;i++){var im=new Image();im.decoding='async';im.src=dir+pad(i+1)+'.webp';imgs.push(im)}
+function size(){var r=Math.min(devicePixelRatio||1,2);cv.width=cv.clientWidth*r;cv.height=cv.clientHeight*r;draw(Math.max(cur,0),true)}
+function draw(i,force){i=Math.max(0,Math.min(FRAMES-1,i|0));if(i===cur&&!force)return;var im=imgs[i];if(!im.complete||!im.naturalWidth){for(var k=i;k>=0;k--){if(imgs[k].complete&&imgs[k].naturalWidth){im=imgs[k];break}}if(!im.naturalWidth)return}
+  cur=i;var W=cv.width,H=cv.height,s=Math.max(W/im.naturalWidth,H/im.naturalHeight)*0.95,w=im.naturalWidth*s,h=im.naturalHeight*s;cx.fillStyle=getComputedStyle(document.body).getPropertyValue('--soft');cx.fillRect(0,0,W,H);cx.drawImage(im,(W-w)/2+W*0.12,(H-h)/2,w,h)}
+imgs[0].onload=function(){size()};addEventListener('resize',size);
+var phases=[].slice.call(document.querySelectorAll('.story .phase')),bars=[].slice.call(document.querySelectorAll('.story .bar b')),tags=document.getElementById('tags'),nP=phases.length;
+ScrollTrigger.create({trigger:'#story',start:'top top',end:'bottom bottom',scrub:true,onUpdate:function(st){
+  var p=st.progress;draw(p*(FRAMES-1));
+  var idx=Math.min(nP-1,Math.floor(p*nP*0.999));
+  phases.forEach(function(el,k){el.classList.toggle('on',k===idx)});
+  bars.forEach(function(b,k){var v=Math.max(0,Math.min(1,p*nP-k));b.style.transform='scaleX('+v+')'});
+  tags.classList.toggle('on',p>.82);
+}});
+phases[0].classList.add('on');
+
+/* hover reveal */
+var fl=document.getElementById('floater'),fimgs=[].slice.call(fl.querySelectorAll('img')),fx=0,fy=0,tx=0,ty=0;
+document.querySelectorAll('.r').forEach(function(r,i){
+  r.addEventListener('mouseenter',function(){fl.classList.add('on');fimgs.forEach(function(m,k){m.classList.toggle('on',k===(+r.dataset.img))})});
+  r.addEventListener('mouseleave',function(){fl.classList.remove('on')});
+  r.addEventListener('click',function(){if(mobile){var o=r.classList.contains('open');document.querySelectorAll('.r.open').forEach(function(x){x.classList.remove('open')});if(!o)r.classList.add('open')}});
+});
+addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY});
+(function loop(){fx+=(tx-fx)*.12;fy+=(ty-fy)*.12;fl.style.left=fx+'px';fl.style.top=fy+'px';requestAnimationFrame(loop)})();
+
+/* parallax */
+document.querySelectorAll('[data-speed]').forEach(function(img){gsap.fromTo(img,{yPercent:-(+img.dataset.speed)},{yPercent:+img.dataset.speed,ease:'none',scrollTrigger:{trigger:img.parentNode,start:'top bottom',end:'bottom top',scrub:true}})});
+gsap.to('#finalImg',{scale:1,ease:'none',scrollTrigger:{trigger:'.final',start:'top bottom',end:'bottom bottom',scrub:true}});
+
+/* dots */
+var dots=[].slice.call(document.querySelectorAll('#dots a'));
+['#top','#story','#liste','#kontakt'].forEach(function(id,k){ScrollTrigger.create({trigger:id,start:'top 50%',end:'bottom 50%',onToggle:function(s){if(s.isActive)dots.forEach(function(d,j){d.classList.toggle('on',j===k)})}})});
+})();
+</script>
+</body>
+</html>
