@@ -178,6 +178,49 @@ footer .big{width:100%;font-family:var(--serif);font-weight:300;font-size:clamp(
 footer .big em{color:var(--amber)}
 .concept{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 
+
+/* intro: honeycomb + bee */
+.intro{position:fixed;inset:0;z-index:120;background:var(--night);display:grid;place-items:center;overflow:hidden}
+.intro svg.comb{position:absolute;inset:-5%;width:110%;height:110%}
+.intro .cell{fill:#1d160d;stroke:rgba(211,154,53,.22);stroke-width:1.2;transform-box:fill-box;transform-origin:center}
+.intro .brand{position:relative;z-index:3;text-align:center}
+.intro .brand b{display:block;font-family:var(--serif);font-weight:340;font-size:clamp(44px,7vw,110px);letter-spacing:-.02em;opacity:0}
+.intro .brand span{display:block;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--amber);opacity:0;margin-top:10px}
+.intro .ibee{position:absolute;z-index:4;width:clamp(90px,10vw,150px);left:-15%;top:55%}
+/* flying bee over the page */
+.beeLayer{position:fixed;inset:0;z-index:45;pointer-events:none}
+.bee{position:absolute;left:0;top:0;width:clamp(64px,6.4vw,104px);will-change:transform}
+.bee .wob{will-change:transform}
+.bee img{width:100%;height:auto;filter:drop-shadow(0 14px 18px rgba(0,0,0,.45))}
+.bee .buzz{position:absolute;inset:0;opacity:.0;filter:blur(2px)}
+/* hero centered + drip */
+.hero-in.c{left:50%;transform:translateX(-50%);text-align:center;bottom:auto;top:50%;translate:0 -46%;max-width:min(980px,92vw)}
+.hero-in.c p{margin-left:auto;margin-right:auto}
+.drip{display:block;width:min(420px,70vw);height:60px;margin:-6px auto 18px;overflow:visible}
+.drip path{fill:var(--amber)}
+.hero.center::after{background:radial-gradient(ellipse at center,rgba(21,16,10,.55),rgba(21,16,10,.85) 70%),linear-gradient(0deg,rgba(21,16,10,.85),transparent 40%)}
+/* real photos + reviews */
+.real{padding:clamp(100px,16vh,170px) var(--pad);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,6vw,100px);align-items:center}
+.real h2{font-size:clamp(40px,5vw,88px);margin:16px 0 20px}
+.real p{color:var(--muted);max-width:42ch}
+.pols{position:relative;height:min(640px,80vw)}
+.pol{position:absolute;background:#f3ead8;padding:12px 12px 46px;box-shadow:0 30px 60px -24px rgba(0,0,0,.7);width:min(330px,52vw)}
+.pol img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.pol figcaption{position:absolute;left:14px;right:14px;bottom:12px;font-family:var(--serif);font-style:italic;color:#3a2a14;font-size:17px}
+.pol.a{left:4%;top:4%;transform:rotate(-5deg)}.pol.b{right:2%;top:22%;transform:rotate(4deg)}
+.pol.b img{aspect-ratio:4/3}
+.rev{padding:clamp(90px,14vh,150px) var(--pad);border-top:1px solid var(--line)}
+.rev-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:46px}
+.rev-head h2{font-size:clamp(40px,5vw,88px)}
+.stars{font-size:15px;color:var(--muted)}.stars b{font-family:var(--serif);font-size:44px;font-weight:340;color:var(--wax);margin-right:10px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card2{border:1px solid var(--line);padding:26px 24px;border-radius:3px;background:linear-gradient(180deg,rgba(211,154,53,.06),transparent)}
+.card2 .s{color:var(--amber);letter-spacing:.2em;font-size:13px}
+.card2 p{font-family:var(--serif);font-weight:340;font-size:clamp(19px,1.5vw,24px);line-height:1.3;margin:14px 0 18px}
+.card2 small{color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+@media (max-width:900px){.real{grid-template-columns:1fr}.pols{height:120vw}.cards{grid-template-columns:1fr 1fr}.pol.b{top:40%}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}}
+
 @media (max-width:900px){
   .nav ul{display:none}.cta.navc{padding:10px 14px;font-size:13px}
   .places{display:none}
@@ -200,7 +243,11 @@ footer .big em{color:var(--amber)}
 </style>
 </head>
 <body>
-<div class="pre" id="pre"><div><svg viewBox="0 0 70 70"><path d="M35 3l28 16v32L35 67 7 51V19z"/></svg><p>Eichenhonig</p></div></div>
+<div class="intro" id="intro"><svg class="comb" id="combSvg" preserveAspectRatio="xMidYMid slice"></svg>
+<div class="brand"><b>Eichen<em>honig</em></b><span>Imkerei aus Wiesbaden</span></div>
+<img class="ibee" id="ibee" src="media/bee1.webp" alt=""></div>
+<div class="pre done" id="pre"></div>
+<div class="beeLayer" aria-hidden="true"><div class="bee" id="bee"><div class="wob" id="wob"><img src="media/bee1.webp" alt=""><img class="buzz" src="media/bee1.webp" alt=""></div></div></div>
 
 <header class="nav" id="nav">
   <a class="logo" href="#top"><svg viewBox="0 0 26 26" fill="none" stroke="#d39a35" stroke-width="1.3"><path d="M13 2c4 4 7 7 7 12a7 7 0 0 1-14 0c0-5 3-8 7-12z"/><path d="M13 7v16M13 12l-3-2M13 15l3-2M13 18l-3-2"/></svg>Eichenhonig</a>
@@ -209,16 +256,17 @@ footer .big em{color:var(--amber)}
 </header>
 
 <main id="top">
-<section class="hero" id="hero">
+<section class="hero center" id="hero">
   <img class="poster" src="media/hero.webp" alt="Honig fließt vom Honiglöffel in ein Glas Eichenhonig">
   <video id="heroVid" muted playsinline preload="auto" poster="media/hero.webp"></video>
-  <div class="hero-in">
-    <span class="k">Hobbyimkerei · Wiesbaden</span>
+  <div class="hero-in c">
+    <span class="k">Hobbyimkerei · Wiesbaden · Taunusstein · Lennebergwald</span>
     <h1><span class="ln"><span>Honig, so verschieden</span></span><span class="ln"><span>wie seine <em>Orte.</em></span></span></h1>
+    <svg class="drip" viewBox="0 0 420 60" id="drip"><path id="dripPath" d="M0 0 H420 V6 C380 6 372 8 368 14 C364 22 362 10 356 8 C340 4 300 6 260 6 C230 6 226 9 224 16 C222 24 222 40 214 44 C206 48 204 30 202 18 C200 9 196 6 170 6 C120 6 96 7 92 12 C88 18 88 26 82 26 C76 26 76 16 72 10 C66 6 40 6 0 6 Z"/></svg>
     <p>Unsere Bienen stehen in Wiesbaden, in Taunusstein und im Naturschutzgebiet Lennebergwald. Von jedem Bienenstand ernten wir einen anderen Honig.</p>
     <a class="cta" href="#orte">Die drei Orte entdecken →</a>
   </div>
-  <div class="places"><b>Unsere Bienenstände</b>Wiesbaden<br>Taunusstein<br>Lennebergwald</div>
+  
 </section>
 
 <section class="quote">
@@ -314,6 +362,20 @@ footer .big em{color:var(--amber)}
   </div>
 </section>
 
+<section class="real">
+  <div><span class="k">Aus unserer Imkerei</span><h2>Echte Bienen, <em>echte Waben.</em></h2><p>Unsere Bienen an der Tränke und eine frisch verdeckelte Wabe, kurz vor der Ernte. Fotos aus der Imkerei Eichenhonig, professionell nachbearbeitet.</p></div>
+  <div class="pols"><figure class="pol a"><img src="media/real-wabe.webp" alt="Verdeckelte Honigwabe der Imkerei Eichenhonig" loading="lazy"><figcaption>Verdeckelt und erntereif</figcaption></figure><figure class="pol b"><img src="media/real-traenke.webp" alt="Bienen an der Tränke" loading="lazy"><figcaption>Unsere Bienen an der Tränke</figcaption></figure></div>
+</section>
+<section class="rev">
+  <div class="rev-head"><div><span class="k">Google-Bewertungen</span><h2 style="margin-top:16px">Was unsere <em>Kunden</em> sagen.</h2></div><div class="stars"><b>5,0</b>★★★★★ · Google</div></div>
+  <div class="cards">
+    <div class="card2"><div class="s">★★★★★</div><p>„Ausgezeichnete Honigqualität. Gutes Preis-Leistungs-Verhältnis und sehr zu empfehlen. Sehr freundlich.“</p><small>Google-Bewertung</small></div>
+    <div class="card2"><div class="s">★★★★★</div><p>„Hervorragender Honig, freundlicher Service und fachkundige Beratung. Selbst Imker können hier noch etwas lernen.“</p><small>Google-Bewertung</small></div>
+    <div class="card2"><div class="s">★★★★★</div><p>„Leckere Honige mit einer großen Vielfalt an Geschmacksrichtungen. Und günstig. Sehr empfehlenswert.“</p><small>Google-Bewertung</small></div>
+    <div class="card2"><div class="s">★★★★★</div><p>„Leckerer Honig!!“</p><small>Google-Bewertung</small></div>
+  </div>
+</section>
+
 <section class="contact" id="kontakt">
   <div>
     <span class="k">Kontakt</span>
@@ -376,11 +438,44 @@ hive.querySelectorAll('.hp').forEach((el,i)=>{const p=parts[i];const lab=el.quer
 
 /* preloader / hero */
 const v=document.getElementById('heroVid');v.src=MOB?'media/hero-m.mp4':'media/hero.mp4';v.addEventListener('ended',()=>v.pause());
-function start(){document.getElementById('pre').classList.add('done');if(!RM){v.play().catch(()=>{})}
-  gsap.to('.hero h1 .ln>span',{y:0,duration:1.4,ease:'expo.out',stagger:.12,delay:.3});
-  gsap.from('.hero .k,.hero p,.hero .cta,.places',{opacity:0,y:20,duration:1.2,ease:'expo.out',stagger:.08,delay:.6});}
-if(document.readyState==='complete')setTimeout(start,800);else addEventListener('load',()=>setTimeout(start,600));
-setTimeout(()=>{if(!document.getElementById('pre').classList.contains('done'))start()},4500);
+
+/* ---------- flying bee across the whole page ---------- */
+function flyBee(){const bee=document.getElementById('bee');if(RM||!bee)return;
+  const P=[[0,.62,.34],[.06,.8,.24],[.14,.86,.66],[.24,.66,.8],[.33,.3,.86],[.42,.88,.16],[.52,.62,.2],[.62,.14,.18],[.72,.86,.36],[.82,.5,.1],[.92,.9,.7],[1,.82,.82]];
+  const qx=gsap.quickTo(bee,'x',{duration:1.1,ease:'power3.out'}),qy=gsap.quickTo(bee,'y',{duration:1.1,ease:'power3.out'}),qr=gsap.quickTo(bee,'rotation',{duration:.6,ease:'power2.out'});
+  let lx=null,face=1;
+  function at(p){let i=0;while(i<P.length-2&&p>P[i+1][0])i++;const a=P[i],b=P[i+1],t=Math.min(1,Math.max(0,(p-a[0])/(b[0]-a[0])));const e=t*t*(3-2*t);return[a[1]+(b[1]-a[1])*e,a[2]+(b[2]-a[2])*e]}
+  function upd(){const max=document.documentElement.scrollHeight-innerHeight;const p=max>0?scrollY/max:0;const [fx,fy]=at(p);const x=fx*innerWidth-bee.offsetWidth/2,y=fy*innerHeight-bee.offsetHeight/2;
+    if(lx!==null){const dx=x-lx;if(Math.abs(dx)>2){face=dx>0?1:-1;gsap.set('#wob',{scaleX:face});qr(Math.max(-18,Math.min(18,dx*.08)))}else qr(0)}lx=x;qx(x);qy(y)}
+  gsap.set(bee,{x:innerWidth*.62,y:innerHeight*.34,opacity:0});gsap.to(bee,{opacity:1,duration:.8});
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  gsap.to('#wob',{y:'+=7',duration:.18,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  gsap.to('#wob',{x:'+=4',duration:.31,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  gsap.to('#wob .buzz',{opacity:.55,duration:.04,yoyo:true,repeat:-1,ease:'none'});
+  /* idle drift so it never freezes */
+  let tIdle=0;setInterval(()=>{tIdle+=1;bee.style.translate=`${Math.sin(tIdle*.7)*10}px ${Math.cos(tIdle*.9)*8}px`},400);
+}
+/* ---------- intro: honeycomb fills, bee flies through ---------- */
+function buildComb(){const svg=document.getElementById('combSvg');const W=innerWidth,H=innerHeight,r=Math.max(34,Math.min(W,H)/12),w=Math.sqrt(3)*r;svg.setAttribute('viewBox',`0 0 ${W} ${H}`);let h='';
+  for(let row=-1,y=0;y<H+r*2;row++,y=row*1.5*r){for(let col=-1;col*w<W+w;col++){const cx=col*w+(row%2?w/2:0),cy=y;let d='';for(let k=0;k<6;k++){const a=Math.PI/180*(60*k-30);d+=(k?'L':'M')+(cx+r*.94*Math.cos(a)).toFixed(1)+' '+(cy+r*.94*Math.sin(a)).toFixed(1)}h+=`<path class="cell" d="${d}Z" data-d="${Math.hypot(cx-W/2,cy-H/2).toFixed(0)}"/>`}}svg.innerHTML=h;}
+function runIntro(done){const intro=document.getElementById('intro');if(RM){intro.remove();done();return}
+  buildComb();const cells=[...intro.querySelectorAll('.cell')].sort((a,b)=>a.dataset.d-b.dataset.d);
+  const t=gsap.timeline({onComplete:()=>{intro.remove();done()}});
+  t.to(cells,{fill:'#c8861f',stroke:'rgba(255,220,150,.35)',duration:.5,stagger:{each:1.1/cells.length},ease:'power2.out'},0)
+   .to(cells,{fill:(i)=>i%7===0?'#e0a33a':'#b87818',duration:.4,stagger:{each:.6/cells.length}},.6)
+   .fromTo('#ibee',{x:0,y:0,rotate:8},{x:()=>innerWidth*1.35,y:()=>-innerHeight*.22,rotate:-6,duration:1.6,ease:'power1.inOut'},.3)
+   .to('.intro .brand b',{opacity:1,duration:.6},.7).to('.intro .brand span',{opacity:1,duration:.5},.9)
+   .to(cells,{scale:0,opacity:0,duration:.55,stagger:{each:.5/cells.length,from:'end'},ease:'power2.in'},1.7)
+   .to('.intro .brand',{opacity:0,y:-20,duration:.4},1.9).to(intro,{backgroundColor:'rgba(21,16,10,0)',duration:.5},2.0);
+  gsap.to('#ibee',{y:'+=10',duration:.12,yoyo:true,repeat:24,ease:'sine.inOut'});}
+function start(){runIntro(startHero)}
+function startHero(){if(!RM){v.play().catch(()=>{})}flyBee()
+  gsap.to('.hero h1 .ln>span',{y:0,duration:1.4,ease:'expo.out',stagger:.12,delay:.1});
+  gsap.fromTo('#drip',{scaleY:0,transformOrigin:'50% 0'},{scaleY:1,duration:2.2,ease:'power2.out',delay:.6});
+  gsap.from('.hero .k,.hero p,.hero .cta',{opacity:0,y:20,duration:1.2,ease:'expo.out',stagger:.08,delay:.6});}
+let started=false;const go=()=>{if(started)return;started=true;start()};
+if(document.readyState==='complete')setTimeout(go,300);else addEventListener('load',()=>setTimeout(go,200));
+setTimeout(go,4000);
 
 const nav=document.getElementById('nav');
 ScrollTrigger.create({trigger:'#hero',start:'top -22%',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
