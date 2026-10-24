@@ -10,7 +10,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f5eee3' stroke='%232b1d17' stroke-width='2'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='%232b1d17' font-family='cursive'%3Ew%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300..700&family=Kaushan+Script&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="media/hero2.webp">
+<link rel="preload" as="image" href="media/hero3.webp">
 <style>
 :root{--cream:#f5eee3;--paper:#fbf7f0;--sage:#6e8a69;--sageD:#3f5a45;--gold:#b8924c;--goldL:#d8bd84;--rose:#b77c66;--espresso:#2b1d17;--lamp:#a63a2c;
 --line:rgba(43,29,23,.15);--muted:rgba(43,29,23,.64);--serif:"Cormorant Garamond",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;--script:"Kaushan Script",cursive;--ease:cubic-bezier(.16,1,.3,1);--pad:clamp(18px,4.5vw,72px)}
@@ -70,7 +70,7 @@ h1 i,h2 i,h3 i{font-style:italic;color:var(--sageD)}
 .h-text p{color:var(--muted);max-width:42ch;margin-bottom:30px}
 .h-text .btns{display:flex;gap:12px;flex-wrap:wrap}
 .mirror{position:absolute;inset:0;z-index:2;clip-path:inset(13% 6% 9% 52% round 320px 320px 8px 8px);will-change:clip-path}
-.mirror video,.mirror .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mirror video,.mirror .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:34% 62%}
 .frame{position:absolute;z-index:3;left:52%;right:6%;top:13%;bottom:9%;border-radius:320px 320px 8px 8px;pointer-events:none;border:3px solid var(--gold);box-shadow:0 0 0 7px var(--cream),0 0 0 9px var(--goldL),0 40px 80px -30px rgba(43,29,23,.45)}
 .frame::before{content:"";position:absolute;inset:10px;border-radius:310px 310px 4px 4px;border:1px solid rgba(255,240,210,.55)}
 .over{position:absolute;z-index:4;left:var(--pad);right:var(--pad);bottom:clamp(30px,8vh,80px);color:var(--paper);opacity:0;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
@@ -236,14 +236,16 @@ footer .lg{--cafe:#d9a58f}
   .legend{left:var(--pad);right:var(--pad);top:auto;bottom:18px;width:auto;display:grid;grid-template-columns:1fr 1fr;column-gap:16px}
   .legend li{font-size:0;padding:7px 0;grid-template-columns:26px 1fr}.legend li b{font-size:10px}
   .brk-foot,.brk-head p{display:none}
-  .slot{width:82vw;grid-template-columns:1fr;gap:12px}.slot figure{aspect-ratio:4/3.3}
-  .slot .t{font-size:56px}.slot p{font-size:14px}
-  .day-top{flex-direction:column;gap:12px}.clock svg{width:58px}
+  .day-pin{height:auto;overflow:visible;padding-bottom:70px}
+  .day-top{position:static;padding:90px var(--pad) 34px}.clock{display:none}
+  .track{position:static;flex-direction:column;gap:56px;padding:0 var(--pad);transform:none!important}
+  .slot{width:auto;grid-template-columns:1fr;gap:16px}.slot figure{aspect-ratio:4/5!important;border-radius:180px 180px 4px 4px}.slot figure img{transform:none}
+  .slot .t{font-size:54px}.slot p{font-size:15px}
   .menu,.visit{grid-template-columns:1fr}.mframe{display:none}
   .row .th{display:block;grid-column:1/-1;aspect-ratio:16/10;overflow:hidden;border-radius:4px;margin-top:10px}.row .th img{width:100%;height:100%;object-fit:cover}
   .saucers{grid-template-columns:1fr}.sc:nth-child(even){margin-top:0}
 }
-@media (max-width:900px) and (max-height:700px){.slot figure{aspect-ratio:16/10}.slot p{display:none}}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.h-text h1 .ln>span{transform:none}.salon .statement .w{opacity:1}.legend li{opacity:1}}
 </style>
 </head>
@@ -292,7 +294,7 @@ footer .lg{--cafe:#d9a58f}
       <p>Direkt gehandelter Spezialitätenkaffee, Kuchen und Wunderbar-Specials in der Dotzheimer Straße 53 in Wiesbaden.</p>
       <div class="btns"><a class="btn" href="#karte">Zur Karte</a><a class="btn ghost" href="#mieten">Café mieten</a></div>
     </div>
-    <div class="mirror" id="mirror"><img class="poster" src="media/hero2.webp" alt="Barista gießt Latte Art in eine Porzellantasse im Café wunderbar"><video id="heroVid" muted playsinline preload="auto" poster="media/hero2.webp"></video></div>
+    <div class="mirror" id="mirror"><img class="poster" src="media/hero3.webp" alt="Cappuccino mit Latte Art auf dem grün-goldenen Tablett im Café wunderbar"><video id="heroVid" muted playsinline preload="auto" poster="media/hero3.webp"></video></div>
     <div class="frame" id="frame"></div>
     <div class="over" id="over"><h2>„Schöne alte Sitzmöbel wie bei Oma <i>laden zum Verweilen ein.“</i></h2><p>Aus einer Google-Bewertung · 4,8 ★ bei 181 Bewertungen</p></div>
   </div>
@@ -443,7 +445,7 @@ document.getElementById('rows').innerHTML=h;const mf=document.getElementById('mf
 const rows=[...document.querySelectorAll('.row')],fim=[...mf.querySelectorAll('img')],cap=document.getElementById('cap');cap.textContent='Echte Fotos · Café wunderbar';
 rows.forEach(r=>r.addEventListener('mouseenter',()=>{rows.forEach(x=>x.classList.toggle('on',x===r));fim.forEach(im=>im.classList.toggle('on',im.dataset.k===r.dataset.img));cap.textContent=r.dataset.img==='salon1'?'Noch kein Foto · Gastraum':'Echtes Foto · Café wunderbar'}));
 /* focus point per photo: subject always centred in every frame */
-const FOC={'r-waffel-c':'40% 60%','r-tray':'42% 58%','r-cake':'50% 52%','ig-choc':'50% 45%','salon2':'50% 68%','r-latte':'52% 45%','ig-cortado':'62% 40%','ig-chai':'28% 50%','r-brownie':'50% 55%','salon1':'50% 55%','ig-salon':'45% 60%','ig-tray':'50% 30%','hero2':'40% 55%'};
+const FOC={'r-waffel-c':'40% 60%','r-tray':'42% 58%','r-cake':'50% 52%','ig-choc':'50% 45%','salon2':'50% 68%','r-latte':'52% 45%','ig-cortado':'62% 40%','ig-chai':'28% 50%','r-brownie':'50% 55%','salon1':'50% 55%','ig-salon':'45% 60%','ig-tray':'50% 30%','hero3':'34% 62%'};
 document.querySelectorAll('img').forEach(im=>{const k=(im.getAttribute('src')||'').replace('media/','').replace('.webp','');if(FOC[k]){im.style.objectPosition=FOC[k];im.style.transformOrigin=FOC[k]}});
 
 /* clock ticks */
@@ -453,7 +455,7 @@ let tk='';for(let i=0;i<12;i++){const a=i*30*Math.PI/180;tk+=`<line class="tick"
 const stmt=document.getElementById('statement');(function sp(n){[...n.childNodes].forEach(k=>{if(k.nodeType===3){const f=document.createDocumentFragment();k.textContent.split(/(\s+)/).forEach(w=>{if(!w.trim()){f.appendChild(document.createTextNode(w));return}const s=document.createElement('span');s.className='w';s.textContent=w;f.appendChild(s)});k.replaceWith(f)}else if(k.nodeType===1)sp(k)})})(stmt);
 
 /* hero video */
-const v=document.getElementById('heroVid');v.src=MOB?'media/hero2-m.mp4':'media/hero2.mp4';v.addEventListener('ended',()=>v.pause());
+const v=document.getElementById('heroVid');v.src=MOB?'media/hero3-m.mp4':'media/hero3.mp4';v.addEventListener('ended',()=>v.pause());
 const nav=document.getElementById('nav');
 gsap.set('.obj',{xPercent:-50,yPercent:-50});gsap.set('.part',{scale:.3});gsap.set('#receipt',{yPercent:RM?0:-100});
 
@@ -509,8 +511,8 @@ tl.to({},{duration:.6});
 const track=document.getElementById('track');const dist=()=>track.scrollWidth-innerWidth+parseFloat(getComputedStyle(track).paddingLeft);
 const hh=document.getElementById('hh'),mh=document.getElementById('mh'),dg=document.getElementById('digi');
 function clk(p){const t=10.5+p*7;const a=Math.floor(t),m=Math.round((t-a)*60)%60;hh.setAttribute('transform',`rotate(${(a%12)*30+m*.5} 50 50)`);mh.setAttribute('transform',`rotate(${m*6} 50 50)`);dg.textContent=String(a).padStart(2,'0')+':'+String(m).padStart(2,'0')}clk(0);
-gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#dayPin',start:'top top',end:()=>'+='+dist()*1.15,pin:true,scrub:.7,invalidateOnRefresh:true,anticipatePin:1,onUpdate:s=>clk(s.progress)}});
-document.querySelectorAll('.slot figure img').forEach(im=>gsap.to(im,{scale:1,ease:'none',scrollTrigger:{trigger:'#dayPin',start:'top top',end:()=>'+='+dist()*1.15,scrub:true}}));
+if(!MOB){gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#dayPin',start:'top top',end:()=>'+='+dist()*1.15,pin:true,scrub:.7,invalidateOnRefresh:true,anticipatePin:1,onUpdate:s=>clk(s.progress)}});
+document.querySelectorAll('.slot figure img').forEach(im=>gsap.to(im,{scale:1,ease:'none',scrollTrigger:{trigger:'#dayPin',start:'top top',end:()=>'+='+dist()*1.15,scrub:true}}));}else{gsap.utils.toArray('.slot').forEach(sl=>{gsap.from(sl.querySelector('figure'),{clipPath:'inset(18% 10% 18% 10% round 180px 180px 4px 4px)',duration:1.4,ease:'expo.out',scrollTrigger:{trigger:sl,start:'top 85%'}});gsap.from(sl.querySelectorAll('.t,h3,p,small'),{opacity:0,y:24,stagger:.07,duration:1,ease:'expo.out',scrollTrigger:{trigger:sl,start:'top 70%'}})})}
 
 gsap.from(rows,{opacity:0,y:20,stagger:.05,duration:.9,ease:'expo.out',scrollTrigger:{trigger:'#rows',start:'top 82%'}});
 gsap.from('.sc',{opacity:0,y:50,rotate:i=>i%2?3:-3,stagger:.1,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:'.saucers',start:'top 82%'}});
