@@ -195,9 +195,9 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero h1 .ln>span{transform:none}.st:first-child,.s-img:first-child{opacity:1;transform:none}}
 @media (max-width:900px){
- .hero{align-items:end;padding-bottom:40px;background:var(--deep)}
- .hero #heroVid,.hero #heroImg{top:168px;left:var(--pad);right:var(--pad);width:auto;height:calc((100vw - 2*var(--pad))*.72);inset:auto;top:168px;border-radius:6px;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
- .hero::after{background:linear-gradient(0deg,rgba(26,31,21,1) 38%,rgba(26,31,21,0) 62%);}
+ .hero{display:block;height:auto;min-height:0;padding:calc(236px + (100vw - 2*var(--pad))*.64 + 30px) 0 56px;background:var(--deep)}
+ .hero #heroVid,.hero #heroImg{inset:auto;top:236px;left:var(--pad);width:calc(100vw - 2*var(--pad));height:calc((100vw - 2*var(--pad))*.64);border-radius:6px;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+ .hero::after{display:none}
  .hero h1{font-size:clamp(46px,12.5vw,64px)}
 }
 </style>
