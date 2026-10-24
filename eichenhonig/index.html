@@ -54,6 +54,7 @@ em{font-style:italic;font-weight:300;color:var(--amber)}
 .quote small{display:block;margin-top:34px;color:var(--muted);font-size:13px;letter-spacing:.2em;text-transform:uppercase}
 
 /* journey */
+.j-img::after{content:attr(data-cap);position:absolute;right:20px;top:92px;z-index:3;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .journey{position:relative;height:420vh}
 .j-stage{position:sticky;top:0;height:100svh;overflow:hidden}
 .j-img{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
@@ -277,9 +278,9 @@ footer .big em{color:var(--amber)}
 
 <section class="journey" id="orte">
   <div class="j-stage">
-    <div class="j-img"><img src="media/wiesbaden.webp" alt="Blühende Streuobstwiese über Wiesbaden mit Bienenkästen"></div>
-    <div class="j-img"><img src="media/taunus.webp" alt="Rapsfeld bei Taunusstein mit Bienenkästen"></div>
-    <div class="j-img"><img src="media/lenneberg.webp" alt="Lennebergwald mit blühender Linde und Bienenkästen"></div>
+    <div class="j-img" data-cap="Symbolbild"><img src="media/wiesbaden.webp" alt="Blühende Streuobstwiese über Wiesbaden mit Bienenkästen"></div>
+    <div class="j-img" data-cap="Symbolbild"><img src="media/taunus.webp" alt="Rapsfeld bei Taunusstein mit Bienenkästen"></div>
+    <div class="j-img" data-cap="Symbolbild"><img src="media/lenneberg.webp" alt="Lennebergwald mit blühender Linde und Bienenkästen"></div>
     <div class="j-text">
       <div class="j-item"><div class="n">01</div><h2>Wies<em>baden</em></h2><p>Das Blütenangebot in der Stadt ist besonders vielfältig. Hier ernten wir Blütenhonig, bei dem keine einzelne Tracht dominiert, und jedes Jahr schmeckt er ein wenig anders.</p><div class="honey"><div><i style="background:#dba640"></i>Blütenhonig</div></div></div>
       <div class="j-item"><div class="n">02</div><h2>Taunus<em>stein</em></h2><p>Im Frühjahr prägt der Raps den Honig: sehr hell und mild. Im Sommer kommt der Nektar der Sommerblüten und der Honigtau dazu, dann wird er etwas kräftiger.</p><div class="honey"><div><i style="background:#efe2b4"></i>Frühjahrstracht · Raps</div><div><i style="background:#b97b26"></i>Sommertracht</div></div></div>
@@ -313,7 +314,7 @@ footer .big em{color:var(--amber)}
 
 <section class="hiveS" id="beute">
   <div class="h-stage">
-    <div class="h-copy"><span class="k">Die Bienenbeute</span><h2>Was in einer <em>Beute</em> steckt.</h2><p>Scroll weiter und die Beute öffnet sich Teil für Teil. Oben lagern die Bienen den Honig ein, den wir ernten. Unten zieht die Königin ihre Brut auf.</p></div>
+    <div class="h-copy"><span class="k">Die Bienenbeute</span><h2>Was in einer <em>Beute</em> steckt.</h2><p>Scroll weiter und die Beute öffnet sich Teil für Teil (Illustration). Oben lagern die Bienen den Honig ein, den wir ernten. Unten zieht die Königin ihre Brut auf.</p></div>
     <div class="hive" id="hive"></div>
   </div>
 </section>
@@ -327,7 +328,7 @@ footer .big em{color:var(--amber)}
     <div class="season">
       <div class="months" id="months"></div>
       <div class="mnames"><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
-      <small>Erntezeit Mitte Mai bis Mitte Juli · jetzt vormerken lassen</small>
+      <small>Auf Vorbestellung zwischen Mitte Mai und Mitte Juli</small>
     </div>
   </div>
 </section>
@@ -357,7 +358,7 @@ footer .big em{color:var(--amber)}
   <div class="txt">
     <span class="k" style="color:#e9c98b">Klein, aber mit Sorgfalt</span>
     <h2>Eine Hobbyimkerei, <em>keine Fabrik.</em></h2>
-    <p>Wir sind eine kleine Imkerei aus Wiesbaden. Wir ernten nur, was die Bienen übrig haben, schleudern schonend und füllen jedes Glas selbst ab.</p>
+    <p>Wir sind eine kleine Hobbyimkerei. Unsere Bienen stehen in Wiesbaden, Taunusstein und im Naturschutzgebiet Lennebergwald. Von diesen Bienenständen können wir ganz unterschiedlichen Honig ernten, den Sie bei uns kaufen können.</p>
     <p>Fragen zu Sorten, Mengen oder Wabenhonig beantworten wir gern persönlich.</p>
   </div>
 </section>
@@ -407,11 +408,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* honeys */
 const HON=[
- {n:'Rapshonig',o:'Taunusstein · Frühjahr',p:6,c:'#efe2b4',t:'Vom Raps geprägt: sehr hell, mild und fein-cremig. Ein Honig für alle, die es sanft mögen.'},
+ {n:'Rapshonig',o:'Taunusstein · Frühjahr',p:6,c:'#efe2b4',t:'Der Frühjahrstrachthonig aus Taunusstein wird vom Raps geprägt: sehr hell und mild.'},
  {n:'Ahorn & Robinie',o:'Lennebergwald · Frühjahr',p:28,c:'#e7cf86',t:'Frühjahrstracht aus dem Naturschutzgebiet, blumig-mild und hell.'},
  {n:'Blütenhonig',o:'Wiesbaden',p:48,c:'#dba640',t:'Vielfältige Stadtblüte, keine Tracht dominiert. Jedes Jahr ein bisschen anders.'},
  {n:'Sommertracht',o:'Taunusstein · Sommer',p:70,c:'#b97b26',t:'Nektar der Sommerblüten und Honigtau, etwas kräftiger im Geschmack.'},
- {n:'Lindenhonig',o:'Lennebergwald · Sommer',p:90,c:'#8f5617',t:'Meist von der Linde dominiert: intensiv aromatisch, mit langer Frische.'}];
+ {n:'Lindenhonig',o:'Lennebergwald · Sommer',p:90,c:'#8f5617',t:'Der Sommertrachthonig wird normalerweise von der Linde dominiert. Lindenhonig schmeckt intensiv aromatisch.'}];
 const marks=document.getElementById('marks');
 marks.innerHTML=HON.map((h,i)=>`<button class="mk" data-i="${i}" style="left:${h.p}%"><b>${h.n}</b><span>${h.o.split(' · ')[0]}</span></button>`).join('');
 function pick(i){const h=HON[i];document.querySelectorAll('.mk').forEach((m,j)=>m.classList.toggle('on',j===i));

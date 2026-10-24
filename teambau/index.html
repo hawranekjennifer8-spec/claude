@@ -124,7 +124,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:.95}
 .tr .o{color:rgba(10,20,30,.6);font-size:15px}
 .tr .c{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:right;color:rgba(10,20,30,.55)}
 .tr.on{padding-left:12px;background:linear-gradient(90deg,rgba(242,194,48,.22),transparent 70%)}
-.tr.hide{display:none}
+.tr.hide{display:none}.tr .th{display:none}
 .rpanel{position:sticky;top:110px;align-self:start}
 .rpanel .img{aspect-ratio:4/5;overflow:hidden;position:relative;background:var(--concrete)}
 .rpanel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease)}
@@ -196,7 +196,7 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
   .hero-in{bottom:170px}
   .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div{padding:12px var(--pad);border-bottom:1px solid var(--lineL)}
   .serv,.refs,.contact{grid-template-columns:1fr}
-  .panel,.rpanel{display:none}
+  .panel,.rpanel{display:none}.tr .th{display:block;grid-column:1/-1;aspect-ratio:16/10;overflow:hidden;background:#fff;margin-top:6px}.tr .th img{width:100%;height:100%;object-fit:cover}.tr .th img.dr{object-fit:contain}
   .svc p{max-height:none;opacity:1}
   .brk-stage{grid-template-columns:1fr;align-content:start;padding-top:84px;gap:6px}
   .brk p{display:none}.brk h2{font-size:34px;margin:8px 0}
@@ -223,7 +223,7 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
       <line class="cable" id="cable" x1="20" y1="180" x2="20" y2="300"/>
       <g class="load" id="load"><path d="M20 300 L-170 360 M20 300 L210 360" class="cable"/><rect x="-190" y="360" width="420" height="96"/><text x="20" y="428" text-anchor="middle">TEAM BAU</text></g></g>
   </svg>
-  <div class="lbl" id="ilbl">[ HUB 01 · LAST 1,2 t · WIESBADEN ]</div>
+  <div class="lbl" id="ilbl">[ TEAM BAU GMBH · WIESBADEN ]</div>
 </div>
 <header class="nav" id="nav">
   <a class="logo" href="#top"><img src="media/logo.png" alt="Team Bau GmbH"></a>
@@ -261,11 +261,11 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
     <svg class="bp" id="bp" viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice"></svg>
     <div class="wipe" id="wipe"></div>
     <div class="p2b-copy">
-      <div class="phase"><span class="m">01 · Planung</span><h2>Erst der Plan.</h2><p>Gemeinsam mit Architekten und Planern prüfen wir jedes Detail. Bei fertiger Planung gilt unsere Festpreisgarantie.</p></div>
+      <div class="phase"><span class="m">01 · Planung</span><h2>Erst der Plan.</h2><p>Unser Team analysiert Ihre Anforderungen und entwickelt maßgeschneiderte Lösungen. Bei fertiger Planung gilt unsere Festpreisgarantie.</p></div>
       <div class="phase"><span class="m">02 · Rohbau</span><h2>Dann das Fundament.</h2><p>Unsere Kernleistung: Rohbau mit eigenem Maschinenpark und eigenem Materialbestand.</p></div>
       <div class="phase"><span class="m">03 · Übergabe</span><h2>Am Ende Ihr Gebäude.</h2><p>Auf Wunsch schlüsselfertig, mit unserem erprobten Netzwerk aus Fachunternehmern.</p></div>
     </div>
-    <div class="p2b-scale m" style="color:rgba(236,235,231,.7)">Ansicht Süd · M 1:100<br><span class="y" id="pct">Planstand 0 %</span></div>
+    <div class="p2b-scale m" style="color:rgba(236,235,231,.7)">Illustration · Planansicht<br><span class="y" id="pct">Planstand 0 %</span></div>
   </div>
 </section>
 
@@ -274,7 +274,7 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
   <div class="serv-head"><div><span class="m" style="color:rgba(10,20,30,.55)">[ 02 · Leistungen ]</span><h2 style="margin-top:14px">Was wir bauen.</h2></div><p style="max-width:40ch;color:rgba(10,20,30,.66)">Öffentliche, gewerbliche und private Bauvorhaben mit einer Auftragssumme bis zu 3 Millionen Euro.</p></div>
   <ul class="svc" id="svc">
     <li class="on" data-i="0"><span class="m">01</span><div><h3>Rohbau</h3><p>Unsere Kernleistung seit den 90er-Jahren. Mit modernem Maschinenpark und umfangreichem Bestand an Baumaterialien.</p></div></li>
-    <li data-i="1"><span class="m">02</span><div><h3>Hochbau &amp; Fertigteilbau</h3><p>Individuelle Bauvorhaben im Hochbau, ob Ortbeton oder Fertigteil, sauber koordiniert und termingerecht.</p></div></li>
+    <li data-i="1"><span class="m">02</span><div><h3>Hochbau &amp; Fertigteilbau</h3><p>Unser Schwerpunkt liegt im Hochbau und in der Umsetzung individueller Bauvorhaben, ob Rohbau, Hochbau oder Fertigteilbau.</p></div></li>
     <li data-i="2"><span class="m">03</span><div><h3>Schlüsselfertig</h3><p>Seit 2006 erstellen wir Gebäude schlüsselfertig und greifen gezielt auf unser Netzwerk aus Fachunternehmern, Architekten und Planern zurück.</p></div></li>
     <li data-i="3"><span class="m">04</span><div><h3>Bauberatung</h3><p>Kurze Wege statt langer Diskussionen: ein fester Ansprechpartner für den gesamten Bauprozess und Festpreisgarantie bei fertiger Planung.</p></div></li>
   </ul>
@@ -283,7 +283,7 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
 
 <section class="brk" id="modell">
   <div class="brk-stage">
-    <div><span class="m y">[ 03 · Aufbau ]</span><h2>Geschoss für <span class="y">Geschoss.</span></h2><p>Vom Fundament bis zur Attika: Jede Ebene wird geplant, betoniert, geprüft. Scroll durch das Modell.</p><div class="ctr" id="ctr">EBENE 00 / 06</div></div>
+    <div><span class="m y">[ 03 · Aufbau ]</span><h2>Geschoss für <span class="y">Geschoss.</span></h2><p>Vom Fundament bis zur Attika: Scroll durch das Modell (Illustration).</p><div class="ctr" id="ctr">EBENE 00 / 06</div></div>
     <div class="model" id="model">
       <img src="media/build.webp" alt="Explosionsmodell eines Mehrfamilienhauses" id="modelImg">
       <div class="scan" id="scan"></div>
@@ -330,7 +330,7 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
   <div style="position:relative">
     <span class="m" style="color:rgba(10,20,30,.55)">[ 06 · Auf der Baustelle ]</span>
     <h2>Unser <span style="font-weight:300">Team.</span></h2>
-    <p class="lead">Eigene Leute, eigener Maschinenpark, eigenes Material. Wer bei uns anfragt, spricht mit denen, die auch auf der Baustelle stehen.</p>
+    <p class="lead">Ein fester Ansprechpartner für den gesamten Bauprozess, Bauleiter, die vor Ort die Ausführung überwachen, und konstante Baustellenmitarbeiter statt Subunternehmen im Kerngeschäft.</p>
     <div class="cert"><img src="media/hpqr.png" alt="HPQR-Zertifikat, Hessisches Präqualifikationsregister"><div><b>HPQR-zertifiziert</b><span>Eingetragen im Hessischen Präqualifikationsregister für öffentliche Aufträge.</span></div></div>
     <div class="quote"><p>„Vielen Dank für die gute Zusammenarbeit.“</p><small>GOOGLE-BEWERTUNG · 5,0 ★</small></div>
   </div>
@@ -339,7 +339,7 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
     <figure><img src="media/team1.webp" alt="Rohbau mit Schalung und Stützen" loading="lazy"><figcaption>ROHBAU</figcaption></figure>
     <figure><img src="media/team2.webp" alt="Bewehrung vor dem Betonieren" loading="lazy"><figcaption>BEWEHRUNG</figcaption></figure>
     <figure><img src="media/team5.webp" alt="Baustahl auf der Baustelle" loading="lazy"><figcaption>MATERIAL</figcaption></figure>
-    <figure><img src="media/team4.webp" alt="Grundsteinlegung" loading="lazy"><figcaption>GRUNDSTEIN</figcaption></figure>
+    <figure><img src="media/team4.webp" alt="Grundsteinlegung" loading="lazy"><figcaption>BAUSTELLE</figcaption></figure>
   </div>
 </section>
 
@@ -396,11 +396,11 @@ const draws=[...bp.querySelectorAll('.draw')];
 draws.forEach(p=>{const len=p.getTotalLength?p.getTotalLength():1000;p.style.strokeDasharray=p.getAttribute('stroke-dasharray')?p.getAttribute('stroke-dasharray'):len;p.dataset.len=len;if(!p.getAttribute('stroke-dasharray')){p.style.strokeDashoffset=RM?0:len}});
 
 /* references */
-const REF=[['Mehrfamilienhaus','Panoramastraße, Wiesbaden','Wohnen',1],['Haus der Vereine','Wiesbaden-Dotzheim','Öffentlich',2],['Martin-Buber-Schule','Heppenheim','Bildung',3],['Geschäftshaus','Zeil 86, Frankfurt am Main','Gewerbe',4],['Seniorenwohnhaus','Bleichstraße, Frankfurt am Main','Wohnen',5],['Wohn- und Geschäftshaus','Kirchgasse 72–76, Wiesbaden','Gewerbe',6],['KITA Rödermark','Lessingstraße 4, Rödermark','Bildung',7],['Stadtvilla','Wiesbaden-Sonnenberg','Wohnen',8],['KITA Rödermark','Jakob-Hecht-Straße, Rödermark','Bildung',9],['Sophie-Opel-Schule','Rüsselsheim','Bildung',10],['Geschäftshaus','Rheingaustraße 34, Wiesbaden','Gewerbe',11],['Heilige Kreuzkirche','Wiesbaden','Öffentlich',12],['Mensa Stadtschule','Bad Vilbel','Bildung',13],['KITA Beuerbach','Hünstetten-Beuerbach','Bildung',14],['Mensa Jawlensky','Wiesbaden-Dotzheim','Bildung',15],['KITA Riedberg','Frankfurt-Riedberg','Bildung',16],['Wohn- und Geschäftshaus','Kirchgasse 11–13, Wiesbaden','Gewerbe',17],['Wohn- und Geschäftshaus','Kirchgasse 20 / Luisenstraße 43, Wiesbaden','Gewerbe',18],['Ludwig-Uhland-Schule','Gravenbruch, Neu-Isenburg','Bildung',19],['Logistikzentrum','Mainz-Hechtsheim','Gewerbe',20],['Sportcenter TSG Bornheim','Inheidener Straße 64, Frankfurt','Öffentlich',21],['SOS Kinderdorf','Niederseelbach','Öffentlich',22],['Feuerwehr & Bürgerhaus','Rohrbach','Öffentlich',23]];
+const REF=[['Mehrfamilienhaus','Panoramastraße, Wiesbaden','Wohnen',1],['Haus der Vereine','Wiesbaden-Dotzheim','Öffentlich',2],['Martin-Buber-Schule','Heppenheim','Bildung',3],['Geschäftshaus','Zeil 86, Frankfurt am Main','Gewerbe',4],['Seniorenwohnhaus','Bleichstraße, Frankfurt am Main','Wohnen',5],['Wohn- und Geschäftshaus','Kirchgasse 72–76, Wiesbaden','Gewerbe',6],['KITA Rödermark','Lessingstraße 4, Rödermark','Bildung',7],['Stadtvilla','Wiesbaden-Sonnenberg','Wohnen',8],['KITA Rödermark','Jakob-Hecht-Straße 4, Rödermark','Bildung',9],['Sophie-Opel-Schule','Rüsselsheim','Bildung',10],['Geschäftshaus','Rheingaustraße 34, Wiesbaden','Gewerbe',11],['Heilige Kreuzkirche','Wiesbaden','Öffentlich',12],['Mensa Stadtschule','Bad Vilbel','Bildung',13],['KITA Beuerbach','Wörsbachstraße 53, Hünstetten-Beuerbach','Bildung',14],['Mensa Jawlensky','Wiesbaden-Dotzheim','Bildung',15],['KITA Riedberg','Frankfurt-Riedberg','Bildung',16],['Wohn- und Geschäftshaus','Kirchgasse 11–13, Wiesbaden','Gewerbe',17],['Wohn- und Geschäftshaus','Kirchgasse 20 / Luisenstraße 43, Wiesbaden','Gewerbe',18],['Ludwig-Uhland-Schule','Gravenbruch, Neu-Isenburg','Bildung',19],['Logistikzentrum','Mainz-Hechtsheim','Gewerbe',20],['Sportcenter TSG Bornheim','Inheidener Straße 64, Bornheim','Öffentlich',21],['SOS Kinderdorf','Oberstraße 4, Niederseelbach','Öffentlich',22],['Feuerwehr & Bürgerhaus','Dr. Horst-Schmidt-Straße 2, Rohrbach','Öffentlich',23]];
 const DRAW=[13,14,22,23];
 document.getElementById('rimg').innerHTML=REF.map((r,i)=>`<img src="media/ref${String(r[3]).padStart(2,'0')}.webp" class="${i===0?'on ':''}${DRAW.includes(r[3])?'dr':''}" alt="${r[0]}, ${r[1]}" loading="lazy">`).join('');
 const tbl=document.getElementById('tbl');
-tbl.innerHTML=REF.map((r,i)=>`<div class="tr" data-c="${r[2]}" data-img="${i}"><span class="p">${r[0].replace('&','&amp;')}</span><span class="o">${r[1]}</span><span class="c">${r[2]}</span></div>`).join('');
+tbl.innerHTML=REF.map((r,i)=>`<div class="tr" data-c="${r[2]}" data-img="${i}"><span class="p">${r[0].replace('&','&amp;')}</span><span class="o">${r[1]}</span><span class="c">${r[2]}</span><span class="th"><img src="media/ref${String(r[3]).padStart(2,'0')}.webp" alt="" loading="lazy" class="${DRAW.includes(r[3])?'dr':''}"></span></div>`).join('');
 const trs=[...tbl.children],rimgs=[...document.querySelectorAll('#rimg img')],rname=document.getElementById('rname');
 trs.forEach(t=>t.addEventListener('mouseenter',()=>{trs.forEach(x=>x.classList.toggle('on',x===t));rimgs.forEach((im,i)=>im.classList.toggle('on',i===+t.dataset.img));rname.textContent=t.querySelector('.p').textContent;document.getElementById('rsym').textContent=DRAW.includes(REF[+t.dataset.img][3])?'Entwurf / Visualisierung':'Referenzfoto'}));
 document.querySelectorAll('#filters button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;trs.forEach(t=>t.classList.toggle('hide',f!=='Alle'&&t.dataset.c!==f));ScrollTrigger.refresh()}));

@@ -5,5 +5,7 @@ curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5
 rm -rf /tmp/x && mkdir -p /tmp/x
 unzip -o -q /tmp/m1.zip "wunderbar/*" -d /tmp/x
 unzip -o -q /tmp/m3.zip "wunderbar/*" -d /tmp/x
+curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5h/93b0a139-7b0d-4ae9-aa77-697ebe903d23.zip" -o /tmp/m4.zip
+unzip -o -q /tmp/m4.zip "wunderbar/*" -d /tmp/x
 rm -rf media && mv /tmp/x/wunderbar/media media
 ls media | head -60

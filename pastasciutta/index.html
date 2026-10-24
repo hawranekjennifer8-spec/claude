@@ -138,6 +138,8 @@ h1 i,h2 i,h3 i{font-weight:500;color:var(--tomato)}
 .fresca small{position:absolute;z-index:2;right:var(--pad);bottom:24px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(239,230,210,.6)}
 @media (max-width:900px){.fresca::before{background:linear-gradient(0deg,rgba(26,31,21,.95) 30%,rgba(26,31,21,.4) 75%,rgba(26,31,21,.1))}.fresca{align-items:end;padding-bottom:60px}
  .ria{font-size:12.5px;right:var(--pad);left:var(--pad);justify-content:flex-start}.hero .since{display:none}.hm{display:none}.hero::after{background:linear-gradient(0deg,rgba(26,31,21,.95) 35%,rgba(26,31,21,.35) 75%,rgba(26,31,21,.2))}}
+.frame .fcap{position:absolute;left:0;right:0;bottom:14px;z-index:3;text-align:center;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.s-img{position:relative}.s-img::after{content:attr(data-cap);position:absolute;left:16px;bottom:14px;z-index:3;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.7)}
 /* reviews marquee */
 .rev{padding:clamp(100px,16vh,170px) 0;overflow:hidden}
 .rev .lb{display:block;text-align:center;margin-bottom:36px}
@@ -199,11 +201,11 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 <main id="top">
 <section class="hero" id="hero">
   <picture><img class="poster" id="heroImg" src="media/pins.webp" alt="Unsere Wand aus Grana-Padano-Laiben in der Pastasciutta"></picture>
-  <div class="ria" id="ria"><b>Riapertura</b><span>Wir renovieren. Ab Dienstag, 27.10., sind wir wieder für euch da.</span></div>
+  <div class="ria" id="ria"><b>Riapertura</b><span>Wegen Umbauarbeiten geschlossen. Ab dem 27.10. sind wir wieder für euch da!</span></div>
   <div class="hero-in">
     <span class="lb">La Pasta Fresca di Riccardo Annuzzo<span class="hm"> · Oranienstraße 27</span></span>
     <h1 style="margin-top:22px"><span class="ln"><span>Stay sexy.</span></span><span class="ln"><span>Stay <i>al dente.</i></span></span></h1>
-    <p>Frische Pasta aus Neapel mitten in Wiesbaden. Ragù, das sechs Stunden schmort, und Pecorino, der direkt am Teller gerieben wird.</p>
+    <p>Pasta fresca in der Oranienstraße 27. Ziti alla Genovese, sechs Stunden geschmort, Paccheri al Ragù di Salsiccia, Carbonara und Vongole.</p>
     <div class="btns"><a class="btn" href="#menu">Zum Menü</a><a class="btn ghost" href="https://pastasciutta-wiesbaden.de" target="_blank" rel="noopener">Abholen &amp; liefern lassen</a></div>
   </div>
   <div class="since">No reservations. Just come by.</div>
@@ -217,22 +219,22 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
       <div class="dial"><svg viewBox="0 0 200 200"><circle class="b" cx="100" cy="100" r="92"/><g id="ticks"></g><circle class="p" id="dialp" cx="100" cy="100" r="92"/></svg>
         <div class="num"><div><b id="hours">0:00</b><span>Stunden</span></div></div></div>
       <div class="steps">
-        <div class="st"><h2>Am Anfang: <i>der Teig.</i></h2><p>Frische Pasta, jeden Tag von Hand. Dann kommen Zwiebeln, Rinderhüfte und Soffritto in den großen Topf. Kleine Flamme, keine Eile.</p></div>
+        <div class="st"><h2>Am Anfang: <i>Pasta fresca.</i></h2><p>Frische Pasta, dazu Rinderragout aus der Hüfte, Soffritto und reichlich Zwiebeln. Dann heißt es: schmoren lassen.</p></div>
         <div class="st"><h2>Nach 4 Stunden: <i>Salsiccia.</i></h2><p>Italienische Salsiccia, vier Stunden geschmort, für unsere Paccheri al Ragù di Salsiccia.</p></div>
-        <div class="st"><h2>Nach 6 Stunden: <i>Genovese.</i></h2><p>Die Zwiebeln sind zu einer goldenen Sauce zerfallen, das Fleisch zerfällt an der Gabel. Ziti alla Genovese.</p></div>
+        <div class="st"><h2>Nach 6 Stunden: <i>Genovese.</i></h2><p>Rinderragout aus der Hüfte, Soffritto mit reichlich Zwiebeln und Parmesan, sechs Stunden geschmort: Ziti alla Genovese.</p></div>
       </div>
     </div>
     <div class="s-right">
-      <div class="s-img"><img src="media/grana.webp" alt="Nudelhölzer an unserer Wand"></div>
-      <div class="s-img"><img src="media/paccheri.webp" alt="Paccheri al Ragù di Salsiccia"></div>
-      <div class="s-img"><img src="media/ziti.webp" alt="Ziti alla Genovese"></div>
+      <div class="s-img" data-cap="Echtes Foto · unsere Wand"><img src="media/grana.webp" alt="Nudelhölzer an unserer Wand"></div>
+      <div class="s-img" data-cap="Bildvorschlag · kein Originalfoto"><img src="media/paccheri.webp" alt="Paccheri al Ragù di Salsiccia"></div>
+      <div class="s-img" data-cap="Bildvorschlag · kein Originalfoto"><img src="media/ziti.webp" alt="Ziti alla Genovese"></div>
     </div>
   </div>
 </section>
 
 <section class="ballet" id="zutaten">
   <div class="b-stage">
-    <div class="b-head"><span class="lb">Zutaten-Ballett</span><h2 style="margin-top:14px">Scialatielli allo <i>Scoglio.</i></h2><p>Was das Meer hergibt, auf einem Teller.</p></div>
+    <div class="b-head"><span class="lb">Zutaten-Ballett</span><h2 style="margin-top:14px">Scialatielli allo <i>Scoglio.</i></h2><p>Mit Venusmuscheln, Oktopus, Seppia, Kaisergranat und Cherrytomaten. Als Illustration.</p></div>
     <div class="plate"><img src="media/scoglio.webp" alt="Scialatielli allo Scoglio"></div>
     <div id="ings"></div>
   </div>
@@ -247,16 +249,13 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 <section class="fresca" id="riccardo">
   <img src="media/grana.webp" alt="Wand voller Nudelhölzer in der Pastasciutta" id="frescaImg" loading="lazy">
   <div class="in"><span class="lb">La Pasta Fresca</span><h2>Von Hand. <i>Jeden Tag.</i></h2>
-  <p>Hinter der Theke steht Riccardo Annuzzo. Seine Pasta wird frisch gemacht, so wie in Neapel. Die Nudelhölzer an der Wand erinnern daran, wo alles anfängt.</p>
+  <p>„La Pasta Fresca di Riccardo Annuzzo“, so steht es auf unserem Instagram. Die Nudelhölzer an unserer Wand zeigen, worum es hier geht.</p>
   <p>Reservieren musst du nicht. Komm einfach vorbei, setz dich und bestell, worauf du Lust hast.</p>
   <div class="sign">Riccardo Annuzzo</div><span class="noresa">No reservations – just come by</span></div>
   <small>Echtes Foto · unsere Wand</small>
 </section>
 
-<section class="hands">
-  <figure><img src="media/cacio.webp" alt="Spaghettoni Cacio e Pepe werden um die Gabel gedreht" loading="lazy"><figcaption>Spaghettoni Cacio e Pepe</figcaption></figure>
-  <figure><img src="media/gricia.webp" alt="Pecorino wird über Spaghettoni alla Gricia gerieben" loading="lazy"><figcaption>Pecorino Romano, frisch gerieben</figcaption></figure>
-</section>
+
 
 <section class="rev">
   <span class="lb">Was unsere Gäste sagen</span>
@@ -300,23 +299,26 @@ document.getElementById('hrs').innerHTML=H.map((d,i)=>`<tr class="${i===di?'toda
 document.getElementById('open').textContent=H[di][1]?'Heute '+H[di][1]+' Uhr':'Di–Fr ab 17 Uhr';
 
 /* menu */
-const D=[['Pasta della casa',[
- ['Ziti alla <i>Genovese</i>','6 h geschmort','Rinderragù aus der Hüfte mit Zwiebeln und Soffritto, Parmigiano.','ziti'],
- ['Paccheri al Ragù di <i>Salsiccia</i>','4 h geschmort','Italienische Salsiccia, langsam geschmort, Parmigiano.','paccheri'],
- ['Spaghettoni <i>Cacio e Pepe</i>','Klassiker','Pecorino Romano und schwarzer Pfeffer, cremig gerührt.','cacio'],
- ['Spaghettoni alla <i>Gricia</i>','Rom','Pecorino Romano, knuspriger Guanciale, schwarzer Pfeffer.','gricia'],
- ['Spaghettoni alla <i>Carbonara</i>','Rom','Guanciale, Pecorino Romano, Eigelb. Ohne Sahne, versprochen.','gricia']]],
+const D=[['Pasta',[
+ ['Ziti alla <i>Genovese</i>','6 Stunden geschmort','Mit Rinderragout (Hüfte), Soffritto mit reichlich Zwiebeln, Parmesan.','ziti'],
+ ['Paccheri al Ragù di <i>Salsiccia</i>','4 Stunden geschmort','Mit vier Stunden geschmorter italienischer Wurst, Parmesan.','paccheri'],
+ ['Spaghettoni <i>Cacio e Pepe</i>','','Mit Pecorino Romano und frisch gemahlenem Pfeffer.','cacio'],
+ ['Spaghettoni <i>Gricia</i>','','Mit Pecorino Romano, Guanciale und frisch gemahlenem Pfeffer.','gricia'],
+ ['Spaghettoni alla <i>Carbonara</i>','','Mit Guanciale, Pecorino Romano, Eigelb.',''],
+ ['Spaghettoni all\'<i>Amatriciana</i>','','Mit Guanciale, Tomatensauce und Pecorino Romano.','']]],
  ['Dal mare',[
- ['Scialatielli allo <i>Scoglio</i>','Amalfi','Vongole, Pulpo, Sepia, Garnelen und Kirschtomaten.','scoglio'],
- ['Linguine alle <i>Vongole</i>','Napoli','Venusmuscheln im eigenen Sud, Knoblauch, Petersilie.','vongole']]],
+ ['Scialatielli allo <i>Scoglio</i>','','Mit Venusmuscheln, Oktopus, Seppia, Kaisergranat und Cherrytomaten.','scoglio'],
+ ['Linguine alle <i>Vongole</i>','','Mit Venusmuscheln im eigenen Sud.','vongole'],
+ ['Linguine agli <i>Scampi</i>','','In Krustentierbisque und 4 ausgelösten Kaisergranat.','']]],
  ['Dolci',[
- ['Tiramisù <i>al pistacchio</i>','Hausgemacht','Auch klassisch. Dazu Cannoli und Babà napoletano.','dolci']]]];
+ ['Tiramisù <i>pistacchio</i>','','Auch als Tiramisù classico. Außerdem Cannoli und Babbà.','dolci']]]];
 let html='',fr='',imgs=[];
-D.forEach(([c,list])=>{html+=`<div class="cat">${c}</div>`;list.forEach(d=>{if(!imgs.includes(d[3]))imgs.push(d[3]);html+=`<div class="dish" data-img="${d[3]}"><h3>${d[0]}</h3><span class="tg">${d[1]}</span><p>${d[2]}</p><div class="th"><img src="media/${d[3]}.webp" alt="" loading="lazy"></div></div>`})});
+D.forEach(([c,list])=>{html+=`<div class="cat">${c}</div>`;list.forEach(d=>{const k=d[3]||'pins';if(!imgs.includes(k))imgs.push(k);html+=`<div class="dish" data-img="${k}"><h3>${d[0]}</h3><span class="tg">${d[1]}</span><p>${d[2]}</p>${d[3]?`<div class="th"><img src="media/${d[3]}.webp" alt="" loading="lazy"></div>`:''}</div>`})});
 html+=`<div class="combo"><div><b>Menü Insalata</b><span>Pasta &amp; Salat</span><em>11,90 €</em></div><div><b>Menü Dolce</b><span>Pasta &amp; Dessert</span><em>13,90 €</em></div><div><b>Menü Completo</b><span>Pasta, Salat &amp; Dessert</span><em>15,90 €</em></div></div>`;
 document.getElementById('dishes').innerHTML=html;
 document.getElementById('frame').innerHTML=imgs.map((k,i)=>`<img src="media/${k}.webp" data-k="${k}" class="${i===0?'on':''}" alt="" loading="lazy">`).join('');
 const dishes=[...document.querySelectorAll('.dish')],fimgs=[...document.querySelectorAll('#frame img')];
+const fcap=document.createElement('span');fcap.className='fcap';document.getElementById('frame').appendChild(fcap);const capFor=k=>k==='pins'?'Echtes Foto · unsere Wand':'Bildvorschlag · kein Originalfoto';fcap.textContent=capFor(imgs[0]);dishes.forEach(d=>d.addEventListener('mouseenter',()=>{fcap.textContent=capFor(d.dataset.img)}));
 dishes.forEach(d=>d.addEventListener('mouseenter',()=>{dishes.forEach(x=>x.classList.toggle('on',x===d));fimgs.forEach(im=>im.classList.toggle('on',im.dataset.k===d.dataset.img))}));
 
 /* reviews */
@@ -329,7 +331,7 @@ document.getElementById('ticks').innerHTML=t;
 const dp=document.getElementById('dialp'),DL=2*Math.PI*92;dp.style.strokeDasharray=DL;dp.style.strokeDashoffset=DL;
 
 /* ingredients */
-const ING=[['nest','Scialatielli','frisch',-25,-11,13,'L'],['clam1','Vongole','Venusmuscheln',-30,11,7,'L'],['clam3','','',-19,24,6,''],['polpo','Pulpo','zart geschmort',24,-12,11,'R'],['prawn1','Gamberoni','ganze Garnelen',29,9,11,'R'],['prawn2','','',19,25,10,''],['tomato','Pomodorini','Kirschtomaten',-5,27,11,'R'],['parsley','Prezzemolo','glatte Petersilie',8,-25,8,'R'],['garlic','Aglio','eine Zehe',-11,-24,4.2,'L'],['clam2','','',35,-22,5.5,''],['clam4','','',-37,-20,5.5,'']];
+const ING=[['nest','Scialatielli','frisch',-25,-11,13,'L'],['clam1','Vongole','Venusmuscheln',-30,11,7,'L'],['clam3','','',-19,24,6,''],['polpo','Polpo','Oktopus',24,-12,11,'R'],['prawn1','Scampi','Kaisergranat',29,9,11,'R'],['prawn2','','',19,25,10,''],['tomato','Pomodorini','Cherrytomaten',-5,27,11,'R'],['clam2','','',35,-22,5.5,''],['clam4','','',-37,-20,5.5,'']];
 const box=document.getElementById('ings');const k=MOB?1.6:1;
 box.innerHTML=ING.map(g=>`<div class="ing" data-x="${g[3]}" data-y="${g[4]}" style="width:${g[5]*k}vw"><img src="media/${g[0]}.webp" alt="${g[1]}"></div>`+(g[1]?`<div class="il ${g[6]}" data-x="${g[3]}" data-y="${g[4]}" data-w="${g[5]*k}" data-s="${g[6]}"><small>${g[2]}</small>${g[1]}</div>`:'')).join('');
 gsap.set('.ing',{xPercent:-50,yPercent:-50});
@@ -386,7 +388,7 @@ bt.to({},{duration:.4});
 gsap.fromTo('#frescaImg',{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:'#riccardo',start:'top bottom',end:'bottom top',scrub:true}});
 gsap.from('.fresca .in>*',{opacity:0,y:30,stagger:.08,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:'#riccardo',start:'top 60%'}});
 /* hands parallax + marquee */
-document.querySelectorAll('.hands img').forEach((im,i)=>gsap.fromTo(im,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:im.parentNode,start:'top bottom',end:'bottom top',scrub:true}}));
+
 gsap.to('#mq',{xPercent:-33.33,ease:'none',scrollTrigger:{trigger:'.rev',start:'top bottom',end:'bottom top',scrub:.6}});
 gsap.from('.dish',{opacity:0,y:20,stagger:.05,duration:.9,ease:'expo.out',scrollTrigger:{trigger:'#dishes',start:'top 82%'}});
 document.querySelectorAll('.menu-head,.visit>div').forEach(el=>gsap.from(el,{opacity:0,y:30,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
