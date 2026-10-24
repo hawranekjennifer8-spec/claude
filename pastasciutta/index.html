@@ -146,7 +146,7 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
   .dial{width:120px;margin:0}
   .steps{flex:1;min-width:180px;min-height:240px}
   .st h2{font-size:30px}.st p{font-size:14px}
-  .plate{width:52vw;top:60%}
+  .plate{width:52vw;top:63%}.ing{top:63%}
   .il{font-size:14px}
   .menu,.visit{grid-template-columns:1fr}
   .frame{display:none}
@@ -329,7 +329,7 @@ tl.to({},{duration:.4});
 const ings=gsap.utils.toArray('.ing'),ils=gsap.utils.toArray('.il');
 const bt=gsap.timeline({scrollTrigger:{trigger:'#zutaten',start:'top top',end:'bottom bottom',scrub:.9}});
 bt.fromTo('.plate',{scale:.75},{scale:1,duration:1,ease:'power2.out'},0).to('.plate img',{rotate:24,duration:2,ease:'none'},0);
-ings.forEach((el,i)=>{const x=+el.dataset.x,y=+el.dataset.y;bt.fromTo(el,{x:0,y:0,scale:.2,opacity:0,rotate:-30},{x:()=>innerWidth*x/100*(MOB?1.15:1),y:()=>innerHeight*y/100,scale:1,opacity:1,rotate:(i%2?18:-14),duration:1.2,ease:'power3.out'},.15+i*.07)});
+ings.forEach((el,i)=>{const x=+el.dataset.x,y=+el.dataset.y;bt.fromTo(el,{x:0,y:0,scale:.2,opacity:0,rotate:-30},{x:()=>innerWidth*x/100*(MOB?1.15:1),y:()=>innerHeight*y/100*(MOB?.72:1),scale:1,opacity:1,rotate:(i%2?18:-14),duration:1.2,ease:'power3.out'},.15+i*.07)});
 ils.forEach((el,i)=>bt.fromTo(el,{opacity:0,x:el.dataset.s==='L'?12:-12},{opacity:MOB?0:1,x:0,duration:.3},1.25+i*.06));
 bt.to({},{duration:.4});
 

@@ -183,10 +183,11 @@ footer .big em{color:var(--amber)}
   .places{display:none}
   .map{top:auto;bottom:70px;transform:none;width:150px;right:16px}
   .j-text{top:110px;transform:none}
+  .j-img::after{background:linear-gradient(180deg,rgba(21,16,10,.9) 0%,rgba(21,16,10,.7) 50%,rgba(21,16,10,.35))}
   .j-item p{font-size:15px}
   .scale-head,.comb,.cycle,.imker,.contact{grid-template-columns:1fr}
-  .marks{height:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
-  .mk{position:static;transform:none;padding-top:12px}.mk b{font-size:13px;white-space:normal}.mk span{display:none}
+  .marks{height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+  .mk{position:static;transform:none;padding:10px 6px;border:1px solid var(--line);border-radius:3px}.mk::before{display:none}.mk b{font-size:14px;white-space:normal;line-height:1.2}.mk span{display:none}.mk.on{border-color:var(--amber)}
   .card{grid-template-columns:auto 1fr;align-items:start}.card p{grid-column:1/-1}
   .h-stage{grid-template-columns:1fr;align-content:start;padding-top:86px;gap:10px}
   .h-copy p{display:none}.h-copy h2{font-size:38px;margin:10px 0 0}
