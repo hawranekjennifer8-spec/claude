@@ -441,7 +441,7 @@ const v=document.getElementById('heroVid');v.src=MOB?'media/hero-m.mp4':'media/h
 
 /* ---------- flying bee across the whole page ---------- */
 function flyBee(){const bee=document.getElementById('bee');if(RM||!bee)return;
-  const P=[[0,.62,.34],[.06,.8,.24],[.14,.86,.66],[.24,.66,.8],[.33,.3,.86],[.42,.88,.16],[.52,.62,.2],[.62,.14,.18],[.72,.86,.36],[.82,.5,.1],[.92,.9,.7],[1,.82,.82]];
+  const P=[[0,.85,.3],[.06,.87,.22],[.14,.86,.66],[.24,.66,.8],[.33,.3,.86],[.42,.88,.16],[.52,.62,.2],[.62,.14,.18],[.72,.86,.36],[.82,.5,.1],[.92,.9,.7],[1,.82,.82]];
   const qx=gsap.quickTo(bee,'x',{duration:1.1,ease:'power3.out'}),qy=gsap.quickTo(bee,'y',{duration:1.1,ease:'power3.out'}),qr=gsap.quickTo(bee,'rotation',{duration:.6,ease:'power2.out'});
   let lx=null,face=1;
   function at(p){let i=0;while(i<P.length-2&&p>P[i+1][0])i++;const a=P[i],b=P[i+1],t=Math.min(1,Math.max(0,(p-a[0])/(b[0]-a[0])));const e=t*t*(3-2*t);return[a[1]+(b[1]-a[1])*e,a[2]+(b[2]-a[2])*e]}
