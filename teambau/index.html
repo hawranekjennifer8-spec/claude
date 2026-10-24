@@ -68,7 +68,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:.95}
 .phase{position:absolute;top:0;left:0;opacity:0}
 .phase .m{color:var(--signal)}
 .phase h2{font-size:clamp(36px,4vw,68px);margin:12px 0 12px;text-transform:uppercase}
-.phase p{color:rgba(236,235,231,.78);max-width:36ch;background:rgba(11,31,51,.55);padding:2px 0}
+.phase p{color:rgba(236,235,231,.82);max-width:36ch}
+.p2b-copy::before{content:"";position:absolute;inset:-24px -28px -60px -28px;background:linear-gradient(90deg,rgba(11,31,51,.92),rgba(11,31,51,.6));z-index:-1;opacity:var(--bg,0);transition:opacity .4s}
 .p2b-scale{position:absolute;z-index:4;right:var(--pad);bottom:clamp(24px,5vh,44px);text-align:right}
 
 /* services */
@@ -92,7 +93,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:.95}
 .brk-stage{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;padding:0 var(--pad);gap:30px}
 .brk h2{font-size:clamp(40px,5vw,88px);text-transform:uppercase;margin:14px 0 18px}
 .brk p{color:rgba(236,235,231,.72);max-width:38ch}
-.model{position:relative;height:84svh;aspect-ratio:920/1464;justify-self:center}
+.model{position:relative;height:80svh;aspect-ratio:920/1464;justify-self:start;margin-left:4vw}
 .model img{width:100%;height:100%;object-fit:contain;will-change:transform}
 .scan{position:absolute;left:-8%;right:-8%;height:2px;background:var(--signal);box-shadow:0 0 24px var(--signal);top:0;opacity:0}
 .flr{position:absolute;left:104%;display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:.15;transition:opacity .4s}
@@ -216,7 +217,7 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
 <section class="p2b" id="plan">
   <div class="p2b-stage">
     <div class="photo" id="photo"><img src="media/done.webp" alt="Fertiggestelltes Mehrfamilienhaus zur blauen Stunde"></div>
-    <svg class="bp" id="bp" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice"></svg>
+    <svg class="bp" id="bp" viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice"></svg>
     <div class="wipe" id="wipe"></div>
     <div class="p2b-copy">
       <div class="phase"><span class="m">01 · Planung</span><h2>Erst der Plan.</h2><p>Gemeinsam mit Architekten und Planern prüfen wir jedes Detail. Bei fertiger Planung gilt unsere Festpreisgarantie.</p></div>
@@ -318,8 +319,8 @@ gsap.registerPlugin(ScrollTrigger);
 const bp=document.getElementById('bp');let s='';
 for(let x=0;x<=1600;x+=40)s+=`<line class="gridl" x1="${x}" y1="0" x2="${x}" y2="900"/>`;
 for(let y=0;y<=900;y+=40)s+=`<line class="gridl" x1="0" y1="${y}" x2="1600" y2="${y}"/>`;
-const L=520,R=1260,G=760,F=[760,630,500,370,240];
-s+=`<path class="l draw" d="M200 ${G} H1400"/>`;
+const L=760,R=1400,G=760,F=[760,630,500,370,240];
+s+=`<path class="l draw" d="M640 ${G} H1560"/>`;
 s+=`<path class="l draw" d="M${L} ${G} V${F[4]-30} H${R} V${G}"/>`;
 s+=`<path class="l draw" d="M${L-14} ${F[4]-30} H${R+14} M${L} ${F[4]} H${R}"/>`;
 F.slice(1,4).forEach(y=>s+=`<path class="l draw" d="M${L} ${y} H${R}"/>`);
@@ -327,10 +328,11 @@ for(let f=0;f<4;f++){const yb=F[f],yt=F[f+1];for(let i=0;i<6;i++){const x=L+40+i
   s+=`<rect class="t draw" x="${x}" y="${yt+28}" width="${w}" height="${yb-yt-48}"/>`; if(f>0&&i%2===1)s+=`<path class="t draw" d="M${x-10} ${yb-26} H${x+w+10}"/>`}}
 s+=`<rect class="l draw" x="${(L+R)/2-40}" y="${G-110}" width="80" height="110"/>`;
 s+=`<path class="d draw" d="M${L} 820 H${R} M${L} 810 V830 M${R} 810 V830"/><text x="${(L+R)/2-34}" y="850">18,40 m</text>`;
-s+=`<path class="d draw" d="M1330 ${G} V${F[4]-30} M1320 ${G} H1340 M1320 ${F[4]-30} H1340"/><text x="1346" y="${(G+F[4])/2}">15,10 m</text>`;
+s+=`<path class="d draw" d="M1480 ${G} V${F[4]-30} M1470 ${G} H1490 M1470 ${F[4]-30} H1490"/><text x="1496" y="${(G+F[4])/2}">15,10 m</text>`;
 ['A','B','C','D'].forEach((c,i)=>{const x=L+i*(R-L)/3;s+=`<circle class="t draw" cx="${x}" cy="130" r="16"/><text x="${x-5}" y="135">${c}</text><path class="t draw" d="M${x} 146 V${F[4]-36}" stroke-dasharray="6 6"/>`});
 s+=`<text x="${L}" y="${F[4]-50}">OK ATTIKA +15,10</text><text x="${R+24}" y="${F[1]+5}">+2,85</text><text x="${R+24}" y="${F[2]+5}">+5,70</text><text x="${R+24}" y="${F[3]+5}">+8,55</text>`;
 bp.innerHTML=s;
+if(MOB){bp.setAttribute('viewBox','700 90 900 820');bp.setAttribute('preserveAspectRatio','xMidYMax meet')}
 const draws=[...bp.querySelectorAll('.draw')];
 draws.forEach(p=>{const len=p.getTotalLength?p.getTotalLength():1000;p.style.strokeDasharray=p.getAttribute('stroke-dasharray')?p.getAttribute('stroke-dasharray'):len;p.dataset.len=len;if(!p.getAttribute('stroke-dasharray')){p.style.strokeDashoffset=RM?0:len}});
 
@@ -359,7 +361,7 @@ const v=document.getElementById('heroVid');v.src=MOB?'media/hero-m.mp4':'media/h
 gsap.to('.hero h1 .ln>span',{y:0,duration:1.3,ease:'expo.out',stagger:.1,delay:.25});
 gsap.from('.hero .m,.hero p,.stats div',{opacity:0,y:18,duration:1.1,ease:'expo.out',stagger:.06,delay:.5});
 const nav=document.getElementById('nav');
-ScrollTrigger.create({trigger:'#hero',start:'bottom 80px',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
+ScrollTrigger.create({trigger:'#hero',start:'top -22%',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
 if(RM)return;
 
 const lenis=new Lenis({lerp:.09,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
@@ -376,7 +378,7 @@ const ph=gsap.utils.toArray('.phase');gsap.set(ph[0],{opacity:1});
 const pt=gsap.timeline({scrollTrigger:{trigger:'#plan',start:'top top',end:'bottom bottom',scrub:.8,onUpdate:s=>document.getElementById('pct').textContent='Planstand '+Math.round(Math.min(1,s.progress/.7)*100)+' %'}});
 draws.forEach((p,i)=>{if(p.style.strokeDashoffset)pt.to(p,{strokeDashoffset:0,duration:.5,ease:'none'},(i/draws.length)*1.6)});
 pt.to(ph[0],{opacity:0,y:-20,duration:.2},.9).fromTo(ph[1],{opacity:0,y:20},{opacity:1,y:0,duration:.2},1.0);
-pt.to('#wipe',{opacity:1,duration:.05},2.05);
+pt.to('#wipe',{opacity:1,duration:.05},2.05).to('.p2b-copy',{'--bg':1,duration:.2},2.1);
 pt.to('#photo',{clipPath:'inset(0 0% 0 0)',duration:1.1,ease:'power2.inOut'},2.1).to('#wipe',{left:'100%',duration:1.1,ease:'power2.inOut'},2.1);
 pt.to('#bp',{opacity:.25,duration:.8},2.3).to('#wipe',{opacity:0,duration:.1},3.2);
 pt.to(ph[1],{opacity:0,y:-20,duration:.2},2.4).fromTo(ph[2],{opacity:0,y:20},{opacity:1,y:0,duration:.2},2.6);

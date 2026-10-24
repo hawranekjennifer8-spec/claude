@@ -76,11 +76,12 @@ h1 i,h2 i,h3 i{font-weight:500;color:var(--tomato)}
 .b-head{position:absolute;z-index:3;left:0;right:0;top:clamp(80px,12vh,120px);text-align:center;padding:0 var(--pad)}
 .b-head h2{font-size:clamp(44px,6vw,110px)}
 .b-head p{color:var(--muted);margin-top:12px}
-.plate{position:absolute;left:50%;top:58%;width:min(34vw,44vh);aspect-ratio:1;border-radius:50%;overflow:hidden;transform:translate(-50%,-50%);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);z-index:2}
+.il.L{text-align:right}
+.plate{position:absolute;left:50%;top:62%;width:min(34vw,44vh);aspect-ratio:1;border-radius:50%;overflow:hidden;transform:translate(-50%,-50%);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);z-index:2}
 .plate img{width:100%;height:100%;object-fit:cover;object-position:50% 58%;transform:scale(1.32)}
-.ing{position:absolute;left:50%;top:58%;z-index:3;will-change:transform,opacity}
+.ing{position:absolute;left:50%;top:62%;z-index:3;will-change:transform,opacity}
 .ing img{width:100%;height:auto;filter:drop-shadow(0 18px 24px rgba(0,0,0,.45))}
-.il{position:absolute;z-index:4;left:50%;top:58%;opacity:0;font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.4vw,22px);white-space:nowrap;pointer-events:none}
+.il{position:absolute;z-index:4;left:0;top:0;opacity:0;font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.4vw,22px);white-space:nowrap;pointer-events:none}
 .il small{display:block;font-family:var(--sans);font-style:normal;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
 
 /* menu */
@@ -290,10 +291,14 @@ document.getElementById('ticks').innerHTML=t;
 const dp=document.getElementById('dialp'),DL=2*Math.PI*92;dp.style.strokeDasharray=DL;dp.style.strokeDashoffset=DL;
 
 /* ingredients */
-const ING=[['nest','Scialatielli','frisch',-26,-14,14,'r'],['clam1','Vongole','Venusmuscheln',-30,10,7,'r'],['clam3','','',-20,24,6.5,''],['polpo','Pulpo','zart geschmort',25,-16,12,'l'],['prawn1','Gamberoni','ganze Garnelen',30,8,12,'l'],['prawn2','','',22,24,11,''],['tomato','Pomodorini','Kirschtomaten',-4,32,12,'r'],['parsley','Prezzemolo','glatte Petersilie',12,-30,9,'l'],['garlic','Aglio','',-12,-30,4.5,'r'],['clam2','','',34,-30,6,''],['clam4','','',-36,-28,6,'']];
+const ING=[['nest','Scialatielli','frisch',-25,-11,13,'L'],['clam1','Vongole','Venusmuscheln',-30,11,7,'L'],['clam3','','',-19,24,6,''],['polpo','Pulpo','zart geschmort',24,-12,11,'R'],['prawn1','Gamberoni','ganze Garnelen',29,9,11,'R'],['prawn2','','',19,25,10,''],['tomato','Pomodorini','Kirschtomaten',-5,27,11,'R'],['parsley','Prezzemolo','glatte Petersilie',8,-25,8,'R'],['garlic','Aglio','eine Zehe',-11,-24,4.2,'L'],['clam2','','',35,-22,5.5,''],['clam4','','',-37,-20,5.5,'']];
 const box=document.getElementById('ings');const k=MOB?1.6:1;
-box.innerHTML=ING.map(g=>`<div class="ing" data-x="${g[3]}" data-y="${g[4]}" style="width:${g[5]*k}vw"><img src="media/${g[0]}.webp" alt="${g[1]}"></div>`+(g[1]?`<div class="il" data-x="${g[3]}" data-y="${g[4]}" data-s="${g[6]}"><small>${g[2]}</small>${g[1]}</div>`:'')).join('');
-gsap.set('.ing,.il',{xPercent:-50,yPercent:-50});
+box.innerHTML=ING.map(g=>`<div class="ing" data-x="${g[3]}" data-y="${g[4]}" style="width:${g[5]*k}vw"><img src="media/${g[0]}.webp" alt="${g[1]}"></div>`+(g[1]?`<div class="il ${g[6]}" data-x="${g[3]}" data-y="${g[4]}" data-w="${g[5]*k}" data-s="${g[6]}"><small>${g[2]}</small>${g[1]}</div>`:'')).join('');
+gsap.set('.ing',{xPercent:-50,yPercent:-50});
+/* label positions: always outside the ingredient's final box */
+function placeLabels(){document.querySelectorAll('.il').forEach(el=>{const vw=innerWidth/100,vh=innerHeight/100;const cx=50*vw+(+el.dataset.x)*vw*(MOB?1.15:1),cy=62*vh+(+el.dataset.y)*vh;const half=(+el.dataset.w)*vw/2+16;
+  const w=el.offsetWidth,h=el.offsetHeight;const left=el.dataset.s==='L'?cx-half-w:cx+half;el.style.left=left+'px';el.style.top=(cy-h/2)+'px'})}
+placeLabels();addEventListener("resize",placeLabels);if(document.fonts)document.fonts.ready.then(placeLabels);
 
 /* hero crossfade loop */
 const A=document.getElementById('vA'),B=document.getElementById('vB');const src=MOB?'media/hero-m.mp4':'media/hero.mp4';A.src=src;B.src=src;
@@ -303,7 +308,7 @@ A.play().then(loop).catch(()=>{});
 gsap.to('.hero h1 .ln>span',{y:0,duration:1.4,ease:'expo.out',stagger:.12,delay:.3});
 gsap.from('.hero .lb,.hero p,.hero .btns,.since,.rate',{opacity:0,y:20,duration:1.1,ease:'expo.out',stagger:.07,delay:.6});
 const nav=document.getElementById('nav');
-ScrollTrigger.create({trigger:'#hero',start:'bottom 80px',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
+ScrollTrigger.create({trigger:'#hero',start:'top -22%',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
 if(RM)return;
 
 const lenis=new Lenis({lerp:.085,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(x=>lenis.raf(x*1000));gsap.ticker.lagSmoothing(0);
@@ -313,19 +318,19 @@ gsap.to('.hero-in',{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:'
 /* slow cooked */
 const st=gsap.utils.toArray('.st'),si=gsap.utils.toArray('.s-img'),hrs=document.getElementById('hours');
 gsap.set(st[0],{opacity:1,y:0});gsap.set(si[0],{opacity:1});
-const tl=gsap.timeline({scrollTrigger:{trigger:'#langsam',start:'top top',end:'bottom bottom',scrub:.8,onUpdate:s=>{const h=s.progress*6.2;const hh=Math.min(6,Math.floor(h)),mm=Math.min(59,Math.floor((h-Math.floor(h))*60));hrs.textContent=(h>=6?'6:00':hh+':'+String(mm).padStart(2,'0'))}}});
-tl.to(dp,{strokeDashoffset:0,duration:3,ease:'none'},0);
-si.forEach((s,i)=>tl.fromTo(s.querySelector('img'),{scale:1.14},{scale:1,duration:1.1,ease:'none'},i));
-[1,2].forEach(i=>{tl.to(si[i],{opacity:1,duration:.3},i-.1).to(st[i-1],{opacity:0,y:-24,duration:.2},i-.1).fromTo(st[i],{opacity:0,y:24},{opacity:1,y:0,duration:.25},i+.05)});
-tl.to({},{duration:.3});
+const tl=gsap.timeline({scrollTrigger:{trigger:'#langsam',start:'top top',end:'bottom bottom',scrub:.8,onUpdate:s=>{const h=Math.min(6,s.progress*3.4*2);const hh=Math.min(6,Math.floor(h)),mm=Math.min(59,Math.floor((h-Math.floor(h))*60));hrs.textContent=(h>=6?'6:00':hh+':'+String(mm).padStart(2,'0'))}}});
+tl.to(dp,{strokeDashoffset:0,duration:3,ease:'none'},0);/* steps at 4h (t=2) and 6h (t=3) */
+const at=[0,1.85,2.8];
+si.forEach((s,i)=>tl.fromTo(s.querySelector('img'),{scale:1.14},{scale:1,duration:i?1.2:2,ease:'none'},at[i]));
+[1,2].forEach(i=>{tl.to(si[i],{opacity:1,duration:.3},at[i]).to(st[i-1],{opacity:0,y:-24,duration:.2},at[i]).fromTo(st[i],{opacity:0,y:24},{opacity:1,y:0,duration:.25},at[i]+.15)});
+tl.to({},{duration:.4});
 
 /* ballet */
 const ings=gsap.utils.toArray('.ing'),ils=gsap.utils.toArray('.il');
 const bt=gsap.timeline({scrollTrigger:{trigger:'#zutaten',start:'top top',end:'bottom bottom',scrub:.9}});
 bt.fromTo('.plate',{scale:.75},{scale:1,duration:1,ease:'power2.out'},0).to('.plate img',{rotate:24,duration:2,ease:'none'},0);
 ings.forEach((el,i)=>{const x=+el.dataset.x,y=+el.dataset.y;bt.fromTo(el,{x:0,y:0,scale:.2,opacity:0,rotate:-30},{x:()=>innerWidth*x/100*(MOB?1.15:1),y:()=>innerHeight*y/100,scale:1,opacity:1,rotate:(i%2?18:-14),duration:1.2,ease:'power3.out'},.15+i*.07)});
-ils.forEach((el,i)=>{const x=+el.dataset.x,y=+el.dataset.y,side=el.dataset.s;const off=side==='l'?1:-1;
-  bt.fromTo(el,{opacity:0,x:()=>innerWidth*x/100+off*innerWidth*(MOB?.0:.09),y:()=>innerHeight*y/100+(MOB?40:0)},{opacity:MOB?0:1,duration:.3},1.2+i*.06)});
+ils.forEach((el,i)=>bt.fromTo(el,{opacity:0,x:el.dataset.s==='L'?12:-12},{opacity:MOB?0:1,x:0,duration:.3},1.25+i*.06));
 bt.to({},{duration:.4});
 
 /* hands parallax + marquee */

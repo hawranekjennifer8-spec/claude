@@ -39,7 +39,7 @@ em{font-style:italic;font-weight:300;color:var(--amber)}
 
 .hero{position:relative;height:100svh;min-height:620px;overflow:hidden}
 .hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,16,10,.86) 0%,rgba(21,16,10,.55) 34%,rgba(21,16,10,0) 62%),linear-gradient(0deg,rgba(21,16,10,.75),rgba(21,16,10,0) 35%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,16,10,.92) 0%,rgba(21,16,10,.72) 38%,rgba(21,16,10,.1) 68%),linear-gradient(0deg,rgba(21,16,10,.75),rgba(21,16,10,0) 35%)}
 .hero-in{position:absolute;z-index:2;left:var(--pad);bottom:clamp(40px,11vh,120px);max-width:min(720px,88vw)}
 .hero h1{font-size:clamp(50px,7.2vw,128px);line-height:.96;margin:20px 0 26px}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}.hero h1 .ln>span{display:inline-block;transform:translateY(110%)}
@@ -67,7 +67,7 @@ em{font-style:italic;font-weight:300;color:var(--amber)}
 .j-item .honey{display:flex;gap:22px;margin-top:22px;flex-wrap:wrap}
 .j-item .honey div{display:flex;align-items:center;gap:10px;font-size:14px}
 .j-item .honey i{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 -3px 6px rgba(0,0,0,.25),0 0 0 1px rgba(243,234,216,.2)}
-.map{position:absolute;z-index:3;right:var(--pad);top:50%;transform:translateY(-50%);width:clamp(200px,20vw,300px)}
+.map{position:absolute;z-index:3;right:var(--pad);top:50%;transform:translateY(-50%);width:clamp(220px,21vw,320px);padding:22px;background:rgba(21,16,10,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:4px}
 .map svg{width:100%;overflow:visible}
 .map .river{fill:none;stroke:rgba(140,170,190,.35);stroke-width:5;stroke-linecap:round}
 .map .route{fill:none;stroke:rgba(243,234,216,.28);stroke-width:1;stroke-dasharray:3 5}
@@ -382,7 +382,7 @@ if(document.readyState==='complete')setTimeout(start,800);else addEventListener(
 setTimeout(()=>{if(!document.getElementById('pre').classList.contains('done'))start()},4500);
 
 const nav=document.getElementById('nav');
-ScrollTrigger.create({trigger:'#hero',start:'bottom 80px',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
+ScrollTrigger.create({trigger:'#hero',start:'top -22%',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
 if(RM)return;
 
 const lenis=new Lenis({lerp:.08,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
