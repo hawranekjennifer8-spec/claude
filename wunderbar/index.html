@@ -69,7 +69,8 @@ h1 i,h2 i,h3 i{font-style:italic;color:var(--sageD)}
 .h-text p{color:var(--muted);max-width:42ch;margin-bottom:30px}
 .h-text .btns{display:flex;gap:12px;flex-wrap:wrap}
 .mirror{position:absolute;inset:0;z-index:2;clip-path:inset(13% 4% 9% 46% round 320px 320px 8px 8px);will-change:clip-path}
-.mirror video,.mirror .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 50%}
+.mbox{position:absolute;top:13%;right:4%;bottom:9%;left:46%}
+.mirror video,.mirror .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% 50%}
 .frame{position:absolute;z-index:3;left:46%;right:4%;top:13%;bottom:9%;border-radius:320px 320px 8px 8px;pointer-events:none;border:3px solid var(--gold);box-shadow:0 0 0 7px var(--cream),0 0 0 9px var(--goldL),0 40px 80px -30px rgba(43,29,23,.45)}
 .frame::before{content:"";position:absolute;inset:10px;border-radius:310px 310px 4px 4px;border:1px solid rgba(255,240,210,.55)}
 .over{position:absolute;z-index:4;left:var(--pad);right:var(--pad);bottom:clamp(30px,8vh,80px);color:var(--paper);opacity:0;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
@@ -224,6 +225,7 @@ footer .lg{--cafe:#d9a58f}
   .h-text .lg{display:none}.h-text .k{font-size:10px;letter-spacing:.22em}
   .h-text h1{font-size:44px;margin:10px 0 12px}.h-text p{font-size:15px;margin-bottom:16px}.h-text .btns .ghost{display:none}
   .mirror{clip-path:inset(57% 10% 4% 10% round 200px 200px 6px 6px)}
+  .mbox{top:57%;right:10%;bottom:4%;left:10%}
     .frame{left:10%;right:10%;top:57%;bottom:4%;border-radius:200px 200px 6px 6px}
   .frame::before{border-radius:190px 190px 4px 4px}
   .salon{grid-template-columns:1fr}
@@ -293,7 +295,7 @@ footer .lg{--cafe:#d9a58f}
       <p>Direkt gehandelter Spezialitätenkaffee, Kuchen und Wunderbar-Specials in der Dotzheimer Straße 53 in Wiesbaden.</p>
       <div class="btns"><a class="btn" href="#karte">Zur Karte</a><a class="btn ghost" href="#mieten">Café mieten</a></div>
     </div>
-    <div class="mirror" id="mirror"><img class="poster" src="media/hero3l.webp" alt="Cappuccino mit Latte Art auf dem grün-goldenen Tablett im Café wunderbar"><video id="heroVid" muted playsinline loop autoplay preload="auto" poster="media/hero3l.webp"></video></div>
+    <div class="mirror" id="mirror"><div class="mbox" id="mbox"><img class="poster" src="media/hero3l.webp" alt="Cappuccino mit Latte Art auf dem grün-goldenen Tablett im Café wunderbar"><video id="heroVid" muted playsinline loop autoplay preload="auto" poster="media/hero3l.webp"></video></div></div>
     <div class="frame" id="frame"></div>
     <div class="over" id="over"><h2>„Schöne alte Sitzmöbel wie bei Oma <i>laden zum Verweilen ein.“</i></h2><p>Aus einer Google-Bewertung · 4,8 ★ bei 181 Bewertungen</p></div>
   </div>
@@ -486,6 +488,7 @@ gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom bottom
  .to('#htext',{opacity:0,x:-60,duration:.35},0)
  .to('#frame',{opacity:0,duration:.2},.05)
  .to('#mirror',{clipPath:full,duration:.7,ease:'power2.inOut'},.05)
+ .to('#mbox',{top:0,right:0,bottom:0,left:0,duration:.7,ease:'power2.inOut'},.05)
  .to('#hstage',{'--sh':1,duration:.3},.55)
  .fromTo('#over',{opacity:0,y:30},{opacity:1,y:0,duration:.3},.65)
  .to({},{duration:.2});
