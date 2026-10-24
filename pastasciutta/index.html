@@ -8,9 +8,8 @@
 <meta name="description" content="Konzept-Entwurf von J.H. Digital Atelier für PASTASCIUTTA, Oranienstraße 27, Wiesbaden.">
 <meta property="og:image" content="media/pins.webp">
 <link rel="icon" href="media/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter+Tight:wght@300..700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="media/hero4.webp">
+<link href="fonts/fonts.css" rel="stylesheet">
+<link rel="preload" as="image" href="media/plate.webp">
 <style>
 :root{--olive:#2d3325;--deep:#1a1f15;--deep2:#22281b;--cream:#efe6d2;--tomato:#d0442a;--gold:#d9a441;--line:rgba(239,230,210,.15);--muted:rgba(239,230,210,.66);
 --serif:"Playfair Display",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1);--pad:clamp(18px,4.5vw,72px)}
@@ -39,14 +38,23 @@ h1 i,h2 i,h3 i{font-weight:500;color:var(--tomato)}
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;display:grid;align-items:end;text-align:left;padding-bottom:clamp(70px,12vh,130px)}
 .hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;will-change:transform}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,31,21,.88),rgba(26,31,21,.35) 60%,rgba(26,31,21,.05)),linear-gradient(0deg,rgba(26,31,21,.85),transparent 50%)}
-.hero-in{position:relative;z-index:2;padding:0 var(--pad)}
-.hero h1{font-size:clamp(56px,8.6vw,170px);line-height:.88;font-weight:600}
+.hero-in{position:relative;z-index:3;padding:0 var(--pad);max-width:calc(100% - min(66vh,42vw) - clamp(40px,7vw,140px))}
+.hero h1{font-size:clamp(52px,min(6.4vw,11vh),132px);line-height:.88;font-weight:600}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.1em}.hero h1 .ln>span{display:inline-block;transform:translateY(110%)}
 .hero p{max-width:46ch;margin:24px 0 32px;color:var(--muted);font-size:clamp(16px,1.2vw,20px)}
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap}
-.hero .since{position:absolute;z-index:2;right:var(--pad);top:clamp(110px,16vh,150px);font-family:var(--serif);font-style:italic;color:var(--muted)}
+.hero .since{position:absolute;z-index:3;left:var(--pad);top:clamp(110px,16vh,150px);font-family:var(--serif);font-style:italic;color:var(--muted)}
 .hero .rate{position:absolute;z-index:2;right:var(--pad);bottom:clamp(24px,5vh,46px);text-align:right;font-size:13px;color:var(--muted)}
 .hero .rate b{display:block;font-family:var(--serif);font-size:30px;color:var(--cream);font-weight:500}
+
+.plateWrap{position:absolute;z-index:2;right:clamp(40px,7vw,140px);top:calc(50% - min(33vh,21vw));width:min(66vh,42vw);aspect-ratio:1;will-change:transform}
+.heroPlate{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;will-change:transform}
+.plateShadow{position:absolute;inset:6% 2% -4% 6%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.65),rgba(0,0,0,0));filter:blur(18px);transform:translate(4%,6%)}
+.steam{position:absolute;inset:0;pointer-events:none}
+.steam i{position:absolute;left:44%;top:30%;width:16%;height:34%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.22),rgba(255,255,255,0));filter:blur(14px);opacity:0;animation:steam 6s ease-in-out infinite}
+.steam i:nth-child(2){left:30%;animation-delay:2s}.steam i:nth-child(3){left:58%;animation-delay:4s}
+@keyframes steam{0%{opacity:0;transform:translateY(10%) scale(.8)}35%{opacity:.7}100%{opacity:0;transform:translateY(-60%) scale(1.4)}}
+@media (max-width:900px){.plateWrap{right:auto;left:calc(50% - min(42vw,23vh));top:clamp(200px,28vh,240px);width:min(84vw,46vh)}}
 
 /* slow cooked */
 .slow{position:relative;height:340vh;background:var(--deep)}
@@ -195,10 +203,11 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero h1 .ln>span{transform:none}.st:first-child,.s-img:first-child{opacity:1;transform:none}}
 @media (max-width:900px){
- .hero{display:block;height:auto;min-height:0;padding:calc(236px + (100vw - 2*var(--pad))*.64 + 30px) 0 56px;background:var(--deep)}
- .hero #heroVid,.hero #heroImg{inset:auto;top:236px;left:var(--pad);width:calc(100vw - 2*var(--pad));height:calc((100vw - 2*var(--pad))*.64);border-radius:6px;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
- .hero::after{display:none}
+ .hero{display:block;height:auto;min-height:100svh;padding:calc(clamp(200px,28vh,240px) + min(84vw,46vh) + 30px) 0 56px}
+ .hero::after{background:linear-gradient(0deg,rgba(26,31,21,.98) 34%,rgba(26,31,21,.55) 70%,rgba(26,31,21,.35))}
  .hero h1{font-size:clamp(46px,12.5vw,64px)}
+ .hero-in{max-width:none}
+ .hero .since{display:none}
 }
 </style>
 </head>
@@ -216,8 +225,8 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 
 <main id="top">
 <section class="hero" id="hero">
-  <img class="poster" id="heroImg" src="media/hero4.webp" alt="Pasta mit Miesmuscheln, Scampi und Kirschtomaten aus der Pastasciutta" style="object-position:50% 50%">
-  <video class="poster" id="heroVid" muted playsinline preload="auto" poster="media/hero4.webp" style="object-position:50% 50%"></video>
+  <img class="poster" id="heroImg" src="media/pins.webp" alt="Die Wand aus Grana-Padano-Laiben in der Pastasciutta" style="object-position:50% 45%">
+  <div class="plateWrap" id="plateWrap"><div class="plateShadow"></div><img class="heroPlate" id="heroPlate" src="media/plate.webp" alt="Pasta mit Miesmuscheln, Scampi und Kirschtomaten aus der Pastasciutta"><div class="steam"><i></i><i></i><i></i></div></div>
   <div class="ria" id="ria"><b>Riapertura</b><span>Wegen Umbauarbeiten geschlossen. Ab dem 27.10. sind wir wieder für euch da!</span></div>
   <div class="hero-in">
     <span class="lb">La Pasta Fresca di Riccardo Annuzzo<span class="hm"> · Oranienstraße 27</span></span>
@@ -242,7 +251,7 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
       </div>
     </div>
     <div class="s-right">
-      <div class="s-img" data-cap="Echtes Foto · unsere Wand"><img src="media/grana.webp" alt="Nudelhölzer an unserer Wand"></div>
+      <div class="s-img" data-cap="Echtes Foto · unsere Grana-Wand"><img src="media/real-lokal.webp" style="object-position:50% 30%" alt="Grana-Padano-Wand und Theke in der Pastasciutta"></div>
       <div class="s-img" data-cap="Gästefoto · Google"><img style="object-position:50% 72%" src="media/real-ragu.webp" alt="Paccheri al Ragù di Salsiccia"></div>
       <div class="s-img" data-cap="Echtes Foto · unsere Tafel"><img style="object-position:30% 50%" src="media/real-tafel.webp" alt="Ziti alla Genovese"></div>
     </div>
@@ -264,12 +273,12 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 </section>
 
 <section class="fresca" id="riccardo">
-  <img src="media/grana.webp" alt="Wand voller Nudelhölzer in der Pastasciutta" id="frescaImg" loading="lazy">
-  <div class="in"><span class="lb">La Pasta Fresca</span><h2>Von Hand. <i>Jeden Tag.</i></h2>
-  <p>„La Pasta Fresca di Riccardo Annuzzo“, so steht es auf unserem Instagram. Die Nudelhölzer an unserer Wand zeigen, worum es hier geht.</p>
+  <img src="media/real-lokal2.webp" alt="Gastraum der Pastasciutta" id="frescaImg" loading="lazy">
+  <div class="in"><span class="lb">La Pasta Fresca</span><h2>Pasta <i>fresca.</i></h2>
+  <p>„La Pasta Fresca di Riccardo Annuzzo“, so steht es auf unserem Instagram.</p>
   <p>Reservieren musst du nicht. Komm einfach vorbei, setz dich und bestell, worauf du Lust hast.</p>
   <div class="sign">Riccardo Annuzzo</div><span class="noresa">No reservations – just come by</span></div>
-  <small>Echtes Foto · unsere Wand</small>
+  <small>Echtes Foto · unser Lokal</small>
 </section>
 
 
@@ -310,12 +319,12 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 
 <footer>
   <img src="media/logo-cream.png" alt="PASTASCIUTTA">
-  <div class="f"><span>PASTASCIUTTA · Oranienstraße 27 · 65185 Wiesbaden</span><span class="concept">Konzept-Entwurf von J.H. Digital Atelier für PASTASCIUTTA · keine offizielle Website · Fotos: Gäste auf Google und Instagram, farblich nachbearbeitet · Zutaten-Animation als Illustration</span></div>
+  <div class="f"><span>PASTASCIUTTA · Oranienstraße 27 · 65185 Wiesbaden</span><span class="concept">Konzept-Entwurf von J.H. Digital Atelier für PASTASCIUTTA · keine offizielle Website · Fotos: Gäste auf Google und Instagram, farblich nachbearbeitet · Zutaten-Animation als Illustration</span><span class="legal" style="display:flex;gap:16px"><a href="impressum.html" style="color:inherit">Impressum</a><a href="datenschutz.html" style="color:inherit">Datenschutz</a></span></div>
 </footer>
 
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
 <script>
 (function(){
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches, MOB=matchMedia('(max-width: 900px)').matches;
@@ -372,7 +381,9 @@ placeLabels();addEventListener("resize",placeLabels);if(document.fonts)document.
 /* riapertura banner only until reopening day */
 if(now>=new Date(2026,9,28))document.getElementById('ria').remove();
 /* intro: spiral draws, fork spins, curtain opens */
-function startHero(){const hv=document.getElementById('heroVid');hv.src='media/hero4.mp4';hv.addEventListener('ended',()=>hv.pause());if(!RM)hv.play().catch(()=>{});gsap.fromTo('#heroImg,#heroVid',{scale:1.12},{scale:1,duration:2.6,ease:'expo.out'});
+function startHero(){gsap.fromTo('#heroImg',{scale:1.15},{scale:1.02,duration:3,ease:'expo.out'});
+  gsap.fromTo('#heroPlate',{rotation:-150,scale:.55,opacity:0},{rotation:0,scale:1,opacity:1,duration:2.2,ease:'expo.out',onComplete:()=>{if(!RM)gsap.to('#heroPlate',{rotation:'+=360',duration:120,ease:'none',repeat:-1})}});
+  gsap.fromTo('.plateShadow',{opacity:0,scale:.6},{opacity:1,scale:1,duration:2.2,ease:'expo.out'});
   gsap.to('.hero h1 .ln>span',{y:0,duration:1.4,ease:'expo.out',stagger:.12,delay:.2});
   gsap.from('.hero .lb,.hero p,.hero .btns,.since,.rate,.ria',{opacity:0,y:20,duration:1.1,ease:'expo.out',stagger:.07,delay:.45});}
 function intro(){const el=document.getElementById('intro');if(RM){el.remove();startHero();return}
@@ -395,6 +406,8 @@ if(RM)return;
 const lenis=new Lenis({lerp:.085,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(x=>lenis.raf(x*1000));gsap.ticker.lagSmoothing(0);
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const tg=document.querySelector(a.getAttribute('href'));if(tg){e.preventDefault();lenis.scrollTo(tg,{duration:1.7})}}));
 gsap.to('.hero-in',{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('#plateWrap',{y:()=>innerHeight*(MOB?-.08:-.22),scale:1.15,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('#heroImg',{yPercent:8,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
 
 /* slow cooked */
 const st=gsap.utils.toArray('.st'),si=gsap.utils.toArray('.s-img'),hrs=document.getElementById('hours');

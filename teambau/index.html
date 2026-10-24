@@ -8,8 +8,7 @@
 <meta name="description" content="Konzept-Entwurf von J.H. Digital Atelier für die Team Bau GmbH, Wiesbaden.">
 <meta property="og:image" content="media/ref16.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b1f33'/%3E%3Cpath d='M10 16h44M18 16v34' stroke='%23f2c230' stroke-width='5'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="fonts/fonts.css" rel="stylesheet">
 <link rel="preload" as="image" href="media/ref16.webp">
 <style>
 :root{--navy:#0b1f33;--navy2:#0f2a45;--paper:#ecebe7;--concrete:#c9c6bf;--signal:#f2c230;--ink:#0a141e;--lineD:rgba(10,20,30,.14);--lineL:rgba(236,235,231,.16);
@@ -55,8 +54,11 @@ h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:.95}
 /* plan to build */
 .p2b{position:relative;height:330vh;background:var(--navy);color:var(--paper)}
 .p2b-stage{position:sticky;top:0;height:100svh;overflow:hidden}
-.photo{position:absolute;inset:0;clip-path:inset(0 100% 0 0);will-change:clip-path}
-.photo img{width:100%;height:100%;object-fit:cover}
+.pbox{position:absolute;z-index:3;margin:0;right:var(--pad);top:calc(50% - min(46vw,600px)*991/1173/2);width:min(46vw,600px);aspect-ratio:1173/991}
+.photo{position:absolute;inset:0;clip-path:inset(0 100% 0 0);will-change:clip-path;border-radius:4px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.7);outline:1px solid rgba(236,235,231,.25);outline-offset:10px}
+.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.pbox figcaption{position:absolute;left:0;top:calc(100% + 22px);font-size:11px;color:rgba(236,235,231,.6);letter-spacing:.08em}
+@media (max-width:900px){.pbox{right:auto;left:var(--pad);width:calc(100vw - 2*var(--pad));top:auto;bottom:clamp(70px,11vh,100px)}.pbox figcaption{display:none}}
 .bp{position:absolute;inset:0;width:100%;height:100%}
 .bp .l{fill:none;stroke:rgba(236,235,231,.82);stroke-width:1.4;vector-effect:non-scaling-stroke}
 .bp .t{fill:none;stroke:rgba(236,235,231,.38);stroke-width:1;vector-effect:non-scaling-stroke}
@@ -257,9 +259,8 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
 
 <section class="p2b" id="plan">
   <div class="p2b-stage">
-    <div class="photo" id="photo"><img src="media/ref01.webp" alt="Mehrfamilienhaus Panoramastraße, Wiesbaden" style="object-position:30% 50%"></div>
     <svg class="bp" id="bp" viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice"></svg>
-    <div class="wipe" id="wipe"></div>
+    <figure class="pbox" id="pbox"><div class="photo" id="photo"><img src="media/ref01.webp" width="1173" height="991" alt="Mehrfamilienhaus Panoramastraße, Wiesbaden"></div><div class="wipe" id="wipe"></div><figcaption class="m">Referenz · Mehrfamilienhaus Panoramastraße, Wiesbaden</figcaption></figure>
     <div class="p2b-copy">
       <div class="phase"><span class="m">01 · Planung</span><h2>Erst der Plan.</h2><p>Unser Team analysiert Ihre Anforderungen und entwickelt maßgeschneiderte Lösungen. Bei fertiger Planung gilt unsere Festpreisgarantie.</p></div>
       <div class="phase"><span class="m">02 · Rohbau</span><h2>Dann das Fundament.</h2><p>Unsere Kernleistung: Rohbau mit eigenem Maschinenpark und eigenem Materialbestand.</p></div>
@@ -363,12 +364,12 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
 
 <footer>
   <div class="mega">TEAM BAU</div>
-  <div class="foot"><span>Team Bau GmbH · Karl-Legien-Straße 20 · 65199 Wiesbaden</span><span class="m">Konzept-Entwurf von J.H. Digital Atelier für die Team Bau GmbH · keine offizielle Website · Fotos von teambau-wiesbaden.de · Modell und Bauplan als Illustration</span></div>
+  <div class="foot"><span>Team Bau GmbH · Karl-Legien-Straße 20 · 65199 Wiesbaden</span><span class="m">Konzept-Entwurf von J.H. Digital Atelier für die Team Bau GmbH · keine offizielle Website · Fotos von teambau-wiesbaden.de · Modell und Bauplan als Illustration</span><span class="legal" style="display:flex;gap:16px"><a href="impressum.html" style="color:inherit">Impressum</a><a href="datenschutz.html" style="color:inherit">Datenschutz</a></span></div>
 </footer>
 
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
 <script>
 (function(){
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches, MOB=matchMedia('(max-width: 900px)').matches;
