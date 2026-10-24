@@ -133,7 +133,36 @@ h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:.95}
 .rpanel .meta b{font-weight:500}
 .sym{color:rgba(10,20,30,.5)}
 
-/* timeline */
+/* intro: crane */
+.intro{position:fixed;inset:0;z-index:120;background:var(--navy);overflow:hidden;color:var(--paper)}
+.intro::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(236,235,231,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(236,235,231,.06) 1px,transparent 1px);background-size:40px 40px}
+.intro svg{position:absolute;inset:0;width:100%;height:100%}
+.intro .cr{fill:none;stroke:var(--paper);stroke-width:3;stroke-linejoin:round}
+.intro .cr2{fill:none;stroke:rgba(236,235,231,.55);stroke-width:1.5}
+.intro .cable{stroke:var(--paper);stroke-width:1.5}
+.intro .load rect{fill:var(--signal)}
+.intro .load text{font-family:"Space Grotesk",system-ui;font-weight:700;font-size:56px;letter-spacing:-1px;fill:var(--ink)}
+.intro .ground{stroke:var(--signal);stroke-width:3}
+.intro .lbl{position:absolute;left:var(--pad);bottom:28px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--signal)}
+/* team */
+.team{position:relative;padding:clamp(100px,16vh,170px) var(--pad);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,6vw,100px);align-items:start}
+.team h2{font-size:clamp(44px,6vw,104px);text-transform:uppercase;margin:14px 0 22px}
+.team .lead{color:rgba(10,20,30,.66);max-width:44ch}
+.team .cert{display:flex;align-items:center;gap:18px;margin-top:36px;padding:18px;border:1px solid var(--lineD);background:#fff;max-width:440px}
+.team .cert img{width:110px;height:auto;flex:0 0 auto}
+.team .cert b{display:block;font-weight:500}.team .cert span{font-size:14px;color:rgba(10,20,30,.62)}
+.team .quote{margin-top:30px;border-left:3px solid var(--signal);padding:6px 0 6px 18px;max-width:440px}
+.team .quote p{font-size:clamp(20px,1.7vw,26px);letter-spacing:-.02em;font-weight:500;line-height:1.25}
+.team .quote small{display:block;margin-top:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:rgba(10,20,30,.55)}
+.tgrid{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tgrid figure{overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--concrete)}
+.tgrid figure:nth-child(1){grid-row:span 2;aspect-ratio:auto}
+.tgrid img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.tgrid figcaption{position:absolute;left:10px;bottom:8px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+@media (max-width:900px){.team{grid-template-columns:1fr}.tgrid{grid-template-columns:1fr 1fr}.tgrid figure:nth-child(1){grid-row:auto;aspect-ratio:3/4}.tgrid figure:nth-child(5){display:none}}
+.rpanel .img{aspect-ratio:4/3!important}
+.rpanel img.dr{object-fit:contain;background:#fff}
+/* timeline-css */
 .time{position:relative;background:var(--ink);color:var(--paper);padding:clamp(100px,16vh,170px) var(--pad);overflow:hidden}
 .time h2{font-size:clamp(44px,6vw,104px);text-transform:uppercase;max-width:14ch}
 .time .lead{color:rgba(236,235,231,.72);max-width:52ch;margin:24px 0 clamp(50px,9vh,90px)}
@@ -184,9 +213,21 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
 </style>
 </head>
 <body>
+<div class="intro" id="intro">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" id="crane">
+    <line class="ground" x1="0" y1="780" x2="1600" y2="780"/>
+    <g class="cr"><path d="M300 780 V170 M340 780 V170 M300 170 H340"/><path d="M300 780 L340 740 L300 700 L340 660 L300 620 L340 580 L300 540 L340 500 L300 460 L340 420 L300 380 L340 340 L300 300 L340 260 L300 220 L340 180" class="cr2"/>
+      <path d="M200 170 H1300 M200 140 H1300 M320 90 V170"/><path d="M320 90 L200 140 M320 90 L760 140 M320 90 L1300 140" class="cr2"/>
+      <rect x="180" y="150" width="70" height="60"/></g>
+    <g id="trolley"><rect x="0" y="166" width="40" height="14" fill="#f2c230"/>
+      <line class="cable" id="cable" x1="20" y1="180" x2="20" y2="300"/>
+      <g class="load" id="load"><path d="M20 300 L-170 360 M20 300 L210 360" class="cable"/><rect x="-190" y="360" width="420" height="96"/><text x="20" y="428" text-anchor="middle">TEAM BAU</text></g></g>
+  </svg>
+  <div class="lbl" id="ilbl">[ HUB 01 · LAST 1,2 t · WIESBADEN ]</div>
+</div>
 <header class="nav" id="nav">
   <a class="logo" href="#top"><img src="media/logo.png" alt="Team Bau GmbH"></a>
-  <ul><li><a href="#plan">Vom Plan zum Bau</a></li><li><a href="#leistungen">Leistungen</a></li><li><a href="#referenzen">Referenzen</a></li><li><a href="#unternehmen">Unternehmen</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+  <ul><li><a href="#plan">Vom Plan zum Bau</a></li><li><a href="#leistungen">Leistungen</a></li><li><a href="#referenzen">Referenzen</a></li><li><a href="#unternehmen">Unternehmen</a></li><li><a href="#team">Team</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
   <a class="tel" href="tel:+496119446619">0611 9446619</a>
 </header>
 
@@ -268,8 +309,8 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
   <div class="refs-head"><div><span class="m" style="color:rgba(10,20,30,.55)">[ 04 · Referenzen ]</span><h2 style="margin-top:14px">Gebaut.</h2></div>
     <div class="filters" id="filters"><button class="on" data-f="Alle">Alle</button><button data-f="Wohnen">Wohnen</button><button data-f="Gewerbe">Gewerbe</button><button data-f="Bildung">Bildung</button><button data-f="Öffentlich">Öffentlich</button></div></div>
   <div class="tbl" id="tbl"></div>
-  <div class="rpanel"><div class="img" id="rimg"><img src="media/done.webp" class="on" alt=""><img src="media/wgh.webp" alt=""><img src="media/kita.webp" alt=""><img src="media/mensa.webp" alt=""><img src="media/hero.webp" alt=""></div>
-    <div class="meta m"><b id="rname">Mehrfamilienhaus</b><span class="sym">Symbolbild</span></div></div>
+  <div class="rpanel"><div class="img" id="rimg"></div>
+    <div class="meta m"><b id="rname">Mehrfamilienhaus</b><span class="sym" id="rsym">Referenzfoto</span></div></div>
 </section>
 
 <section class="time" id="unternehmen">
@@ -284,10 +325,28 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
   </div>
 </section>
 
+<section class="team" id="team">
+  <div class="grid-bg"></div>
+  <div style="position:relative">
+    <span class="m" style="color:rgba(10,20,30,.55)">[ 06 · Auf der Baustelle ]</span>
+    <h2>Unser <span style="font-weight:300">Team.</span></h2>
+    <p class="lead">Eigene Leute, eigener Maschinenpark, eigenes Material. Wer bei uns anfragt, spricht mit denen, die auch auf der Baustelle stehen.</p>
+    <div class="cert"><img src="media/hpqr.png" alt="HPQR-Zertifikat, Hessisches Präqualifikationsregister"><div><b>HPQR-zertifiziert</b><span>Eingetragen im Hessischen Präqualifikationsregister für öffentliche Aufträge.</span></div></div>
+    <div class="quote"><p>„Vielen Dank für die gute Zusammenarbeit.“</p><small>GOOGLE-BEWERTUNG · 5,0 ★</small></div>
+  </div>
+  <div class="tgrid">
+    <figure><img src="media/team3.webp" alt="Mitarbeiter in Team-Bau-Jacke auf der Baustelle" loading="lazy"><figcaption>TEAM BAU · VOR ORT</figcaption></figure>
+    <figure><img src="media/team1.webp" alt="Rohbau mit Schalung und Stützen" loading="lazy"><figcaption>ROHBAU</figcaption></figure>
+    <figure><img src="media/team2.webp" alt="Bewehrung vor dem Betonieren" loading="lazy"><figcaption>BEWEHRUNG</figcaption></figure>
+    <figure><img src="media/team5.webp" alt="Baustahl auf der Baustelle" loading="lazy"><figcaption>MATERIAL</figcaption></figure>
+    <figure><img src="media/team4.webp" alt="Grundsteinlegung" loading="lazy"><figcaption>GRUNDSTEIN</figcaption></figure>
+  </div>
+</section>
+
 <section class="contact" id="kontakt">
   <div class="grid-bg"></div>
   <div style="position:relative">
-    <span class="m" style="color:rgba(10,20,30,.55)">[ 06 · Kontakt ]</span>
+    <span class="m" style="color:rgba(10,20,30,.55)">[ 07 · Kontakt ]</span>
     <h2 style="margin-top:14px">Projekt <span style="font-weight:300">anfragen.</span></h2>
     <address>Team Bau GmbH<br>Karl-Legien-Straße 20, 65199 Wiesbaden<br><a href="tel:+496119446619">Telefon 0611 9446619</a><br>Telefax 0611 9450022<br><a href="mailto:kontakt@teambau-wiesbaden.de">kontakt@teambau-wiesbaden.de</a></address>
   </div>
@@ -337,15 +396,13 @@ const draws=[...bp.querySelectorAll('.draw')];
 draws.forEach(p=>{const len=p.getTotalLength?p.getTotalLength():1000;p.style.strokeDasharray=p.getAttribute('stroke-dasharray')?p.getAttribute('stroke-dasharray'):len;p.dataset.len=len;if(!p.getAttribute('stroke-dasharray')){p.style.strokeDashoffset=RM?0:len}});
 
 /* references */
-const REF=[['Mehrfamilienhaus','Panoramastraße, Wiesbaden','Wohnen'],['Stadtvilla','Wiesbaden-Sonnenberg','Wohnen'],['Seniorenwohnhaus','Bleichstraße, Frankfurt am Main','Wohnen'],
-['Wohn- und Geschäftshaus','Kirchgasse 72–76, Wiesbaden','Gewerbe'],['Wohn- und Geschäftshaus','Kirchgasse 11–13, Wiesbaden','Gewerbe'],['Wohn- und Geschäftshaus','Kirchgasse 20 / Luisenstraße 43, Wiesbaden','Gewerbe'],['Geschäftshaus','Rheingaustraße 34, Wiesbaden','Gewerbe'],['Geschäftshaus','Zeil 86, Frankfurt am Main','Gewerbe'],['Logistikzentrum','Mainz-Hechtsheim','Gewerbe'],
-['Mensa Jawlensky','Wiesbaden-Dotzheim','Bildung'],['Martin-Buber-Schule','Heppenheim','Bildung'],['Sophie-Opel-Schule','Rüsselsheim','Bildung'],['Mensa Stadtschule','Bad Vilbel','Bildung'],['Ludwig-Uhland-Schule','Gravenbruch, Neu-Isenburg','Bildung'],['KITA Riedberg','Frankfurt-Riedberg','Bildung'],['KITA Rödermark','Lessingstraße 4, Rödermark','Bildung'],['KITA Beuerbach','Hünstetten-Beuerbach','Bildung'],
-['Haus der Vereine','Wiesbaden-Dotzheim','Öffentlich'],['Heilige Kreuzkirche','Wiesbaden','Öffentlich'],['Sportcenter TSG Bornheim','Inheidener Straße 64','Öffentlich'],['SOS Kinderdorf','Niederseelbach','Öffentlich'],['Feuerwehr & Bürgerhaus','Rohrbach','Öffentlich']];
-const IMG={Wohnen:0,Gewerbe:1,Bildung:2,'Öffentlich':4};
+const REF=[['Mehrfamilienhaus','Panoramastraße, Wiesbaden','Wohnen',1],['Haus der Vereine','Wiesbaden-Dotzheim','Öffentlich',2],['Martin-Buber-Schule','Heppenheim','Bildung',3],['Geschäftshaus','Zeil 86, Frankfurt am Main','Gewerbe',4],['Seniorenwohnhaus','Bleichstraße, Frankfurt am Main','Wohnen',5],['Wohn- und Geschäftshaus','Kirchgasse 72–76, Wiesbaden','Gewerbe',6],['KITA Rödermark','Lessingstraße 4, Rödermark','Bildung',7],['Stadtvilla','Wiesbaden-Sonnenberg','Wohnen',8],['KITA Rödermark','Jakob-Hecht-Straße, Rödermark','Bildung',9],['Sophie-Opel-Schule','Rüsselsheim','Bildung',10],['Geschäftshaus','Rheingaustraße 34, Wiesbaden','Gewerbe',11],['Heilige Kreuzkirche','Wiesbaden','Öffentlich',12],['Mensa Stadtschule','Bad Vilbel','Bildung',13],['KITA Beuerbach','Hünstetten-Beuerbach','Bildung',14],['Mensa Jawlensky','Wiesbaden-Dotzheim','Bildung',15],['KITA Riedberg','Frankfurt-Riedberg','Bildung',16],['Wohn- und Geschäftshaus','Kirchgasse 11–13, Wiesbaden','Gewerbe',17],['Wohn- und Geschäftshaus','Kirchgasse 20 / Luisenstraße 43, Wiesbaden','Gewerbe',18],['Ludwig-Uhland-Schule','Gravenbruch, Neu-Isenburg','Bildung',19],['Logistikzentrum','Mainz-Hechtsheim','Gewerbe',20],['Sportcenter TSG Bornheim','Inheidener Straße 64, Frankfurt','Öffentlich',21],['SOS Kinderdorf','Niederseelbach','Öffentlich',22],['Feuerwehr & Bürgerhaus','Rohrbach','Öffentlich',23]];
+const DRAW=[13,14,22,23];
+document.getElementById('rimg').innerHTML=REF.map((r,i)=>`<img src="media/ref${String(r[3]).padStart(2,'0')}.webp" class="${i===0?'on ':''}${DRAW.includes(r[3])?'dr':''}" alt="${r[0]}, ${r[1]}" loading="lazy">`).join('');
 const tbl=document.getElementById('tbl');
-tbl.innerHTML=REF.map((r,i)=>`<div class="tr" data-c="${r[2]}" data-img="${r[2]==='Bildung'&&r[0].startsWith('Mensa')?3:IMG[r[2]]}"><span class="p">${r[0].replace('&','&amp;')}</span><span class="o">${r[1]}</span><span class="c">${r[2]}</span></div>`).join('');
+tbl.innerHTML=REF.map((r,i)=>`<div class="tr" data-c="${r[2]}" data-img="${i}"><span class="p">${r[0].replace('&','&amp;')}</span><span class="o">${r[1]}</span><span class="c">${r[2]}</span></div>`).join('');
 const trs=[...tbl.children],rimgs=[...document.querySelectorAll('#rimg img')],rname=document.getElementById('rname');
-trs.forEach(t=>t.addEventListener('mouseenter',()=>{trs.forEach(x=>x.classList.toggle('on',x===t));rimgs.forEach((im,i)=>im.classList.toggle('on',i===+t.dataset.img));rname.textContent=t.querySelector('.p').textContent}));
+trs.forEach(t=>t.addEventListener('mouseenter',()=>{trs.forEach(x=>x.classList.toggle('on',x===t));rimgs.forEach((im,i)=>im.classList.toggle('on',i===+t.dataset.img));rname.textContent=t.querySelector('.p').textContent;document.getElementById('rsym').textContent=DRAW.includes(REF[+t.dataset.img][3])?'Entwurf / Visualisierung':'Referenzfoto'}));
 document.querySelectorAll('#filters button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;trs.forEach(t=>t.classList.toggle('hide',f!=='Alle'&&t.dataset.c!==f));ScrollTrigger.refresh()}));
 
 /* services hover */
@@ -357,9 +414,23 @@ document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();co
   location.href='mailto:kontakt@teambau-wiesbaden.de?subject='+encodeURIComponent('Projektanfrage: '+g('ft')+' in '+g('fo'))+'&body='+encodeURIComponent('Planungsstand: '+g('fp')+'\n\n'+g('fm')+'\n\n'+g('fn'))});
 
 /* hero */
-const v=document.getElementById('heroVid');v.src=MOB?'media/hero-m.mp4':'media/hero.mp4';if(!RM)v.play().catch(()=>{});
-gsap.to('.hero h1 .ln>span',{y:0,duration:1.3,ease:'expo.out',stagger:.1,delay:.25});
-gsap.from('.hero .m,.hero p,.stats div',{opacity:0,y:18,duration:1.1,ease:'expo.out',stagger:.06,delay:.5});
+const v=document.getElementById('heroVid');v.src=MOB?'media/hero-m.mp4':'media/hero.mp4';
+function startHero(){if(!RM)v.play().catch(()=>{});
+  gsap.fromTo('.hero video,.hero .poster',{scale:1.25,filter:'blur(14px)'},{scale:1,filter:'blur(0px)',duration:2,ease:'expo.out',clearProps:'filter'});
+  gsap.to('.hero h1 .ln>span',{y:0,duration:1.3,ease:'expo.out',stagger:.1,delay:.25});
+  gsap.from('.hero .m,.hero p,.stats div',{opacity:0,y:18,duration:1.1,ease:'expo.out',stagger:.06,delay:.5});}
+function intro(){const el=document.getElementById('intro');if(RM){el.remove();startHero();return}
+  gsap.set('#trolley',{x:1180});
+  gsap.timeline({onComplete:()=>el.remove()})
+   .to('#trolley',{x:780,duration:1.1,ease:'power2.inOut'},0)
+   .to('#cable',{attr:{y2:600},duration:1,ease:'power2.inOut'},1)
+   .to('#load',{y:300,duration:1,ease:'power2.inOut'},1)
+   .to('#ilbl',{opacity:0,duration:.2},2.1)
+   .to('#crane',{scale:1.7,transformOrigin:'50% 75%',opacity:0,duration:.9,ease:'power3.in'},2.25)
+   .to(el,{opacity:0,duration:.5},2.75)
+   .add(startHero,2.6);}
+let started=false;const go=()=>{if(started)return;started=true;intro()};
+if(document.readyState==='complete')setTimeout(go,150);else addEventListener('load',()=>setTimeout(go,100));setTimeout(go,3000);
 const nav=document.getElementById('nav');
 ScrollTrigger.create({trigger:'#hero',start:'top -22%',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
 if(RM)return;
@@ -402,6 +473,8 @@ gsap.from('#tl>div',{opacity:0,y:30,stagger:.12,duration:1,ease:'expo.out',scrol
 gsap.from('.tr',{opacity:0,y:14,stagger:.03,duration:.8,ease:'expo.out',scrollTrigger:{trigger:'#tbl',start:'top 82%'}});
 document.querySelectorAll('.serv-head,.refs-head,.contact>div,.contact form,.time h2,.time .lead').forEach(el=>gsap.from(el,{opacity:0,y:30,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
 gsap.fromTo('.mega',{xPercent:6},{xPercent:-6,ease:'none',scrollTrigger:{trigger:'footer',start:'top bottom',end:'bottom bottom',scrub:true}});
+gsap.from('.tgrid figure',{opacity:0,y:60,stagger:.1,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'.tgrid',start:'top 80%'}});
+document.querySelectorAll('.tgrid img').forEach(im=>gsap.fromTo(im,{yPercent:-5,scale:1.1},{yPercent:5,scale:1.1,ease:'none',scrollTrigger:{trigger:im.parentNode,start:'top bottom',end:'bottom top',scrub:true}}));
 addEventListener('load',()=>ScrollTrigger.refresh());
 })();
 </script>
