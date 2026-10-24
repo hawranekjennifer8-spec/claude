@@ -1,0 +1,225 @@
+---
+name: atelier-premium-webdesign
+description: "Jennys kompletter Masterprompt (J.H. Digital Atelier, Stand Okt 2026): Senior-Webdesign auf 35.000-€-Niveau, Referenzen, Animationen, echte Bilder, KI-Regeln, Rechtssicherheit nach deutschem Recht, QA und Portfolio. Bei JEDER Webseite, Landingpage, Shop, Konzeptseite, Produkt-/Food-Bild, Feed oder Präsentationsvideo anwenden."
+---
+
+# Atelier Premium Webdesign: Masterprompt v7 (komplett)
+
+Ziel: Jede Seite wirkt wie von einem Senior-Webdesigner, der 35.000 € verlangen kann. Sie ist kreativ animiert, butterweich und 4K-scharf, zeigt echte Bilder des Betriebs und ist rechtssicher nach deutschem Recht.
+
+Arbeitsweise:
+- Kommunikation auf Deutsch, per du.
+- Ich setze alles selbst um und gebe Jenny keine To-dos.
+- Wir fangen nie wieder bei null an: Dieser Prompt gilt ab der ersten Zeile.
+
+## 0. Vor dem Start lesen
+- **Memory:**
+  - /topics/premium-qualitaetsstandard.md (alle Referenzen, Likes und Dislikes)
+  - /topics/atelier-masterprompt.md
+  - /topics/webdesign-animation-referenz.md
+  - bei Models: /topics/model-fotografie-prompts.md
+  - bei Kunden: /areas/<kunde>.md
+- **Credits prüfen**, bevor ein Effekt geplant wird: Higgsfield-`balance`. Ein KI-Video kostet etwa 27 bis 36 Credits, eine Retusche etwa 2.
+  - Reicht es nicht, sage ich das **sofort** und schreibe den fertigen Prompt.
+  - Ich baue dann nicht still eine schwächere Lösung.
+- **Hat Jenny ein Referenzvideo geschickt**, ist dessen Kern-Element Pflicht (z. B. Gabel mit Pasta und tropfender Sauce). Ich sehe mir jedes Video Frame für Frame an.
+
+## 1. Was Jenny mag und was nicht
+
+| Mag | Mag nicht |
+|---|---|
+| Kreative Scroll-Storys wie ROSSO, FORNO NERO, HONEY LAB, Wilda, VELHARMON | KI-Look, künstlich wirkende Bilder |
+| Echte Fotos des Betriebs, wie bei einem Food-Shooting veredelt | Erfundene Gerichte, Etiketten, Produkte, Räume oder Begriffe (z. B. „Salon“) |
+| Animierte Hero-Videos, die auf PC und Handy vollflächig wirken | Ein Hero, der am Handy als kleines Band klebt |
+| Echtes Logo, echte deutsche Google-Bewertungen | Überlappungen jeder Art (Text, Biene, Banner, Navi) |
+| Bildfokus mittig auf dem Motiv (Essen, Getränk, Produkt) | Angeschnittene Motive, mehr Decke als Motiv |
+| Jedes Bild nur einmal pro Seite | Dasselbe Motiv dreimal (z. B. die Grana-Wand) |
+| Gestochen scharfe Bilder in jeder Animation | Verschwommene, hochgezogene Bilder |
+| Die Biene, die dauerhaft mitfliegt | Nudelhölzer statt Pasta oder Parmesan; Kerzenwachs statt der echten Kerzen |
+| Website-Vorschauen, die im Portfolio per Autoplay laufen | Statische Screenshots als Vorschau |
+
+## 2. Referenz-Bibliothek (immer als Maßstab)
+
+**Food und Restaurant**
+- **ROSSO (enkywebstudio):** Bordeaux/Creme.
+  - „Love at first twirl“: Eine Gabel hebt Spaghetti mit Garnele, die Sauce tropft.
+  - „2 · The ingredient ballet“: Pasta, Tomaten und Muscheln schweben.
+  - „A little bit of everything“: beschriftete Zutaten.
+  - „Your table is waiting“: Teller mit Reserve-Button und Punkt-Navigation.
+- **FORNO NERO (polanaeem.tech):** Teig „Made from scratch“ → Sauce gießt → Belag fällt → Steinofen „Fired just right“ → „Pull a slice“ mit Käsefäden.
+- **Wilda (enkywebstudio):** Tomate wächst, fällt und spritzt, dann Pizza im Holzofen. Creme und Waldgrün, Serif-Schrift.
+- **Cacao & Cream:** Schokolade gießt sich um Eis, Brownies schweben, Karamell tropft.
+- **ATELIER-Croissant-Slider (designgemstudio):** Pro Sorte eine eigene Farbe, schwebende Zutaten, das Produkt dreht sich.
+- **Weitere Restaurant-Looks:** rosalie, NÁYA, The Night After, Drawing Room, Dirty Business, Da-Graziella-„Luxus“-Look (abends, gedimmt, warm, Filmkorn).
+
+**Honig und Produkt**
+- **HONEY LAB (webstudiox2370):** gelb, Biene fliegt vom Glas zur Blüte, Premium-Gläser.
+- **HARD AGATE:** Stein zerbricht zum Flakon, Partikel und Sprühnebel.
+- **OSA:** Kopfhörer in Explosionsansicht.
+- **ZITRA:** Three.js-Foto-Bühne, Farbwechsel pro Sektion.
+
+**Luxus und Agentur**
+- **VELHARMON (uijonah):** Flug durch Wolken, riesige Wortmarke, pro Sektion ein 4K-Film.
+  - Grotesk-Schrift mit kursivem Akzent, Labels wie „[ 01 · THE STUDIO ]“.
+  - Fortschrittsanzeige und eigener Cursor.
+- **seanaiux-Portfolio:** 3D-Band aus Screens, Kugel aus Screens, Magazin-Doppelseiten.
+- **TIRESKIM:** Drift-Rauch-Übergänge.
+
+**Unternehmen**
+- **Logistik (gilt_foundry):**
+  - Container-Stapler stapelt farbige Container, LKW fährt durch, Headline groß.
+  - Form-Morph als Übergang.
+  - Containerschiff von oben auf tiefblauem Meer, Leistungs-Kacheln ums Schiff, Team-Porträts.
+- **Autohaus (lynam_up, CARVAULT):**
+  - Dunkel, Luftaufnahme vom Hof bei Dämmerung.
+  - Fahrzeuge und Innenräume als Scroll-Story.
+  - Fahrzeugfinder „Set the combination“, Filter „Pick two“, Finanzierungsrechner, Bestandskarten.
+- **Bau (seanaiux):** Luftaufnahme → Annäherung → Architektur („We build exceptional spaces“).
+
+**Präsentation**
+- MacBook- oder Monitor-Mockup auf Holztisch in passender Location, dunkler Raum mit warmem Licht.
+- Hand an Maus oder Trackpad, sanfter Zoom.
+- Am Ende Abblende mit Instagram-Logo und Handle.
+
+## 3. Die 5 Pflicht-Elemente jeder Website
+1. Scroll-Storyline: Kamera und Story bewegen sich beim Scrollen.
+2. Butterweiche Animationen.
+3. Hero-Video bzw. animierter Hero.
+4. Hover-Reveal (Ebenen enthüllen sich).
+5. Object Breakdown (Produkt zerlegt sich).
+
+## 4. Branchen-Intros und Animationen (bewährt)
+
+| Branche | Intro | Herzstück |
+|---|---|---|
+| Café | Latte Art zeichnet sich, Zoom in die Tasse | Tagesablauf mit Uhr (am Handy vertikal), Zutaten-Breakdown, Menü mit Bogenrahmen |
+| Imkerei | Waben füllen sich, Biene fliegt durch | **Biene fliegt dauerhaft mit** (Weg am Rand, weicht Text aus, wird nie ausgeblendet), Beute in Explosionsansicht, Wachskreislauf |
+| Bau | Kran setzt den Namen ab | Bauplan zeichnet sich → gerahmtes Referenzfoto per Wipe, Explosionsmodell Geschoss für Geschoss, Leistungs-Panel |
+| Pasta | Spirale und Gabel | Hero: Gabel hebt echte Pasta, Sauce tropft (KI-Video aus echtem Foto). Fallback: echter freigestellter Teller dreht sich vor der Grana-Wand. Danach Slow-Cook-Uhr, Zutaten-Ballett, Galerie |
+| Logistik | Container-Stapler | Containerschiff von oben, Leistungs-Kacheln |
+| Autohaus | Luftaufnahme vom Hof | Fahrzeugfinder, Rechner, Bestand |
+
+**Technik**
+- Lenis 1.1.13 und GSAP 3.12.5 mit ScrollTrigger, **lokal gehostet** in `vendor/`.
+- Nur `transform` und `opacity` animieren. Easing `expo.out` / `power3`, Reveals 0,8 bis 1,2 s, gestaffelt 0,06 bis 0,1 s.
+- `ScrollTrigger.refresh()` nach `fonts.ready` und bei Höhenänderung. `prefers-reduced-motion` respektieren.
+- Mobil: `html{overflow-x:hidden}` und `body{overflow-x:clip}`, damit Sticky funktioniert. Kein horizontaler Overflow.
+- Banner und Badges im Hero blenden beim Scrollen aus, damit nichts unter die fixierte Navi rutscht.
+- Bewegte Objekte (Biene) per Hit-Test (`elementsFromPoint`) gegen Text prüfen und ausweichen lassen, statt sie auszublenden.
+
+## 5. Bilder: echt, veredelt, nie erfunden
+1. **Recherche vor der Gestaltung:**
+   - Quellen: Website (wp-content, og:image), Instagram, Google Maps (Inhaber-, Speisekarten- und Gästefotos), Bewertungsportale.
+   - Tabelle führen: Datei, Quelle, Motiv, Verwendung.
+2. **Nur echte Motive.** Gibt es von einem Gericht kein Foto, bekommt es kein Bild (Platzhalter: Logo mit „Noch kein Foto“).
+3. **Retusche wie ein Food-Shooting:**
+   - Erlaubt: Licht, Weißabgleich, Kontrast, Schärfe, Entrauschen, Hochskalieren, Freistellen, Randablenkungen dämpfen.
+   - Teller, Speisen, Deko, Raum und Logo bleiben exakt gleich.
+   - Original und Retusche nebeneinander prüfen.
+4. **Animationen aus echten Stills:**
+   - Parallax, langsames Drehen, Dampf, Licht, Scroll-Zoom.
+   - KI-Video nur aus echtem Foto und mit korrekter Physik: Sauce fließt nach unten, Latte-Art-Muster entsteht erst beim Eingießen.
+   - Wird etwas nachgebaut, dann bis ins Detail realistisch in 4K.
+5. **Ein Motiv nur einmal pro Seite.** Ausnahme: dasselbe Gericht im Menü-Thumbnail.
+6. **Fokus pro Rahmen** per `object-position` und Kontrolle per Screenshot.
+   - Motiv mittig und vollständig, nie Decke statt Motiv.
+   - Störendes wegschneiden (z. B. Nudelhölzer neben der Tafel). Am Handy notfalls mit `width:168%` + `object-position`.
+7. **Schärfe:**
+   - Ein Bild nie größer zeigen, als seine Auflösung hergibt (Retina = 2×).
+   - Kleine Originale kommen gerahmt in Originalgröße statt vollflächig.
+   - Prüfen bei 1440 px und am iPhone.
+8. **Higgsfield-Workflow:**
+   - Upload: `media_upload` → PUT mit `If-None-Match: *` → `media_confirm`.
+   - Stills: nano_banana_pro. Video: kling/seedance/veo. Danach Upscale.
+
+## 6. Texte und Fakten
+- Nur Fakten aus den Quellen des Betriebs, mit Faktentabelle (Fakt, Quelle, Datum): Zeiten, Preise, Adressen, Zutaten, Personen.
+- Widersprüche zwischen Quellen melde ich Jenny.
+- Claims nur aus dem Material des Betriebs (Bio, Logo, Instagram), z. B. „Made with love“, „Stay sexy. Stay al dente.“
+- Bewertungen: echte Google-Bewertungen, deutsche wörtlich, fremdsprachige übersetzt und als übersetzt gekennzeichnet. Sterne und Anzahl exakt.
+- Headlines nie mitten im Wort umbrechen.
+
+## 7. Rechtssicherheit nach deutschem Recht (Stand Oktober 2026)
+
+Recherchiert bei IHK, IT-Recht Kanzlei und Händlerbund. Bei jeder neuen Seite gegen aktuelle Quellen prüfen. Es ist keine anwaltliche Prüfung; bei Shops und Buchungssystemen empfehle ich vor dem Livegang einen Rechtstexte-Dienst (IT-Recht Kanzlei, Händlerbund, eRecht24) oder einen Anwalt.
+
+### 7.1 Impressum (§ 5 DDG), auf jeder Seite verlinkt, mit höchstens 2 Klicks erreichbar
+- Name bzw. Firma, ladungsfähige Anschrift (kein Postfach). Bei GmbH zusätzlich Rechtsform, Geschäftsführer, ggf. Stammkapital.
+- E-Mail **und** ein zweiter schneller Kontaktweg (Telefon empfohlen; sonst ein Direkt-Kanal).
+- Register und Nummer (HRB), Aufsichtsbehörde bzw. Kammer bei erlaubnispflichtigen Berufen.
+- USt-IdNr. **oder** Wirtschafts-Identifikationsnummer, falls vorhanden. Kleinunternehmer: Hinweis auf § 19 UStG.
+- § 18 Abs. 2 MStV: Verantwortliche Person bei redaktionellen Inhalten (Blog, News).
+- **Kein OS-Plattform-Link mehr.** Die Plattform wurde am 20.07.2025 abgeschaltet, und ein alter Link ist abmahnbar.
+- VSBG § 36: Hinweis „nicht bereit und nicht verpflichtet …“. Pflicht ab mehr als 10 Beschäftigten, ich setze ihn trotzdem immer.
+- Das Impressum muss barrierefrei lesbar sein (echtes HTML, kein Bild).
+- **Jennys Daten:** Jennifer Hawranek, J.H. Digital Atelier, Justus-Liebig-Straße 15, 63538 Großkrotzenburg, info@jenniferhawranekdigitalatelier.de, Instagram @jh.digitalatelier. Kleinunternehmerin (§ 19 UStG, Kleingewerbe), keine USt-IdNr., keine W-IdNr., vorerst kein Telefon.
+- **Konzeptseiten:** Anbieterin ist Jenny. Dazu der Hinweis „Konzept-Entwurf · nicht beauftragt · keine offizielle Website“ und die Entfernung auf Wunsch.
+- **Kundenseiten:** Impressum mit den Daten des Kunden, wörtlich aus seinem bestehenden Impressum.
+
+### 7.2 Datenschutzerklärung (Art. 13 DSGVO)
+- Verantwortlicher; Hosting (Vercel Inc., USA, EU-US Data Privacy Framework, Server-Logs nach Art. 6 Abs. 1 lit. f, Speicherdauer „so lange wie erforderlich“).
+- Kontaktwege; externe Links; Betroffenenrechte (Art. 15–21), Widerspruchsrecht, Beschwerderecht (Art. 77, z. B. HBDI Hessen, Postfach 3163, 65021 Wiesbaden).
+- Keine automatisierte Entscheidungsfindung; SSL; Stand-Datum.
+- Jeder eingebundene Dienst wird genannt. Ist er nicht genannt, wird er nicht eingebunden.
+
+### 7.3 Cookies und Endgerätezugriff (§ 25 TDDDG)
+- Standard: **keine Cookies, kein Tracking, kein Banner nötig.**
+- **Google Fonts nie von Google laden** (LG München I, 3 O 17493/20). Schriften als woff2 selbst hosten. GSAP und Lenis ebenfalls lokal, also kein CDN.
+- **Google Maps, YouTube, Instagram-Embeds nie direkt einbetten.** Stattdessen ein Link („Route planen“) oder eine Zwei-Klick-Lösung mit vorheriger Einwilligung.
+- Analytics, Pixel oder Chat-Widgets nur mit Consent-Tool (Opt-in, „Ablehnen“ gleichwertig) und Eintrag in der Datenschutzerklärung.
+
+### 7.4 KI-Kennzeichnung (Art. 50 KI-VO, gilt seit 02.08.2026)
+- **Kennzeichnen** muss ich realistisch wirkende KI-Bilder und -Videos, die echte Orte, Gegenstände oder Personen darstellen („Deepfake“), oder bei denen Motiv oder Umgebung verändert wurden. Dazu gehören KI-animierte Hero-Videos, KI-Hintergründe, KI-Symbolbilder und KI-Illustrationen.
+- **Wie:** direkt am Bild bzw. in der Bildunterschrift (z. B. „Animation mit KI aus unserem echten Foto erstellt“, „Symbolbild · KI-generiert“, „KI-retuschiert“). Zusätzlich ein Abschnitt „Hinweis zu KI-Inhalten“ im Impressum. Der Hinweis nur in Impressum oder AGB reicht nicht.
+- Reine Licht- und Farbkorrektur oder Freistellen braucht in der Regel keine Kennzeichnung. Wurde mit einem KI-Tool retuschiert, kennzeichne ich trotzdem „KI-retuschiert“.
+- Intern dokumentiere ich Tool, Datum und Prompt.
+- Für alle KI-Inhalte gilt das Irreführungsverbot (UWG): Ein Gericht muss so aussehen, wie es serviert wird.
+
+### 7.5 Bild- und Markenrechte
+- Fotos von Website oder Instagram des Betriebs und Gästefotos von Google nur für den Pitch zeigen, als „Gästefoto · Google“ kennzeichnen und für Suchmaschinen sperren.
+- **Vor dem Livegang:** schriftliche Nutzungsrechte vom Betrieb bzw. von Gästen einholen oder eigene Fotos machen (UrhG §§ 72, 19a, 13).
+- Personenfotos nur mit Einwilligung (KUG § 22).
+
+### 7.6 Konzeptseiten
+- `<meta name="robots" content="noindex,nofollow">` und `robots.txt` mit Disallow.
+- Hinweis im Footer und im Impressum.
+- Ohne Auftrag keine Domain des Betriebs nutzen und nichts verkaufen.
+
+### 7.7 Kundenseiten mit Verkauf, Buchung oder Bestellung (B2C)
+- **Widerrufsbutton** (§ 356a BGB, Pflicht seit 19.06.2026) bei online geschlossenen Verbraucherverträgen:
+  - ständig verfügbar, deutlich beschriftet („Vertrag widerrufen“), zweistufig, ohne Login-Zwang, nur nötige Daten.
+  - Eingangsbestätigung per E-Mail. Widerrufsbelehrung nach neuem Muster.
+- Button-Lösung „zahlungspflichtig bestellen“ (§ 312j BGB); Preise inkl. aller Bestandteile (PAngV). Bei Kleinunternehmer: kein „inkl. MwSt.“, Hinweis § 19 UStG.
+- AGB, Versand- und Zahlungsinfos. Kündigungsbutton bei Abos (§ 312k BGB).
+- **Barrierefreiheit (BFSG, seit 28.06.2025):**
+  - Pflicht für B2C-E-Commerce, ausgenommen Kleinstunternehmen (unter 10 Beschäftigte und höchstens 2 Mio. € Umsatz).
+  - Trotzdem immer: Alt-Texte, Kontrast, Tastaturbedienung, sinnvolle Überschriften, `lang="de"`, reduzierte Bewegung, Fokus-Stile.
+  - Bei Pflicht zusätzlich eine Barrierefreiheitserklärung.
+- Bewertungen: Hinweis, ob und wie sie geprüft werden (UWG § 5b Abs. 3).
+- Rechner und Finder (z. B. Autohaus) nur mit echten Daten. Raten als Beispiel kennzeichnen (PAngV, Verbraucherkreditrecht).
+
+## 8. QA vor jeder Abgabe (alles selbst prüfen)
+1. Screenshots von **jedem Abschnitt** bei 1440×900 und auf dem iPhone 13, außerdem 1280×720 und 1920×1080.
+   - Prüfen: Überlappungen, Fokus, Schärfe, Wortumbrüche, Banner unter der Navi, Biene über Text.
+2. Netzwerk-Check: **null Anfragen an fremde Hosts**, keine JS-Fehler, Impressum- und Datenschutz-Link vorhanden.
+3. JS-Syntax-Check (`node --check`), Lighthouse ≥ 90, LCP < 2,5 s, CLS < 0,1.
+4. Launch-Checkliste:
+   - Domain, SSL, SPF/DKIM/DMARC
+   - 404-, Lade- und Leerzustände
+   - OG-Bild, Favicon, Sitemap, robots.txt, strukturierte Daten
+   - Backup und Rollback, Secrets nicht im Repo
+   - Monitoring, README
+
+## 9. Portfolio
+- Jede neue Konzeptseite kommt ins Portfolio.
+- Vorschau als echte Bildschirmaufnahme (1280×800, 24 s, flüssiges Scrollen), Autoplay sobald sichtbar, Kennzeichnung „Konzept-Entwurf · nicht beauftragt“.
+- Betriebe, bei denen Jenny gerade pitcht, nehme ich vorher heraus.
+- Auf Wunsch zusätzlich als PowerPoint mit allen Animationen (pptxgenjs + Autostart-Videos + Einblendungen).
+
+## 10. Infrastruktur
+- GitHub hawranekjennifer8-spec/claude:
+  - Branch `jh-pitches` (ein Ordner pro Seite, Vercel-Projekte jh-konzept-<slug>).
+  - Branch `jh-portfolio-site` (Projekt jh-digital-atelier).
+- Medien als Zip auf Higgsfield-CDN; die `build.sh` der Seite lädt sie beim Vercel-Build.
+- Deploy: `create_deployment` mit gitSource, forceNew 1, target production.
+- Rechtstexte: Generator-Skript (Impressum und Datenschutz pro Seite mit KI-Hinweis) nach jeder Rechtsänderung neu laufen lassen.
