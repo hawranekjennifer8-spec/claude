@@ -178,7 +178,7 @@ Recherchiert bei IHK, IT-Recht Kanzlei und Händlerbund. Bei jeder neuen Seite g
 - **Wie (Jennys Vorgabe):** **nie direkt am Bild** und keine Labels wie „KI-retuschiert“ im Design. Der Hinweis steht nur im Abschnitt „Hinweis zu KI-Inhalten“ im Impressum bzw. in der Datenschutzerklärung.
   - Hinweis an Jenny (einmal gesagt): Ratgeber halten einen Hinweis nur im Impressum bei realistischen KI-Bildern für nicht ausreichend. Das ist ein Restrisiko.
   - Am sichersten: möglichst echte, nur farblich korrigierte Fotos verwenden. Dann ist gar keine Kennzeichnung nötig.
-- Reine Licht- und Farbkorrektur oder Freistellen braucht in der Regel keine Kennzeichnung. Wurde mit einem KI-Tool retuschiert, kennzeichne ich trotzdem „KI-retuschiert“.
+- Reine Licht- und Farbkorrektur oder Freistellen braucht in der Regel keine Kennzeichnung. Wurde mit einem KI-Tool retuschiert, vermerke ich das trotzdem im KI-Hinweis im Impressum.
 - Intern dokumentiere ich Tool, Datum und Prompt.
 - Für alle KI-Inhalte gilt das Irreführungsverbot (UWG): Ein Gericht muss so aussehen, wie es serviert wird.
 
