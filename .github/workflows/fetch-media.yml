@@ -1,0 +1,28 @@
+name: fetch-media
+on:
+  push:
+    branches: [jh-pitches]
+    paths: ['*/urls.txt']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download originals
+        run: |
+          for f in */urls.txt; do
+            d=$(dirname "$f"); mkdir -p "$d/src"
+            while read -r name id; do
+              [ -z "$name" ] && continue
+              ext="${id##*.}"
+              [ -f "$d/src/$name.$ext" ] && continue
+              curl -sSL --fail "https://static.wixstatic.com/media/$id" -o "$d/src/$name.$ext" || echo "FAIL $name"
+            done < "$f"
+          done
+      - name: Commit
+        run: |
+          git config user.name "media-bot"; git config user.email "media-bot@users.noreply.github.com"
+          git add -A */src || true
+          git diff --cached --quiet || git commit -m "Media: Originale geladen" && git push
