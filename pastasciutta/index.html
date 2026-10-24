@@ -6,11 +6,11 @@
 <title>PASTASCIUTTA · Neapolitanische Pasta in Wiesbaden (Konzept)</title>
 <meta name="robots" content="noindex,nofollow">
 <meta name="description" content="Konzept-Entwurf von J.H. Digital Atelier für PASTASCIUTTA, Oranienstraße 27, Wiesbaden.">
-<meta property="og:image" content="media/grana.webp">
+<meta property="og:image" content="media/pins.webp">
 <link rel="icon" href="media/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter+Tight:wght@300..700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="media/grana.webp">
+<link rel="preload" as="image" href="media/pins.webp">
 <style>
 :root{--olive:#2d3325;--deep:#1a1f15;--deep2:#22281b;--cream:#efe6d2;--tomato:#d0442a;--gold:#d9a441;--line:rgba(239,230,210,.15);--muted:rgba(239,230,210,.66);
 --serif:"Playfair Display",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1);--pad:clamp(18px,4.5vw,72px)}
@@ -137,7 +137,7 @@ h1 i,h2 i,h3 i{font-weight:500;color:var(--tomato)}
 .fresca .noresa{display:inline-block;margin-top:30px;border:1px solid var(--gold);color:var(--gold);padding:12px 22px;border-radius:40px;font-size:12px;letter-spacing:.24em;text-transform:uppercase}
 .fresca small{position:absolute;z-index:2;right:var(--pad);bottom:24px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(239,230,210,.6)}
 @media (max-width:900px){.fresca::before{background:linear-gradient(0deg,rgba(26,31,21,.95) 30%,rgba(26,31,21,.4) 75%,rgba(26,31,21,.1))}.fresca{align-items:end;padding-bottom:60px}
- .ria{font-size:12.5px;right:var(--pad);left:var(--pad);justify-content:flex-start}.hero .since{display:none}.hero::after{background:linear-gradient(0deg,rgba(26,31,21,.95) 35%,rgba(26,31,21,.35) 75%,rgba(26,31,21,.2))}}
+ .ria{font-size:12.5px;right:var(--pad);left:var(--pad);justify-content:flex-start}.hero .since{display:none}.hm{display:none}.hero::after{background:linear-gradient(0deg,rgba(26,31,21,.95) 35%,rgba(26,31,21,.35) 75%,rgba(26,31,21,.2))}}
 /* reviews marquee */
 .rev{padding:clamp(100px,16vh,170px) 0;overflow:hidden}
 .rev .lb{display:block;text-align:center;margin-bottom:36px}
@@ -164,7 +164,7 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 
 @media (max-width:900px){
   .nav{grid-template-columns:1fr auto}.nav ul,.open{display:none}.nav .logo img{height:40px}.btn{padding:11px 16px}
-  .hero .rate,.hero .since{display:none}
+  .hero .rate,.hero .since{display:none}.hm{display:none}
   .s-stage{grid-template-columns:1fr;grid-template-rows:42svh 1fr}
   .s-right{grid-row:1}.s-right::after{background:linear-gradient(0deg,var(--deep),transparent 40%)}
   .s-left{grid-row:2;justify-content:flex-start;padding-top:10px;flex-direction:row;gap:18px;flex-wrap:wrap;align-content:flex-start}
@@ -198,10 +198,10 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 
 <main id="top">
 <section class="hero" id="hero">
-  <picture><source media="(max-width:900px)" srcset="media/grana-m.webp"><img class="poster" id="heroImg" src="media/grana.webp" alt="Unsere Wand aus Grana-Padano-Laiben in der Pastasciutta"></picture>
+  <picture><img class="poster" id="heroImg" src="media/pins.webp" alt="Unsere Wand aus Grana-Padano-Laiben in der Pastasciutta"></picture>
   <div class="ria" id="ria"><b>Riapertura</b><span>Wir renovieren. Ab Dienstag, 27.10., sind wir wieder für euch da.</span></div>
   <div class="hero-in">
-    <span class="lb">La Pasta Fresca di Riccardo Annuzzo · Oranienstraße 27</span>
+    <span class="lb">La Pasta Fresca di Riccardo Annuzzo<span class="hm"> · Oranienstraße 27</span></span>
     <h1 style="margin-top:22px"><span class="ln"><span>Stay sexy.</span></span><span class="ln"><span>Stay <i>al dente.</i></span></span></h1>
     <p>Frische Pasta aus Neapel mitten in Wiesbaden. Ragù, das sechs Stunden schmort, und Pecorino, der direkt am Teller gerieben wird.</p>
     <div class="btns"><a class="btn" href="#menu">Zum Menü</a><a class="btn ghost" href="https://pastasciutta-wiesbaden.de" target="_blank" rel="noopener">Abholen &amp; liefern lassen</a></div>
@@ -223,7 +223,7 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
       </div>
     </div>
     <div class="s-right">
-      <div class="s-img"><img src="media/pins.webp" alt="Nudelhölzer an unserer Wand"></div>
+      <div class="s-img"><img src="media/grana.webp" alt="Nudelhölzer an unserer Wand"></div>
       <div class="s-img"><img src="media/paccheri.webp" alt="Paccheri al Ragù di Salsiccia"></div>
       <div class="s-img"><img src="media/ziti.webp" alt="Ziti alla Genovese"></div>
     </div>
@@ -245,7 +245,7 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 </section>
 
 <section class="fresca" id="riccardo">
-  <img src="media/pins.webp" alt="Wand voller Nudelhölzer in der Pastasciutta" id="frescaImg" loading="lazy">
+  <img src="media/grana.webp" alt="Wand voller Nudelhölzer in der Pastasciutta" id="frescaImg" loading="lazy">
   <div class="in"><span class="lb">La Pasta Fresca</span><h2>Von Hand. <i>Jeden Tag.</i></h2>
   <p>Hinter der Theke steht Riccardo Annuzzo. Seine Pasta wird frisch gemacht, so wie in Neapel. Die Nudelhölzer an der Wand erinnern daran, wo alles anfängt.</p>
   <p>Reservieren musst du nicht. Komm einfach vorbei, setz dich und bestell, worauf du Lust hast.</p>

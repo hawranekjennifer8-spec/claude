@@ -30,12 +30,12 @@ h1 i,h2 i,h3 i{font-style:italic;color:var(--sageD)}
 
 /* logo badge */
 .badge{width:100%;height:auto;overflow:visible}
-.badge .r1{fill:none;stroke:currentColor;stroke-width:1.6}
-.badge .r2{fill:none;stroke:currentColor;stroke-width:.8}
-.badge .cafe{font-family:var(--serif);font-weight:500;font-size:34px;letter-spacing:3px;fill:var(--rose)}
-.badge .wb{font-family:var(--script);font-size:38px;fill:currentColor}
-.badge .ring{font-family:var(--serif);font-size:11.5px;letter-spacing:3.4px;fill:currentColor;font-weight:600}
-.badge .bean{fill:currentColor}
+#logo .r1{fill:none;stroke:currentColor;stroke-width:1.6}
+#logo .r2{fill:none;stroke:currentColor;stroke-width:.8}
+#logo .cafe{font-family:var(--serif);font-weight:500;font-size:34px;letter-spacing:3px;fill:var(--cafe,var(--rose))}
+#logo .wb{font-family:var(--script);font-size:38px;fill:currentColor}
+#logo .ring{font-family:var(--serif);font-size:11.5px;letter-spacing:3.4px;fill:currentColor;font-weight:600}
+#logo .bean{fill:currentColor}
 
 /* intro: into the cup */
 .intro{position:fixed;inset:0;z-index:120;display:grid;place-items:center;overflow:hidden}
@@ -96,11 +96,11 @@ h1 i,h2 i,h3 i{font-style:italic;color:var(--sageD)}
 .sp-head h2{font-size:clamp(44px,6vw,104px)}.sp-head h2 i{color:var(--goldL)}
 .sp-head p{max-width:38ch;color:rgba(251,247,240,.78)}
 .plates{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,30px)}
-.plate{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fffdf8 0 56%,#f2ebdf 57% 60%,#fffdf8 61%);color:var(--espresso);display:grid;place-items:center;text-align:center;padding:16%;position:relative;box-shadow:0 30px 50px -26px rgba(0,0,0,.55);transition:transform .7s var(--ease)}
+.plate{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fffdf8 0 56%,#f2ebdf 57% 60%,#fffdf8 61%);color:var(--espresso);display:grid;place-items:center;text-align:center;padding:16%;position:relative;box-shadow:0 30px 50px -26px rgba(0,0,0,.55)}
 .plate::before{content:"";position:absolute;inset:5%;border-radius:50%;border:2px dotted rgba(183,124,102,.55)}
 .plate::after{content:"";position:absolute;inset:9%;border-radius:50%;border:1px solid var(--goldL)}
-.plate:hover{transform:rotate(-6deg) translateY(-6px)}
-.plate .day{font-family:var(--script);font-size:clamp(22px,2vw,32px);color:var(--rose)}
+.plate>div{transition:transform .7s var(--ease)}.plate:hover>div{transform:rotate(-8deg) scale(1.04)}
+.plate .dn{font-family:var(--script);font-size:clamp(22px,2vw,32px);color:var(--rose)}
 .plate h3{font-family:var(--sans);font-weight:700;font-size:clamp(12px,1vw,15px);letter-spacing:.12em;text-transform:uppercase;margin:8px 0 6px;line-height:1.3}
 .plate p{font-size:clamp(12px,.9vw,14px);color:var(--muted);line-height:1.4}
 .plate.today{box-shadow:0 0 0 3px var(--goldL),0 30px 50px -26px rgba(0,0,0,.55)}
@@ -169,7 +169,7 @@ h1 i,h2 i,h3 i{font-style:italic;color:var(--sageD)}
 .rev-head{text-align:center;margin-bottom:clamp(40px,8vh,80px)}
 .rev-head h2{font-size:clamp(44px,6vw,104px);margin-top:14px}
 .rev-head .st{margin-top:16px;color:var(--muted)}.rev-head .st b{font-family:var(--serif);font-size:44px;font-weight:500;color:var(--espresso);margin-right:8px}
-.saucers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;align-items:start}
+.saucers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:start}
 .sc{background:#fff;border-radius:22px;padding:28px 22px 24px;box-shadow:0 20px 40px -26px rgba(43,29,23,.35);border:1px solid rgba(184,146,76,.35);position:relative}
 .sc:nth-child(even){margin-top:40px}
 .sc .s{color:var(--gold);letter-spacing:.16em;font-size:13px}
@@ -215,7 +215,7 @@ h1 i,h2 i,h3 i{font-style:italic;color:var(--sageD)}
 .receipt .bar{height:40px;margin:16px auto 6px;width:80%;background:repeating-linear-gradient(90deg,#2a2420 0 2px,transparent 2px 4px,#2a2420 4px 5px,transparent 5px 8px,#2a2420 8px 11px,transparent 11px 12px)}
 footer{background:var(--espresso);color:var(--paper);padding:clamp(70px,12vh,120px) var(--pad) 28px;text-align:center}
 footer .lg{width:170px;margin:0 auto 30px;color:var(--paper)}
-footer .lg .cafe{fill:#d9a58f}
+footer .lg{--cafe:#d9a58f}
 .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:30px;padding-top:20px;border-top:1px solid rgba(251,247,240,.18);font-size:13px;color:rgba(251,247,240,.66);text-align:left}
 .concept{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
 
@@ -277,7 +277,7 @@ footer .lg .cafe{fill:#d9a58f}
 </div>
 
 <header class="nav" id="nav">
-  <a href="#top" aria-label="Café wunderbar"><svg class="badge lg"><use href="#logo"/></svg></a>
+  <a href="#top" aria-label="Café wunderbar"><svg viewBox="0 0 200 200" class="badge lg"><use href="#logo"/></svg></a>
   <ul><li><a href="#salon">Salon</a></li><li><a href="#specials">Specials</a></li><li><a href="#karte">Karte</a></li><li><a href="#mieten">Café mieten</a></li><li><a href="#besuch">Besuch</a></li></ul>
   <div class="r"><div class="status" id="status"><i></i><span>Öffnungszeiten</span></div></div>
 </header>
@@ -286,7 +286,7 @@ footer .lg .cafe{fill:#d9a58f}
 <section class="hero damask" id="hero">
   <div class="h-stage" id="hstage">
     <div class="h-text" id="htext">
-      <svg class="badge lg"><use href="#logo"/></svg>
+      <svg viewBox="0 0 200 200" class="badge lg"><use href="#logo"/></svg>
       <span class="k">Direkt gehandelter Spezialitätenkaffee</span>
       <h1><span class="ln"><span>Ein Salon für</span></span><span class="ln"><span><i>guten Kaffee.</i></span></span></h1>
       <p>Geblümte Sessel, Porzellan mit Goldrand und Kaffee, den wir direkt beim Erzeuger einkaufen. Mitten in der Dotzheimer Straße.</p>
@@ -310,10 +310,10 @@ footer .lg .cafe{fill:#d9a58f}
 <section class="specials" id="specials">
   <div class="sp-head"><div><span class="k" style="color:var(--goldL)">Jede Woche</span><h2 style="margin-top:14px">Wunderbar-<i>Specials</i></h2></div><p>Unsere Aktionen unter der Woche. Kommt vorbei und nehmt eure Freunde mit.</p></div>
   <div class="plates" id="plates">
-    <div class="plate" data-d="2"><div><div class="day">Dienstag</div><h3>Filter-Kaffee-Flatrate</h3><p>Moccamaster-Refill, so oft du magst</p></div></div>
-    <div class="plate" data-d="3"><div><div class="day">Mittwoch</div><h3>Schüler- &amp; Studententag</h3><p>Großen Kaffee trinken, kleinen bezahlen</p></div></div>
-    <div class="plate" data-d="4"><div><div class="day">Donnerstag</div><h3>Kindertag</h3><p>Babyccino gratis zum Kaffee</p></div></div>
-    <div class="plate" data-d="5"><div><div class="day">Freitag</div><h3>Guten-Morgen-Special</h3><p>Großen Kaffee trinken, kleinen bezahlen</p></div></div>
+    <div class="plate" data-d="2"><div><div class="dn">Dienstag</div><h3>Filter-Kaffee-Flatrate</h3><p>Moccamaster-Refill, so oft du magst</p></div></div>
+    <div class="plate" data-d="3"><div><div class="dn">Mittwoch</div><h3>Schüler- &amp; Studententag</h3><p>Großen Kaffee trinken, kleinen bezahlen</p></div></div>
+    <div class="plate" data-d="4"><div><div class="dn">Donnerstag</div><h3>Kindertag</h3><p>Babyccino gratis zum Kaffee</p></div></div>
+    <div class="plate" data-d="5"><div><div class="dn">Freitag</div><h3>Guten-Morgen-Special</h3><p>Großen Kaffee trinken, kleinen bezahlen</p></div></div>
   </div>
   <p class="sp-src">Aus unserem Instagram-Post „Wunderbar-Specials“.</p>
 </section>
@@ -365,7 +365,7 @@ footer .lg .cafe{fill:#d9a58f}
     <div class="sc"><div class="s">★★★★★</div><p>„Der Kaffee hält, was Specialty Coffee verspricht. Er hebt sich einfach von anderen Cafés ab. Und die Kuchen waren köstlich!“</p><small>Google-Bewertung</small></div>
     <div class="sc"><div class="s">★★★★★</div><p>„Tolle Atmosphäre, toller Service, starkes WLAN. Der House Blend ist ein Muss!“</p><small>Google-Bewertung</small></div>
     <div class="sc"><div class="s">★★★★★</div><p>„Sehr gemütlich, toller Kaffee und schöne Hintergrundmusik. Perfekt zum Abschalten!“</p><small>Google-Bewertung</small></div>
-    <div class="sc"><div class="s">★★★★★</div><p>„Ruhig und schön. Etwas höhere Preise, aber alles in guter Qualität. Die Sessel sind sehr bequem.“</p><small>Google-Bewertung</small></div>
+    
   </div>
 </section>
 
@@ -400,7 +400,7 @@ footer .lg .cafe{fill:#d9a58f}
     </div>
   </div>
   <div class="printer" id="printer"><div class="slotbar"></div><div class="paperwrap"><div class="receipt" id="receipt">
-    <svg class="badge lg"><use href="#logo"/></svg>
+    <svg viewBox="0 0 200 200" class="badge lg"><use href="#logo"/></svg>
     <div class="c">DOTZHEIMER STR. 53 · 65197 WIESBADEN</div><hr>
     <div class="l"><span>1× Cappuccino</span><span>Hafer ok</span></div>
     <div class="l"><span>1× Kuchen vom Tag</span><span>hausgem.</span></div>
@@ -414,7 +414,7 @@ footer .lg .cafe{fill:#d9a58f}
 </main>
 
 <footer>
-  <svg class="badge lg"><use href="#logo"/></svg>
+  <svg viewBox="0 0 200 200" class="badge lg"><use href="#logo"/></svg>
   <div class="foot"><span>Café wunderbar · Dotzheimer Straße 53 · 65197 Wiesbaden</span><span class="concept">Konzept-Entwurf von J.H. Digital Atelier für Café wunderbar · keine offizielle Website · echte Fotos aus Café &amp; Instagram, teils nachbearbeitet</span></div>
 </footer>
 
