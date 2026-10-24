@@ -190,6 +190,7 @@ footer .big em{color:var(--amber)}
 /* flying bee over the page */
 .beeLayer{overflow:hidden;position:fixed;inset:0;z-index:45;pointer-events:none}
 .bee{position:absolute;left:0;top:0;width:clamp(64px,6.4vw,104px);will-change:transform}
+@media (max-width:900px){.bee{width:54px}}
 .bee .wob{will-change:transform}
 .bee img{width:100%;height:auto;filter:drop-shadow(0 14px 18px rgba(0,0,0,.45))}
 .bee .buzz{position:absolute;inset:0;opacity:.0;filter:blur(2px)}
@@ -277,9 +278,9 @@ footer .big em{color:var(--amber)}
 
 <section class="journey" id="orte">
   <div class="j-stage">
-    <div class="j-img" data-cap="Symbolbild"><img src="media/wiesbaden.webp" alt="Blühende Streuobstwiese über Wiesbaden mit Bienenkästen"></div>
-    <div class="j-img" data-cap="Symbolbild"><img src="media/taunus.webp" alt="Rapsfeld bei Taunusstein mit Bienenkästen"></div>
-    <div class="j-img" data-cap="Symbolbild"><img src="media/lenneberg.webp" alt="Lennebergwald mit blühender Linde und Bienenkästen"></div>
+    <div class="j-img" data-cap="Symbolbild · KI-generiert"><img src="media/wiesbaden.webp" alt="Blühende Streuobstwiese über Wiesbaden mit Bienenkästen"></div>
+    <div class="j-img" data-cap="Symbolbild · KI-generiert"><img src="media/taunus.webp" alt="Rapsfeld bei Taunusstein mit Bienenkästen"></div>
+    <div class="j-img" data-cap="Symbolbild · KI-generiert"><img src="media/lenneberg.webp" alt="Lennebergwald mit blühender Linde und Bienenkästen"></div>
     <div class="j-text">
       <div class="j-item"><div class="n">01</div><h2>Wies<em>baden</em></h2><p>Das Blütenangebot in der Stadt ist besonders vielfältig. Hier ernten wir Blütenhonig, bei dem keine einzelne Tracht dominiert, und jedes Jahr schmeckt er ein wenig anders.</p><div class="honey"><div><i style="background:#dba640"></i>Blütenhonig</div></div></div>
       <div class="j-item"><div class="n">02</div><h2>Taunus<em>stein</em></h2><p>Im Frühjahr prägt der Raps den Honig: sehr hell und mild. Im Sommer kommt der Nektar der Sommerblüten und der Honigtau dazu, dann wird er etwas kräftiger.</p><div class="honey"><div><i style="background:#efe2b4"></i>Frühjahrstracht · Raps</div><div><i style="background:#b97b26"></i>Sommertracht</div></div></div>
@@ -313,7 +314,7 @@ footer .big em{color:var(--amber)}
 
 <section class="hiveS" id="beute">
   <div class="h-stage">
-    <div class="h-copy"><span class="k">Die Bienenbeute</span><h2>Was in einer <em>Beute</em> steckt.</h2><p>Scroll weiter und die Beute öffnet sich Teil für Teil (Illustration). Oben lagern die Bienen den Honig ein, den wir ernten. Unten zieht die Königin ihre Brut auf.</p></div>
+    <div class="h-copy"><span class="k">Die Bienenbeute</span><h2>Was in einer <em>Beute</em> steckt.</h2><p>Scroll weiter und die Beute öffnet sich Teil für Teil (KI-generierte Illustration). Oben lagern die Bienen den Honig ein, den wir ernten. Unten zieht die Königin ihre Brut auf.</p></div>
     <div class="hive" id="hive"></div>
   </div>
 </section>
@@ -394,7 +395,7 @@ footer .big em{color:var(--amber)}
 <footer>
   <div class="big">Eichen<em>honig</em><span class="legal" style="display:flex;gap:16px"><a href="impressum.html" style="color:inherit">Impressum</a><a href="datenschutz.html" style="color:inherit">Datenschutz</a></span></div>
   <span>Imkerei Eichenhonig · Hasenspitz 22 · 65199 Wiesbaden</span>
-  <span class="concept">Konzept-Entwurf von J.H. Digital Atelier für die Imkerei Eichenhonig · keine offizielle Website · Fotos von eichenhonig.de, nachbearbeitet · Standortbilder und Beuten-Animation als Symbolbild</span>
+  <span class="concept">Konzept-Entwurf von J.H. Digital Atelier für die Imkerei Eichenhonig · keine offizielle Website · Fotos von eichenhonig.de, nachbearbeitet · Standortbilder, Beuten-Animation und fliegende Biene sind KI-generierte Symbolbilder</span>
 </footer>
 
 <script src="vendor/lenis.min.js"></script>
@@ -445,10 +446,16 @@ function flyBee(){const bee=document.getElementById('bee');if(RM||!bee)return;
   const qx=gsap.quickTo(bee,'x',{duration:1.1,ease:'power3.out'}),qy=gsap.quickTo(bee,'y',{duration:1.1,ease:'power3.out'}),qr=gsap.quickTo(bee,'rotation',{duration:.6,ease:'power2.out'});
   let lx=null,face=1,bvis=true;const MOBB=innerWidth<900;
   function at(p){let i=0;while(i<P.length-2&&p>P[i+1][0])i++;const a=P[i],b=P[i+1],t=Math.min(1,Math.max(0,(p-a[0])/(b[0]-a[0])));const e=t*t*(3-2*t);return[a[1]+(b[1]-a[1])*e,a[2]+(b[2]-a[2])*e]}
-  function upd(){const max=document.documentElement.scrollHeight-innerHeight;const p=max>0?scrollY/max:0;let [fx,fy]=at(p);fx=fx<.5?.03+fx*.18:.8+(fx-.5)*.32;const x=fx*innerWidth-bee.offsetWidth/2,y=fy*innerHeight-bee.offsetHeight/2;
-    if(lx!==null){const dx=x-lx;if(Math.abs(dx)>2){face=dx>0?1:-1;gsap.set('#wob',{scaleX:face});qr(Math.max(-18,Math.min(18,dx*.08)))}else qr(0)}lx=x;qx(x);qy(y);if(!MOBB){const hit=document.elementsFromPoint(Math.min(innerWidth-2,x+bee.offsetWidth/2),Math.min(innerHeight-2,y+bee.offsetHeight/2)).some(e=>/^(H1|H2|H3|P|LI|A|BUTTON|B|EM|SPAN)$/.test(e.tagName)&&!e.closest('#bee'));const vis=!hit;if(vis!==bvis){bvis=vis;gsap.to(bee,{opacity:vis?1:0,duration:.3,overwrite:'auto'})}}if(MOBB){const vis=scrollY<innerHeight*.45;if(vis!==bvis){bvis=vis;gsap.to(bee,{opacity:vis?1:0,duration:.4,overwrite:'auto'})}}}
+  const isText=(x,y,w,h)=>{const pts=[[x+w*.5,y+h*.5],[x+w*.2,y+h*.3],[x+w*.8,y+h*.7]];return pts.some(([px,py])=>px>0&&py>0&&px<innerWidth&&py<innerHeight&&document.elementsFromPoint(px,py).some(e=>/^(H1|H2|H3|H4|P|LI|A|BUTTON|B|EM|SPAN|SMALL|LABEL|INPUT)$/.test(e.tagName)&&!e.closest('#bee')&&!e.closest('.beeLayer')))};
+  let side=1;
+  function upd(){const max=document.documentElement.scrollHeight-innerHeight;const p=max>0?scrollY/max:0;let [fx,fy]=at(p);const w=bee.offsetWidth,h=bee.offsetHeight;
+    let x,y=fy*innerHeight-h/2;y=Math.max(70,Math.min(innerHeight-h-10,y));
+    if(MOBB){x=fx<.5?-w*.28:innerWidth-w*.72}else{fx=fx<.5?.015+fx*.12:.86+(fx-.5)*.22;x=fx*innerWidth-w/2}
+    /* never over text: try the other edge, then nudge up/down; the bee always stays visible */
+    if(isText(x,y,w,h)){const alt=MOBB?(x<0?innerWidth-w*.72:-w*.28):(x<innerWidth/2?innerWidth*.955-w/2:innerWidth*.045-w/2);if(!isText(alt,y,w,h))x=alt;else{for(const d of[-90,90,-180,180,-270,270]){const ny=Math.max(70,Math.min(innerHeight-h-10,y+d));if(!isText(x,ny,w,h)){y=ny;break}if(!isText(alt,ny,w,h)){x=alt;y=ny;break}}}}
+    if(lx!==null){const dx=x-lx;if(Math.abs(dx)>2){face=dx>0?1:-1;gsap.set('#wob',{scaleX:face});qr(Math.max(-18,Math.min(18,dx*.08)))}else qr(0)}lx=x;qx(x);qy(y)}
   gsap.set(bee,{x:innerWidth*.62,y:innerHeight*.34,opacity:0});gsap.to(bee,{opacity:1,duration:.8});
-  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();setInterval(upd,700);
   gsap.to('#wob',{y:'+=7',duration:.18,yoyo:true,repeat:-1,ease:'sine.inOut'});
   gsap.to('#wob',{x:'+=4',duration:.31,yoyo:true,repeat:-1,ease:'sine.inOut'});
   gsap.to('#wob .buzz',{opacity:.55,duration:.04,yoyo:true,repeat:-1,ease:'none'});
