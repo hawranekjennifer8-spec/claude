@@ -43,7 +43,7 @@ h1 i,h2 i,h3 i{font-weight:500;color:var(--tomato)}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.1em}.hero h1 .ln>span{display:inline-block;transform:translateY(110%)}
 .hero p{max-width:46ch;margin:24px 0 32px;color:var(--muted);font-size:clamp(16px,1.2vw,20px)}
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap}
-.hero .since{position:absolute;z-index:3;left:var(--pad);top:clamp(110px,16vh,150px);font-family:var(--serif);font-style:italic;color:var(--muted)}
+.hero .since{display:none;position:absolute;z-index:3;left:var(--pad);top:clamp(110px,16vh,150px);font-family:var(--serif);font-style:italic;color:var(--muted)}
 .hero .rate{position:absolute;z-index:2;right:var(--pad);bottom:clamp(24px,5vh,46px);text-align:right;font-size:13px;color:var(--muted)}
 .hero .rate b{display:block;font-family:var(--serif);font-size:30px;color:var(--cream);font-weight:500}
 
@@ -207,7 +207,6 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
  .hero::after{background:linear-gradient(0deg,rgba(26,31,21,.98) 34%,rgba(26,31,21,.55) 70%,rgba(26,31,21,.35))}
  .hero h1{font-size:clamp(46px,12.5vw,64px)}
  .hero-in{max-width:none}
- .hero .since{display:none}
 }
 </style>
 </head>
@@ -273,8 +272,8 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 </section>
 
 <section class="fresca" id="riccardo">
-  <img src="media/real-lokal2.webp" alt="Gastraum der Pastasciutta" id="frescaImg" loading="lazy">
-  <div class="in"><span class="lb">La Pasta Fresca</span><h2>Pasta <i>fresca.</i></h2>
+  <img src="media/real-lokal2.webp" alt="Gastraum der Pastasciutta" id="frescaImg" loading="lazy" style="object-position:72% 50%">
+  <div class="in"><span class="lb">La Pasta Fresca</span><h2>La pasta <i>di Riccardo.</i></h2>
   <p>„La Pasta Fresca di Riccardo Annuzzo“, so steht es auf unserem Instagram.</p>
   <p>Reservieren musst du nicht. Komm einfach vorbei, setz dich und bestell, worauf du Lust hast.</p>
   <div class="sign">Riccardo Annuzzo</div><span class="noresa">No reservations – just come by</span></div>
