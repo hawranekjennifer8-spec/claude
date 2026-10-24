@@ -446,8 +446,8 @@ function flyBee(){const bee=document.getElementById('bee');if(RM||!bee)return;
   const qx=gsap.quickTo(bee,'x',{duration:1.1,ease:'power3.out'}),qy=gsap.quickTo(bee,'y',{duration:1.1,ease:'power3.out'}),qr=gsap.quickTo(bee,'rotation',{duration:.6,ease:'power2.out'});
   let lx=null,face=1,bvis=true;const MOBB=innerWidth<900;
   function at(p){let i=0;while(i<P.length-2&&p>P[i+1][0])i++;const a=P[i],b=P[i+1],t=Math.min(1,Math.max(0,(p-a[0])/(b[0]-a[0])));const e=t*t*(3-2*t);return[a[1]+(b[1]-a[1])*e,a[2]+(b[2]-a[2])*e]}
-  function upd(){const max=document.documentElement.scrollHeight-innerHeight;const p=max>0?scrollY/max:0;const [fx,fy]=at(p);const x=fx*innerWidth-bee.offsetWidth/2,y=fy*innerHeight-bee.offsetHeight/2;
-    if(lx!==null){const dx=x-lx;if(Math.abs(dx)>2){face=dx>0?1:-1;gsap.set('#wob',{scaleX:face});qr(Math.max(-18,Math.min(18,dx*.08)))}else qr(0)}lx=x;qx(x);qy(y);if(MOBB){const vis=scrollY<innerHeight*.45;if(vis!==bvis){bvis=vis;gsap.to(bee,{opacity:vis?1:0,duration:.4,overwrite:'auto'})}}}
+  function upd(){const max=document.documentElement.scrollHeight-innerHeight;const p=max>0?scrollY/max:0;let [fx,fy]=at(p);fx=fx<.5?.03+fx*.18:.8+(fx-.5)*.32;const x=fx*innerWidth-bee.offsetWidth/2,y=fy*innerHeight-bee.offsetHeight/2;
+    if(lx!==null){const dx=x-lx;if(Math.abs(dx)>2){face=dx>0?1:-1;gsap.set('#wob',{scaleX:face});qr(Math.max(-18,Math.min(18,dx*.08)))}else qr(0)}lx=x;qx(x);qy(y);if(!MOBB){const hit=document.elementsFromPoint(Math.min(innerWidth-2,x+bee.offsetWidth/2),Math.min(innerHeight-2,y+bee.offsetHeight/2)).some(e=>/^(H1|H2|H3|P|LI|A|BUTTON|B|EM|SPAN)$/.test(e.tagName)&&!e.closest('#bee'));const vis=!hit;if(vis!==bvis){bvis=vis;gsap.to(bee,{opacity:vis?1:0,duration:.3,overwrite:'auto'})}}if(MOBB){const vis=scrollY<innerHeight*.45;if(vis!==bvis){bvis=vis;gsap.to(bee,{opacity:vis?1:0,duration:.4,overwrite:'auto'})}}}
   gsap.set(bee,{x:innerWidth*.62,y:innerHeight*.34,opacity:0});gsap.to(bee,{opacity:1,duration:.8});
   addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
   gsap.to('#wob',{y:'+=7',duration:.18,yoyo:true,repeat:-1,ease:'sine.inOut'});
