@@ -194,6 +194,12 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
   .hands{grid-template-columns:1fr}.hands figure:last-child{margin-top:0}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero h1 .ln>span{transform:none}.st:first-child,.s-img:first-child{opacity:1;transform:none}}
+@media (max-width:900px){
+ .hero{align-items:end;padding-bottom:40px;background:var(--deep)}
+ .hero #heroVid,.hero #heroImg{top:168px;left:var(--pad);right:var(--pad);width:auto;height:calc((100vw - 2*var(--pad))*.72);inset:auto;top:168px;border-radius:6px;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+ .hero::after{background:linear-gradient(0deg,rgba(26,31,21,1) 38%,rgba(26,31,21,0) 62%);}
+ .hero h1{font-size:clamp(46px,12.5vw,64px)}
+}
 </style>
 </head>
 <body>
@@ -366,7 +372,7 @@ placeLabels();addEventListener("resize",placeLabels);if(document.fonts)document.
 /* riapertura banner only until reopening day */
 if(now>=new Date(2026,9,28))document.getElementById('ria').remove();
 /* intro: spiral draws, fork spins, curtain opens */
-function startHero(){const hv=document.getElementById('heroVid');hv.src=MOB?'media/hero4-m.mp4':'media/hero4.mp4';hv.addEventListener('ended',()=>hv.pause());if(!RM)hv.play().catch(()=>{});gsap.fromTo('#heroImg,#heroVid',{scale:1.12},{scale:1,duration:2.6,ease:'expo.out'});
+function startHero(){const hv=document.getElementById('heroVid');hv.src='media/hero4.mp4';hv.addEventListener('ended',()=>hv.pause());if(!RM)hv.play().catch(()=>{});gsap.fromTo('#heroImg,#heroVid',{scale:1.12},{scale:1,duration:2.6,ease:'expo.out'});
   gsap.to('.hero h1 .ln>span',{y:0,duration:1.4,ease:'expo.out',stagger:.12,delay:.2});
   gsap.from('.hero .lb,.hero p,.hero .btns,.since,.rate,.ria',{opacity:0,y:20,duration:1.1,ease:'expo.out',stagger:.07,delay:.45});}
 function intro(){const el=document.getElementById('intro');if(RM){el.remove();startHero();return}
