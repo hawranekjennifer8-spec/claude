@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Team Bau GmbH · Rohbau, Hochbau, Schlüsselfertig in Wiesbaden (Konzept)</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Konzept-Entwurf von J.H. Digital Atelier für die Team Bau GmbH, Wiesbaden.">
+<meta property="og:image" content="media/done.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b1f33'/%3E%3Cpath d='M10 16h44M18 16v34' stroke='%23f2c230' stroke-width='5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="media/hero.webp">
+<style>
+:root{--navy:#0b1f33;--navy2:#0f2a45;--paper:#ecebe7;--concrete:#c9c6bf;--signal:#f2c230;--ink:#0a141e;--lineD:rgba(10,20,30,.14);--lineL:rgba(236,235,231,.16);
+--sans:"Space Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--pad:clamp(18px,4vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:clamp(16px,1.05vw,18px);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+::selection{background:var(--signal);color:var(--ink)}
+.m{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.y{color:var(--signal)}
+h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:.95}
+.grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(90deg,var(--lineD) 1px,transparent 1px);background-size:calc((100% - 2*var(--pad))/12) 100%;background-position:var(--pad) 0;opacity:.6}
+
+.nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px var(--pad);color:var(--paper);transition:background .5s,color .5s,padding .5s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(236,235,231,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);padding-block:12px;border-color:var(--lineD)}
+.nav .logo img{height:30px;width:auto;transition:filter .5s}
+.nav.solid .logo img{filter:invert(1) brightness(.2)}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:14px}
+.nav ul a{opacity:.8}.nav ul a:hover{opacity:1}
+.tel{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;padding:11px 16px;background:var(--signal);color:var(--ink)}
+
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;color:var(--paper);background:var(--navy)}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,31,51,.9),rgba(11,31,51,.25) 45%,rgba(11,31,51,.35))}
+.coord{position:absolute;z-index:2;top:96px;right:var(--pad);text-align:right;opacity:.75}
+.hero-in{position:absolute;z-index:2;left:var(--pad);right:var(--pad);bottom:130px}
+.hero h1{font-size:clamp(56px,10vw,184px);text-transform:uppercase;line-height:.86;letter-spacing:-.05em}
+.hero h1 .ln{display:block;overflow:hidden}.hero h1 .ln>span{display:inline-block;transform:translateY(105%)}
+.hero h1 .y{font-weight:300}
+.hero p{max-width:46ch;margin-top:22px;color:rgba(236,235,231,.82)}
+.stats{position:absolute;z-index:2;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--lineL)}
+.stats div{padding:18px var(--pad) 22px;border-right:1px solid var(--lineL)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-weight:500;font-size:clamp(20px,2vw,30px);letter-spacing:-.02em}
+.stats span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+
+.claim{position:relative;padding:clamp(110px,18vh,200px) var(--pad);overflow:hidden}
+.claim p{position:relative;font-size:clamp(30px,4.2vw,72px);line-height:1.06;letter-spacing:-.035em;max-width:24ch;font-weight:450}
+.claim .w{opacity:.15}
+.claim mark{background:none;color:inherit;box-shadow:inset 0 -.28em 0 var(--signal)}
+
+/* plan to build */
+.p2b{position:relative;height:330vh;background:var(--navy);color:var(--paper)}
+.p2b-stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.photo{position:absolute;inset:0;clip-path:inset(0 100% 0 0);will-change:clip-path}
+.photo img{width:100%;height:100%;object-fit:cover}
+.bp{position:absolute;inset:0;width:100%;height:100%}
+.bp .l{fill:none;stroke:rgba(236,235,231,.82);stroke-width:1.4;vector-effect:non-scaling-stroke}
+.bp .t{fill:none;stroke:rgba(236,235,231,.38);stroke-width:1;vector-effect:non-scaling-stroke}
+.bp .d{fill:none;stroke:var(--signal);stroke-width:1;vector-effect:non-scaling-stroke}
+.bp text{fill:rgba(236,235,231,.75);font-family:var(--mono);font-size:13px;letter-spacing:.08em}
+.bp .gridl{stroke:rgba(236,235,231,.07);stroke-width:1}
+.wipe{position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--signal);box-shadow:0 0 30px var(--signal);opacity:0;z-index:3}
+.p2b-copy{position:absolute;z-index:4;left:var(--pad);top:clamp(90px,14vh,130px);width:min(430px,80vw)}
+.phase{position:absolute;top:0;left:0;opacity:0}
+.phase .m{color:var(--signal)}
+.phase h2{font-size:clamp(36px,4vw,68px);margin:12px 0 12px;text-transform:uppercase}
+.phase p{color:rgba(236,235,231,.78);max-width:36ch;background:rgba(11,31,51,.55);padding:2px 0}
+.p2b-scale{position:absolute;z-index:4;right:var(--pad);bottom:clamp(24px,5vh,44px);text-align:right}
+
+/* services */
+.serv{position:relative;padding:clamp(100px,16vh,170px) var(--pad);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(30px,6vw,100px)}
+.serv-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:10px;position:relative}
+.serv-head h2{font-size:clamp(44px,6vw,104px);text-transform:uppercase}
+.svc{list-style:none;border-top:1px solid var(--ink);position:relative}
+.svc li{display:grid;grid-template-columns:70px minmax(0,1fr);gap:16px;padding:28px 0;border-bottom:1px solid var(--lineD);cursor:default;transition:background .4s}
+.svc li .m{padding-top:10px;color:rgba(10,20,30,.55)}
+.svc h3{font-size:clamp(28px,3vw,50px);text-transform:uppercase;transition:transform .6s var(--ease)}
+.svc p{color:rgba(10,20,30,.66);max-width:48ch;margin-top:8px;max-height:0;overflow:hidden;opacity:0;transition:max-height .7s var(--ease),opacity .5s}
+.svc li.on h3{transform:translateX(14px)}.svc li.on p{max-height:140px;opacity:1}
+.svc li.on .m{color:var(--ink)}
+.panel{position:sticky;top:110px;align-self:start;aspect-ratio:4/5;overflow:hidden;background:var(--concrete)}
+.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.05);transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
+.panel img.on{opacity:1;transform:none}
+.panel .tagc{position:absolute;left:0;bottom:0;z-index:2;background:var(--signal);padding:8px 12px}
+
+/* breakdown */
+.brk{position:relative;height:280vh;background:var(--navy);color:var(--paper)}
+.brk-stage{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;padding:0 var(--pad);gap:30px}
+.brk h2{font-size:clamp(40px,5vw,88px);text-transform:uppercase;margin:14px 0 18px}
+.brk p{color:rgba(236,235,231,.72);max-width:38ch}
+.model{position:relative;height:84svh;aspect-ratio:920/1464;justify-self:center}
+.model img{width:100%;height:100%;object-fit:contain;will-change:transform}
+.scan{position:absolute;left:-8%;right:-8%;height:2px;background:var(--signal);box-shadow:0 0 24px var(--signal);top:0;opacity:0}
+.flr{position:absolute;left:104%;display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:.15;transition:opacity .4s}
+.flr::before{content:"";width:clamp(20px,4vw,60px);height:1px;background:currentColor;opacity:.5}
+.flr b{font-weight:500;font-size:clamp(15px,1.3vw,20px)}
+.flr span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--signal);display:block}
+.flr.on{opacity:1}
+.ctr{font-family:var(--mono);font-size:12px;letter-spacing:.14em;margin-top:28px;color:var(--signal)}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);position:relative}
+.nums div{padding:clamp(40px,8vh,80px) var(--pad);border-right:1px solid var(--lineD)}
+.nums div:last-child{border-right:0}
+.nums b{display:block;font-weight:500;font-size:clamp(56px,7vw,128px);letter-spacing:-.06em;line-height:.9;font-variant-numeric:tabular-nums}
+.nums b small{font-size:.4em;letter-spacing:-.02em}
+.nums span{display:block;margin-top:14px;color:rgba(10,20,30,.62);max-width:22ch}
+
+/* references */
+.refs{position:relative;padding:clamp(100px,16vh,170px) var(--pad);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(30px,5vw,80px)}
+.refs-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.refs-head h2{font-size:clamp(44px,6vw,104px);text-transform:uppercase}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{font:inherit;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:none;border:1px solid var(--lineD);padding:9px 12px;cursor:pointer;color:var(--ink);transition:background .3s,border-color .3s}
+.filters button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tbl{border-top:1px solid var(--ink)}
+.tr{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 110px;gap:14px;padding:15px 0;border-bottom:1px solid var(--lineD);align-items:baseline;transition:padding .45s var(--ease),background .3s;cursor:default}
+.tr .p{font-weight:500;font-size:clamp(17px,1.4vw,21px);letter-spacing:-.02em}
+.tr .o{color:rgba(10,20,30,.6);font-size:15px}
+.tr .c{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:right;color:rgba(10,20,30,.55)}
+.tr.on{padding-left:12px;background:linear-gradient(90deg,rgba(242,194,48,.22),transparent 70%)}
+.tr.hide{display:none}
+.rpanel{position:sticky;top:110px;align-self:start}
+.rpanel .img{aspect-ratio:4/5;overflow:hidden;position:relative;background:var(--concrete)}
+.rpanel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease)}
+.rpanel img.on{opacity:1}
+.rpanel .meta{margin-top:14px;display:flex;justify-content:space-between;gap:10px}
+.rpanel .meta b{font-weight:500}
+.sym{color:rgba(10,20,30,.5)}
+
+/* timeline */
+.time{position:relative;background:var(--ink);color:var(--paper);padding:clamp(100px,16vh,170px) var(--pad);overflow:hidden}
+.time h2{font-size:clamp(44px,6vw,104px);text-transform:uppercase;max-width:14ch}
+.time .lead{color:rgba(236,235,231,.72);max-width:52ch;margin:24px 0 clamp(50px,9vh,90px)}
+.tl{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding-top:44px}
+.tl::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--lineL)}
+.tl .bar{position:absolute;left:0;top:0;height:2px;width:100%;background:var(--signal);transform:scaleX(0);transform-origin:left}
+.tl div{position:relative}
+.tl div::before{content:"";position:absolute;top:-50px;left:0;width:12px;height:12px;background:var(--ink);border:2px solid var(--signal)}
+.tl b{display:block;font-weight:500;font-size:clamp(34px,3.4vw,58px);letter-spacing:-.04em;line-height:1}
+.tl p{color:rgba(236,235,231,.7);margin-top:12px;font-size:15px}
+
+/* contact */
+.contact{position:relative;padding:clamp(100px,16vh,170px) var(--pad);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,100px)}
+.contact h2{font-size:clamp(48px,6.5vw,118px);text-transform:uppercase}
+.contact address{font-style:normal;margin-top:30px;font-size:clamp(18px,1.5vw,22px);line-height:1.6}
+.contact address a{border-bottom:1px solid var(--lineD)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;align-content:start;position:relative}
+label{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(10,20,30,.6)}
+label.full{grid-column:1/-1}
+input,select,textarea{display:block;width:100%;margin-top:8px;padding:12px 0;font:inherit;font-size:16px;letter-spacing:0;text-transform:none;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);border-radius:0;outline:none;-webkit-appearance:none;appearance:none}
+textarea{min-height:100px;resize:vertical}
+.send{grid-column:1/-1;justify-self:start;font:inherit;font-weight:500;background:var(--ink);color:var(--paper);border:0;padding:16px 24px;cursor:pointer;transition:background .3s,color .3s}
+.send:hover{background:var(--signal);color:var(--ink)}
+footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) var(--pad) 28px;overflow:hidden}
+.mega{font-weight:700;font-size:clamp(80px,19vw,340px);line-height:.8;letter-spacing:-.06em;-webkit-text-stroke:1px rgba(236,235,231,.5);color:transparent;white-space:nowrap}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:34px;padding-top:18px;border-top:1px solid var(--lineL);font-size:13px;color:rgba(236,235,231,.65)}
+
+@media (max-width:900px){
+  .nav ul{display:none}.tel{padding:9px 12px;font-size:12px}
+  .coord{display:none}
+  .hero-in{bottom:170px}
+  .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div{padding:12px var(--pad);border-bottom:1px solid var(--lineL)}
+  .serv,.refs,.contact{grid-template-columns:1fr}
+  .panel,.rpanel{display:none}
+  .svc p{max-height:none;opacity:1}
+  .brk-stage{grid-template-columns:1fr;align-content:start;padding-top:84px;gap:6px}
+  .brk p{display:none}.brk h2{font-size:34px;margin:8px 0}
+  .model{height:60svh;justify-self:start}
+  .flr b{font-size:13px}.flr::before{width:14px}
+  .ctr{display:none}
+  .nums{grid-template-columns:1fr 1fr}.nums div:nth-child(2){border-right:0}.nums div{border-bottom:1px solid var(--lineD)}
+  .tr{grid-template-columns:1fr auto}.tr .o{grid-column:1/-1;grid-row:2}
+  .tl{grid-template-columns:1fr 1fr;row-gap:60px}
+  form{grid-template-columns:1fr}
+  .phase p{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero h1 .ln>span{transform:none}.claim .w{opacity:1}.photo{clip-path:none}.phase:first-child{opacity:1}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="logo" href="#top"><img src="media/logo.png" alt="Team Bau GmbH"></a>
+  <ul><li><a href="#plan">Vom Plan zum Bau</a></li><li><a href="#leistungen">Leistungen</a></li><li><a href="#referenzen">Referenzen</a></li><li><a href="#unternehmen">Unternehmen</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+  <a class="tel" href="tel:+496119446619">0611 9446619</a>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <img class="poster" src="media/hero.webp" alt="Rohbau mit Turmdrehkran bei Sonnenaufgang">
+  <video id="heroVid" muted loop playsinline preload="auto" poster="media/hero.webp"></video>
+  <div class="coord m">50.0782° N · 8.2398° E<br>Wiesbaden · Rhein-Main</div>
+  <div class="hero-in">
+    <span class="m y">[ Bauunternehmen · Familienbetrieb in 2. Generation ]</span>
+    <h1 style="margin-top:18px"><span class="ln"><span>Uns geht's</span></span><span class="ln"><span>ums <span class="y">Bauen.</span></span></span></h1>
+    <p>Rohbau, Hochbau und schlüsselfertige Gebäude für öffentliche, gewerbliche und private Bauherren im Rhein-Main-Gebiet.</p>
+  </div>
+  <div class="stats">
+    <div><b>Seit 1999</b><span>Hauptauftragnehmer</span></div>
+    <div><b>40+ Projekte</b><span>im Rhein-Main-Gebiet</span></div>
+    <div><b>bis 3 Mio. €</b><span>Auftragssumme</span></div>
+    <div><b>Festpreis</b><span>bei fertiger Planung</span></div>
+  </div>
+</section>
+
+<section class="claim">
+  <div class="grid-bg"></div>
+  <span class="m" style="position:relative;display:block;margin-bottom:30px;color:rgba(10,20,30,.55)">[ 01 · Haltung ]</span>
+  <p id="claim">Wir betreuen nur so viele Projekte, wie wir mit voller Aufmerksamkeit begleiten können. <mark>Gelebte Kernkompetenz statt Massengeschäft.</mark> Mit einem festen Ansprechpartner vom ersten Plan bis zur Übergabe.</p>
+</section>
+
+<section class="p2b" id="plan">
+  <div class="p2b-stage">
+    <div class="photo" id="photo"><img src="media/done.webp" alt="Fertiggestelltes Mehrfamilienhaus zur blauen Stunde"></div>
+    <svg class="bp" id="bp" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice"></svg>
+    <div class="wipe" id="wipe"></div>
+    <div class="p2b-copy">
+      <div class="phase"><span class="m">01 · Planung</span><h2>Erst der Plan.</h2><p>Gemeinsam mit Architekten und Planern prüfen wir jedes Detail. Bei fertiger Planung gilt unsere Festpreisgarantie.</p></div>
+      <div class="phase"><span class="m">02 · Rohbau</span><h2>Dann das Fundament.</h2><p>Unsere Kernleistung: Rohbau mit eigenem Maschinenpark und eigenem Materialbestand.</p></div>
+      <div class="phase"><span class="m">03 · Übergabe</span><h2>Am Ende Ihr Gebäude.</h2><p>Auf Wunsch schlüsselfertig, mit unserem erprobten Netzwerk aus Fachunternehmern.</p></div>
+    </div>
+    <div class="p2b-scale m" style="color:rgba(236,235,231,.7)">Ansicht Süd · M 1:100<br><span class="y" id="pct">Planstand 0 %</span></div>
+  </div>
+</section>
+
+<section class="serv" id="leistungen">
+  <div class="grid-bg"></div>
+  <div class="serv-head"><div><span class="m" style="color:rgba(10,20,30,.55)">[ 02 · Leistungen ]</span><h2 style="margin-top:14px">Was wir bauen.</h2></div><p style="max-width:40ch;color:rgba(10,20,30,.66)">Öffentliche, gewerbliche und private Bauvorhaben mit einer Auftragssumme bis zu 3 Millionen Euro.</p></div>
+  <ul class="svc" id="svc">
+    <li class="on" data-i="0"><span class="m">01</span><div><h3>Rohbau</h3><p>Unsere Kernleistung seit den 90er-Jahren. Mit modernem Maschinenpark und umfangreichem Bestand an Baumaterialien.</p></div></li>
+    <li data-i="1"><span class="m">02</span><div><h3>Hochbau &amp; Fertigteilbau</h3><p>Individuelle Bauvorhaben im Hochbau, ob Ortbeton oder Fertigteil, sauber koordiniert und termingerecht.</p></div></li>
+    <li data-i="2"><span class="m">03</span><div><h3>Schlüsselfertig</h3><p>Seit 2006 erstellen wir Gebäude schlüsselfertig und greifen gezielt auf unser Netzwerk aus Fachunternehmern, Architekten und Planern zurück.</p></div></li>
+    <li data-i="3"><span class="m">04</span><div><h3>Bauberatung</h3><p>Kurze Wege statt langer Diskussionen: ein fester Ansprechpartner für den gesamten Bauprozess und Festpreisgarantie bei fertiger Planung.</p></div></li>
+  </ul>
+  <div class="panel" id="panel"><img src="media/hero.webp" class="on" alt=""><img src="media/wgh.webp" alt=""><img src="media/done.webp" alt=""><img src="media/plan.webp" alt=""><span class="tagc m" id="ptag">01 · Rohbau</span></div>
+</section>
+
+<section class="brk" id="modell">
+  <div class="brk-stage">
+    <div><span class="m y">[ 03 · Aufbau ]</span><h2>Geschoss für <span class="y">Geschoss.</span></h2><p>Vom Fundament bis zur Attika: Jede Ebene wird geplant, betoniert, geprüft. Scroll durch das Modell.</p><div class="ctr" id="ctr">EBENE 00 / 06</div></div>
+    <div class="model" id="model">
+      <img src="media/build.webp" alt="Explosionsmodell eines Mehrfamilienhauses" id="modelImg">
+      <div class="scan" id="scan"></div>
+      <div class="flr" style="top:8%"><div><span>06</span><b>Dach &amp; Attika</b></div></div>
+      <div class="flr" style="top:27%"><div><span>05</span><b>3. Obergeschoss</b></div></div>
+      <div class="flr" style="top:43%"><div><span>04</span><b>2. Obergeschoss</b></div></div>
+      <div class="flr" style="top:58%"><div><span>03</span><b>1. Obergeschoss</b></div></div>
+      <div class="flr" style="top:72%"><div><span>02</span><b>Erdgeschoss</b></div></div>
+      <div class="flr" style="top:87%"><div><span>01</span><b>Bodenplatte &amp; Fundament</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="nums" id="nums">
+  <div><b data-n="2" data-s=". Gen.">0</b><span>Familienunternehmen, gegründet in den 90er-Jahren</span></div>
+  <div><b data-n="20" data-s="+">0</b><span>Jahre Erfahrung als Bauunternehmen</span></div>
+  <div><b data-n="40" data-s="+">0</b><span>realisierte Projekte im Rhein-Main-Gebiet</span></div>
+  <div><b data-n="3" data-s=" Mio.">0</b><span>Euro Auftragssumme pro Bauvorhaben</span></div>
+</section>
+
+<section class="refs" id="referenzen">
+  <div class="grid-bg"></div>
+  <div class="refs-head"><div><span class="m" style="color:rgba(10,20,30,.55)">[ 04 · Referenzen ]</span><h2 style="margin-top:14px">Gebaut.</h2></div>
+    <div class="filters" id="filters"><button class="on" data-f="Alle">Alle</button><button data-f="Wohnen">Wohnen</button><button data-f="Gewerbe">Gewerbe</button><button data-f="Bildung">Bildung</button><button data-f="Öffentlich">Öffentlich</button></div></div>
+  <div class="tbl" id="tbl"></div>
+  <div class="rpanel"><div class="img" id="rimg"><img src="media/done.webp" class="on" alt=""><img src="media/wgh.webp" alt=""><img src="media/kita.webp" alt=""><img src="media/mensa.webp" alt=""><img src="media/hero.webp" alt=""></div>
+    <div class="meta m"><b id="rname">Mehrfamilienhaus</b><span class="sym">Symbolbild</span></div></div>
+</section>
+
+<section class="time" id="unternehmen">
+  <span class="m y">[ 05 · Unternehmen ]</span>
+  <h2 style="margin-top:14px">Der Grundstein für eine <span class="y">solide Zukunft.</span></h2>
+  <p class="lead">Die Team Bau GmbH ist ein mittelständisches Bauunternehmen aus Wiesbaden, geführt als Familienunternehmen in zweiter Generation. Sachverstand, Verantwortungsbewusstsein und persönliches Engagement tragen unser Wachstum.</p>
+  <div class="tl" id="tl"><span class="bar" id="tlbar"></span>
+    <div><b>90er</b><p>Gründung durch die Eltern des heutigen Geschäftsführers, zunächst als Lohnleister im Rohbau.</p></div>
+    <div><b>1999</b><p>Start als Hauptauftragnehmer für eigene Bauvorhaben.</p></div>
+    <div><b>2006</b><p>Schlüsselfertige Erstellung von Gebäuden kommt ins Portfolio.</p></div>
+    <div><b>Heute</b><p>Über 40 realisierte Projekte, moderner Maschinenpark, zweite Generation.</p></div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="grid-bg"></div>
+  <div style="position:relative">
+    <span class="m" style="color:rgba(10,20,30,.55)">[ 06 · Kontakt ]</span>
+    <h2 style="margin-top:14px">Projekt <span style="font-weight:300">anfragen.</span></h2>
+    <address>Team Bau GmbH<br>Karl-Legien-Straße 20, 65199 Wiesbaden<br><a href="tel:+496119446619">Telefon 0611 9446619</a><br>Telefax 0611 9450022<br><a href="mailto:kontakt@teambau-wiesbaden.de">kontakt@teambau-wiesbaden.de</a></address>
+  </div>
+  <form id="f">
+    <label>Bauvorhaben<select id="ft"><option>Rohbau</option><option>Hochbau / Fertigteilbau</option><option>Schlüsselfertig</option><option>Bauberatung</option></select></label>
+    <label>Ort<input id="fo" placeholder="z. B. Wiesbaden"></label>
+    <label>Planungsstand<select id="fp"><option>Planung fertig</option><option>In Planung</option><option>Idee</option></select></label>
+    <label>Name<input id="fn" autocomplete="name"></label>
+    <label class="full">Ihr Vorhaben<textarea id="fm"></textarea></label>
+    <button class="send" type="submit">Anfrage senden →</button>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="mega">TEAM BAU</div>
+  <div class="foot"><span>Team Bau GmbH · Karl-Legien-Straße 20 · 65199 Wiesbaden</span><span class="m">Konzept-Entwurf von J.H. Digital Atelier für die Team Bau GmbH · keine offizielle Website · Bildwelt-Vorschlag</span></div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches, MOB=matchMedia('(max-width: 900px)').matches;
+gsap.registerPlugin(ScrollTrigger);
+
+/* blueprint svg */
+const bp=document.getElementById('bp');let s='';
+for(let x=0;x<=1600;x+=40)s+=`<line class="gridl" x1="${x}" y1="0" x2="${x}" y2="900"/>`;
+for(let y=0;y<=900;y+=40)s+=`<line class="gridl" x1="0" y1="${y}" x2="1600" y2="${y}"/>`;
+const L=520,R=1260,G=760,F=[760,630,500,370,240];
+s+=`<path class="l draw" d="M200 ${G} H1400"/>`;
+s+=`<path class="l draw" d="M${L} ${G} V${F[4]-30} H${R} V${G}"/>`;
+s+=`<path class="l draw" d="M${L-14} ${F[4]-30} H${R+14} M${L} ${F[4]} H${R}"/>`;
+F.slice(1,4).forEach(y=>s+=`<path class="l draw" d="M${L} ${y} H${R}"/>`);
+for(let f=0;f<4;f++){const yb=F[f],yt=F[f+1];for(let i=0;i<6;i++){const x=L+40+i*((R-L-80)/6)+14;const w=(R-L-80)/6-28;
+  s+=`<rect class="t draw" x="${x}" y="${yt+28}" width="${w}" height="${yb-yt-48}"/>`; if(f>0&&i%2===1)s+=`<path class="t draw" d="M${x-10} ${yb-26} H${x+w+10}"/>`}}
+s+=`<rect class="l draw" x="${(L+R)/2-40}" y="${G-110}" width="80" height="110"/>`;
+s+=`<path class="d draw" d="M${L} 820 H${R} M${L} 810 V830 M${R} 810 V830"/><text x="${(L+R)/2-34}" y="850">18,40 m</text>`;
+s+=`<path class="d draw" d="M1330 ${G} V${F[4]-30} M1320 ${G} H1340 M1320 ${F[4]-30} H1340"/><text x="1346" y="${(G+F[4])/2}">15,10 m</text>`;
+['A','B','C','D'].forEach((c,i)=>{const x=L+i*(R-L)/3;s+=`<circle class="t draw" cx="${x}" cy="130" r="16"/><text x="${x-5}" y="135">${c}</text><path class="t draw" d="M${x} 146 V${F[4]-36}" stroke-dasharray="6 6"/>`});
+s+=`<text x="${L}" y="${F[4]-50}">OK ATTIKA +15,10</text><text x="${R+24}" y="${F[1]+5}">+2,85</text><text x="${R+24}" y="${F[2]+5}">+5,70</text><text x="${R+24}" y="${F[3]+5}">+8,55</text>`;
+bp.innerHTML=s;
+const draws=[...bp.querySelectorAll('.draw')];
+draws.forEach(p=>{const len=p.getTotalLength?p.getTotalLength():1000;p.style.strokeDasharray=p.getAttribute('stroke-dasharray')?p.getAttribute('stroke-dasharray'):len;p.dataset.len=len;if(!p.getAttribute('stroke-dasharray')){p.style.strokeDashoffset=RM?0:len}});
+
+/* references */
+const REF=[['Mehrfamilienhaus','Panoramastraße, Wiesbaden','Wohnen'],['Stadtvilla','Wiesbaden-Sonnenberg','Wohnen'],['Seniorenwohnhaus','Bleichstraße, Frankfurt am Main','Wohnen'],
+['Wohn- und Geschäftshaus','Kirchgasse 72–76, Wiesbaden','Gewerbe'],['Wohn- und Geschäftshaus','Kirchgasse 11–13, Wiesbaden','Gewerbe'],['Wohn- und Geschäftshaus','Kirchgasse 20 / Luisenstraße 43, Wiesbaden','Gewerbe'],['Geschäftshaus','Rheingaustraße 34, Wiesbaden','Gewerbe'],['Geschäftshaus','Zeil 86, Frankfurt am Main','Gewerbe'],['Logistikzentrum','Mainz-Hechtsheim','Gewerbe'],
+['Mensa Jawlensky','Wiesbaden-Dotzheim','Bildung'],['Martin-Buber-Schule','Heppenheim','Bildung'],['Sophie-Opel-Schule','Rüsselsheim','Bildung'],['Mensa Stadtschule','Bad Vilbel','Bildung'],['Ludwig-Uhland-Schule','Gravenbruch, Neu-Isenburg','Bildung'],['KITA Riedberg','Frankfurt-Riedberg','Bildung'],['KITA Rödermark','Lessingstraße 4, Rödermark','Bildung'],['KITA Beuerbach','Hünstetten-Beuerbach','Bildung'],
+['Haus der Vereine','Wiesbaden-Dotzheim','Öffentlich'],['Heilige Kreuzkirche','Wiesbaden','Öffentlich'],['Sportcenter TSG Bornheim','Inheidener Straße 64','Öffentlich'],['SOS Kinderdorf','Niederseelbach','Öffentlich'],['Feuerwehr & Bürgerhaus','Rohrbach','Öffentlich']];
+const IMG={Wohnen:0,Gewerbe:1,Bildung:2,'Öffentlich':4};
+const tbl=document.getElementById('tbl');
+tbl.innerHTML=REF.map((r,i)=>`<div class="tr" data-c="${r[2]}" data-img="${r[2]==='Bildung'&&r[0].startsWith('Mensa')?3:IMG[r[2]]}"><span class="p">${r[0].replace('&','&amp;')}</span><span class="o">${r[1]}</span><span class="c">${r[2]}</span></div>`).join('');
+const trs=[...tbl.children],rimgs=[...document.querySelectorAll('#rimg img')],rname=document.getElementById('rname');
+trs.forEach(t=>t.addEventListener('mouseenter',()=>{trs.forEach(x=>x.classList.toggle('on',x===t));rimgs.forEach((im,i)=>im.classList.toggle('on',i===+t.dataset.img));rname.textContent=t.querySelector('.p').textContent}));
+document.querySelectorAll('#filters button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;trs.forEach(t=>t.classList.toggle('hide',f!=='Alle'&&t.dataset.c!==f));ScrollTrigger.refresh()}));
+
+/* services hover */
+const lis=[...document.querySelectorAll('#svc li')],pimgs=[...document.querySelectorAll('#panel img')],ptag=document.getElementById('ptag');
+lis.forEach(li=>li.addEventListener('mouseenter',()=>{lis.forEach(x=>x.classList.toggle('on',x===li));pimgs.forEach((im,i)=>im.classList.toggle('on',i===+li.dataset.i));ptag.textContent=li.querySelector('.m').textContent+' · '+li.querySelector('h3').textContent}));
+
+/* form */
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();const g=id=>document.getElementById(id).value;
+  location.href='mailto:kontakt@teambau-wiesbaden.de?subject='+encodeURIComponent('Projektanfrage: '+g('ft')+' in '+g('fo'))+'&body='+encodeURIComponent('Planungsstand: '+g('fp')+'\n\n'+g('fm')+'\n\n'+g('fn'))});
+
+/* hero */
+const v=document.getElementById('heroVid');v.src=MOB?'media/hero-m.mp4':'media/hero.mp4';if(!RM)v.play().catch(()=>{});
+gsap.to('.hero h1 .ln>span',{y:0,duration:1.3,ease:'expo.out',stagger:.1,delay:.25});
+gsap.from('.hero .m,.hero p,.stats div',{opacity:0,y:18,duration:1.1,ease:'expo.out',stagger:.06,delay:.5});
+const nav=document.getElementById('nav');
+ScrollTrigger.create({trigger:'#hero',start:'bottom 80px',onEnter:()=>nav.classList.add('solid'),onLeaveBack:()=>nav.classList.remove('solid')});
+if(RM)return;
+
+const lenis=new Lenis({lerp:.09,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{duration:1.6})}}));
+gsap.to('.hero video,.hero .poster',{yPercent:10,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
+
+/* claim */
+const c=document.getElementById('claim');
+(function split(n){[...n.childNodes].forEach(k=>{if(k.nodeType===3){const fr=document.createDocumentFragment();k.textContent.split(/(\s+)/).forEach(w=>{if(!w.trim()){fr.appendChild(document.createTextNode(w));return}const sp=document.createElement('span');sp.className='w';sp.textContent=w;fr.appendChild(sp)});k.replaceWith(fr)}else if(k.nodeType===1)split(k)})})(c);
+gsap.to('#claim .w',{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:'#claim',start:'top 78%',end:'bottom 45%',scrub:.6}});
+
+/* plan -> build */
+const ph=gsap.utils.toArray('.phase');gsap.set(ph[0],{opacity:1});
+const pt=gsap.timeline({scrollTrigger:{trigger:'#plan',start:'top top',end:'bottom bottom',scrub:.8,onUpdate:s=>document.getElementById('pct').textContent='Planstand '+Math.round(Math.min(1,s.progress/.7)*100)+' %'}});
+draws.forEach((p,i)=>{if(p.style.strokeDashoffset)pt.to(p,{strokeDashoffset:0,duration:.5,ease:'none'},(i/draws.length)*1.6)});
+pt.to(ph[0],{opacity:0,y:-20,duration:.2},.9).fromTo(ph[1],{opacity:0,y:20},{opacity:1,y:0,duration:.2},1.0);
+pt.to('#wipe',{opacity:1,duration:.05},2.05);
+pt.to('#photo',{clipPath:'inset(0 0% 0 0)',duration:1.1,ease:'power2.inOut'},2.1).to('#wipe',{left:'100%',duration:1.1,ease:'power2.inOut'},2.1);
+pt.to('#bp',{opacity:.25,duration:.8},2.3).to('#wipe',{opacity:0,duration:.1},3.2);
+pt.to(ph[1],{opacity:0,y:-20,duration:.2},2.4).fromTo(ph[2],{opacity:0,y:20},{opacity:1,y:0,duration:.2},2.6);
+pt.fromTo('#photo img',{scale:1.08},{scale:1,duration:1.3,ease:'none'},2.1);
+pt.to({},{duration:.4});
+
+/* model scan */
+const flr=[...document.querySelectorAll('.flr')].reverse(); // bottom-up
+const ctr=document.getElementById('ctr');
+gsap.timeline({scrollTrigger:{trigger:'#modell',start:'top top',end:'bottom bottom',scrub:.8,onUpdate:s=>{const n=Math.min(6,Math.floor(s.progress*6.4));flr.forEach((f,i)=>f.classList.toggle('on',i<n));ctr.textContent='EBENE '+String(n).padStart(2,'0')+' / 06'}}})
+ .fromTo('#scan',{top:'96%',opacity:1},{top:'4%',duration:1,ease:'none'})
+ .fromTo('#modelImg',{scale:.92,rotate:-1.5},{scale:1,rotate:0,duration:1,ease:'none'},0)
+ .to('#scan',{opacity:0,duration:.1});
+
+/* numbers */
+document.querySelectorAll('#nums b').forEach(b=>{const n=+b.dataset.n,sfx=b.dataset.s,o={v:0};gsap.to(o,{v:n,duration:1.6,ease:'power3.out',scrollTrigger:{trigger:'#nums',start:'top 80%'},onUpdate:()=>b.innerHTML=Math.round(o.v)+'<small>'+sfx+'</small>'})});
+
+/* timeline */
+gsap.to('#tlbar',{scaleX:1,ease:'none',scrollTrigger:{trigger:'#tl',start:'top 80%',end:'bottom 55%',scrub:.6}});
+gsap.from('#tl>div',{opacity:0,y:30,stagger:.12,duration:1,ease:'expo.out',scrollTrigger:{trigger:'#tl',start:'top 80%'}});
+gsap.from('.tr',{opacity:0,y:14,stagger:.03,duration:.8,ease:'expo.out',scrollTrigger:{trigger:'#tbl',start:'top 82%'}});
+document.querySelectorAll('.serv-head,.refs-head,.contact>div,.contact form,.time h2,.time .lead').forEach(el=>gsap.from(el,{opacity:0,y:30,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
+gsap.fromTo('.mega',{xPercent:6},{xPercent:-6,ease:'none',scrollTrigger:{trigger:'footer',start:'top bottom',end:'bottom bottom',scrub:true}});
+addEventListener('load',()=>ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
