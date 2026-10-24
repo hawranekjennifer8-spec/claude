@@ -229,7 +229,7 @@ footer .lg{--cafe:#d9a58f}
   .frame::before{border-radius:190px 190px 4px 4px}
   .salon{grid-template-columns:1fr}
   .plates{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}.plate{padding:13%}.plate .dn{font-size:19px}.plate h3{font-size:9.5px;letter-spacing:.08em;margin:4px 0 3px}.plate p{font-size:10.5px;line-height:1.3}
-  .obj{--cx:50%;--cy:52%}
+  .obj{--cx:50%;--cy:57%}
   .glass{width:min(34vw,26vh)}
   .p-ice{width:22vw}.p-sl{width:23vw}.p-bean{width:19vw}.p-root{width:20vw}
   .num{width:22px;height:22px;font-size:9px}
@@ -498,7 +498,7 @@ gsap.from('.plate',{y:120,rotate:-40,opacity:0,stagger:.12,duration:1.2,ease:'ex
 const parts=[...document.querySelectorAll('.part')],tags=[...document.querySelectorAll('#legend li')],k=MOB?1.55:1;
 const tl=gsap.timeline({scrollTrigger:{trigger:'#coldbrew',start:'top top',end:'bottom bottom',scrub:.8}});
 tl.fromTo('#glass',{scale:.82,rotate:0},{scale:1,rotate:-3,duration:1,ease:'power2.out'},0);
-parts.forEach((p,i)=>tl.to(p,{opacity:1,scale:1,rotate:+p.dataset.r,x:()=>innerWidth*(+p.dataset.x)/100*k,y:()=>innerHeight*(+p.dataset.y)/100*(MOB?.78:1),duration:1.4,ease:'power3.out'},.25+i*.18));
+parts.forEach((p,i)=>tl.to(p,{opacity:1,scale:1,rotate:+p.dataset.r,x:()=>innerWidth*(+p.dataset.x)/100*k,y:()=>innerHeight*(+p.dataset.y)/100*(MOB?.68:1),duration:1.4,ease:'power3.out'},.25+i*.18));
 tags.forEach((t,i)=>tl.fromTo(t,{opacity:0,x:-14},{opacity:1,x:0,duration:.4},.7+i*.22));
 const hr={v:0};tl.to(hr,{v:16,duration:1.6,ease:'none',onUpdate:()=>document.getElementById('hrs').innerHTML=Math.round(hr.v)+'<sup>h</sup>'},.6);tl.to({},{duration:.6});
 
