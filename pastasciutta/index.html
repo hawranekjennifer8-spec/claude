@@ -112,6 +112,7 @@ h1 i,h2 i,h3 i{font-weight:500;color:var(--tomato)}
 .frame{position:sticky;top:110px;align-self:start;aspect-ratio:4/5;overflow:hidden;border-radius:200px 200px 2px 2px;background:var(--olive)}
 .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.07);transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
 .frame img.on{opacity:1;transform:none}
+.frame img.fb{object-fit:contain;padding:28%;background:var(--olive)}
 
 /* hands */
 .hands{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,20px);padding:0 var(--pad)}
@@ -155,9 +156,9 @@ h1 i,h2 i,h3 i{font-weight:500;color:var(--tomato)}
 .gal-grid figure{position:relative;overflow:hidden;border-radius:2px;background:var(--olive)}
 .gal-grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);will-change:transform}
 .gal-grid figure:hover img{transform:scale(1.05)}
-.gal-grid .g1{grid-row:span 2}.gal-grid .g2{grid-column:span 2}.gal-grid .g5{grid-row:span 2}
+.gal-grid .g1{grid-row:span 2}.gal-grid .g2{grid-column:span 2}.gal-grid .g5{grid-column:span 2}
 .gal-grid figcaption{position:absolute;left:14px;bottom:12px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.7)}
-@media (max-width:900px){.gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:46vw}.gal-grid .g1,.gal-grid .g2{grid-column:span 2}.gal-grid .g1{grid-row:span 2!important}.gal-grid .g1,.gal-grid .g5{grid-row:span 1}}
+@media (max-width:900px){.gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:46vw}.gal-grid .g1,.gal-grid .g2{grid-column:span 2}.gal-grid .g1{grid-row:span 2!important}.gal-grid .g1,.gal-grid .g5{grid-row:span 1}.gal-grid .g5{grid-column:span 2}}
 /* reviews marquee */
 .rev{padding:clamp(100px,16vh,170px) 0;overflow:hidden}
 .rev .lb{display:block;text-align:center;margin-bottom:36px}
@@ -250,7 +251,7 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
       </div>
     </div>
     <div class="s-right">
-      <div class="s-img" data-cap="Echtes Foto · unsere Grana-Wand"><img src="media/real-lokal.webp" style="object-position:50% 30%" alt="Grana-Padano-Wand und Theke in der Pastasciutta"></div>
+      <div class="s-img" data-cap="Gästefoto · Google"><img src="media/real-tavola.webp" style="object-position:50% 62%" alt="Frische Pasta mit Ragù und Spaghetti alla Carbonara von oben"></div>
       <div class="s-img" data-cap="Gästefoto · Google"><img style="object-position:50% 72%" src="media/real-ragu.webp" alt="Paccheri al Ragù di Salsiccia"></div>
       <div class="s-img" data-cap="Echtes Foto · unsere Tafel"><img style="object-position:30% 50%" src="media/real-tafel.webp" alt="Ziti alla Genovese"></div>
     </div>
@@ -272,7 +273,7 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
 </section>
 
 <section class="fresca" id="riccardo">
-  <img src="media/real-lokal2.webp" alt="Gastraum der Pastasciutta" id="frescaImg" loading="lazy" style="object-position:72% 50%">
+  <img src="media/real-lokal2.webp" alt="Gastraum der Pastasciutta" id="frescaImg" loading="lazy" style="object-position:40% 55%">
   <div class="in"><span class="lb">La Pasta Fresca</span><h2>La pasta <i>di Riccardo.</i></h2>
   <p>„La Pasta Fresca di Riccardo Annuzzo“, so steht es auf unserem Instagram.</p>
   <p>Reservieren musst du nicht. Komm einfach vorbei, setz dich und bestell, worauf du Lust hast.</p>
@@ -288,9 +289,8 @@ footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;fon
     <figure class="g1"><img src="media/real-fassade.webp" alt="Fassade der Pastasciutta in der Oranienstraße" loading="lazy" style="object-position:50% 40%"><figcaption>Oranienstraße 27</figcaption></figure>
     <figure class="g2"><img src="media/real-carbonara.webp" alt="Spaghettoni alla Carbonara" loading="lazy"><figcaption>Carbonara · Gästefoto</figcaption></figure>
     <figure class="g3"><img src="media/real-lokal.webp" alt="Theke mit Grana-Wand" loading="lazy" style="object-position:50% 35%"><figcaption>Unser Lokal</figcaption></figure>
-    <figure class="g4"><img src="media/real-tablett.webp" alt="Pasta mit Brot und Cannolo auf dem Tablett" loading="lazy"><figcaption>Gästefoto</figcaption></figure>
-    <figure class="g5"><img src="media/real-cannolo.webp" alt="Cannolo al pistacchio" loading="lazy" style="object-position:50% 55%"><figcaption>Cannolo · Gästefoto</figcaption></figure>
-    <figure class="g6"><img src="media/real-lokal2.webp" alt="Gastraum mit Ziegelwand" loading="lazy"><figcaption>Unser Lokal</figcaption></figure>
+    <figure class="g4"><img src="media/real-cannolo.webp" alt="Cannolo al pistacchio" loading="lazy" style="object-position:50% 55%"><figcaption>Cannolo · Gästefoto</figcaption></figure>
+    <figure class="g5"><img src="media/real-tablett.webp" alt="Pasta mit Brot und Cannolo auf dem Tablett" loading="lazy" style="object-position:50% 60%"><figcaption>Gästefoto</figcaption></figure>
   </div>
 </section>
 
@@ -350,12 +350,12 @@ const D=[['Pasta',[
  ['Dolci',[
  ['Cannoli','','Außerdem Tiramisù classico, Tiramisù pistacchio und Babbà.','real-cannolo']]]];
 let html='',fr='',imgs=[];
-D.forEach(([c,list])=>{html+=`<div class="cat">${c}</div>`;list.forEach(d=>{const k=d[3]||'real-lokal';if(!imgs.includes(k))imgs.push(k);html+=`<div class="dish" data-img="${k}"><h3>${d[0]}</h3><span class="tg">${d[1]}</span><p>${d[2]}</p>${d[3]?`<div class="th"><img src="media/${d[3]}.webp" alt="" loading="lazy"></div>`:''}</div>`})});
+D.forEach(([c,list])=>{html+=`<div class="cat">${c}</div>`;list.forEach(d=>{const k=d[3]||'none';if(!imgs.includes(k))imgs.push(k);html+=`<div class="dish" data-img="${k}"><h3>${d[0]}</h3><span class="tg">${d[1]}</span><p>${d[2]}</p>${d[3]?`<div class="th"><img src="media/${d[3]}.webp" alt="" loading="lazy"></div>`:''}</div>`})});
 html+=`<div class="combo"><div><b>Menü Insalata</b><span>Pasta &amp; Salat</span><em>11,90 €</em></div><div><b>Menü Dolce</b><span>Pasta &amp; Dessert</span><em>13,90 €</em></div><div><b>Menü Completo</b><span>Pasta, Salat &amp; Dessert</span><em>15,90 €</em></div></div>`;
 document.getElementById('dishes').innerHTML=html;
-document.getElementById('frame').innerHTML=imgs.map((k,i)=>`<img src="media/${k}.webp" data-k="${k}" class="${i===0?'on':''}" alt="" loading="lazy">`).join('');
+document.getElementById('frame').innerHTML=imgs.map((k,i)=>`<img src="media/${k==='none'?'logo-cream.png':k+'.webp'}" data-k="${k}" class="${i===0?'on':''}${k==='none'?' fb':''}" alt="" loading="lazy">`).join('');
 const dishes=[...document.querySelectorAll('.dish')],fimgs=[...document.querySelectorAll('#frame img')];
-const fcap=document.createElement('span');fcap.className='fcap';document.getElementById('frame').appendChild(fcap);const capFor=k=>k==='real-lokal'?'Noch kein Foto vom Gericht · unser Lokal':'Gästefoto · Google';fcap.textContent=capFor(imgs[0]);dishes.forEach(d=>d.addEventListener('mouseenter',()=>{fcap.textContent=capFor(d.dataset.img)}));
+const fcap=document.createElement('span');fcap.className='fcap';document.getElementById('frame').appendChild(fcap);const capFor=k=>k==='none'?'Noch kein Foto vom Gericht':'Gästefoto · Google';fcap.textContent=capFor(imgs[0]);dishes.forEach(d=>d.addEventListener('mouseenter',()=>{fcap.textContent=capFor(d.dataset.img)}));
 dishes.forEach(d=>d.addEventListener('mouseenter',()=>{dishes.forEach(x=>x.classList.toggle('on',x===d));fimgs.forEach(im=>im.classList.toggle('on',im.dataset.k===d.dataset.img))}));
 
 /* reviews */
