@@ -64,7 +64,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:.95}
 .bp text{fill:rgba(236,235,231,.75);font-family:var(--mono);font-size:13px;letter-spacing:.08em}
 .bp .gridl{stroke:rgba(236,235,231,.07);stroke-width:1}
 .wipe{position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--signal);box-shadow:0 0 30px var(--signal);opacity:0;z-index:3}
-.p2b-copy{position:absolute;z-index:4;left:var(--pad);top:clamp(90px,14vh,130px);width:min(430px,80vw)}
+.p2b-copy{position:absolute;z-index:4;left:var(--pad);top:clamp(90px,14vh,130px);width:min(430px,80vw);min-height:clamp(220px,28vh,260px)}
 .phase{position:absolute;top:0;left:0;opacity:0}
 .phase .m{color:var(--signal)}
 .phase h2{font-size:clamp(36px,4vw,68px);margin:12px 0 12px;text-transform:uppercase}
@@ -93,7 +93,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:.95}
 .brk-stage{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;padding:0 var(--pad);gap:30px}
 .brk h2{font-size:clamp(40px,5vw,88px);text-transform:uppercase;margin:14px 0 18px}
 .brk p{color:rgba(236,235,231,.72);max-width:38ch}
-.model{position:relative;height:80svh;aspect-ratio:920/1464;justify-self:start;margin-left:4vw}
+.model{position:relative;height:78svh;aspect-ratio:920/1464;justify-self:start;margin-left:2vw}
 .model img{width:100%;height:100%;object-fit:contain;will-change:transform}
 .scan{position:absolute;left:-8%;right:-8%;height:2px;background:var(--signal);box-shadow:0 0 24px var(--signal);top:0;opacity:0}
 .flr{position:absolute;left:104%;display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:.15;transition:opacity .4s}
@@ -251,7 +251,7 @@ footer{background:var(--navy);color:var(--paper);padding:clamp(60px,10vh,100px) 
       <div class="flr" style="top:43%"><div><span>04</span><b>2. Obergeschoss</b></div></div>
       <div class="flr" style="top:58%"><div><span>03</span><b>1. Obergeschoss</b></div></div>
       <div class="flr" style="top:72%"><div><span>02</span><b>Erdgeschoss</b></div></div>
-      <div class="flr" style="top:87%"><div><span>01</span><b>Bodenplatte &amp; Fundament</b></div></div>
+      <div class="flr" style="top:87%"><div><span>01</span><b>Fundament</b></div></div>
     </div>
   </div>
 </section>
