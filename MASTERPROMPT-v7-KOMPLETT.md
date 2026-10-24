@@ -35,8 +35,10 @@ Arbeitsweise:
 | Bildfokus mittig auf dem Motiv (Essen, Getränk, Produkt) | Angeschnittene Motive, mehr Decke als Motiv |
 | Jedes Bild nur einmal pro Seite | Dasselbe Motiv dreimal (z. B. die Grana-Wand) |
 | Gestochen scharfe Bilder in jeder Animation | Verschwommene, hochgezogene Bilder |
-| Die Biene, die dauerhaft mitfliegt | Nudelhölzer statt Pasta oder Parmesan; Kerzenwachs statt der echten Kerzen |
+| Die Biene, die dauerhaft mitfliegt; Café-Hero mit ganzer Tasse und dauerhaft aufsteigendem Dampf | Nudelhölzer statt Pasta oder Parmesan; Kerzenwachs statt der echten Kerzen |
 | Website-Vorschauen, die im Portfolio per Autoplay laufen | Statische Screenshots als Vorschau |
+| Rechtliches unsichtbar im Impressum | KI-Labels oder Hinweise direkt an Bildern; Jennys Adresse in Kunden-Impressen |
+| Hero-Videos als nahtloser Loop (z. B. Dampf steigt immer weiter) | Video, das stehen bleibt und „hängt“ |
 
 ## 2. Referenz-Bibliothek (immer als Maßstab)
 
@@ -105,6 +107,7 @@ Arbeitsweise:
 - `ScrollTrigger.refresh()` nach `fonts.ready` und bei Höhenänderung. `prefers-reduced-motion` respektieren.
 - Mobil: `html{overflow-x:hidden}` und `body{overflow-x:clip}`, damit Sticky funktioniert. Kein horizontaler Overflow.
 - Banner und Badges im Hero blenden beim Scrollen aus, damit nichts unter die fixierte Navi rutscht.
+- Hero-Videos: Kamerafahrten per OpenCV stabilisieren (Frames auf ein Referenzbild ausrichten), dann mit 1 s Crossfade als nahtlosen Loop exportieren (`loop`, Poster = erstes Frame). Das Video in einem eigenen Rahmen-Container (`.mbox`) in Bogengröße platzieren, der beim Scrollen auf Vollbild wächst, damit das Motiv von Anfang an ganz zu sehen ist.
 - Bewegte Objekte (Biene) per Hit-Test (`elementsFromPoint`) gegen Text prüfen und ausweichen lassen, statt sie auszublenden.
 
 ## 5. Bilder: echt, veredelt, nie erfunden
@@ -153,8 +156,10 @@ Recherchiert bei IHK, IT-Recht Kanzlei und Händlerbund. Bei jeder neuen Seite g
 - VSBG § 36: Hinweis „nicht bereit und nicht verpflichtet …“. Pflicht ab mehr als 10 Beschäftigten, ich setze ihn trotzdem immer.
 - Das Impressum muss barrierefrei lesbar sein (echtes HTML, kein Bild).
 - **Jennys Daten:** Jennifer Hawranek, J.H. Digital Atelier, Justus-Liebig-Straße 15, 63538 Großkrotzenburg, info@jenniferhawranekdigitalatelier.de, Instagram @jh.digitalatelier. Kleinunternehmerin (§ 19 UStG, Kleingewerbe), keine USt-IdNr., keine W-IdNr., vorerst kein Telefon.
-- **Konzeptseiten:** Anbieterin ist Jenny. Dazu der Hinweis „Konzept-Entwurf · nicht beauftragt · keine offizielle Website“ und die Entfernung auf Wunsch.
-- **Kundenseiten:** Impressum mit den Daten des Kunden, wörtlich aus seinem bestehenden Impressum.
+- **Konzept- und Kundenseiten (Jennys Vorgabe):** Impressum und Datenschutz enthalten **immer die Daten des Betriebs**, nie Jennys Adresse oder Namen. Die Daten kommen wörtlich aus dem bestehenden Impressum des Betriebs; fehlt eines, aus dem Handelsregister bzw. Google.
+  - Veraltetes beim Betrieb nicht übernehmen (z. B. den OS-Link) und Widersprüche melden (z. B. Hausnummer, Schreibweise des Namens).
+  - Ganz unten nur „Webdesign: J.H. Digital Atelier“.
+  - Jennys eigene Daten stehen nur im Portfolio.
 
 ### 7.2 Datenschutzerklärung (Art. 13 DSGVO)
 - Verantwortlicher; Hosting (Vercel Inc., USA, EU-US Data Privacy Framework, Server-Logs nach Art. 6 Abs. 1 lit. f, Speicherdauer „so lange wie erforderlich“).
@@ -170,7 +175,9 @@ Recherchiert bei IHK, IT-Recht Kanzlei und Händlerbund. Bei jeder neuen Seite g
 
 ### 7.4 KI-Kennzeichnung (Art. 50 KI-VO, gilt seit 02.08.2026)
 - **Kennzeichnen** muss ich realistisch wirkende KI-Bilder und -Videos, die echte Orte, Gegenstände oder Personen darstellen („Deepfake“), oder bei denen Motiv oder Umgebung verändert wurden. Dazu gehören KI-animierte Hero-Videos, KI-Hintergründe, KI-Symbolbilder und KI-Illustrationen.
-- **Wie:** direkt am Bild bzw. in der Bildunterschrift (z. B. „Animation mit KI aus unserem echten Foto erstellt“, „Symbolbild · KI-generiert“, „KI-retuschiert“). Zusätzlich ein Abschnitt „Hinweis zu KI-Inhalten“ im Impressum. Der Hinweis nur in Impressum oder AGB reicht nicht.
+- **Wie (Jennys Vorgabe):** **nie direkt am Bild** und keine Labels wie „KI-retuschiert“ im Design. Der Hinweis steht nur im Abschnitt „Hinweis zu KI-Inhalten“ im Impressum bzw. in der Datenschutzerklärung.
+  - Hinweis an Jenny (einmal gesagt): Ratgeber halten einen Hinweis nur im Impressum bei realistischen KI-Bildern für nicht ausreichend. Das ist ein Restrisiko.
+  - Am sichersten: möglichst echte, nur farblich korrigierte Fotos verwenden. Dann ist gar keine Kennzeichnung nötig.
 - Reine Licht- und Farbkorrektur oder Freistellen braucht in der Regel keine Kennzeichnung. Wurde mit einem KI-Tool retuschiert, kennzeichne ich trotzdem „KI-retuschiert“.
 - Intern dokumentiere ich Tool, Datum und Prompt.
 - Für alle KI-Inhalte gilt das Irreführungsverbot (UWG): Ein Gericht muss so aussehen, wie es serviert wird.
