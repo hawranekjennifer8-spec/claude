@@ -9,5 +9,7 @@ curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5
 unzip -o -q /tmp/m4.zip "wunderbar/*" -d /tmp/x
 curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5h/7687ffec-ab84-4e89-81bc-c34925bbadbe.zip" -o /tmp/m5.zip
 unzip -o -q /tmp/m5.zip "wunderbar/*" -d /tmp/x
+curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5h/9d451dab-c8df-40d4-b0a1-3675fb29f58d.zip" -o /tmp/m7.zip
+unzip -o -q /tmp/m7.zip "wunderbar/*" -d /tmp/x
 rm -rf media && mv /tmp/x/wunderbar/media media
 ls media | head -60
