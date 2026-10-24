@@ -390,7 +390,7 @@ document.querySelectorAll('.hands img').forEach((im,i)=>gsap.fromTo(im,{yPercent
 gsap.to('#mq',{xPercent:-33.33,ease:'none',scrollTrigger:{trigger:'.rev',start:'top bottom',end:'bottom top',scrub:.6}});
 gsap.from('.dish',{opacity:0,y:20,stagger:.05,duration:.9,ease:'expo.out',scrollTrigger:{trigger:'#dishes',start:'top 82%'}});
 document.querySelectorAll('.menu-head,.visit>div').forEach(el=>gsap.from(el,{opacity:0,y:30,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
-addEventListener('load',()=>ScrollTrigger.refresh());
+addEventListener('load',()=>ScrollTrigger.refresh());if(document.fonts)document.fonts.ready.then(()=>ScrollTrigger.refresh());{let rh=document.body.scrollHeight;setInterval(()=>{const h=document.body.scrollHeight;if(Math.abs(h-rh)>40){rh=h;ScrollTrigger.refresh()}},900)}
 })();
 </script>
 </body>

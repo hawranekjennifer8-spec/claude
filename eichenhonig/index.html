@@ -533,7 +533,7 @@ gsap.from('.steps li',{opacity:0,y:20,stagger:.1,duration:1,ease:'expo.out',scro
 
 gsap.fromTo('#imkImg',{yPercent:-5},{yPercent:5,ease:'none',scrollTrigger:{trigger:'.imker',start:'top bottom',end:'bottom top',scrub:true}});
 document.querySelectorAll('.scale-head,.comb>div:last-child,.wax-head,.imker .txt>*,.contact>div,.contact form').forEach(el=>gsap.from(el,{opacity:0,y:30,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
-addEventListener('load',()=>ScrollTrigger.refresh());
+addEventListener('load',()=>ScrollTrigger.refresh());if(document.fonts)document.fonts.ready.then(()=>ScrollTrigger.refresh());{let rh=document.body.scrollHeight;setInterval(()=>{const h=document.body.scrollHeight;if(Math.abs(h-rh)>40){rh=h;ScrollTrigger.refresh()}},900)}
 })();
 </script>
 </body>

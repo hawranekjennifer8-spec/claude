@@ -475,7 +475,7 @@ document.querySelectorAll('.serv-head,.refs-head,.contact>div,.contact form,.tim
 gsap.fromTo('.mega',{xPercent:6},{xPercent:-6,ease:'none',scrollTrigger:{trigger:'footer',start:'top bottom',end:'bottom bottom',scrub:true}});
 gsap.from('.tgrid figure',{opacity:0,y:60,stagger:.1,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'.tgrid',start:'top 80%'}});
 document.querySelectorAll('.tgrid img').forEach(im=>gsap.fromTo(im,{yPercent:-5,scale:1.1},{yPercent:5,scale:1.1,ease:'none',scrollTrigger:{trigger:im.parentNode,start:'top bottom',end:'bottom top',scrub:true}}));
-addEventListener('load',()=>ScrollTrigger.refresh());
+addEventListener('load',()=>ScrollTrigger.refresh());if(document.fonts)document.fonts.ready.then(()=>ScrollTrigger.refresh());{let rh=document.body.scrollHeight;setInterval(()=>{const h=document.body.scrollHeight;if(Math.abs(h-rh)>40){rh=h;ScrollTrigger.refresh()}},900)}
 })();
 </script>
 </body>
