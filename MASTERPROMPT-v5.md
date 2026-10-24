@@ -53,3 +53,15 @@ Ich bin keine Anwältin. Diese Punkte sind der übliche Standard; im Zweifel pr�
 - **Alle 5 Seiten (4 Konzepte und Portfolio):**
   - Schriften und Skripte selbst hosten.
   - Impressum und Datenschutzerklärung von J.H. Digital Atelier hinzufügen und im Footer verlinken.
+
+## 6. Referenzen für Unternehmens-Kunden (neu, 24.10.)
+Wenn ein Kunde aus diesen Branchen kommt, wird die Seite genau so gebaut, immer mit den echten Fotos des Kunden:
+- **Logistik/Spedition:**
+  - Intro: Ein Container-Stapler stapelt farbige Container, ein LKW fährt durch.
+  - Headline groß über der Szene. Der Übergang kommt als organischer Form-Morph.
+  - Danach eine tiefblaue Luftaufnahme eines Containerschiffs. Die Leistungen stehen als Kacheln ums Schiff, danach folgt die Team-Sektion mit Porträts.
+- **Autohaus:**
+  - Dunkles Design, Hero mit der echten Luftaufnahme vom Hof bei Dämmerung.
+  - Fahrzeuge und Innenräume als Scroll-Story mit Modell-Label.
+  - Fahrzeugfinder (Preis-Range), Filter („zwei Kriterien wählen“), Finanzierungsrechner (Monatsrate) und Bestandskarten; blaue CTAs.
+- Interaktive Werkzeuge wie Finder oder Rechner zeigen nur echte Daten des Kunden. Zinsen und Raten müssen als Beispiel gekennzeichnet sein (PAngV).
