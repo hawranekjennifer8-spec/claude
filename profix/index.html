@@ -11,329 +11,437 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://jh-konzept-profix.vercel.app/media/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#eaf4fc">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="media/icon-64.png">
 <link rel="apple-touch-icon" href="media/icon-180.png">
 <link href="fonts/fonts.css" rel="stylesheet">
 <link rel="preload" as="font" type="font/woff2" href="fonts/plus-jakarta-sans-latin-wght-normal.woff2" crossorigin>
+<link rel="preload" as="image" href="media/glasdach-800.webp">
 <style>
-:root{--sky:#eaf4fc;--sky2:#d5eafb;--blue:#67bffd;--blueD:#1d6aa6;--navy:#0c2233;--navy2:#123049;--green:#3ee06a;--greenD:#16a541;--taupe:#74655f;--white:#fff;
---mut:rgba(12,34,51,.68);--line:rgba(12,34,51,.12);--r:28px;--ease:cubic-bezier(.16,1,.3,1);--pad:clamp(18px,4vw,64px);
---sans:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif}
+:root{
+  --bg:#ffffff;--field:#e7f3fc;--ink:#0b1a26;--soft:#3d5163;--blue:#67bffd;--blue2:#2f86c4;--deep:#0e2a3f;--go:#2bd35a;--go2:#22b84c;--taupe:#74655f;--paper:#ffffff;
+  --s1:clamp(76px,11.2vw,196px);--s2:clamp(38px,4.8vw,80px);--s3:clamp(22px,2vw,30px);--s4:18px;--s5:15px;
+  --m:clamp(20px,2.8vw,40px);--gap:clamp(120px,14vw,210px);--ease:cubic-bezier(.16,1,.3,1);
+  --sans:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html{overflow-x:hidden}html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
-body{background:var(--sky);color:var(--navy);font-family:var(--sans);font-size:clamp(16px,1.05vw,18px);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
-img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
-::selection{background:var(--blue);color:var(--navy)}
-h1,h2,h3{letter-spacing:-.035em;line-height:1;font-weight:800}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blueD)}
-.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(62,224,106,.22)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:700;font-size:16px;transition:transform .4s var(--ease),background .3s,box-shadow .3s;white-space:nowrap}
+html{overflow-x:hidden;-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:var(--s4);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--blue);color:var(--ink)}
+:focus-visible{outline:3px solid var(--blue2);outline-offset:3px}
+h1,h2,h3{font-weight:800;line-height:.95;letter-spacing:-.045em}
+.wrap{padding:0 var(--m);max-width:1520px;margin:0 auto}
+.sec{padding-top:var(--gap)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cap{border-radius:999px;overflow:hidden}
+
+/* Button: eine Form, die Kapsel */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:58px;padding:0 30px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none;transition:transform .35s var(--ease),background-color .25s}
 .btn:hover{transform:translateY(-2px)}
-.btn-g{background:var(--green);color:var(--navy);box-shadow:0 10px 30px -10px rgba(22,165,65,.55)}
-.btn-g:hover{box-shadow:0 16px 36px -12px rgba(22,165,65,.7)}
-.btn-o{background:var(--white);color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--line)}
-.btn svg{width:18px;height:18px}
-.wrap{padding:0 var(--pad);max-width:1440px;margin:0 auto}
-section{position:relative}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-go{background:var(--go);color:var(--ink)}
+.btn-go:hover{background:var(--go2)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:var(--deep)}
+.btn svg{width:18px;height:18px;flex:none}
+.tlink{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;transition:text-decoration-color .2s}
+.tlink:hover{text-decoration-color:var(--blue)}
 
 /* NAV */
-.nav{position:fixed;inset:12px 12px auto;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 10px 10px 20px;border-radius:999px;background:rgba(255,255,255,.72);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 8px 30px -18px rgba(12,34,51,.35);transition:transform .5s var(--ease)}
-.nav .logo img{height:40px;width:auto}
-.nav ul{display:flex;gap:26px;list-style:none;font-size:15px;font-weight:600}
-.nav ul a{opacity:.78;transition:opacity .2s}.nav ul a:hover{opacity:1}
-.nav .btn{padding:11px 18px;font-size:15px}
-@media(max-width:900px){.nav ul{display:none}.nav .logo img{height:34px}.nav .btn span{display:none}.nav .btn{padding:12px}}
+.nav{position:sticky;top:0;z-index:80;background:var(--bg);transition:transform .45s var(--ease)}
+.nav .wrap{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav .logo img{height:38px;width:auto}
+.nav ul{display:flex;gap:30px;list-style:none;font-size:16px;font-weight:600}
+.nav ul a{text-decoration:none;opacity:.8;transition:opacity .2s}
+.nav ul a:hover{opacity:1}
+.nav .btn{height:46px;padding:0 20px;font-size:16px}
+.nav.up{transform:translateY(-100%)}
+@media(max-width:960px){.nav ul{display:none}.nav .logo img{height:32px}.nav .wrap{height:64px}}
 
 /* HERO */
-.hero{min-height:100svh;display:grid;align-items:center;padding:130px 0 70px;overflow:hidden;background:radial-gradient(120% 80% at 80% 10%,#fff 0,rgba(255,255,255,0) 55%),linear-gradient(180deg,var(--sky) 0,var(--sky2) 100%)}
-.hero .wrap{width:100%;display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,4vw,70px);align-items:center}
-.hero h1{font-size:clamp(58px,9.4vw,168px);letter-spacing:-.055em;line-height:.88;margin:22px 0 18px}
-.hero h1 .l2{display:block;font-size:.36em;letter-spacing:-.035em;line-height:1.05;margin-top:.35em;color:var(--blueD);font-weight:700}
-.hero p.lead{max-width:44ch;color:var(--mut);font-size:clamp(17px,1.25vw,20px)}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.rating{display:inline-flex;align-items:center;gap:12px;margin-top:28px;padding:10px 16px 10px 12px;border-radius:999px;background:rgba(255,255,255,.75);font-size:14px;font-weight:600}
-.rating .st{color:#f5b301;letter-spacing:2px;font-size:15px}
-.rating small{color:var(--mut);font-weight:500}
-.drop{position:relative;justify-self:center;width:min(100%,430px);aspect-ratio:.78}
-.drop svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 40px 60px rgba(29,106,166,.28))}
-.bub{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 30%,#fff 0 18%,rgba(255,255,255,.35) 19% 55%,rgba(103,191,253,.18) 56%);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.9),0 6px 18px -6px rgba(29,106,166,.25);animation:float 7s ease-in-out infinite}
-@keyframes float{50%{transform:translate3d(0,-22px,0)}}
-#grime{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;touch-action:pan-y}
-.hero.wiping #grime{pointer-events:auto;cursor:grab}
-.blade{position:absolute;left:0;top:0;z-index:6;width:40px;pointer-events:none;opacity:0;will-change:transform}
-.blade .rub{position:absolute;left:0;top:0;width:16px;height:100%;background:linear-gradient(90deg,#1b2228,#39444d 60%,#1b2228);border-radius:6px}
-.blade .hold{position:absolute;left:13px;top:4%;width:20px;height:92%;background:linear-gradient(90deg,#0c2233,#24506f 50%,#0c2233);border-radius:6px;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}
-.blade .stick{position:absolute;left:30px;top:calc(50% - 9px);width:min(34vw,320px);height:18px;background:linear-gradient(180deg,#5fe68a,#16a541);border-radius:0 10px 10px 0;box-shadow:0 10px 20px -8px rgba(0,0,0,.35)}
-.blade.flip{transform-origin:0 0}
-.glint{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.95) 50%,transparent 65%);mix-blend-mode:overlay;transform:translateX(-120%)}
-.h1w{position:relative;display:inline-block;overflow:hidden}
-@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero .wrap>div:first-child{position:relative;z-index:1}.drop{position:absolute;right:2vw;top:84px;width:28vw;max-width:170px}.hero{padding-top:236px;align-items:start}.hero h1{margin-top:18px}}
+.hero{position:relative;min-height:calc(100svh - 76px);overflow:hidden;display:grid;align-items:center}
+.hero .wrap{width:100%;position:relative;z-index:2;display:grid;grid-template-columns:repeat(12,1fr);gap:0 20px;padding-top:40px;padding-bottom:56px}
+.hero .txt{grid-column:1/8}
+.hero h1{font-size:var(--s1);letter-spacing:-.06em;line-height:.86}
+.hero h1 .ln{display:block;position:relative;overflow:hidden;padding-bottom:.04em}
+.hero h1 .gl{position:absolute;top:0;bottom:0;left:-30%;width:18%;background:#fff;opacity:.85;transform:skewX(-18deg) translateX(-200%);mix-blend-mode:overlay;pointer-events:none}
+.hero .lead{max-width:34ch;font-size:clamp(18px,1.45vw,22px);margin-top:34px}
+.hero .act{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:36px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:40px;font-size:var(--s5);color:var(--soft)}
+.hero .facts b{color:var(--ink);font-weight:700}
+.big{position:absolute;z-index:1;right:calc(var(--m) * -1 - 4vw);top:-14svh;width:44vw;height:128svh;background:var(--blue);border-radius:999px}
+.big .ph{position:absolute;left:9%;right:9%;top:24%;bottom:12%;border-radius:999px;overflow:hidden;background:var(--deep)}
+.big .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 58%;transform:scale(1.08)}
+#fog,#fx{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+#fx{z-index:6}
+.hero.wet #fog{pointer-events:auto;touch-action:pan-y;cursor:grab}
+.squeegee{position:absolute;left:0;top:0;z-index:7;pointer-events:none;opacity:0;will-change:transform;transform-origin:0 50%}
+.squeegee svg{display:block;overflow:visible}
+@media(max-width:960px){
+  .hero{min-height:auto}
+  .hero .wrap{display:block;padding-top:28px;padding-bottom:0}
+  .hero h1{font-size:clamp(68px,19vw,120px)}
+  .hero .lead{margin-top:26px}
+  .big{position:relative;right:auto;top:auto;width:auto;height:min(118vw,560px);margin:52px var(--m) 0;border-radius:999px}
+  .big .ph{left:10%;right:10%;top:10%;bottom:10%}
+}
 
-/* MARQUEE */
-.marq{background:var(--navy);color:var(--sky);overflow:hidden;padding:22px 0;white-space:nowrap}
-.marq .t{display:inline-flex;gap:38px;font-size:clamp(22px,2.6vw,38px);font-weight:700;letter-spacing:-.02em;animation:mq 38s linear infinite}
-.marq .t span::after{content:"✦";margin-left:38px;color:var(--green);font-size:.6em;vertical-align:middle}
-@keyframes mq{to{transform:translateX(-50%)}}
+/* LEISTUNGEN · Index mit Vorschau */
+.svc .head{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:end;margin-bottom:56px}
+.svc h2{grid-column:1/8;font-size:var(--s2)}
+.svc .head p{grid-column:8/13;max-width:40ch}
+.idx{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.idx ul{grid-column:1/8;list-style:none}
+.row{display:flex;width:100%;align-items:baseline;justify-content:space-between;gap:20px;text-align:left;padding:10px 0;font-size:clamp(28px,3.3vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1.04;transition:opacity .24s,color .24s}
+.row small{font-size:var(--s5);font-weight:600;letter-spacing:0;color:var(--soft);white-space:nowrap}
+.idx ul:has(.row.on) .row:not(.on){opacity:.32}
+.row.on{color:var(--blue2)}
+.det{display:none}
+.frame{grid-column:8/13;position:relative}
+.frame .pn{position:absolute;left:0;right:0;top:0;min-height:540px;background:var(--blue);border-radius:999px;padding:110px 13% 110px;display:flex;flex-direction:column;justify-content:center;transition:top .45s var(--ease)}
+.frame .in{transition:opacity .24s}
+.frame h3{font-size:var(--s3);letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+.frame p{font-size:17px}
+.dots{list-style:none;margin-top:18px;display:grid;gap:7px;font-size:var(--s5)}
+.dots li{display:flex;gap:10px;align-items:baseline}
+.dots li::before{content:"";flex:none;width:16px;height:7px;border-radius:9px;background:currentColor;transform:translateY(-2px)}
+@media(max-width:960px){
+  .svc .head{display:block}.svc .head p{margin-top:22px}
+  .idx{display:block}.frame{display:none}
+  .row{font-size:clamp(26px,7.2vw,40px);padding:14px 0}
+  .row small{display:none}
+  .idx ul:has(.row.on) .row:not(.on){opacity:1}
+  .det{display:block;overflow:hidden;height:0;transition:height .45s var(--ease)}
+  .det .box{background:var(--field);border-radius:28px;padding:24px 24px 26px;margin:4px 0 14px}
+  .det p{font-size:17px}
+}
 
-/* LEISTUNGEN */
-.sec{padding:clamp(80px,12vw,160px) 0}
-.sh{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,64px)}
-.sh h2{font-size:clamp(40px,6vw,96px);letter-spacing:-.05em;max-width:12ch}
-.sh p{max-width:40ch;color:var(--mut)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:dense;gap:16px}
-.card{position:relative;background:var(--white);border-radius:var(--r);padding:30px 28px 28px;display:flex;flex-direction:column;gap:12px;min-height:260px;box-shadow:0 1px 0 rgba(12,34,51,.04);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
-.card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(29,106,166,.35)}
-.card .no{font-size:13px;font-weight:700;color:var(--blueD);letter-spacing:.08em}
-.card h3{font-size:clamp(22px,1.8vw,28px);letter-spacing:-.03em;line-height:1.1}
-.card p{color:var(--mut);font-size:16px}
-.card .ic{position:absolute;right:22px;top:22px;width:46px;height:46px;border-radius:14px;background:var(--sky);display:grid;place-items:center;color:var(--blueD)}
-.card .ic svg{width:22px;height:22px}
-.card.big{grid-column:span 2;background:linear-gradient(135deg,#fff 0,#f3f9fe 100%)}
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
-.pills span{font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;background:var(--sky);color:var(--navy)}
-details.more{margin-top:auto}
-details.more summary{cursor:pointer;list-style:none;font-weight:700;font-size:15px;color:var(--blueD);display:inline-flex;gap:8px;align-items:center}
-details.more summary::-webkit-details-marker{display:none}
-details.more summary::after{content:"+";font-size:20px;line-height:1;transition:transform .3s}
-details.more[open] summary::after{transform:rotate(45deg)}
-details.more ul{columns:2;column-gap:28px;margin-top:14px;padding-left:18px;color:var(--mut);font-size:15px}
-details.more li{break-inside:avoid;margin-bottom:6px}
-@media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}.card.big{grid-column:span 2}}
-@media(max-width:640px){.grid{grid-template-columns:1fr}.card.big{grid-column:auto}details.more ul{columns:1}.card{min-height:0}}
+/* REINIGUNGSPLAN */
+.plan{background:var(--field);margin-top:var(--gap);padding:clamp(80px,9vw,140px) 0}
+.plan .wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.plan .ctl{grid-column:1/6}
+.plan h2{font-size:var(--s2)}
+.plan .ctl>p{margin-top:24px;max-width:36ch}
+fieldset{border:0;margin-top:38px}
+legend{font-weight:700;font-size:var(--s4);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;height:44px;padding:0 18px;border-radius:999px;background:#fff;font-size:16px;font-weight:600;transition:background-color .2s,color .2s,transform .2s}
+.chip:hover span{transform:translateY(-1px)}
+.chip input:checked+span{background:var(--ink);color:#fff}
+.chip input:focus-visible+span{outline:3px solid var(--blue2);outline-offset:2px}
+.sheet{grid-column:7/13;background:var(--paper);padding:clamp(28px,3.2vw,52px);align-self:start;position:sticky;top:100px}
+.sheet .top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.sheet .top img{height:30px;width:auto}
+.sheet .top span{font-size:var(--s5);color:var(--soft);text-align:right}
+.sheet h3{font-size:var(--s3);letter-spacing:-.03em;margin:34px 0 6px}
+.sheet .meta{font-size:var(--s5);color:var(--soft)}
+.sheet .meta b{color:var(--ink)}
+.lv{margin-top:26px;display:grid;gap:22px;max-height:520px;overflow:auto;overscroll-behavior:contain;padding-right:6px}
+.lv .it h4{font-size:19px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.lv .it{animation:pin .45s var(--ease) both}
+@keyframes pin{from{opacity:0;transform:translateY(14px)}}
+.lv .none{color:var(--soft)}
+.sheet .foot{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;margin-top:34px;padding-top:0}
+.sheet .foot p{font-size:var(--s5);max-width:30ch}
+@media(max-width:960px){.plan .wrap{display:block}.sheet{position:relative;top:auto;margin-top:46px}.lv{max-height:none}}
 
-/* FOTO */
-.photo{background:var(--navy);color:var(--sky);border-radius:clamp(28px,4vw,56px);margin:0 12px;overflow:hidden}
-.photo .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center;padding-top:clamp(60px,8vw,120px);padding-bottom:clamp(60px,8vw,120px)}
-.photo h2{font-size:clamp(38px,5vw,78px);letter-spacing:-.05em}
-.photo h2 em{font-style:italic;font-weight:600;color:var(--blue)}
-.photo p{color:rgba(234,244,252,.72);margin-top:22px;max-width:44ch}
-.photo .eyebrow{color:var(--blue)}
-.frame{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--navy2)}
-.frame img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform:scale(1.12)}
-.cap{margin-top:14px;font-size:13px;color:rgba(234,244,252,.55)}
-@media(max-width:860px){.photo .wrap{grid-template-columns:1fr}.photo{margin:0 8px}}
+/* BAND */
+.band{padding-top:var(--gap)}
+.band .stroke{background:var(--blue);border-radius:999px;margin:0 var(--m);min-height:clamp(220px,30vw,420px);display:grid;align-items:center;overflow:hidden}
+.band h2{font-size:var(--s2);white-space:nowrap;padding:0 7vw;will-change:transform}
+@media(max-width:960px){.band h2{white-space:normal;font-size:clamp(34px,9vw,54px);padding:40px 12vw}}
 
-/* UEBER */
-.about .q{font-size:clamp(34px,5.4vw,88px);letter-spacing:-.05em;line-height:1;font-weight:800;max-width:16ch}
-.about .q .b{color:var(--blueD)}
-.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(40px,6vw,80px)}
-.val{border-top:2px solid var(--navy);padding-top:22px}
-.val h3{font-size:clamp(22px,2vw,30px);margin-bottom:10px}
-.val p{color:var(--mut)}
-.owners{margin-top:clamp(40px,5vw,64px);display:flex;flex-wrap:wrap;gap:12px;align-items:center;color:var(--mut)}
-.owners b{color:var(--navy)}
-.owners .chip{background:var(--white);border-radius:999px;padding:10px 18px;font-weight:600;color:var(--navy)}
-@media(max-width:760px){.vals{grid-template-columns:1fr}}
+/* UEBER UNS */
+.about{padding-top:var(--gap)}
+.about .pnl{background:var(--deep);color:#eaf4fb;margin:0 20px;min-height:110svh;position:relative;overflow:hidden;display:grid;grid-template-columns:repeat(12,1fr);gap:20px;padding:clamp(40px,4.4vw,64px)}
+.about h2{grid-column:1/7;font-size:var(--s2);color:#fff;align-self:start}
+.about .por{position:absolute;left:clamp(40px,4.4vw,64px);bottom:-14%;width:30vw;max-width:470px;aspect-ratio:.62;border-radius:999px;overflow:hidden}
+.about .por img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.05)}
+.about .por figcaption{position:absolute;left:0;right:0;bottom:22%;text-align:center;font-size:13px;color:#fff;padding:0 18%}
+.about .cols{grid-column:8/13;display:grid;gap:44px;align-content:start;padding-top:8px}
+.about h3{font-size:var(--s3);letter-spacing:-.025em;color:#fff;margin-bottom:10px}
+.about .cols p{font-size:17px;color:#d4e3ee}
+.about .own{font-size:17px;color:#d4e3ee}
+.about .own b{color:#fff}
+@media(max-width:960px){
+  .about .pnl{display:block;margin:0 10px;min-height:0;padding:34px 24px 0}
+  .about h2{font-size:clamp(40px,10vw,60px)}
+  .about .cols{margin-top:40px;gap:32px}
+  .about .por{position:relative;left:auto;bottom:auto;width:80vw;max-width:none;margin:56px auto -24%;}
+}
 
-/* STEPS */
-.steps{background:var(--white);border-radius:clamp(28px,4vw,56px);margin:0 12px}
-.st3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.step{background:var(--sky);border-radius:var(--r);padding:30px;min-height:300px;display:flex;flex-direction:column}
-.step .n{font-size:clamp(60px,6vw,96px);font-weight:800;letter-spacing:-.06em;line-height:.9;color:var(--blue)}
-.step h3{font-size:clamp(22px,1.9vw,28px);margin:44px 0 10px}
-.step p{color:var(--mut)}
-@media(max-width:860px){.st3{grid-template-columns:1fr}.step{min-height:220px}.steps{margin:0 8px}}
+/* ABLAUF · Akkordeon */
+.flow .head{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:end}
+.flow h2{grid-column:1/6;font-size:var(--s2)}
+.flow .head p{grid-column:7/12}
+.acc{display:flex;height:520px;margin-top:64px}
+.st{position:relative;flex:1 1 0;min-width:0;overflow:hidden;transition:flex-grow .5s var(--ease);text-align:left;padding:34px}
+.st.open{flex-grow:5.2}
+.st:nth-child(1){background:var(--deep);color:#fff}
+.st:nth-child(2){background:var(--blue2);color:#fff}
+.st:nth-child(3){background:var(--blue);color:var(--ink)}
+.st .vn{position:absolute;left:34px;bottom:34px;transform-origin:0 100%;transform:rotate(-90deg) translateY(100%);font-size:22px;font-weight:800;white-space:nowrap;transition:opacity .3s}
+.st .bd{position:absolute;left:40px;right:40px;top:38px;bottom:38px;display:flex;flex-direction:column;justify-content:space-between;opacity:0;transition:opacity .35s .1s}
+.st.open .bd{opacity:1}.st.open .vn{opacity:0}
+.st h3{font-size:clamp(32px,3.4vw,54px);letter-spacing:-.04em;line-height:1}
+.st p{max-width:36ch;font-size:var(--s4)}
+.st .when{font-size:var(--s5);font-weight:700}
+@media(max-width:960px){
+  .flow .head{display:block}.flow .head p{margin-top:20px}
+  .acc{flex-direction:column;height:auto;margin-top:40px}
+  .st{flex:none;padding:0;min-height:72px}
+  .st .vn{position:static;transform:none;display:block;padding:22px 24px;font-size:20px}
+  .st .bd{position:static;opacity:1;display:none;padding:0 24px 28px;gap:16px}
+  .st.open .bd{display:flex}.st.open .vn{opacity:1}
+}
 
-/* FAQ */
-.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
-.faq h2{font-size:clamp(40px,5.6vw,88px);letter-spacing:-.05em}
-.qa{border-top:1px solid var(--line)}
-.qa details{border-bottom:1px solid var(--line)}
-.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-size:clamp(18px,1.4vw,22px);font-weight:700;letter-spacing:-.015em}
-.qa summary::-webkit-details-marker{display:none}
-.qa summary::after{content:"+";flex:none;width:34px;height:34px;border-radius:50%;background:var(--white);display:grid;place-items:center;font-size:20px;transition:transform .3s,background .3s}
-.qa details[open] summary::after{transform:rotate(45deg);background:var(--green)}
-.qa p{padding:0 50px 26px 0;color:var(--mut)}
-@media(max-width:860px){.faq .wrap{grid-template-columns:1fr}}
+/* BIEBRICH */
+.home .head{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;align-items:end;margin-bottom:56px}
+.home h2{grid-column:1/8;font-size:var(--s2)}
+.home .head p{grid-column:8/13;max-width:40ch}
+.places{display:grid;grid-template-columns:1.25fr .8fr 1.1fr .9fr;gap:20px;align-items:end}
+.places figure{min-width:0}
+.places .cap{background:var(--field)}
+.places img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.places figure:hover img{transform:scale(1.05)}
+.places figcaption{margin-top:14px;font-size:var(--s5)}
+.places figcaption b{display:block;font-size:var(--s4)}
+.p1 .cap{aspect-ratio:1.25}.p2 .cap{aspect-ratio:.6}.p3 .cap{aspect-ratio:.86}.p4 .cap{aspect-ratio:.7}
+@media(max-width:960px){
+  .home .head{display:block}.home .head p{margin-top:20px}
+  .places{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(var(--m)*-1);padding:0 var(--m) 8px;align-items:flex-end;scrollbar-width:none}
+  .places::-webkit-scrollbar{display:none}
+  .places figure{flex:0 0 66vw;scroll-snap-align:start}
+}
 
-/* KONTAKT */
-.contact{background:linear-gradient(160deg,var(--blue) 0,#3aa3ee 100%);color:var(--navy);border-radius:clamp(28px,4vw,56px);margin:0 12px;overflow:hidden}
-.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);padding-top:clamp(60px,8vw,120px);padding-bottom:clamp(60px,8vw,120px)}
-.contact h2{font-size:clamp(42px,6vw,100px);letter-spacing:-.055em}
-.contact .eyebrow{color:var(--navy)}
-.info{margin-top:34px;display:grid;gap:14px;font-size:clamp(17px,1.3vw,20px);font-weight:600}
-.info a{display:inline-flex;gap:12px;align-items:center}
-.info small{display:block;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:2px}
-form{background:var(--white);border-radius:var(--r);padding:clamp(22px,3vw,38px);display:grid;gap:14px;align-self:start}
-label{display:grid;gap:6px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
-input,select,textarea{font:inherit;font-size:16px;text-transform:none;letter-spacing:0;color:var(--navy);background:var(--sky);border:1.5px solid transparent;border-radius:16px;padding:14px 16px;outline:none;transition:border-color .2s}
-input:focus,select:focus,textarea:focus{border-color:var(--blueD)}
-textarea{min-height:120px;resize:vertical}
-form .btn{justify-content:center;border:0;cursor:pointer;margin-top:6px}
-form .fine{font-size:13px;color:var(--mut);line-height:1.5}
-.r2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:860px){.contact .wrap{grid-template-columns:1fr}.contact{margin:0 8px}.r2{grid-template-columns:1fr}}
+/* FAQ · Karteikarten */
+.faq .wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.faq h2{grid-column:3/11;font-size:var(--s2);margin-bottom:56px}
+.cards{grid-column:3/11}
+.card{position:relative;margin-top:-30px;padding-top:46px}
+.card:first-child{margin-top:0}
+.card summary{list-style:none;cursor:pointer;display:block}
+.card summary::-webkit-details-marker{display:none}
+.card .tab{position:absolute;top:0;height:46px;width:210px;border-radius:999px 999px 0 0;display:flex;align-items:center;justify-content:center;font-size:var(--s5);font-weight:700}
+.card .q{display:flex;justify-content:space-between;gap:20px;padding:26px 32px 28px;font-size:21px;font-weight:700;letter-spacing:-.015em;line-height:1.3}
+.card .q::after{content:"";flex:none;width:30px;height:14px;border-radius:9px;background:currentColor;opacity:.25;margin-top:6px;transition:opacity .2s,width .3s var(--ease)}
+.card[open] .q::after{opacity:1;width:44px}
+.card .ans{padding:0 32px 30px;margin-top:-8px}
+.card .ans p{max-width:56ch;font-size:17px}
+.card.c1 .tab,.card.c1 .q,.card.c1 .ans{background:var(--field)}
+.card.c2 .tab,.card.c2 .q,.card.c2 .ans{background:var(--blue)}
+.card.c3 .tab,.card.c3 .q,.card.c3 .ans{background:var(--deep);color:#fff}
+@media(max-width:960px){.faq .wrap{display:block}.card:nth-child(1) .tab{left:0px!important}.card:nth-child(2) .tab{left:40px!important}.card:nth-child(3) .tab{left:80px!important}.card:nth-child(4) .tab{left:120px!important}.card:nth-child(5) .tab{left:160px!important}.card:nth-child(6) .tab{left:200px!important}.card .tab{width:128px}.card .q{padding:22px 20px 24px;font-size:19px}.card .ans{padding:0 20px 24px}}
+
+/* KONTAKT · Gutschein */
+.contact .wrap{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.cp{grid-column:2/12;position:relative;background:var(--blue);display:grid;grid-template-columns:46fr 54fr;min-height:430px;
+  -webkit-mask:radial-gradient(circle 16px at 46% 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 16px at 46% 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+  mask:radial-gradient(circle 16px at 46% 0,#0000 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 16px at 46% 100%,#0000 98%,#000) bottom/100% 51% no-repeat}
+.cp .l{padding:48px;display:flex;flex-direction:column;justify-content:space-between;gap:30px;border-right:5px dotted var(--bg)}
+.cp h2{font-size:clamp(34px,3.4vw,56px);letter-spacing:-.045em;line-height:.98}
+.cp .l p{font-size:17px;max-width:32ch}
+.cp form{padding:48px;display:grid;gap:10px;align-content:center}
+.cp input,.cp textarea{font:inherit;font-size:16px;color:var(--ink);background:#9ed5fe;border:0;border-radius:0;height:54px;padding:0 18px;width:100%}
+.cp textarea{height:96px;padding:15px 18px;resize:vertical}
+.cp input::placeholder,.cp textarea::placeholder{color:#24506f}
+.cp button{height:58px;background:var(--ink);color:#fff;font-weight:700;font-size:17px;margin-top:6px;transition:background-color .2s}
+.cp button:hover{background:var(--deep)}
+.cinfo{grid-column:2/12;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
+.cinfo div{font-size:var(--s4)}
+.cinfo span{display:block;font-size:var(--s5);color:var(--soft);margin-bottom:4px}
+.cinfo a{text-decoration:none;font-weight:700}
+.cinfo a:hover{text-decoration:underline}
+@media(max-width:960px){
+  .contact .wrap{display:block}
+  .cp{grid-template-columns:1fr;min-height:0;
+    -webkit-mask:radial-gradient(circle 16px at 0 42%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 16px at 100% 42%,#0000 98%,#000) right/51% 100% no-repeat;
+    mask:radial-gradient(circle 16px at 0 42%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 16px at 100% 42%,#0000 98%,#000) right/51% 100% no-repeat}
+  .cp .l{border-right:0;border-bottom:5px dotted var(--bg);padding:30px 24px}
+  .cp form{padding:30px 24px}
+  .cinfo{grid-template-columns:1fr 1fr;gap:26px 20px}
+}
 
 /* FOOTER */
-footer{padding:clamp(60px,8vw,110px) 0 26px;overflow:hidden}
-.mega{font-size:clamp(90px,25vw,440px);font-weight:800;letter-spacing:-.07em;line-height:.8;background:linear-gradient(180deg,var(--blue) 0,rgba(103,191,253,.15) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;margin-left:-.04em}
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 30px;margin-top:30px;font-size:13px;color:var(--mut)}
-.foot a{text-decoration:underline;text-underline-offset:3px}
+footer{padding-top:var(--gap);padding-bottom:28px}
+.mark{display:flex;align-items:flex-end;gap:4px;height:34svh;min-height:220px}
+.mark span{flex:1;display:flex;align-items:flex-end;justify-content:center;color:var(--bg);font-weight:800;font-size:clamp(70px,15vw,250px);line-height:.74;letter-spacing:-.04em;padding-bottom:.05em;overflow:hidden}
+.mark span:nth-child(1){height:100%;background:var(--blue)}
+.mark span:nth-child(2){height:78%;background:var(--ink)}
+.mark span:nth-child(3){height:90%;background:var(--go)}
+.mark span:nth-child(4){height:66%;background:var(--taupe)}
+.mark span:nth-child(5){height:84%;background:var(--blue2)}
+.mark span:nth-child(6){height:96%;background:var(--deep)}
+.fl{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;margin-top:56px;font-size:var(--s5)}
+.fl ul{list-style:none;display:grid;gap:8px}
+.fl a{text-decoration:none}
+.fl a:hover{text-decoration:underline}
+.fl .c1{grid-column:1/3}.fl .c2{grid-column:3/5}.fl .c3{grid-column:5/9}.fl .c4{grid-column:9/13}
+.fl .c3 p+p{margin-top:8px}
+.credits{margin-top:44px;font-size:13px;color:var(--soft);line-height:1.6;max-width:120ch}
+.credits a{color:inherit}
+.last{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 30px;margin-top:22px;font-size:13px;color:var(--soft)}
+@media(max-width:960px){.mark{height:22svh;min-height:150px}.fl{grid-template-columns:1fr 1fr}.fl .c1,.fl .c2,.fl .c3,.fl .c4{grid-column:auto}.fl .c3,.fl .c4{grid-column:1/-1}}
 
-.rv{will-change:transform}
-@media(prefers-reduced-motion:reduce){.bub,.marq .t{animation:none}}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 </style>
 </head>
 <body>
 
-<nav class="nav" aria-label="Hauptnavigation">
-  <a href="#top" class="logo" aria-label="Profix Gebäudereinigung, zum Seitenanfang"><img src="media/logo.png" alt="Profix Gebäudereinigung" width="500" height="157"></a>
-  <ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#ueber-uns">Über uns</a></li><li><a href="#ablauf">Ablauf</a></li><li><a href="#faq">FAQ</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
-  <a class="btn btn-g" href="tel:+491783902431" aria-label="Anrufen: 0178 39 02 431"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>0178 39 02 431</span></a>
-</nav>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Profix Gebäudereinigung, zum Seitenanfang"><img src="media/logo.png" alt="Profix Gebäudereinigung" width="500" height="157"></a>
+    <nav aria-label="Hauptnavigation"><ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#plan">Reinigungsplan</a></li><li><a href="#ueber-uns">Über uns</a></li><li><a href="#faq">FAQ</a></li><li><a href="#kontakt">Kontakt</a></li></ul></nav>
+    <a class="btn btn-go" href="tel:+491783902431" aria-label="Anrufen: 0178 39 02 431"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="nl">0178 39 02 431</span></a>
+  </div>
+</header>
 
 <main id="top">
-<section class="hero" id="hero">
+<section class="hero" id="hero" aria-labelledby="h1">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Meisterbetrieb im Gebäudereiniger-Handwerk</span>
-      <h1><span class="h1w">Alles sauber.<span class="glint" aria-hidden="true"></span></span><span class="l2">dank Ihres Gebäudereinigung-Profis aus Wiesbaden.</span></h1>
-      <p class="lead">Ihr zuverlässiger Partner für Unterhalts-, Grund- und Glasreinigung, Hausmeister- und Winterdienst im Rhein/Main-Gebiet. Mit kostenlosem, individuellem Beratungsgespräch.</p>
-      <div class="ctas">
-        <a class="btn btn-g" href="#kontakt">Kostenlos beraten lassen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-o" href="#leistungen">Alle Leistungen</a>
+    <div class="txt">
+      <h1 id="h1"><span class="ln">Alles</span><span class="ln">sauber.<i class="gl" aria-hidden="true"></i></span></h1>
+      <p class="lead">Profix ist Meisterbetrieb im Gebäudereiniger-Handwerk aus Wiesbaden-Biebrich – für Büros, Treppenhäuser, Glas, Industrie und den Winterdienst im Rhein/Main-Gebiet.</p>
+      <div class="act">
+        <a class="btn btn-go" href="#kontakt">Kostenlose Beratung</a>
+        <a class="tlink" href="tel:+491783902431">0178 39 02 431</a>
       </div>
-      <div class="rating"><span class="st" aria-hidden="true">★★★★★</span><span>5,0 bei Google <small>· 26 Rezensionen, Stand Oktober 2026</small></span></div>
-    </div>
-    <div class="drop" aria-hidden="true">
-      <svg viewBox="0 0 200 256">
-        <defs>
-          <linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fd7ff"/><stop offset=".55" stop-color="#67bffd"/><stop offset="1" stop-color="#2f8fd6"/></linearGradient>
-          <radialGradient id="dh" cx=".34" cy=".38" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-        </defs>
-        <path d="M100 4C100 4 12 112 12 166a88 88 0 0 0 176 0C188 112 100 4 100 4Z" fill="url(#dg)"/>
-        <path d="M100 4C100 4 12 112 12 166a88 88 0 0 0 176 0C188 112 100 4 100 4Z" fill="url(#dh)"/>
-        <path d="M46 156c-4 20 4 40 22 52" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".7"/>
-      </svg>
-      <i class="bub" style="width:54px;height:54px;left:-8%;top:58%;animation-delay:-1s"></i>
-      <i class="bub" style="width:30px;height:30px;left:86%;top:20%;animation-delay:-3s"></i>
-      <i class="bub" style="width:76px;height:76px;left:78%;top:70%;animation-delay:-5s"></i>
-      <i class="bub" style="width:22px;height:22px;left:8%;top:18%;animation-delay:-2s"></i>
+      <p class="facts"><span><b>5,0 von 5</b> bei Google, 26 Rezensionen (Stand Oktober 2026)</span><span>Büchnerstraße 11, Wiesbaden</span></p>
     </div>
   </div>
-  <canvas id="grime" aria-hidden="true"></canvas>
-  <div class="blade" id="blade" aria-hidden="true"><i class="stick"></i><i class="hold"></i><i class="rub"></i></div>
+  <div class="big">
+    <figure class="ph"><img src="media/glasdach-800.webp" srcset="media/glasdach-800.webp 800w, media/glasdach-1400.webp 1400w" sizes="(max-width:960px) 80vw, 36vw" alt="Glasdach-Reihe auf einem Flachdach, Einsatzfoto von Profix" width="1400" height="2492"></figure>
+  </div>
+  <canvas id="fog" aria-hidden="true"></canvas>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="squeegee" id="sq" aria-hidden="true"></div>
 </section>
 
-<div class="marq" aria-hidden="true"><div class="t">
-  <span>Unterhaltsreinigung</span><span>Grundreinigung</span><span>Fensterreinigung</span><span>Treppenhausreinigung</span><span>Sonderreinigung</span><span>Industriereinigung</span><span>Baureinigung</span><span>Jalousienreinigung</span><span>Teppich &amp; Polster</span><span>Grünpflege</span><span>Hausmeisterdienst</span><span>Winterdienst</span>
-  <span>Unterhaltsreinigung</span><span>Grundreinigung</span><span>Fensterreinigung</span><span>Treppenhausreinigung</span><span>Sonderreinigung</span><span>Industriereinigung</span><span>Baureinigung</span><span>Jalousienreinigung</span><span>Teppich &amp; Polster</span><span>Grünpflege</span><span>Hausmeisterdienst</span><span>Winterdienst</span>
-</div></div>
-
-<section class="sec" id="leistungen">
+<section class="sec svc" id="leistungen" aria-labelledby="svc-h">
   <div class="wrap">
-    <div class="sh"><h2 class="rv">Zwölf Leistungen. Ein Ansprechpartner.</h2><p class="rv">Vom Büro über das Treppenhaus bis zur Industriehalle: Profix reinigt, pflegt und schützt Ihre Immobilie, einmalig oder regelmäßig, ganz nach Ihren Wünschen.</p></div>
-    <div class="grid">
-      <article class="card big rv">
-        <span class="no">01</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span>
-        <h3>Unterhaltsreinigung</h3>
-        <p>Wiederkehrende Reinigung in festen Abständen: täglich, wöchentlich, monatlich oder individuell abgestimmt. Und wenn Sie kurzfristig eine Reinigungskraft brauchen, ist das Team ebenfalls für Sie da.</p>
-        <details class="more"><summary>Was in Büros &amp; Technikräumen dazugehört</summary>
-          <ul><li>Papierkörbe leeren, neue Müllsäcke einsetzen</li><li>Teppich saugen, Flecken punktuell reinigen</li><li>Fußböden feucht wischen</li><li>Tische und Stühle entstauben</li><li>Rechner, Monitore &amp; Tastaturen entstauben</li><li>Geschirrservice ein- und ausräumen</li><li>Eingang bzw. Empfang saugen</li><li>Mobiliar, Fensterbänke, Heizkörper entstauben</li><li>Bilder, Lampen &amp; Leuchten entstauben</li><li>Lichtschalter, Fußleisten, Türen und Türgriffe feucht wischen</li><li>Spiegel und Glastrennwände bis 1,80 m Höhe</li><li>Glasschilder und Warnhinweise abwischen</li></ul>
-        </details>
-      </article>
-      <article class="card rv"><span class="no">02</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5z"/></svg></span><h3>Grundreinigung</h3><p>Die Intensivreinigung, zum Beispiel vor einer Neuvermietung: Türblätter, Zargen, Fußleisten, Heizkörper und Steckdosen, bei Bedarf eine neue Versiegelung der Böden.</p></article>
-      <article class="card rv"><span class="no">03</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/></svg></span><h3>Fenster- &amp; Glasreinigung</h3><p>Streifenfreier Glanz für Geschäftsräume und Wohngebäude, auch für Glasfassaden, Wintergärten, Glasdächer und Leuchtschriften.</p></article>
-      <article class="card rv"><span class="no">04</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h5v-5h5v-5h5V6h3"/></svg></span><h3>Treppenhausreinigung</h3><p>Jede Etage bis zum Keller, Geländer und Fensterbänke inklusive. Auf Wunsch zuerst eine einmalige Grundreinigung mit der Einscheibenmaschine.</p></article>
-      <article class="card big rv"><span class="no">05</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><h3>Sonderreinigung</h3><p>Für besonders hartnäckige Verschmutzungen, mit speziellem Equipment und fachkundiger Beratung.</p>
-        <div class="pills"><span>Schwimmbad</span><span>Rolltreppen</span><span>Großküchen</span><span>Klimaanlagen</span><span>Maschinen</span><span>EDV</span><span>Kreuzfahrtschiff</span></div></article>
-      <article class="card rv"><span class="no">06</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l6 4V9l6 4V5h6v16z"/></svg></span><h3>Industriereinigung</h3><p>Maschinen, Fertigungsanlagen, Industrieböden und Hallen, einmalig oder in festen Intervallen, nach Ihren Erfordernissen.</p></article>
-      <article class="card rv"><span class="no">07</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M5 20V10l7-6 7 6v10"/></svg></span><h3>Baureinigung</h3><p>Innen- und Außenreinigung nach dem Bau, auf Wunsch inklusive Entsorgung des Bauschutts.</p></article>
-      <article class="card rv"><span class="no">08</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16M5 8h14M5 12h14M5 16h14M12 16v5"/></svg></span><h3>Jalousienreinigung</h3><p>Reinigung und Konservierung von Außenjalousien gegen Korrosion, je nach Umweltbelastung alle ein bis drei Jahre.</p></article>
-      <article class="card rv"><span class="no">09</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18v-6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6M2 14h20v4H2zM6 18v2M18 18v2"/></svg></span><h3>Teppich- &amp; Polsterreinigung</h3><p>Sessel, Sofas, Bürostühle und Teppiche: Flecken werden materialgerecht behandelt, auf Wunsch mit Antistatik oder Langzeitimprägnierung.</p></article>
-      <article class="card rv"><span class="no">10</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12c0-5 4-8 8-8 0 5-3 8-8 8zM12 15c0-4-3-6-7-6 0 4 3 6 7 6z"/></svg></span><h3>Grünpflege</h3><p>Rasen, Wiese, Hecken, Busch und Baum: pflanzen, pflegen, düngen, wässern und mähen.</p></article>
-      <article class="card big rv"><span class="no">11</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><h3>Hausmeisterdienst</h3><p>Aufräumarbeiten, kleine Reparaturen, Schließ- und Sicherheitsdienst, Laubentfernung und Entrümpelungen, als individuelles Rundum-sorglos-Paket.</p></article>
-      <article class="card rv"><span class="no">12</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M4.9 7l14.2 10M4.9 17L19.1 7"/></svg></span><h3>Winterdienst</h3><p>Räumen und Streuen von Gehwegen und Zufahrten, Eisbeseitigung, Streugutbeseitigung und Schneeabtransport, mit 24-Stunden-Service.</p></article>
+    <div class="head"><h2 id="svc-h" data-rv>Zwölf Leistungen, ein Betrieb.</h2><p data-rv>Einmalig oder regelmäßig, vom Büro bis zur Industriehalle: Profix reinigt, pflegt und schützt Ihre Immobilie so, dass sie ihren Wert behält.</p></div>
+    <div class="idx" id="idx">
+      <ul id="rows"></ul>
+      <div class="frame" aria-hidden="true"><div class="pn" id="pn"><div class="in" id="pnin"></div></div></div>
     </div>
   </div>
 </section>
 
-<section class="photo" aria-labelledby="ph-h">
+<section class="plan" id="plan" aria-labelledby="plan-h">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Aus dem Einsatz</span>
-      <h2 id="ph-h" class="rv" style="margin-top:18px">Kein Fenster zu hoch. <em>Kein Dach zu weit.</em></h2>
-      <p class="rv">Glasflächen, Glasdächer und Fassaden brauchen das richtige Equipment und Erfahrung. Profix arbeitet mit hochwertigen Reinigungsmitteln und professionellen Geräten und bildet sich regelmäßig weiter, damit Ihre Immobilie ihren Wert behält.</p>
-      <a class="btn btn-g rv" href="#kontakt" style="margin-top:30px">Objekt anfragen</a>
+    <div class="ctl">
+      <h2 id="plan-h" data-rv>Ihr Reinigungsplan.</h2>
+      <p data-rv>Stellen Sie zusammen, was Profix für Sie übernehmen soll. Rechts entsteht Ihr Leistungsverzeichnis mit den Aufgaben, die dazugehören.</p>
+      <form id="planform">
+        <fieldset><legend>Objekt</legend><div class="chips" id="obj"></div></fieldset>
+        <fieldset><legend>Rhythmus</legend><div class="chips" id="rhy"></div></fieldset>
+        <fieldset><legend>Leistungen</legend><div class="chips" id="lst"></div></fieldset>
+      </form>
     </div>
-    <figure>
-      <div class="frame"><img class="par" src="media/glasdach-1400.webp" srcset="media/glasdach-820.webp 820w, media/glasdach-1400.webp 1400w" sizes="(max-width:860px) 92vw, 46vw" alt="Glasdach-Reihe auf einem Flachdach, fotografiert von Profix Gebäudereinigung" loading="lazy" width="1400" height="1867"></div>
-      <figcaption class="cap">Foto: Profix Gebäudereinigung, aus dem Google-Unternehmensprofil (Juli 2023)</figcaption>
-    </figure>
+    <article class="sheet" aria-live="polite" aria-labelledby="lv-h">
+      <div class="top"><img src="media/logo.png" alt="Profix Gebäudereinigung" width="500" height="157"><span>Büchnerstraße 11<br>65187 Wiesbaden</span></div>
+      <h3 id="lv-h">Leistungsverzeichnis, Entwurf</h3>
+      <p class="meta" id="meta"></p>
+      <div class="lv" id="lv"><p class="none">Wählen Sie links mindestens eine Leistung.</p></div>
+      <div class="foot"><p>Das kostenlose Beratungsgespräch ist inklusive. Auf Wunsch mit genehmigter Referenzliste.</p><a class="btn btn-go" id="planmail" href="mailto:info@profix-reinigung.de">Plan per E-Mail anfragen</a></div>
+    </article>
   </div>
 </section>
 
-<section class="sec about" id="ueber-uns">
-  <div class="wrap">
-    <span class="eyebrow">Über uns</span>
-    <p class="q rv" style="margin-top:22px">Dienstleister aus Leidenschaft. <span class="b">Geht nicht, gibt’s bei uns nicht.</span></p>
-    <div class="vals">
-      <div class="val rv"><h3>Qualität</h3><p>Als Meisterbetrieb im Gebäudereiniger-Handwerk reinigt, pflegt und schützt Profix ordnungsgemäß und trägt so zum Werterhalt Ihrer Immobilie bei.</p></div>
-      <div class="val rv"><h3>Flexibilität</h3><p>Sie entscheiden, wann, wo und in welchen Abständen gereinigt wird. Das Team passt sich Ihren Wünschen an.</p></div>
-      <div class="val rv"><h3>Absolute Zuverlässigkeit</h3><p>Fleißiges, gut qualifiziertes Personal, technisches Know-how und moderne Ausrüstung: kundenorientiert, pünktlich und rundum sauber.</p></div>
-    </div>
-    <div class="owners rv"><span>Ihre Ansprechpartner:</span><span class="chip">Suat Kaya</span><span class="chip">Baris Aktan</span><span>· Büchnerstraße 11, Wiesbaden-Biebrich</span></div>
-  </div>
+<section class="band" aria-labelledby="band-h">
+  <div class="stroke"><h2 id="band-h">Geht nicht, gibt’s bei uns nicht.</h2></div>
 </section>
 
-<section class="sec steps" id="ablauf">
-  <div class="wrap">
-    <div class="sh"><h2 class="rv">So einfach geht’s.</h2><p class="rv">Drei Schritte von der ersten Nachricht bis zur sauberen Immobilie.</p></div>
-    <div class="st3">
-      <div class="step rv"><span class="n">01</span><h3>Kontakt aufnehmen</h3><p>Rufen Sie an oder schreiben Sie eine E-Mail mit Ihrem Anliegen. Profix meldet sich bei Ihnen.</p></div>
-      <div class="step rv"><span class="n">02</span><h3>Kostenlose Beratung</h3><p>Im kostenlosen, individuellen Beratungsgespräch klären Sie Objekt, Leistungen und Rhythmus. Auf Wunsch erhalten Sie mit dem Angebot eine genehmigte Referenzliste.</p></div>
-      <div class="step rv"><span class="n">03</span><h3>Profix übernimmt</h3><p>Gereinigt wird einmalig oder regelmäßig: täglich, wöchentlich, monatlich oder individuell. Sie konzentrieren sich auf Ihr Geschäft.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec faq" id="faq">
-  <div class="wrap">
-    <div><span class="eyebrow">FAQ</span><h2 class="rv" style="margin-top:18px">Häufige Fragen</h2></div>
-    <div class="qa">
-      <details><summary>Was kostet das Beratungsgespräch?</summary><p>Nichts. Profix bietet ein kostenloses und individuelles Beratungsgespräch an. Vereinbaren Sie dafür einfach telefonisch oder per E-Mail einen Termin.</p></details>
-      <details><summary>Wie oft wird bei der Unterhaltsreinigung gereinigt?</summary><p>So oft, wie Sie es brauchen: täglich, wöchentlich, monatlich oder in individuell vereinbarten Abständen.</p></details>
-      <details><summary>Kann ich kurzfristig eine Reinigungskraft bekommen?</summary><p>Ja. Auch wenn Sie kurzfristig eine Reinigungskraft benötigen, steht das Personal von Profix zur Verfügung. Am schnellsten klären Sie das telefonisch.</p></details>
-      <details><summary>Gibt es Referenzen?</summary><p>Auf Wunsch sendet Profix Ihnen bei einer Angebotsanfrage eine genehmigte Referenzliste zu.</p></details>
-      <details><summary>Ist der Winterdienst auch nachts erreichbar?</summary><p>Der Winterdienst wird als 24-Stunden-Service angeboten: Räumen und Streuen, Eisbeseitigung und Schneeabtransport.</p></details>
-      <details><summary>Wie oft sollten Außenjalousien gereinigt werden?</summary><p>Je nach Umweltbelastung alle ein bis drei Jahre. Regelmäßige Reinigung und Konservierung beugen Korrosion an Lamellen sowie Zug- und Leiterbändern vor.</p></details>
-      <details><summary>In welchem Gebiet ist Profix unterwegs?</summary><p>Der Betrieb sitzt in Wiesbaden-Biebrich und arbeitet im Rhein/Main-Gebiet.</p></details>
+<section class="about" id="ueber-uns" aria-labelledby="ab-h">
+  <div class="pnl">
+    <h2 id="ab-h" data-rv>Dienstleister aus Leidenschaft.</h2>
+    <figure class="por"><img src="media/fensterputzer-800.webp" srcset="media/fensterputzer-800.webp 800w, media/fensterputzer-1100.webp 1137w" sizes="(max-width:960px) 80vw, 30vw" alt="Historische Aufnahme: Fensterputzer bei der Arbeit an einem hohen Sprossenfenster" width="1137" height="1631" loading="lazy"><figcaption>Gebäudereinigung ist Handwerk. Historische Aufnahme</figcaption></figure>
+    <div class="cols">
+      <div data-rv><h3>Qualität</h3><p>Als Meisterbetrieb im Gebäudereiniger-Handwerk reinigt, pflegt und schützt Profix ordnungsgemäß und trägt so zum Werterhalt Ihrer Immobilie bei.</p></div>
+      <div data-rv><h3>Flexibilität</h3><p>Sie entscheiden, wann, wo und in welchen Abständen gereinigt wird. Auch kurzfristig steht eine Reinigungskraft für Sie bereit.</p></div>
+      <div data-rv><h3>Absolute Zuverlässigkeit</h3><p>Fleißiges, gut qualifiziertes Personal, regelmäßige Weiterbildung und moderne Ausrüstung: kundenorientiert, pünktlich und rundum sauber.</p></div>
+      <p class="own" data-rv>Ihre Ansprechpartner sind die Inhaber <b>Suat Kaya</b> und <b>Baris Aktan</b>.</p>
+      <div data-rv><a class="btn btn-go" href="#kontakt">Termin vereinbaren</a></div>
     </div>
   </div>
 </section>
 
-<section class="contact" id="kontakt">
+<section class="sec flow" id="ablauf" aria-labelledby="fl-h">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Kontakt</span>
-      <h2 class="rv" style="margin-top:18px">Bereit für saubere Verhältnisse?</h2>
-      <div class="info">
-        <div><small>Telefon</small><a href="tel:+491783902431">0178 39 02 431</a></div>
-        <div><small>E-Mail</small><a href="mailto:info@profix-reinigung.de">info@profix-reinigung.de</a></div>
-        <div><small>Anschrift</small>Büchnerstraße 11, 65187 Wiesbaden</div>
-        <div><small>Öffnungszeiten laut Google</small>Mo–Fr 9–17 Uhr · So 9–17 Uhr</div>
-      </div>
+    <div class="head"><h2 id="fl-h" data-rv>So läuft’s ab.</h2><p data-rv>Vom ersten Anruf bis zur sauberen Immobilie sind es drei Schritte. Das Beratungsgespräch kostet Sie nichts.</p></div>
+    <div class="acc" id="acc">
+      <button class="st open" aria-expanded="true"><span class="vn">Anfragen</span><span class="bd"><span><h3>Anfragen</h3></span><span><p>Rufen Sie an oder schreiben Sie eine E-Mail mit Ihrem Anliegen. Profix meldet sich bei Ihnen.</p><span class="when">0178 39 02 431 · info@profix-reinigung.de</span></span></span></button>
+      <button class="st" aria-expanded="false"><span class="vn">Kostenlose Beratung</span><span class="bd"><span><h3>Kostenlose Beratung</h3></span><span><p>Im individuellen Beratungsgespräch klären Sie Objekt, Leistungen und Rhythmus. Mit dem Angebot gibt es auf Wunsch eine genehmigte Referenzliste.</p><span class="when">Kostenlos und unverbindlich</span></span></span></button>
+      <button class="st" aria-expanded="false"><span class="vn">Profix übernimmt</span><span class="bd"><span><h3>Profix übernimmt</h3></span><span><p>Gereinigt wird einmalig oder regelmäßig: täglich, wöchentlich, monatlich oder individuell. Sie konzentrieren sich auf Ihr Geschäft.</p><span class="when">Täglich · wöchentlich · monatlich · individuell</span></span></span></button>
     </div>
-    <form id="f" novalidate>
-      <div class="r2"><label>Name<input name="name" autocomplete="name" required></label><label>Telefon<input name="tel" type="tel" autocomplete="tel"></label></div>
-      <label>Leistung<select name="leistung"><option>Unterhaltsreinigung</option><option>Grundreinigung</option><option>Fenster- &amp; Glasreinigung</option><option>Treppenhausreinigung</option><option>Sonderreinigung</option><option>Industriereinigung</option><option>Baureinigung</option><option>Jalousienreinigung</option><option>Teppich- &amp; Polsterreinigung</option><option>Grünpflege</option><option>Hausmeisterdienst</option><option>Winterdienst</option><option>Etwas anderes</option></select></label>
-      <label>Ihr Objekt &amp; Anliegen<textarea name="msg" placeholder="z. B. Büro, ca. Fläche, gewünschter Rhythmus"></textarea></label>
-      <button class="btn btn-g" type="submit">Anfrage per E-Mail öffnen</button>
-      <p class="fine">Der Button öffnet Ihr E-Mail-Programm mit einer vorbereiteten Nachricht an info@profix-reinigung.de. Über diese Website werden keine Daten gespeichert. Mehr dazu in der <a href="datenschutz.html" style="text-decoration:underline">Datenschutzerklärung</a>.</p>
-    </form>
+  </div>
+</section>
+
+<section class="sec home" id="biebrich" aria-labelledby="hm-h">
+  <div class="wrap">
+    <div class="head"><h2 id="hm-h" data-rv>Zuhause in Biebrich.</h2><p data-rv>Von der Büchnerstraße 11 in Wiesbaden-Biebrich aus ist Profix im ganzen Rhein/Main-Gebiet für Sie unterwegs.</p></div>
+    <div class="places">
+      <figure class="p1" data-rv><div class="cap"><img src="media/schloss-800.webp" srcset="media/schloss-800.webp 800w, media/schloss-1600.webp 1600w" sizes="(max-width:960px) 66vw, 30vw" alt="Schloss Biebrich mit Rotunde im Abendlicht" width="1600" height="1067" loading="lazy"></div><figcaption><b>Schloss Biebrich</b>Biebrich</figcaption></figure>
+      <figure class="p2" data-rv><div class="cap"><img src="media/faehre-800.webp" srcset="media/faehre-800.webp 800w, media/faehre-1600.webp 1600w" sizes="(max-width:960px) 66vw, 20vw" alt="Personenfähre auf dem Rhein vor bewaldetem Ufer" width="1600" height="1067" loading="lazy" style="object-position:52% 50%"></div><figcaption><b>Am Rhein</b>Biebrich</figcaption></figure>
+      <figure class="p3" data-rv><div class="cap"><img src="media/kurhaus-800.webp" srcset="media/kurhaus-800.webp 800w, media/kurhaus-1600.webp 1600w" sizes="(max-width:960px) 66vw, 26vw" alt="Bleiglasfenster im Kurhaus Wiesbaden" width="1600" height="1200" loading="lazy" style="object-position:50% 40%"></div><figcaption><b>Kurhaus</b>Wiesbaden</figcaption></figure>
+      <figure class="p4" data-rv><div class="cap"><img src="media/platte-800.webp" srcset="media/platte-800.webp 800w, media/platte-1600.webp 1595w" sizes="(max-width:960px) 66vw, 22vw" alt="Jagdschloss Platte mit Glasdach über den historischen Mauern" width="1595" height="1150" loading="lazy" style="object-position:58% 50%"></div><figcaption><b>Jagdschloss Platte</b>Wiesbaden</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq" id="faq" aria-labelledby="fq-h">
+  <div class="wrap">
+    <h2 id="fq-h" data-rv>Gut zu wissen.</h2>
+    <div class="cards" id="cards">
+      <details class="card c1" open><summary><span class="tab" style="left:0">Beratung</span><span class="q">Was kostet das Beratungsgespräch?</span></summary><div class="ans"><p>Nichts. Profix bietet ein kostenloses und individuelles Beratungsgespräch an. Vereinbaren Sie einfach telefonisch oder per E-Mail einen Termin.</p></div></details>
+      <details class="card c2"><summary><span class="tab" style="left:16%">Rhythmus</span><span class="q">Wie oft wird bei der Unterhaltsreinigung gereinigt?</span></summary><div class="ans"><p>So oft, wie Sie es brauchen: täglich, wöchentlich, monatlich oder in individuell vereinbarten Abständen.</p></div></details>
+      <details class="card c3"><summary><span class="tab" style="left:32%">Kurzfristig</span><span class="q">Bekomme ich auch kurzfristig eine Reinigungskraft?</span></summary><div class="ans"><p>Ja. Auch wenn Sie kurzfristig eine Reinigungskraft benötigen, steht das Personal von Profix zur Verfügung. Am schnellsten geht es am Telefon.</p></div></details>
+      <details class="card c1"><summary><span class="tab" style="left:48%">Referenzen</span><span class="q">Gibt es Referenzen?</span></summary><div class="ans"><p>Auf Wunsch sendet Profix Ihnen bei einer Angebotsanfrage eine genehmigte Referenzliste zu.</p></div></details>
+      <details class="card c2"><summary><span class="tab" style="left:64%">Winter</span><span class="q">Ist der Winterdienst rund um die Uhr erreichbar?</span></summary><div class="ans"><p>Der Winterdienst läuft als 24-Stunden-Service: Räumen und Streuen, Eisbeseitigung, Streugutbeseitigung und Schneeabtransport.</p></div></details>
+      <details class="card c3"><summary><span class="tab" style="left:calc(80% - 50px)">Jalousien</span><span class="q">Wie oft sollten Außenjalousien gereinigt werden?</span></summary><div class="ans"><p>Je nach Umweltbelastung alle ein bis drei Jahre. Regelmäßige Reinigung und Konservierung beugen Korrosion an Lamellen sowie Zug- und Leiterbändern vor.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="kontakt" aria-labelledby="ct-h">
+  <div class="wrap">
+        <div class="cp" data-rv>
+      <div class="l"><h2 id="ct-h">Gutschein für ein kostenloses Beratungsgespräch.</h2><p>Ausfüllen, abschicken, und Profix meldet sich bei Ihnen. Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht.</p></div>
+      <form id="cform" novalidate>
+        <label class="sr" for="f1">Name</label><input id="f1" name="name" placeholder="Ihr Name" autocomplete="name" required>
+        <label class="sr" for="f2">Telefon oder E-Mail</label><input id="f2" name="kontakt" placeholder="Telefon oder E-Mail" autocomplete="tel">
+        <label class="sr" for="f3">Objekt und Ort</label><input id="f3" name="objekt" placeholder="Objekt und Ort, z. B. Büro in Mainz-Kastel">
+        <label class="sr" for="f4">Ihr Anliegen</label><textarea id="f4" name="msg" placeholder="Ihr Anliegen"></textarea>
+        <button type="submit">Gutschein einlösen</button>
+      </form>
+    </div>
+    <div class="cinfo" data-rv>
+      <div><span>Telefon</span><a href="tel:+491783902431">0178 39 02 431</a></div>
+      <div><span>E-Mail</span><a href="mailto:info@profix-reinigung.de">info@profix-reinigung.de</a></div>
+      <div><span>Anschrift</span>Büchnerstraße 11<br>65187 Wiesbaden</div>
+      <div><span>Öffnungszeiten laut Google</span>Mo–Fr 9–17 Uhr<br>So 9–17 Uhr</div>
+    </div>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="mega" aria-hidden="true">PROFIX</div>
-    <div class="foot">
-      <span>Profix Gebäudereinigung · Suat Kaya &amp; Baris Aktan GbR · Büchnerstraße 11 · 65187 Wiesbaden</span>
-      <span>Konzept-Entwurf von J.H. Digital Atelier · keine offizielle Website von Profix</span>
-      <span style="display:flex;gap:16px"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+    <div class="mark" aria-label="Profix" role="img"><span>P</span><span>R</span><span>O</span><span>F</span><span>I</span><span>X</span></div>
+    <div class="fl">
+      <ul class="c1"><li><a href="#leistungen">Leistungen</a></li><li><a href="#plan">Reinigungsplan</a></li><li><a href="#ueber-uns">Über uns</a></li></ul>
+      <ul class="c2"><li><a href="#ablauf">Ablauf</a></li><li><a href="#faq">FAQ</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+      <div class="c3"><p>Profix Gebäudereinigung · Suat Kaya &amp; Baris Aktan GbR</p><p>Büchnerstraße 11, 65187 Wiesbaden</p></div>
+      <div class="c4"><p><a href="tel:+491783902431">0178 39 02 431</a></p><p><a href="mailto:info@profix-reinigung.de">info@profix-reinigung.de</a></p></div>
     </div>
+    <p class="credits">Bilder: Glasdach von Profix Gebäudereinigung (Google-Unternehmensprofil, 2023). „Fensterputzer“, Landesarchiv Baden-Württemberg, Staatsarchiv Freiburg W 134 Nr. 007183B, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>. „Schloss Biebrich“ und „Personenfähre Tamara“ von Ansgar Koreng, <a href="https://creativecommons.org/licenses/by-sa/3.0/de/" rel="noopener">CC BY-SA 3.0 DE</a>. „Kurhaus Wiesbaden“ von Martin Kraft, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>. „Jagdschloss Platte“ von Pedelecs, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener">CC BY-SA 3.0</a>. Alle via Wikimedia Commons, zugeschnitten.</p>
+    <div class="last"><span>Konzept-Entwurf von J.H. Digital Atelier für Profix Gebäudereinigung · keine offizielle Website</span><span style="display:flex;gap:18px"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span></div>
   </div>
 </footer>
 
@@ -341,72 +449,162 @@ footer{padding:clamp(60px,8vw,110px) 0 26px;overflow:hidden}
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
 <script>
-const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-gsap.registerPlugin(ScrollTrigger);
-let lenis=null;
-if(!RM){lenis=new Lenis({lerp:.09,anchors:{offset:-90}});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,MOB=()=>innerWidth<=960,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const MAIL='info@profix-reinigung.de';
 
-/* Kontaktformular -> mailto */
-document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.target);
-  const body=`Hallo Profix-Team,\n\nich interessiere mich für: ${d.get('leistung')}\n\n${d.get('msg')||''}\n\nName: ${d.get('name')||''}\nTelefon: ${d.get('tel')||''}\n`;
-  location.href='mailto:info@profix-reinigung.de?subject='+encodeURIComponent('Anfrage: '+d.get('leistung'))+'&body='+encodeURIComponent(body)});
+/* Daten: nur echte Angaben von profix-reinigung.de */
+const S=[
+ {n:'Unterhaltsreinigung',k:'regelmäßig',t:'Wiederkehrende Reinigung in festen Abständen, für Büroflächen, Technik- und Konferenzräume.',l:['Papierkörbe und Mülleimer leeren, neue Müllsäcke einsetzen','Teppich saugen, Flecken punktuell reinigen','Fußböden feucht wischen','Tische und Stühle entstauben, sofern frei','Rechner, Monitore und Tastaturen entstauben','Geschirrservice ein- und ausräumen','Eingangsbereich bzw. Empfang saugen','Mobiliar, Fensterbänke, Lichtschalter und Heizkörper entstauben','Plakate, Bilder, Lampen und Leuchten entstauben','Lichtschalter und Fußbodenleisten feucht wischen','Türen und Türgriffe feucht wischen','Spiegel und Glastrennwände bis 1,80 m Höhe reinigen','Glasschilder und Warnhinweise abwischen']},
+ {n:'Grundreinigung',k:'intensiv',t:'Die Intensivreinigung, zum Beispiel vor einer Neuvermietung oder als Ergänzung zur Unterhaltsreinigung.',l:['Türblätter, Zargen und Fußleisten intensiv reinigen','Heizkörper und Steckdosen reinigen','Bei Bedarf die Versiegelung der Bodenbeläge erneuern','Büromöbel reinigen, insbesondere Polster','Teppichreinigung']},
+ {n:'Fenster- und Glasreinigung',k:'streifenfrei',t:'Streifenfreier Glanz für Geschäftsräume und Wohngebäude, gewerblich wie privat.',l:['Fenster und Glasflächen','Glasfassaden und Wintergärten','Glasdächer und Leuchtschriften','Glastüren und große wie kleine Glasflächen']},
+ {n:'Treppenhausreinigung',k:'bis zum Keller',t:'Ein sauberes Treppenhaus auf jeder Etage, mit hochwertigen und umweltschonenden Mitteln.',l:['Jede Etage bis zum Keller','Geländer und Fensterbänke inklusive','Auf Wunsch einmalige Grundreinigung mit Einscheibenmaschine','Auf Wunsch auch die Fenster']},
+ {n:'Sonderreinigung',k:'hartnäckig',t:'Für besonders hartnäckige Verschmutzungen, mit speziellem Equipment und fachkundiger Beratung.',l:['Schwimmbadreinigung','Rolltreppenreinigung','Großküchenreinigung','Klimaanlagenreinigung','Maschinen- und EDV-Reinigung','Sogar ein Kreuzfahrtschiff']},
+ {n:'Industriereinigung',k:'Hallen & Anlagen',t:'Für sicheres und gutes Arbeiten, einmalig oder in den Abständen, die Sie festlegen.',l:['Maschinen und Fertigungsanlagen','Industrieböden','Gebäude-Innenflächen','Kessel, Tanks und Elektroanlagen']},
+ {n:'Baureinigung',k:'nach dem Bau',t:'Alle Leistungen der Innen- und Außenreinigung, wenn die Handwerker fertig sind.',l:['Innenreinigung','Außenreinigung','Auf Wunsch Entsorgung des Bauschutts']},
+ {n:'Jalousienreinigung',k:'alle 1–3 Jahre',t:'Für eine lange Lebensdauer und eine gepflegte Optik der Fassade.',l:['Reinigung der Außenjalousien','Konservierung gegen Korrosion','Lamellen, Zug- und Leiterbänder']},
+ {n:'Teppich- und Polsterreinigung',k:'Stoffe',t:'Sessel, Sofas, Bürostühle und Teppiche, deutlich günstiger als eine Neuanschaffung.',l:['Flecken artgerecht behandeln','Textilien auffrischen','Antistatik-Behandlung','Langzeitimprägnierung gegen neue Verschmutzung']},
+ {n:'Grünpflege',k:'Rasen bis Baum',t:'Gepflegte Grünanlagen rund um Ihre Liegenschaft.',l:['Pflanzen, pflegen, düngen und wässern','Rasen und Wiese mähen','Hecken trimmen','Baum- und Gehölzschnitt']},
+ {n:'Hausmeisterdienst',k:'rundum',t:'Die Tätigkeiten, die regelmäßig in der Immobilie und auf den Außenanlagen anfallen, als individuelles Rundum-sorglos-Paket.',l:['Aufräumarbeiten','Kleine Reparaturen','Schließdienst und Sicherheitsdienst','Pflege von Grünanlagen und Gehwegen','Gärtnerarbeiten und Laubentfernung','Entrümpelungen']},
+ {n:'Winterdienst',k:'24 Stunden',t:'Zu- und Auffahrten frei von Schnee und Eis, auch bei spontanem oder lang anhaltendem Schneefall.',l:['Räumen und Streuen von Gehwegen und Straßen','Eisbeseitigung','Streugutbeseitigung','Schneeabtransport','Maschinelle und manuelle Schneeräumung','24-Stunden-Service']}
+];
 
-/* Hero: Schmutzschicht, Schaum, Abzieher */
+/* Leistungs-Index */
 (function(){
-  const hero=document.getElementById('hero'),cv=document.getElementById('grime'),ctx=cv.getContext('2d'),blade=document.getElementById('blade');
-  const glint=document.querySelector('.glint');
-  if(RM){cv.remove();blade.remove();return}
-  let W,H,dpr,done=false;
-  function rnd(a,b){return a+Math.random()*(b-a)}
-  function paint(){
-    dpr=Math.min(2,devicePixelRatio||1);W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-    ctx.globalCompositeOperation='source-over';
-    ctx.fillStyle='rgba(205,214,212,.9)';ctx.fillRect(0,0,W,H);
-    for(let i=0;i<Math.round(W*H/5000);i++){const x=rnd(0,W),y=rnd(0,H),r=rnd(20,140),g=ctx.createRadialGradient(x,y,0,x,y,r);const a=rnd(.05,.16);
-      g.addColorStop(0,`rgba(${116+rnd(-14,14)|0},${104+rnd(-10,10)|0},${88},${a})`);g.addColorStop(1,'rgba(116,104,88,0)');ctx.fillStyle=g;ctx.fillRect(x-r,y-r,r*2,r*2)}
-    for(let i=0;i<Math.round(W*H/900);i++){ctx.fillStyle=`rgba(90,80,70,${rnd(.08,.3)})`;const s=rnd(.6,2.2);ctx.fillRect(rnd(0,W),rnd(0,H),s,s)}
-    ctx.strokeStyle='rgba(120,110,95,.12)';ctx.lineCap='round';
-    for(let i=0;i<26;i++){ctx.lineWidth=rnd(2,8);ctx.beginPath();const x=rnd(0,W),y=rnd(0,H*.4);ctx.moveTo(x,y);ctx.bezierCurveTo(x+rnd(-20,20),y+rnd(60,140),x+rnd(-20,20),y+rnd(160,280),x+rnd(-30,30),y+rnd(300,520));ctx.stroke()}
-  }
-  function puff(x,y,r){ctx.globalCompositeOperation='source-over';const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(255,255,255,.85)');g.addColorStop(.6,'rgba(250,253,255,.55)');g.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill()}
-  function foam(x,y,r){ctx.globalCompositeOperation='source-over';const g=ctx.createRadialGradient(x-r*.3,y-r*.3,r*.1,x,y,r);
-    g.addColorStop(0,'rgba(255,255,255,.98)');g.addColorStop(.7,'rgba(246,251,255,.92)');g.addColorStop(1,'rgba(160,205,240,.55)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill()}
-  function erase(x1,y1,x2,y2,w){ctx.globalCompositeOperation='destination-out';ctx.strokeStyle='#000';ctx.lineCap='round';ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke()}
-  paint();
-  // Schaum-Spritzer
-  const blobs=[];const cx=()=>W*(W<900?.5:.38),cy=()=>H*.48;
-  for(let i=0;i<(W<900?70:130);i++){const a=rnd(0,Math.PI*2),d=Math.pow(Math.random(),.6)*Math.min(W,H)*.55;blobs.push({x:cx()+Math.cos(a)*d*1.5,y:cy()+Math.sin(a)*d*.8,r:rnd(10,W<900?24:34),t:rnd(0,.9)})}
-  const st={p:0};let last=-1;
-  const tl=gsap.timeline({delay:.5});
-  tl.to(st,{p:1,duration:1.1,ease:'power2.out',onUpdate(){blobs.forEach(b=>{if(!b.d&&b.t<=st.p){b.d=1;puff(b.x,b.y,b.r*2.4);for(let k=0;k<9;k++){const a=rnd(0,7),d=rnd(0,b.r*1.4);foam(b.x+Math.cos(a)*d,b.y+Math.sin(a)*d,b.r*rnd(.12,.5))}foam(b.x,b.y,b.r*.6)}})}});
-  // Abzieher in Bahnen
-  const bands=W<900?4:3,bh=H/bands*1.18;let pos={x:0,y:0},prev=null;
-  blade.style.height=bh+'px';
-  function place(){const dir=pos.dir;blade.style.transform=`translate(${pos.x}px,${pos.y-bh/2}px) scaleX(${dir})`;if(prev)erase(prev.x,prev.y,pos.x,pos.y,bh);prev={x:pos.x,y:pos.y}}
-  tl.set(blade,{opacity:1},'+=.25');
-  for(let i=0;i<bands;i++){const y=(i+.5)*(H/bands),l2r=i%2===0;
-    tl.add(()=>{Object.assign(pos,{x:l2r?-40:W+40,y,dir:l2r?1:-1});prev=null;place()});
-    tl.to(pos,{x:l2r?W+40:-40,duration:W<900?.55:.75,ease:'power1.inOut',onUpdate:place});
-  }
-  tl.to(blade,{opacity:0,duration:.25});
-  tl.add(()=>{done=true;gsap.to(cv,{opacity:0,duration:.6,onComplete:()=>cv.remove()});blade.remove()});
-  tl.to(glint,{x:'120%',duration:1.1,ease:'power2.inOut'},'-=.2');
-  // selbst mitwischen, solange die Schicht da ist
-  hero.classList.add('wiping');let lp=null;
-  cv.addEventListener('pointermove',e=>{if(done)return;const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;if(lp)erase(lp.x,lp.y,x,y,90);lp={x,y}});
-  cv.addEventListener('pointerleave',()=>lp=null);
-  // Klicks auf Buttons nicht blockieren: nach dem Wischen wird das Canvas entfernt; davor Klick durchreichen
-  cv.addEventListener('click',e=>{cv.style.pointerEvents='none';const el=document.elementFromPoint(e.clientX,e.clientY);cv.style.pointerEvents='';if(el&&el.closest('a,button'))el.closest('a,button').click()});
-  addEventListener('resize',()=>{if(!done){tl.progress(1)}},{once:true});
+  const ul=$('#rows'),pn=$('#pn'),pin=$('#pnin');
+  S.forEach((s,i)=>{const li=document.createElement('li');
+    li.innerHTML=`<button class="row" aria-expanded="false" aria-controls="d${i}"><span>${s.n}</span><small>${s.k}</small></button><div class="det" id="d${i}"><div class="box"><p>${s.t}</p><ul class="dots">${s.l.slice(0,6).map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
+    ul.appendChild(li)});
+  const rows=$$('.row');let cur=-1;
+  function fill(i){const s=S[i];pin.style.opacity=0;setTimeout(()=>{pin.innerHTML=`<h3>${s.n}</h3><p>${s.t}</p><ul class="dots">${s.l.slice(0,6).map(x=>`<li>${x}</li>`).join('')}</ul>`;pin.style.opacity=1},cur<0?0:160)}
+  function place(i){const r=rows[i],h=pn.offsetHeight,max=ul.offsetHeight-h;let t=r.offsetTop+r.offsetHeight/2-h/2;t=Math.max(0,Math.min(max,t));pn.style.top=t+'px'}
+  function on(i){if(i===cur)return;rows.forEach((r,k)=>r.classList.toggle('on',k===i));fill(i);cur=i;requestAnimationFrame(()=>place(i))}
+  rows.forEach((r,i)=>{
+    r.addEventListener('mouseenter',()=>{if(!MOB())on(i)});
+    r.addEventListener('focus',()=>{if(!MOB())on(i)});
+    r.addEventListener('click',()=>{if(!MOB()){on(i);return}
+      const d=r.nextElementSibling,open=r.getAttribute('aria-expanded')==='true';
+      rows.forEach(o=>{if(o!==r&&o.getAttribute('aria-expanded')==='true'){o.setAttribute('aria-expanded','false');o.nextElementSibling.style.height='0px'}});
+      r.setAttribute('aria-expanded',String(!open));d.style.height=open?'0px':d.scrollHeight+'px'});
+  });
+  on(0);addEventListener('resize',()=>place(cur));
 })();
 
-/* Scroll-Reveals */
+/* Reinigungsplan */
+(function(){
+  const OBJ=['Büro','Treppenhaus','Wohngebäude','Geschäftsräume','Industriehalle','Baustelle'],RHY=['Einmalig','Täglich','Wöchentlich','Monatlich','Individuell'];
+  const mk=(el,name,arr,type,def)=>arr.forEach((v,i)=>{const l=document.createElement('label');l.className='chip';l.innerHTML=`<input type="${type}" name="${name}" value="${i}" ${def.includes(i)?'checked':''}><span>${v}</span>`;$(el).appendChild(l)});
+  mk('#obj','obj',OBJ,'radio',[0]);mk('#rhy','rhy',RHY,'radio',[2]);mk('#lst','lst',S.map(s=>s.n),'checkbox',[0,2]);
+  const f=$('#planform'),lv=$('#lv'),meta=$('#meta'),mail=$('#planmail');let last=[];
+  function upd(){const o=OBJ[f.obj.value],r=RHY[f.rhy.value],sel=[...f.querySelectorAll('input[name=lst]:checked')].map(x=>+x.value);
+    meta.innerHTML=`Objekt: <b>${o}</b> · Rhythmus: <b>${r}</b> · ${sel.length} ${sel.length===1?'Leistung':'Leistungen'}`;
+    if(!sel.length){lv.innerHTML='<p class="none">Wählen Sie links mindestens eine Leistung.</p>'}
+    else{const keep=new Set(last);lv.innerHTML=sel.map(i=>`<div class="it"${keep.has(i)?' style="animation:none"':''}><h4>${S[i].n}</h4><ul class="dots">${S[i].l.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')}
+    last=sel;
+    const body=`Hallo Profix-Team,\n\nich interessiere mich für ein kostenloses Beratungsgespräch.\n\nObjekt: ${o}\nRhythmus: ${r}\nLeistungen:\n${sel.map(i=>'- '+S[i].n).join('\n')||'- noch offen'}\n\nName:\nTelefon:\nAdresse des Objekts:\n`;
+    mail.href=`mailto:${MAIL}?subject=${encodeURIComponent('Reinigungsplan: '+o+', '+r)}&body=${encodeURIComponent(body)}`}
+  f.addEventListener('change',upd);upd();
+})();
+
+/* Ablauf-Akkordeon */
+$$('.st').forEach(b=>b.addEventListener('click',()=>{$$('.st').forEach(o=>{const on=o===b;o.classList.toggle('open',on);o.setAttribute('aria-expanded',String(on))})}));
+
+/* FAQ: eine Karte offen */
+$$('.card').forEach(c=>c.addEventListener('toggle',()=>{if(c.open)$$('.card').forEach(o=>{if(o!==c)o.open=false})}));
+
+/* Gutschein -> mailto */
+$('#cform').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.target);
+  const body=`Hallo Profix-Team,\n\nich möchte meinen Gutschein für ein kostenloses Beratungsgespräch einlösen.\n\nName: ${d.get('name')||''}\nTelefon/E-Mail: ${d.get('kontakt')||''}\nObjekt und Ort: ${d.get('objekt')||''}\n\n${d.get('msg')||''}\n`;
+  location.href=`mailto:${MAIL}?subject=${encodeURIComponent('Gutschein: kostenloses Beratungsgespräch')}&body=${encodeURIComponent(body)}`});
+
+/* Smooth Scroll + Motion */
+gsap.registerPlugin(ScrollTrigger);
+let lenis=null;
+if(!RM){lenis=new Lenis({lerp:.09,anchors:{offset:-80}});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+const nav=$('#nav');let ly=0;addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('up',y>ly&&y>420);ly=y},{passive:true});
+
 if(!RM){
-  gsap.utils.toArray('.rv').forEach(el=>gsap.from(el,{y:40,opacity:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
-  gsap.to('.par',{yPercent:-8,ease:'none',scrollTrigger:{trigger:'.frame',start:'top bottom',end:'bottom top',scrub:true}});
-  gsap.from('.mega',{yPercent:40,ease:'none',scrollTrigger:{trigger:'footer',start:'top bottom',end:'bottom bottom',scrub:true}});
-  let ly=0;ScrollTrigger.create({onUpdate:s=>{const y=s.scroll();document.querySelector('.nav').style.transform=(y>ly&&y>300)?'translateY(-130%)':'';ly=y}});
+  // Eingänge: Überschrift, Text, Bild gestaffelt
+  $$('section,footer').forEach(sec=>{const els=[...sec.querySelectorAll('[data-rv]')];if(!els.length)return;
+    gsap.from(els,{y:26,opacity:0,duration:1,ease:'expo.out',stagger:.075,scrollTrigger:{trigger:sec,start:'top 78%',once:true}})});
+  gsap.from('.row',{y:22,opacity:0,duration:.8,ease:'expo.out',stagger:.035,scrollTrigger:{trigger:'#rows',start:'top 82%',once:true}});
+  gsap.from('.chip',{y:12,opacity:0,duration:.6,ease:'power3.out',stagger:.015,scrollTrigger:{trigger:'#plan',start:'top 70%',once:true}});
+  gsap.from('.sheet',{y:40,opacity:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:'#plan',start:'top 65%',once:true}});
+  gsap.from('.st',{yPercent:12,opacity:0,duration:.9,ease:'expo.out',stagger:.09,scrollTrigger:{trigger:'#acc',start:'top 85%',once:true}});
+  gsap.from('.card',{y:40,opacity:0,duration:.9,ease:'expo.out',stagger:.07,scrollTrigger:{trigger:'#cards',start:'top 85%',once:true}});
+  gsap.from('.mark span',{yPercent:100,duration:1.1,ease:'expo.out',stagger:.06,scrollTrigger:{trigger:'.mark',start:'top 92%',once:true}});
+  // Band: der Satz wird vom Scroll geschoben
+  if(!MOB())gsap.fromTo('.band h2',{xPercent:10},{xPercent:-10,ease:'none',scrollTrigger:{trigger:'.band',start:'top bottom',end:'bottom top',scrub:true}});
+  gsap.fromTo('.band .stroke',{scaleX:.86},{scaleX:1,ease:'none',scrollTrigger:{trigger:'.band',start:'top bottom',end:'center center',scrub:true}});
+  // Bewegte Bilder
+  gsap.to('.big .ph img',{scale:1,duration:9,ease:'power1.out'});
+  gsap.to('.big',{yPercent:-6,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.fromTo('.about .por img',{yPercent:-6,scale:1.1},{yPercent:6,scale:1.1,ease:'none',scrollTrigger:{trigger:'.about',start:'top bottom',end:'bottom top',scrub:true}});
+  $$('.places .cap img').forEach(im=>gsap.fromTo(im,{yPercent:-4,scale:1.08},{yPercent:4,scale:1.08,ease:'none',scrollTrigger:{trigger:im,start:'top bottom',end:'bottom top',scrub:true}}));
 }
+
+/* HERO: beschlagene Scheibe, Schaum, Abzieher */
+(function(){
+  const hero=$('#hero'),cv=$('#fog'),fx=$('#fx'),sq=$('#sq'),ctx=cv.getContext('2d'),fc=fx.getContext('2d'),gl=$('.hero .gl');
+  if(RM){cv.remove();fx.remove();sq.remove();return}
+  let W,H,dpr,done=false;const R=(a,b)=>a+Math.random()*(b-a);
+  function size(){dpr=Math.min(2,devicePixelRatio||1);W=hero.clientWidth;H=hero.clientHeight;[cv,fx].forEach(c=>{c.width=W*dpr;c.height=H*dpr});ctx.setTransform(dpr,0,0,dpr,0,0);fc.setTransform(dpr,0,0,dpr,0,0)}
+  size();
+  // Beschlag mit Kalkflecken
+  ctx.fillStyle='rgba(228,235,238,.94)';ctx.fillRect(0,0,W,H);
+  ctx.filter='blur(26px)';
+  for(let i=0;i<Math.round(W*H/26000);i++){ctx.fillStyle=`rgba(${R(150,175)|0},${R(150,165)|0},${R(140,150)|0},${R(.06,.16)})`;ctx.beginPath();ctx.ellipse(R(0,W),R(0,H),R(40,190),R(30,120),R(0,3),0,7);ctx.fill()}
+  ctx.filter='blur(1.2px)';
+  for(let i=0;i<Math.round(W*H/2600);i++){const x=R(0,W),y=R(0,H),r=Math.pow(Math.random(),2.2)*13+1.5;ctx.fillStyle=`rgba(255,255,255,${R(.12,.32)})`;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();if(r>5){ctx.strokeStyle=`rgba(255,255,255,${R(.3,.55)})`;ctx.lineWidth=1;ctx.stroke()}}
+  ctx.filter='none';
+  for(let i=0;i<Math.round(W*H/1400);i++){ctx.fillStyle=`rgba(110,105,95,${R(.05,.18)})`;const s=R(.5,1.6);ctx.fillRect(R(0,W),R(0,H),s,s)}
+  // Bläschen-Sprites
+  const SP=[1.6,2.4,3.4,4.8,6.6,9,12.5].map(r=>{const d=Math.ceil(r*2+6),c=document.createElement('canvas');c.width=c.height=d*2;const g=c.getContext('2d');g.scale(2,2);const m=d/2;
+    g.fillStyle='rgba(255,255,255,.5)';g.beginPath();g.arc(m,m,r,0,7);g.fill();
+    g.lineWidth=Math.max(.5,r*.13);g.strokeStyle='rgba(255,255,255,.96)';g.stroke();
+    g.lineWidth=Math.max(.4,r*.08);g.strokeStyle='rgba(96,160,212,.42)';g.beginPath();g.arc(m,m,r*.82,.5,2.7);g.stroke();
+    g.fillStyle='#fff';g.beginPath();g.arc(m-r*.36,m-r*.38,Math.max(.5,r*.22),0,7);g.fill();return {c,d}});
+  function puff(x,y,r){ctx.filter='blur(14px)';ctx.fillStyle='rgba(252,254,255,.78)';ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();ctx.filter='none'}
+  // Schaum-Stöße: Kreise wachsen vom Auftreffpunkt nach außen
+  const bursts=(MOB()?[[.5,.3,.42],[.42,.6,.46],[.58,.86,.4]]:[[.3,.36,.3],[.62,.5,.3],[.42,.78,.3]]).map(([x,y,r])=>({x:x*W,y:y*H,r:r*Math.max(W,H)*(MOB()?1.05:.62)}));
+  const drops=[];bursts.forEach((b,bi)=>{const n=MOB()?650:1300;for(let i=0;i<n;i++){const a=R(0,7),d=Math.pow(Math.random(),.55)*b.r;drops.push({b:bi,x:b.x+Math.cos(a)*d*1.25,y:b.y+Math.sin(a)*d*.85,d:d/b.r,s:Math.min(6,Math.floor(Math.pow(Math.random(),2.4)*7))})}
+    for(let i=0;i<14;i++){const a=R(0,7),d=R(0,b.r*.7);drops.push({b:bi,p:1,x:b.x+Math.cos(a)*d*1.2,y:b.y+Math.sin(a)*d*.8,d:d/b.r,s:R(40,90)})}});
+  drops.sort((a,b)=>a.d-b.d);
+  const st={p:[0,0,0]},drawn=new Set();
+  function paintBurst(bi){const p=st.p[bi];drops.forEach((o,i)=>{if(o.b!==bi||drawn.has(i)||o.d>p)return;drawn.add(i);if(o.p){puff(o.x,o.y,o.s);return}const s=SP[o.s];ctx.drawImage(s.c,o.x-s.d/2,o.y-s.d/2,s.d,s.d)})}
+  // Abzieher
+  const n=MOB()?4:3,bh=H/n*1.16;
+  const hw=MOB()?150:300;
+  sq.innerHTML=`<svg width="${hw+30}" height="${bh}" viewBox="0 0 ${hw+30} ${bh}"><rect x="0" y="0" width="9" height="${bh}" rx="3" fill="#161b1f"/><rect x="7" y="5" width="16" height="${bh-10}" rx="3" fill="#b8c3cb"/><rect x="8" y="5" width="5" height="${bh-10}" fill="#e3e9ed"/><rect x="19" y="5" width="4" height="${bh-10}" fill="#8996a0"/><rect x="21" y="${bh/2-17}" width="26" height="34" rx="7" fill="#8996a0"/><rect x="42" y="${bh/2-13}" width="${hw-20}" height="26" rx="13" fill="#2bd35a"/><rect x="${hw*.45}" y="${bh/2-13}" width="${hw*.42}" height="26" rx="13" fill="#1d9e42"/><circle cx="${hw+18}" cy="${bh/2}" r="9" fill="#1d9e42"/></svg>`;
+  sq.style.height=bh+'px';
+  const pos={x:-60,y:0,dir:1};let prev=null;
+  function erase(x1,y1,x2,y2,w){ctx.globalCompositeOperation='destination-out';ctx.strokeStyle='#000';ctx.lineCap='round';ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.globalCompositeOperation='source-over'}
+  const runs=[];
+  function place(){sq.style.transform=`translate(${pos.x}px,${pos.y-bh/2}px) scaleX(${pos.dir}) rotate(${pos.dir*-2}deg)`;
+    if(prev){erase(prev.x,prev.y,pos.x,pos.y,bh*.98);if(Math.random()<.45)runs.push({x:pos.x-pos.dir*R(20,60),y:pos.y+bh*.47,v:R(40,90),len:R(30,120),r:R(2,3.6),t:0})}
+    prev={x:pos.x,y:pos.y}}
+  // Tropfen laufen an der Kante herunter
+  let lt=performance.now();
+  function tick(now){const dt=Math.min(.05,(now-lt)/1000);lt=now;fc.clearRect(0,0,W,H);
+    for(const d of runs){if(d.t<d.len){const ny=d.y+d.v*dt;erase(d.x,d.y,d.x,ny,d.r*1.4);d.y=ny;d.t+=d.v*dt;d.v*=.985}d.a=(d.a??1)-(d.t>=d.len?dt*1.2:0)
+      if(d.a>0){fc.globalAlpha=d.a;fc.fillStyle='rgba(255,255,255,.9)';fc.beginPath();fc.ellipse(d.x,d.y,d.r,d.r*1.35,0,0,7);fc.fill();fc.fillStyle='rgba(47,134,196,.55)';fc.beginPath();fc.arc(d.x+d.r*.3,d.y+d.r*.4,d.r*.45,0,7);fc.fill();fc.globalAlpha=1}}
+    if(!done||runs.some(d=>d.a>0))requestAnimationFrame(tick);else fx.remove()}
+  requestAnimationFrame(tick);
+  const tl=gsap.timeline({delay:.45});
+  bursts.forEach((b,bi)=>tl.to(st.p,{[bi]:1,duration:.42,ease:'power2.out',onUpdate:()=>paintBurst(bi)},bi*.24));
+  tl.set(sq,{opacity:1},'+=.22');
+  for(let i=0;i<n;i++){const y=(i+.5)*(H/n),l2r=i%2===0;
+    tl.add(()=>{Object.assign(pos,{x:l2r?-70:W+70,y,dir:l2r?1:-1});prev=null;place()});
+    tl.to(pos,{x:l2r?W+70:-70,duration:MOB()?.6:.78,ease:'power1.inOut',onUpdate:place})}
+  tl.to(sq,{opacity:0,duration:.2});
+  tl.add(()=>{done=true;hero.classList.remove('wet');gsap.to(cv,{opacity:0,duration:.5,onComplete:()=>cv.remove()});sq.remove()});
+  tl.to(gl,{xPercent:1400,duration:1.1,ease:'power2.inOut'},'-=.3');
+  hero.classList.add('wet');let lp=null;
+  cv.addEventListener('pointermove',e=>{if(done)return;const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;if(lp)erase(lp.x,lp.y,x,y,110);lp={x,y}});
+  cv.addEventListener('pointerleave',()=>lp=null);
+  cv.addEventListener('click',e=>{cv.style.pointerEvents='none';const el=document.elementFromPoint(e.clientX,e.clientY);cv.style.pointerEvents='';const a=el&&el.closest('a,button');if(a)a.click()});
+  const fast=()=>tl.timeScale(3.5);addEventListener('wheel',fast,{once:true,passive:true});addEventListener('touchmove',fast,{once:true,passive:true});addEventListener('keydown',fast,{once:true});
+  addEventListener('resize',()=>{if(!done)tl.progress(1)},{once:true});
+})();
 </script>
 </body>
 </html>
