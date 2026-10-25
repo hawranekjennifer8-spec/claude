@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jh-digital-atelier.vercel.app/sitemap.xml
