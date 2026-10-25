@@ -38,31 +38,32 @@
 
   /* Räume und ihr Schmutz-Zustand */
   const ROOMS = [
-    { id: 'buero', x0: -8.2, x1: 8.2, T: [0, 5.7, 0], d: 27, e: 0.2 },
-    { id: 'treppe', x0: 7.8, x1: 13.4, T: [10.6, 6.4, 0], d: 34, e: 0.32 },
-    { id: 'glas', x0: -8.2, x1: 8.2, T: [0, 10.4, -0.6], d: 27, e: 0.5 },
-    { id: 'halle', x0: -8.2, x1: 8.2, T: [0, 1.8, 0], d: 27, e: 0.14 },
-    { id: 'winter', x0: -11, x1: 15, T: [2, 0.8, 6.4], d: 27, e: 0.42 }
+    { id: 'buero', x0: -8.2, x1: 8.2, T: [0.6, 6.0, 0], d: 38, e: 0.22, fy: 4.2 },
+    { id: 'treppe', x0: 7.8, x1: 13.4, T: [9.6, 6.6, 0], d: 46, e: 0.3, fy: 0 },
+    { id: 'glas', x0: -8.2, x1: 8.2, T: [0.6, 10.6, -0.4], d: 38, e: 0.42, fy: 8.4 },
+    { id: 'halle', x0: -8.2, x1: 8.2, T: [0.6, 2.0, 0], d: 38, e: 0.15, fy: 0 },
+    { id: 'winter', x0: -11, x1: 15, T: [2.4, 1.2, 5.6], d: 40, e: 0.36, fy: 0 }
   ];
-  const U = ROOMS.map(() => ({ uWipe: { value: 100 }, uDirt: { value: 0 } }));
+  const U = ROOMS.map(() => ({ uWipe: { value: 100 }, uDirt: { value: 0 }, uGhost: { value: 0 } })); const ghostT = [0, 0, 0, 0, 0];
   const DUST = new THREE.Color(0.6, 0.57, 0.52), SNOW = new THREE.Color(0.97, 0.98, 1);
 
   function dirty(m, r, dustCol) {
     const u = U[r], dc = { value: dustCol || DUST };
     m.onBeforeCompile = sh => {
-      sh.uniforms.uWipe = u.uWipe; sh.uniforms.uDirt = u.uDirt; sh.uniforms.uDC = dc;
+      sh.uniforms.uWipe = u.uWipe; sh.uniforms.uDirt = u.uDirt; sh.uniforms.uDC = dc; sh.uniforms.uGhost = u.uGhost;
       sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWP;')
         .replace('#include <project_vertex>', '#include <project_vertex>\nvWP=(modelMatrix*vec4(transformed,1.0)).xyz;');
       sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
-varying vec3 vWP;uniform float uWipe;uniform float uDirt;uniform vec3 uDC;
+varying vec3 vWP;uniform float uWipe;uniform float uDirt;uniform vec3 uDC;uniform float uGhost;
 float hh(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hh(i),hh(i+vec2(1,0)),f.x),mix(hh(i+vec2(0,1)),hh(i+vec2(1,1)),f.x),f.y);}`)
         .replace('#include <color_fragment>', `#include <color_fragment>
 float dz=smoothstep(uWipe-.22,uWipe+.22,vWP.x)*uDirt;
-float gn=vn(vWP.xz*1.6+vWP.y*1.2)*.55+vn(vWP.xy*5.7+vWP.z*3.9)*.3+vn(vWP.zy*13.)*.15;
-vec3 dusty=mix(uDC*1.0,uDC*.58,gn);
+float gn=vn(vWP.xz*.9+vWP.y*.7)*.7+vn(vWP.xy*3.1+vWP.z*2.3)*.3;
+vec3 dusty=mix(uDC*1.02,uDC*.8,gn);
 float lum=dot(diffuseColor.rgb,vec3(.299,.587,.114));
-diffuseColor.rgb=mix(diffuseColor.rgb,mix(vec3(lum)*.82,dusty,.72),dz*(.62+.36*gn));`)
+diffuseColor.rgb=mix(diffuseColor.rgb,mix(vec3(lum)*.86,dusty,.7),dz*(.58+.22*gn));
+diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.96,.975,.99),uGhost*.62);`)
         .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
 float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.82,1.)*gl*.85;`);
     };
@@ -284,7 +285,7 @@ if(gl_FragColor.a<.01)discard;}`
     const R = ROOMS[i], fly = Math.min(1, q / 0.22), wp = Math.min(1, Math.max(0, (q - 0.22) / 0.56));
     U[i].uDirt.value = Math.min(1, fly * 1.4); U[i].uWipe.value = R.x0 - 0.8 + (R.x1 - R.x0 + 1.6) * ease(wp);
     PU.uS.value[i] = wp;
-    for (let r = 0; r < n; r++) { PU.uW.value[r] = U[r].uWipe.value; PU.uD.value[r] = U[r].uDirt.value; }
+    for (let r = 0; r < n; r++) { PU.uW.value[r] = U[r].uWipe.value; PU.uD.value[r] = U[r].uDirt.value; ghostT[r] = r === i ? 0 : 1; }
     const prev = i === 0 ? OV : { T: new THREE.Vector3(...ROOMS[i - 1].T), d: ROOMS[i - 1].d, e: ROOMS[i - 1].e };
     const e = ease(fly), T = new THREE.Vector3(...R.T);
     goal.T.copy(prev.T).lerp(T, e); goal.d = prev.d + (R.d * (MOB() ? 1.35 : 1) - prev.d) * e; goal.e = prev.e + (R.e - prev.e) * e;
@@ -292,10 +293,10 @@ if(gl_FragColor.a<.01)discard;}`
     const on = wp > 0 && wp < 1 && U[i].uDirt.value > 0.5;
     sq.visible = on; sheet.material.opacity = on ? 0.16 : 0;
     if (on) {
-      const top = i === 0 ? 2 * H + 0.6 : i === 2 ? 3 * H + 1.8 : i === 3 ? H + 0.6 : i === 1 ? 3 * H + 0.8 : 3.2;
-      const zc = i === 4 ? 7.2 : 0, len = i === 4 ? 3 : 8.8;
-      sq.position.set(U[i].uWipe.value, top, zc); sq.scale.set(1, 1, len);
-      hd.scale.set(1, 1 / len, 1);
+      const top = i === 4 ? 0.12 : i === 1 ? 3 * H + 0.2 : i === 2 ? 3 * H + 1.6 : R.fy + H - 0.05;
+      const zc = i === 4 ? 7.2 : 0.2, len = i === 4 ? 2.4 : 8.6;
+      sq.position.set(U[i].uWipe.value, top, zc); sq.scale.set(1.7, 1.7, len);
+      hd.scale.set(1, 1, 1.7 / len);
       sheet.position.set(U[i].uWipe.value, (i === 4 ? 1.5 : R.T[1]), zc); sheet.scale.set(len, i === 1 ? 13 : 4.4, 1);
     }
     snow.material.opacity = i === 4 ? Math.min(0.9, fly) : 0;
@@ -305,7 +306,7 @@ if(gl_FragColor.a<.01)discard;}`
     });
     rail.forEach((b, k) => b.classList.toggle('on', k === i));
   }
-  function setHero() { tourP = -1; for (let r = 0; r < 5; r++) { U[r].uDirt.value = 0; PU.uD.value[r] = 0; PU.uS.value[r] = 0.35; } sq.visible = false; sheet.material.opacity = 0; snow.material.opacity = 0; goal.T.copy(OV.T); goal.d = OV.d * (MOB() ? 1.25 : 1); goal.e = OV.e; }
+  function setHero() { tourP = -1; for (let r = 0; r < 5; r++) { ghostT[r] = 0; U[r].uDirt.value = 0; PU.uD.value[r] = 0; PU.uS.value[r] = 0.35; } sq.visible = false; sheet.material.opacity = 0; snow.material.opacity = 0; goal.T.copy(OV.T); goal.d = OV.d * (MOB() ? 1.25 : 1); goal.e = OV.e; }
   setHero();
   window.ProfixTour = { setTour, setHero, rooms: ROOMS.length, snap() { cur.T.copy(goal.T); cur.d = goal.d; cur.e = goal.e; }, get visible() { return visible; }, set visible(v) { visible = v; } };
 
@@ -314,6 +315,7 @@ if(gl_FragColor.a<.01)discard;}`
     if (!visible) return;
     const t = (now - t0) / 1000; PU.uTime.value = t;
     const dt = Math.min(0.1, (now - (frame.l || now)) / 1000); frame.l = now; const k = RM ? 1 : 1 - Math.exp(-dt * 4.2);
+    for (let r = 0; r < 5; r++) U[r].uGhost.value += (ghostT[r] - U[r].uGhost.value) * k;
     cur.T.lerp(goal.T, k); cur.d += (goal.d - cur.d) * k; cur.e += (goal.e - cur.e) * k; DIR.set(1, cur.e * 2.1, 1.32).normalize();
     const heroF = tourP < 0 ? 1 : 0;
     const par = new THREE.Vector3(mx * 3.5, -my * 2, 0).multiplyScalar(heroF + 0.35);
