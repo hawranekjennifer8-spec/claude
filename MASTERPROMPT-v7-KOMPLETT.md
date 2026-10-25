@@ -116,6 +116,27 @@ Arbeitsweise:
 - Kein Vorher/Nachher-Slider, weil keine echten Vorher/Nachher-Fotos vorliegen. FAQ nur aus Fakten der Firmen-Seiten.
 - Fremd kopierte Texte auf Firmen-Websites (z. B. „Von Hoefer“, „Berlin“, „hectas“) nie übernehmen und Jenny als Pitch-Argument melden.
 
+**Profix v2 (25.10.2026): Jennys Feedback „0815, sieht nach KI aus“**
+- Neu gebaut nach tasteskill: `draw.mjs` → Richtung „One motif“ (Seed 940901378). Das Motiv ist der Abzieher-Strich aus dem Logo, eine Kapsel.
+- Das Motiv taucht überall auf: Bildmasken, Buttons, Band, Index-Panel und die Spuren des Hero-Wischs.
+- Live-Element: Reinigungsplan. Er baut ein echtes Leistungsverzeichnis und eine mailto-Anfrage.
+- Der Kontakt ist ein Ausschneide-Gutschein mit Perforation. Der Footer zeigt die Wortmarke, zusammengesetzt aus Blöcken.
+- Echte Umfeld-Fotos über `assets.mjs` aus Wikimedia (mit Credit im Footer): Schloss Biebrich, Kurhaus, Jagdschloss Platte, historischer Fensterputzer.
+- KI-Look-Merkmale, die nie wieder vorkommen dürfen:
+  - Eyebrow-Labels
+  - Icon-Karten im Raster
+  - 01/02/03
+  - Verläufe
+  - Schatten
+  - schwebende Glas-Pill-Navigation
+  - gestrichelte Comic-Schlieren
+- Vorgehen bei jedem Projekt: Prompt mit Inventar, Idee-Satz, Live-Element und Style-Brief schreiben, dann bauen. Danach `inspect.mjs` (1440/768/390) bis 0 FAIL und die Screenshots selbst ansehen.
+- Der Inspector läuft in der Higgsfield-Sandbox mit `CHROME_PATH=/ms-playwright/chromium-1243/chrome-linux64/chrome`. Für die Wisch-Intros `--allow covered-text,late-title` setzen, weil die CLEANY-Referenz das so verlangt.
+- Technik-Falle: `gsap.ticker.lagSmoothing(0)` zusammen mit teurem Canvas-Painting (`ctx.filter` blur) lässt die Timeline sofort ans Ende springen.
+  - Abhilfe: Weichzeichnen über ein verkleinertes Offscreen-Canvas statt mit dem Filter.
+  - Die Timeline mit `paused` anlegen und erst nach 2 rAF abspielen.
+  - Kein `resize→progress(1)` beim Laden.
+
 **Technik**
 - **Animations-Kit** im Repo unter `jh-pitches/_kit/`. Davon kopiere ich nur die benötigten Dateien in jede Seite (`vendor/`), immer lokal und nie per CDN-Link:
   - GSAP 3.15 mit allen Plugins (ScrollTrigger, SplitText, ScrollSmoother, Flip, Draggable, MorphSVG, DrawSVG, MotionPath, ScrambleText, CustomEase, Observer); seit 3.13 kostenlos, auch kommerziell.
