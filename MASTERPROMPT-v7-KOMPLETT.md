@@ -242,6 +242,9 @@ Aus dem Reel von @itsmariahbrunner („6 Websites to give AI better taste“). B
 | **MotionSites** (motionsites.ai) | Prompt-Bibliothek für filmische Hero-Sections und Landingpages (React, Tailwind, Framer Motion), auch Prompts speziell für Claude | Hero-Sections und komplette Landingpage-Blueprints. Die Galerie ist frei; die vollen Prompts sind kostenpflichtig (Lifetime-Zugang ca. 29 $) und brauchen Jennys Zugang |
 | **Savee** (savee.com) | Kuratierte Design-Inspiration zum Sammeln von Moodboards | Referenzbilder für Stil, Farbe und Typo; Jennys gespeicherte Referenzen als Input |
 | **Motionographer** (motionographer.com) | Magazin und Archiv für Motion Design, Animation und Werbefilme | Hochwertige Motion-Referenzen und Agentur-Niveau für Animationen und Videos |
+| **tasteskill v2** (github.com/Leonxlnx/taste-skill, MIT, als Skill `design-taste-frontend`) | Art-Direction-Skill mit Richtungs-Bibliothek aus 247 Galerie-Seiten, Bildsuche in offenen Archiven, Browser-Inspector und Kritik-Loop | Richtung und Komposition ziehen, Seiten im Browser vermessen. Bei Konflikten gilt dieser Masterprompt (kursive Akzente und Labels sind bei Jenny erlaubt) |
+| **Web Interface Guidelines** (Vercel, als Skill `web-design-guidelines`) | Aktuelle UI-, UX- und Barrierefreiheits-Regeln von vercel-labs | Jede Seite vor der Abgabe damit prüfen und die Funde im Format `file:line` ausgeben |
+| **21st.dev** (CLI `@21st-dev/cli`, als Skill `21st-dev-components`) | Riesige Bibliothek fertiger UI-Komponenten, Themes, Templates, Logos und Remotion-Video-Blöcke, dazu 21st AI für UI-Varianten | Bausteine suchen und den Code holen; in Vanilla übersetzen und lokal hosten. Braucht Jennys API-Key (`API_KEY_21ST`) |
 
 **Regeln dazu**
 - Ich durchsuche zuerst diese Seiten, dann Jennys gespeicherte Referenzen (Abschnitt 2), und nehme den am besten passenden Prompt als Basis.
