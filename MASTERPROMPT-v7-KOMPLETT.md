@@ -102,7 +102,12 @@ Arbeitsweise:
 | Autohaus | Luftaufnahme vom Hof | Fahrzeugfinder, Rechner, Bestand |
 
 **Technik**
-- Lenis 1.1.13 und GSAP 3.12.5 mit ScrollTrigger, **lokal gehostet** in `vendor/`.
+- **Animations-Kit** im Repo unter `jh-pitches/_kit/`. Davon kopiere ich nur die benötigten Dateien in jede Seite (`vendor/`), immer lokal und nie per CDN-Link:
+  - GSAP 3.15 mit allen Plugins (ScrollTrigger, SplitText, ScrollSmoother, Flip, Draggable, MorphSVG, DrawSVG, MotionPath, ScrambleText, CustomEase, Observer); seit 3.13 kostenlos, auch kommerziell.
+  - Lenis 1.3.27 + `lenis.css` mit `anchors:true`; `respectReducedMotion` ist Standard.
+  - three r134 + Vanta.js (fog, waves, clouds, clouds2, birds, net, cells, trunk, topology, dots, rings, halo, globe, ripple) für ruhige 3D-Hintergründe in Markenfarben, nie über Fotos oder Text, mit `destroy()` beim Verlassen. Demo: `_kit/index.html`.
+  - CDN-Zeilen aus Anleitungen (jsdelivr, unpkg) ersetze ich immer durch die lokalen Dateien (DSGVO).
+  - Ältere Seiten laufen noch mit Lenis 1.1.13 und GSAP 3.12.5; bei neuen Seiten nehme ich das Kit.
 - Nur `transform` und `opacity` animieren. Easing `expo.out` / `power3`, Reveals 0,8 bis 1,2 s, gestaffelt 0,06 bis 0,1 s.
 - `ScrollTrigger.refresh()` nach `fonts.ready` und bei Höhenänderung. `prefers-reduced-motion` respektieren.
 - Mobil: `html{overflow-x:hidden}` und `body{overflow-x:clip}`, damit Sticky funktioniert. Kein horizontaler Overflow.
@@ -216,6 +221,29 @@ Recherchiert bei IHK, IT-Recht Kanzlei und Händlerbund. Bei jeder neuen Seite g
    - OG-Bild, Favicon, Sitemap, robots.txt, strukturierte Daten
    - Backup und Rollback, Secrets nicht im Repo
    - Monitoring, README
+
+### 8.1 20-Punkte-Launch-Check (nach @dimarussu_, Skript `_kit/launchcheck.mjs`)
+Vor jeder Abgabe lasse ich `node launchcheck.mjs <url>` laufen (in der Higgsfield-Sandbox mit Playwright). Diese 20 Punkte müssen erfüllt sein:
+1. Datenschutzerklärung
+2. AGB (bei Shops und Buchung)
+3. Klare CTA
+4. FAQ (wo sinnvoll)
+5. robots.txt
+6. sitemap.xml (nicht bei noindex-Konzepten)
+7. Eigene 404-Seite
+8. Alt-Texte
+9. Analytics nur mit Consent (Standard: keins)
+10. Meta-Title 10–65 Zeichen
+11. Meta-Description 50–165 Zeichen
+12. Social Share: og:title, og:description, absolute og:image, twitter:card
+13. Favicon
+14. Canonical (nicht bei noindex)
+15. Cookie-Consent (nicht nötig bei 0 Cookies)
+16. Mobile-Version ohne Overflow
+17. Barrierefreiheit (lang, genau 1×h1, alle Buttons und Links benannt)
+18. Formulare testen
+19. Keine Broken Links
+20. Performance (Ladezeit < 3,5 s, keine fremden Hosts)
 
 ## 9. Portfolio
 - Jede neue Konzeptseite kommt ins Portfolio.
