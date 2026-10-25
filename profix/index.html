@@ -385,7 +385,7 @@ document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();co
   function place(){const dir=pos.dir;blade.style.transform=`translate(${pos.x}px,${pos.y-bh/2}px) scaleX(${dir})`;if(prev)erase(prev.x,prev.y,pos.x,pos.y,bh);prev={x:pos.x,y:pos.y}}
   tl.set(blade,{opacity:1},'+=.25');
   for(let i=0;i<bands;i++){const y=(i+.5)*(H/bands),l2r=i%2===0;
-    tl.add(()=>{pos={x:l2r?-40:W+40,y,dir:l2r?1:-1};prev=null;place()});
+    tl.add(()=>{Object.assign(pos,{x:l2r?-40:W+40,y,dir:l2r?1:-1});prev=null;place()});
     tl.to(pos,{x:l2r?W+40:-40,duration:W<900?.55:.75,ease:'power1.inOut',onUpdate:place});
   }
   tl.to(blade,{opacity:0,duration:.25});
