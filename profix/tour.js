@@ -11,7 +11,7 @@
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, MOB() ? 1.25 : 1.75));
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.08;
+  renderer.toneMappingExposure = 0.92;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -28,8 +28,8 @@
   });
   scene.environment = pm.fromScene(es, 0.035).texture;
 
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xd6e2ea, 0.5));
-  const sun = new THREE.DirectionalLight(0xffffff, 1.55);
+  scene.add(new THREE.HemisphereLight(0xf4fbff, 0x9fc4de, 0.42));
+  const sun = new THREE.DirectionalLight(0xfff6ea, 2.35);
   sun.castShadow = true;
   sun.shadow.mapSize.set(MOB() ? 1024 : 2048, MOB() ? 1024 : 2048);
   sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.03; sun.shadow.radius = 4;
@@ -60,9 +60,9 @@ float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hh(i)
         .replace('#include <color_fragment>', `#include <color_fragment>
 float dz=smoothstep(uWipe-.22,uWipe+.22,vWP.x)*uDirt;
 float gn=vn(vWP.xz*1.6+vWP.y*1.2)*.55+vn(vWP.xy*5.7+vWP.z*3.9)*.3+vn(vWP.zy*13.)*.15;
-vec3 dusty=mix(uDC*1.08,uDC*.72,gn);
+vec3 dusty=mix(uDC*1.0,uDC*.58,gn);
 float lum=dot(diffuseColor.rgb,vec3(.299,.587,.114));
-diffuseColor.rgb=mix(diffuseColor.rgb,mix(vec3(lum)*.9,dusty,.62),dz*(.5+.42*gn));`)
+diffuseColor.rgb=mix(diffuseColor.rgb,mix(vec3(lum)*.82,dusty,.72),dz*(.62+.36*gn));`)
         .replace('#include <emissivemap_fragment>', `#include <emissivemap_fragment>
 float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.82,1.)*gl*.85;`);
     };
@@ -75,7 +75,7 @@ float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.8
     if (M[k]) return M[k];
     const m = o.glass
       ? new THREE.MeshPhysicalMaterial({ color: hex, roughness: 0.04, metalness: 0, transparent: true, opacity: 0.34, clearcoat: 1, clearcoatRoughness: 0.05, envMapIntensity: 1.6, depthWrite: false })
-      : new THREE.MeshStandardMaterial({ color: hex, roughness: o.rough ?? 0.82, metalness: o.metal ?? 0, envMapIntensity: o.env ?? 0.55, flatShading: !!o.flat });
+      : new THREE.MeshStandardMaterial({ color: hex, roughness: o.rough ?? 0.82, metalness: o.metal ?? 0, envMapIntensity: o.env ?? 0.32, flatShading: !!o.flat });
     return (M[k] = dirty(m, r, o.snow ? SNOW : null));
   }
   const root = new THREE.Group(); scene.add(root);
@@ -90,15 +90,15 @@ float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.8
     m.position.set(x, y, z); if (o.rz) m.rotation.z = o.rz; if (o.rx) m.rotation.x = o.rx;
     m.castShadow = true; m.receiveShadow = true; (o.parent || root).add(m); return m;
   }
-  const WALL = 0xf3f7fa, FLOOR = 0xe2edf5, PLINTH = 0xcfe1ee, INK = 0x0b1a26, BLUE = 0x67bffd, BLUE2 = 0x2f86c4, GREEN = 0x2bd35a, LEAF = 0x46b06a, TAUPE = 0x74655f, STEEL = 0xc8d3dc, WHITE = 0xfbfdff, GLASS = 0xbfe6ff, FRAME = 0x2d3e4c;
+  const WALL = 0xf6f9fb, FLOOR = 0xcfe3f2, PLINTH = 0x67bffd, INK = 0x0b1a26, BLUE = 0x67bffd, BLUE2 = 0x2f86c4, GREEN = 0x2bd35a, LEAF = 0x46b06a, TAUPE = 0x74655f, STEEL = 0xc8d3dc, WHITE = 0xfbfdff, GLASS = 0xbfe6ff, FRAME = 0x2d3e4c;
   const H = 4.2;
 
   /* Sockel des Modells */
-  box(4, 32, 0.6, 22, PLINTH, 2.5, -0.55, 3, { cast: false });
+  box(4, 32, 0.9, 22, PLINTH, 2.5, -0.7, 3, { cast: false, rough: 0.6 });
 
   /* ===== Erdgeschoss: Industriehalle (Raum 3) ===== */
   const R3 = 3;
-  box(R3, 16.4, 0.3, 8.4, 0xdfe7ed, 0, -0.1, 0);
+  box(R3, 16.4, 0.3, 8.4, 0xb8cad8, 0, -0.1, 0);
   box(R3, 16.4, H, 0.3, WALL, 0, H / 2, -4.05); box(R3, 0.3, H, 8.4, WALL, -8.05, H / 2, 0);
   for (let i = -6; i <= 6; i += 3) box(R3, 2.2, 0.03, 0.12, GREEN, i, 0.06, 2.6, { cast: false });
   // Maschine
@@ -173,15 +173,15 @@ float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.8
 
   /* ===== Treppenhaus (Raum 1) ===== */
   const R1 = 1;
-  box(R1, 5.4, 3 * H + 0.3, 0.3, WALL, 10.6, (3 * H) / 2, -4.05); box(R1, 0.3, 3 * H + 0.3, 8.4, 0xe9f0f5, 13.45, (3 * H) / 2, 0);
+  box(R1, 5.4, 3 * H + 0.3, 0.3, WALL, 10.6, (3 * H) / 2, -4.05); box(R1, 0.3, 3 * H + 0.3, 8.4, 0xdcecf8, 13.45, (3 * H) / 2, 0);
   for (let f = 0; f < 3; f++) {
     const yb = f * H;
     box(R1, 5.4, 0.3, 2.6, FLOOR, 10.6, yb + H - 0.15, -2.8); // Podest oben
     for (let s = 0; s < 10; s++) { // Lauf 1: vorn, steigt nach hinten
-      box(R1, 2.2, 0.21 * (s + 1), 0.38, 0xe6eef4, 9.4, yb + 0.105 * (s + 1), 3.6 - s * 0.38 - 0.19);
+      box(R1, 2.2, 0.21 * (s + 1), 0.38, 0xd5e4ef, 9.4, yb + 0.105 * (s + 1), 3.6 - s * 0.38 - 0.19);
     }
     for (let s = 0; s < 10; s++) { // Lauf 2 rechts zurück nach vorn
-      box(R1, 2.2, 0.21, 0.38, 0xe6eef4, 11.9, yb + 2.1 + 0.21 * s + 0.105, -1.5 + s * 0.38 + 0.19);
+      box(R1, 2.2, 0.21, 0.38, 0xd5e4ef, 11.9, yb + 2.1 + 0.21 * s + 0.105, -1.5 + s * 0.38 + 0.19);
     }
     // Geländer
     box(R1, 0.06, 0.06, 4.2, BLUE2, 10.65, yb + 1.9, 1.5, { rx: -0.5, rough: 0.4 });
@@ -191,7 +191,7 @@ float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.8
 
   /* ===== Draußen: Winterdienst (Raum 4) ===== */
   const R4 = 4;
-  const ground = box(R4, 31.6, 0.1, 9, 0xf5f8fb, 2.5, -0.2, 8.5, { cast: false });
+  const ground = box(R4, 31, 0.1, 8.6, 0xffffff, 2.5, -0.2, 8.6, { cast: false });
   const path = box(R4, 26, 0.06, 2, 0x8c98a2, 2.5, -0.12, 7.2, { cast: false, snow: true, rough: 0.9 });
   box(R4, 26, 0.12, 0.22, 0xb7c3cc, 2.5, -0.1, 6.1, { cast: false }); box(R4, 26, 0.12, 0.22, 0xb7c3cc, 2.5, -0.1, 8.3, { cast: false });
   function tree(x, z, s) {
@@ -257,7 +257,7 @@ if(gl_FragColor.a<.01)discard;}`
   scene.add(snow);
 
   /* ===== Kamera, Rundgang ===== */
-  const OV = { T: new THREE.Vector3(2.6, 5.4, 1.2), d: 64 };
+  const OV = { T: new THREE.Vector3(2.6, 5.6, 1.6), d: 74 };
   const DIR = new THREE.Vector3(1, 0.62, 1.32).normalize();
   const cur = { T: OV.T.clone(), d: OV.d, sx: 0, sy: 0 }, goal = { T: OV.T.clone(), d: OV.d, sx: 0, sy: 0 };
   let W = 1, Hh = 1, mx = 0, my = 0, hero = 1, tourP = -1, visible = true, t0 = performance.now();
@@ -310,7 +310,7 @@ if(gl_FragColor.a<.01)discard;}`
     requestAnimationFrame(frame);
     if (!visible) return;
     const t = (now - t0) / 1000; PU.uTime.value = t;
-    const k = RM ? 1 : 0.075;
+    const dt = Math.min(0.1, (now - (frame.l || now)) / 1000); frame.l = now; const k = RM ? 1 : 1 - Math.exp(-dt * 4.2);
     cur.T.lerp(goal.T, k); cur.d += (goal.d - cur.d) * k;
     const heroF = tourP < 0 ? 1 : 0;
     const par = new THREE.Vector3(mx * 3.5, -my * 2, 0).multiplyScalar(heroF + 0.35);
@@ -318,7 +318,7 @@ if(gl_FragColor.a<.01)discard;}`
     camera.position.copy(camPos); camera.lookAt(cur.T);
     // Bildausschnitt: Text links (Desktop) bzw. oben (Handy)
     const mob = MOB();
-    camera.setViewOffset(W, Hh, mob ? 0 : -W * 0.19, mob ? (tourP < 0 ? -Hh * 0.2 : Hh * 0.2) : 0, W, Hh);
+    camera.setViewOffset(W, Hh, mob ? 0 : -W * (tourP < 0 ? 0.25 : 0.19), mob ? (tourP < 0 ? -Hh * 0.2 : Hh * 0.2) : 0, W, Hh);
     root.position.y = heroF * Math.sin(t * 0.6) * 0.18; root.rotation.y = heroF * Math.sin(t * 0.25) * 0.04;
     sun.position.copy(cur.T).add(new THREE.Vector3(10, 18, 12)); sun.target.position.copy(cur.T);
     const a = snow.geometry.attributes.position;
