@@ -106,6 +106,16 @@ Arbeitsweise:
 | Autohaus | Luftaufnahme vom Hof | Fahrzeugfinder, Rechner, Bestand |
 | Reinigung | Schaum-Sprüh-Wisch-Reveal über dem echten Team-/Objektfoto | Vorher/Nachher-Slider mit echten Fotos des Betriebs, Leistungs-Karten, 3 Schritte, FAQ, Anfrage per mailto |
 
+**Umgesetzt: Profix Gebäudereinigung (jh-konzept-profix, Ordner `profix/`)**
+- Hero-Ablauf: Canvas mit Schmutzschicht, dann Schaum-Cluster, dann Abzieher in 3 Bahnen am PC bzw. 4 am Handy. Die Bahnen werden per `destination-out` radiert. Danach entsteht ein Glanz-Streifen über der H1, und die Besucher können selbst mitwischen.
+- Technik-Fallen:
+  - In `erase()` immer `strokeStyle='#000'` setzen. Sonst radiert die Linie nur mit der Alpha der letzten Farbe.
+  - Das GSAP-Tween-Objekt nie neu zuweisen, sondern mit `Object.assign(pos,…)` ändern.
+- Bei Reduced Motion gibt es keine Schicht. Das Canvas wird nach dem Wischen entfernt, Klicks werden davor durchgereicht.
+- Bilder: Firmen-Website hat nur Stockfotos, daher nicht verwenden. Echtes Foto aus dem Google-Profil mit Quellen-Caption, Logo von der Firmen-Website, Rest aus Code (SVG-Tropfen, Icons, Mega-Wordmark).
+- Kein Vorher/Nachher-Slider, weil keine echten Vorher/Nachher-Fotos vorliegen. FAQ nur aus Fakten der Firmen-Seiten.
+- Fremd kopierte Texte auf Firmen-Websites (z. B. „Von Hoefer“, „Berlin“, „hectas“) nie übernehmen und Jenny als Pitch-Argument melden.
+
 **Technik**
 - **Animations-Kit** im Repo unter `jh-pitches/_kit/`. Davon kopiere ich nur die benötigten Dateien in jede Seite (`vendor/`), immer lokal und nie per CDN-Link:
   - GSAP 3.15 mit allen Plugins (ScrollTrigger, SplitText, ScrollSmoother, Flip, Draggable, MorphSVG, DrawSVG, MotionPath, ScrambleText, CustomEase, Observer); seit 3.13 kostenlos, auch kommerziell.
