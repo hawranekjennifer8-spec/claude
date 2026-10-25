@@ -10,8 +10,8 @@
   const MOB = () => innerWidth <= 960;
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, MOB() ? 1.25 : 1.75));
   renderer.outputEncoding = THREE.sRGBEncoding;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.92;
+  renderer.toneMapping = THREE.LinearToneMapping;
+  renderer.toneMappingExposure = 1.0;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -28,8 +28,8 @@
   });
   scene.environment = pm.fromScene(es, 0.035).texture;
 
-  scene.add(new THREE.HemisphereLight(0xf4fbff, 0x9fc4de, 0.42));
-  const sun = new THREE.DirectionalLight(0xfff6ea, 2.35);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8fb4cf, 0.55));
+  const sun = new THREE.DirectionalLight(0xfff4e6, 1.25);
   sun.castShadow = true;
   sun.shadow.mapSize.set(MOB() ? 1024 : 2048, MOB() ? 1024 : 2048);
   sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.03; sun.shadow.radius = 4;
@@ -75,15 +75,18 @@ float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.8
     if (M[k]) return M[k];
     const m = o.glass
       ? new THREE.MeshPhysicalMaterial({ color: hex, roughness: 0.04, metalness: 0, transparent: true, opacity: 0.34, clearcoat: 1, clearcoatRoughness: 0.05, envMapIntensity: 1.6, depthWrite: false })
-      : new THREE.MeshStandardMaterial({ color: hex, roughness: o.rough ?? 0.82, metalness: o.metal ?? 0, envMapIntensity: o.env ?? 0.32, flatShading: !!o.flat });
+      : new THREE.MeshStandardMaterial({ color: hex, roughness: o.rough ?? 0.82, metalness: o.metal ?? 0, envMapIntensity: o.env ?? 0.12, flatShading: !!o.flat });
     return (M[k] = dirty(m, r, o.snow ? SNOW : null));
   }
   const root = new THREE.Group(); scene.add(root);
+  const EDGE = new THREE.LineBasicMaterial({ color: 0x0b1a26, transparent: true, opacity: 0.22 }), EDGEG = new THREE.LineBasicMaterial({ color: 0x2f86c4, transparent: true, opacity: 0.5 });
   function box(r, w, h, d, hex, x, y, z, o = {}) {
     const g = new THREE.BoxGeometry(w, h, d);
     const m = new THREE.Mesh(g, mat(r, hex, o));
     m.position.set(x, y, z); if (o.ry) m.rotation.y = o.ry; if (o.rz) m.rotation.z = o.rz; if (o.rx) m.rotation.x = o.rx;
-    m.castShadow = o.cast !== false && !o.glass; m.receiveShadow = true; (o.parent || root).add(m); return m;
+    m.castShadow = o.cast !== false && !o.glass; m.receiveShadow = true; (o.parent || root).add(m);
+    if (!o.noEdge && Math.max(w, h, d) > 0.15) { const e = new THREE.LineSegments(new THREE.EdgesGeometry(g), o.glass ? EDGEG : EDGE); m.add(e); }
+    return m;
   }
   function cyl(r, rt, rb, h, hex, x, y, z, o = {}) {
     const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, o.seg || 28), mat(r, hex, o));
@@ -98,7 +101,7 @@ float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.8
 
   /* ===== Erdgeschoss: Industriehalle (Raum 3) ===== */
   const R3 = 3;
-  box(R3, 16.4, 0.3, 8.4, 0xb8cad8, 0, -0.1, 0);
+  box(R3, 16.4, 0.3, 8.4, 0xe6ddd0, 0, -0.1, 0);
   box(R3, 16.4, H, 0.3, WALL, 0, H / 2, -4.05); box(R3, 0.3, H, 8.4, WALL, -8.05, H / 2, 0);
   for (let i = -6; i <= 6; i += 3) box(R3, 2.2, 0.03, 0.12, GREEN, i, 0.06, 2.6, { cast: false });
   // Maschine
@@ -149,7 +152,7 @@ float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.8
 
   /* ===== 2. OG: Glas (Raum 2) ===== */
   const R2 = 2, y2 = 2 * H;
-  box(R2, 16.4, 0.3, 8.4, FLOOR, 0, y2 - 0.15, 0);
+  box(R2, 16.4, 0.3, 8.4, 0xd6f1e0, 0, y2 - 0.15, 0);
   box(R2, 0.3, H, 8.4, WALL, -8.05, y2 + H / 2, 0);
   // Glasfassade (Pfosten-Riegel)
   for (let i = 0; i <= 4; i++) box(R2, 0.14, H, 0.2, FRAME, -8 + i * 4, y2 + H / 2, -4.05);
@@ -304,7 +307,7 @@ if(gl_FragColor.a<.01)discard;}`
   }
   function setHero() { tourP = -1; for (let r = 0; r < 5; r++) { U[r].uDirt.value = 0; PU.uD.value[r] = 0; PU.uS.value[r] = 0.35; } sq.visible = false; sheet.material.opacity = 0; snow.material.opacity = 0; goal.T.copy(OV.T); goal.d = OV.d * (MOB() ? 1.25 : 1); }
   setHero();
-  window.ProfixTour = { setTour, setHero, rooms: ROOMS.length, get visible() { return visible; }, set visible(v) { visible = v; } };
+  window.ProfixTour = { setTour, setHero, rooms: ROOMS.length, snap() { cur.T.copy(goal.T); cur.d = goal.d; }, get visible() { return visible; }, set visible(v) { visible = v; } };
 
   function frame(now) {
     requestAnimationFrame(frame);
@@ -333,8 +336,8 @@ if(gl_FragColor.a<.01)discard;}`
   const cv = document.getElementById('drop3d');
   if (!cv || !window.THREE) return;
   let r; try { r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true }); } catch (e) { return; }
-  r.setPixelRatio(Math.min(devicePixelRatio || 1, 1.75)); r.outputEncoding = THREE.sRGBEncoding; r.toneMapping = THREE.ACESFilmicToneMapping;
-  const s = new THREE.Scene(), cam = new THREE.PerspectiveCamera(30, 1, 0.1, 100); cam.position.set(0, 0.4, 11);
+  r.setPixelRatio(Math.min(devicePixelRatio || 1, 1.75)); r.outputEncoding = THREE.sRGBEncoding;
+  const s = new THREE.Scene(), cam = new THREE.PerspectiveCamera(30, 1, 0.1, 100); cam.position.set(0, 0.6, 13.5);
   const pm = new THREE.PMREMGenerator(r), es = new THREE.Scene();
   es.add(new THREE.Mesh(new THREE.BoxGeometry(30, 20, 30), new THREE.MeshBasicMaterial({ color: 0x8fa9bb, side: THREE.BackSide })));
   [[0, 9, 0, -Math.PI / 2, 0, 3], [-14, 2, 4, 0, Math.PI / 2, 2.2], [12, -2, 6, 0, -Math.PI / 2, 1.2]].forEach(([x, y, z, rx, ry, k]) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(12, 8), new THREE.MeshBasicMaterial({ color: new THREE.Color(1, 1, 1).multiplyScalar(k) })); m.position.set(x, y, z); m.rotation.set(rx, ry, 0); es.add(m); });
@@ -345,7 +348,7 @@ if(gl_FragColor.a<.01)discard;}`
   for (let i = 0; i <= 40; i++) { const t = i / 40, y = 2.4 - t * 2.4; P.push(new THREE.Vector2(Math.max(0.001, t * 1.32), y)); }      // Kegel
   for (let i = 1; i <= 48; i++) { const a = (i / 48) * Math.PI * 0.92, y = -Math.sin(a) * 1.55 * 0.98 + 0, rr = Math.cos(a) * 1.55; P.push(new THREE.Vector2(Math.max(0.001, rr), y - 0.02)); }
   const cut = 41; // Index, an dem der Kegel endet
-  const mk = (hex, rough) => new THREE.MeshPhysicalMaterial({ color: hex, roughness: rough, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.08, envMapIntensity: 1.2, side: THREE.DoubleSide });
+  const mk = (hex, rough) => new THREE.MeshPhysicalMaterial({ color: hex, roughness: rough + 0.15, metalness: 0, clearcoat: 0.8, clearcoatRoughness: 0.12, envMapIntensity: 0.45, side: THREE.DoubleSide });
   const top = new THREE.Mesh(new THREE.LatheGeometry(P.slice(0, cut), 72), mk(0x74655f, 0.35));
   const bot = P.slice(cut - 1);
   const left = new THREE.Mesh(new THREE.LatheGeometry(bot, 48, Math.PI, Math.PI), mk(0x67bffd, 0.18));
@@ -371,7 +374,7 @@ if(gl_FragColor.a<.01)discard;}`
     top.position.set(0, 0.2 + e * 1.5, 0); top.rotation.set(0, 0, e * 0.25);
     left.position.set(-e * 1.7, -e * 0.4, e * 0.4); left.rotation.set(0, 0, -e * 0.3);
     right.position.set(e * 1.7, -e * 0.4, -e * 0.2); right.rotation.set(0, 0, e * 0.3);
-    g.rotation.y = -0.5 + Math.sin(t * 0.4) * 0.35 + e * 0.6; g.position.y = Math.sin(t * 0.8) * 0.08 - 0.3;
+    g.rotation.y = -0.5 + Math.sin(t * 0.4) * 0.35 + e * 0.6; g.position.y = Math.sin(t * 0.8) * 0.08 + 0.35;
     r.render(s, cam);
   })(t0);
 })();
