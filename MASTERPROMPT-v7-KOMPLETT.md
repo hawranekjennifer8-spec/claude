@@ -137,6 +137,20 @@ Arbeitsweise:
   - Die Timeline mit `paused` anlegen und erst nach 2 rAF abspielen.
   - Kein `resize→progress(1)` beim Laden.
 
+**Profix v3 (25.10.2026): Jennys Feedback „kein Masterpiece“, außerdem „was sind das für alte Bilder?“**
+- **Regel:** Keine Archiv-, Orts- oder Fremdfotos auf Kundenseiten (Fensterputzer-Archiv, Schloss, Kurhaus usw.). Sie gehören nicht zum Betrieb und wirken alt. Hat der Betrieb kaum Fotos, entsteht die Bildwelt aus 3D und Code. Jennys Entscheidung: lieber 3D als fremde Fotos.
+- **Umsetzung (`profix/tour.js`, three r134 lokal):**
+  - Schnitt-Architekturmodell (Dollhouse) mit 3 Etagen und Treppenhaus, Winter draußen.
+  - Blauer Sockel in der Markenfarbe, Illustrations-Kanten über EdgesGeometry (Navy, 22 %), Pastellböden je Raum.
+  - Schmutz-Shader per `onBeforeCompile`: Wischkante `uWipe`, Glanzstreifen, Ghost-Modus für Räume außerhalb des Fokus.
+  - 3D-Abzieher; Staub- und Funkel-Points.
+  - Kamera mit zeitbasierter Dämpfung, Höhe pro Raum, `setViewOffset` für die Textspalte.
+  - 3D-Logo-Tropfen als Object Breakdown in drei Segmenten.
+- **QA für WebGL:**
+  - Headless mit `--use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader` prüfen. Das ist langsam, deshalb Zustände deterministisch über `ProfixTour.setTour(p)` und `snap()` anfahren.
+  - Der Taste-Inspector sieht WebGL nicht und meldet dann „few-pictures“ und „empty-screens“. Das ist bei 3D-Seiten begründet.
+  - Portfolio-Video: Die Bildschirmaufnahme mit Software-GL ruckelt bzw. bleibt leer. Stattdessen Standbilder der Zustände mit ffmpeg zoompan und xfade zu einem flüssigen Clip machen.
+
 **Technik**
 - **Animations-Kit** im Repo unter `jh-pitches/_kit/`. Davon kopiere ich nur die benötigten Dateien in jede Seite (`vendor/`), immer lokal und nie per CDN-Link:
   - GSAP 3.15 mit allen Plugins (ScrollTrigger, SplitText, ScrollSmoother, Flip, Draggable, MorphSVG, DrawSVG, MotionPath, ScrambleText, CustomEase, Observer); seit 3.13 kostenlos, auch kommerziell.
