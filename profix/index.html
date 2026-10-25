@@ -98,7 +98,7 @@ h1,h2,h3{font-weight:800;line-height:.95;letter-spacing:-.045em}
 .idx ul{grid-column:1/8;list-style:none}
 .row{display:flex;width:100%;align-items:baseline;justify-content:space-between;gap:20px;text-align:left;padding:10px 0;font-size:clamp(28px,3.4vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1.04;transition:opacity .24s,color .24s}
 .row small{font-size:var(--s5);font-weight:600;letter-spacing:0;color:var(--soft);white-space:nowrap}
-.idx ul:has(.row.on) .row:not(.on){opacity:.32}
+.idx ul:is(:hover,:focus-within) .row:not(.on){opacity:.32}
 .row.on{color:var(--blue2)}
 .det{display:none}
 .frame{grid-column:8/13;position:relative}
@@ -114,7 +114,7 @@ h1,h2,h3{font-weight:800;line-height:.95;letter-spacing:-.045em}
   .idx{display:block}.frame{display:none}
   .row{font-size:clamp(26px,7.2vw,40px);padding:14px 0}
   .row small{display:none}
-  .idx ul:has(.row.on) .row:not(.on){opacity:1}
+  .idx ul:is(:hover,:focus-within) .row:not(.on){opacity:1}
   .det{display:none;overflow:hidden;height:0;transition:height .45s var(--ease)}
   .det.open{display:block}
   .det .box{background:var(--field);border-radius:28px;padding:24px 24px 26px;margin:4px 0 14px}
