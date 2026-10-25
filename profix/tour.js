@@ -38,11 +38,11 @@
 
   /* Räume und ihr Schmutz-Zustand */
   const ROOMS = [
-    { id: 'buero', x0: -8.2, x1: 8.2, T: [0, 5.9, 0], d: 25 },
-    { id: 'treppe', x0: 7.8, x1: 13.4, T: [10.6, 6.4, 0], d: 31 },
-    { id: 'glas', x0: -8.2, x1: 8.2, T: [0, 10.6, -0.4], d: 25 },
-    { id: 'halle', x0: -8.2, x1: 8.2, T: [0, 2.0, 0], d: 25 },
-    { id: 'winter', x0: -11, x1: 15, T: [2, 0.6, 6.4], d: 25 }
+    { id: 'buero', x0: -8.2, x1: 8.2, T: [0, 5.7, 0], d: 27, e: 0.2 },
+    { id: 'treppe', x0: 7.8, x1: 13.4, T: [10.6, 6.4, 0], d: 34, e: 0.32 },
+    { id: 'glas', x0: -8.2, x1: 8.2, T: [0, 10.4, -0.6], d: 27, e: 0.5 },
+    { id: 'halle', x0: -8.2, x1: 8.2, T: [0, 1.8, 0], d: 27, e: 0.14 },
+    { id: 'winter', x0: -11, x1: 15, T: [2, 0.8, 6.4], d: 27, e: 0.42 }
   ];
   const U = ROOMS.map(() => ({ uWipe: { value: 100 }, uDirt: { value: 0 } }));
   const DUST = new THREE.Color(0.6, 0.57, 0.52), SNOW = new THREE.Color(0.97, 0.98, 1);
@@ -176,7 +176,7 @@ float gl=exp(-pow((vWP.x-uWipe)*4.2,2.))*uDirt;totalEmissiveRadiance+=vec3(.6,.8
 
   /* ===== Treppenhaus (Raum 1) ===== */
   const R1 = 1;
-  box(R1, 5.4, 3 * H + 0.3, 0.3, WALL, 10.6, (3 * H) / 2, -4.05); box(R1, 0.3, 3 * H + 0.3, 8.4, 0xdcecf8, 13.45, (3 * H) / 2, 0);
+  box(R1, 5.4, 3 * H + 0.3, 0.3, WALL, 10.6, (3 * H) / 2, -4.05); 
   for (let f = 0; f < 3; f++) {
     const yb = f * H;
     box(R1, 5.4, 0.3, 2.6, FLOOR, 10.6, yb + H - 0.15, -2.8); // Podest oben
@@ -260,9 +260,9 @@ if(gl_FragColor.a<.01)discard;}`
   scene.add(snow);
 
   /* ===== Kamera, Rundgang ===== */
-  const OV = { T: new THREE.Vector3(2.6, 5.6, 1.6), d: 74 };
-  const DIR = new THREE.Vector3(1, 0.62, 1.32).normalize();
-  const cur = { T: OV.T.clone(), d: OV.d, sx: 0, sy: 0 }, goal = { T: OV.T.clone(), d: OV.d, sx: 0, sy: 0 };
+  const OV = { T: new THREE.Vector3(2.6, 5.6, 1.6), d: 74, e: 0.62 };
+  const DIR = new THREE.Vector3();
+  const cur = { T: OV.T.clone(), d: OV.d, e: OV.e }, goal = { T: OV.T.clone(), d: OV.d, e: OV.e };
   let W = 1, Hh = 1, mx = 0, my = 0, hero = 1, tourP = -1, visible = true, t0 = performance.now();
   function resize() {
     W = cv.clientWidth; Hh = cv.clientHeight; renderer.setSize(W, Hh, false); camera.aspect = W / Hh; camera.updateProjectionMatrix();
@@ -285,9 +285,9 @@ if(gl_FragColor.a<.01)discard;}`
     U[i].uDirt.value = Math.min(1, fly * 1.4); U[i].uWipe.value = R.x0 - 0.8 + (R.x1 - R.x0 + 1.6) * ease(wp);
     PU.uS.value[i] = wp;
     for (let r = 0; r < n; r++) { PU.uW.value[r] = U[r].uWipe.value; PU.uD.value[r] = U[r].uDirt.value; }
-    const prev = i === 0 ? OV : { T: new THREE.Vector3(...ROOMS[i - 1].T), d: ROOMS[i - 1].d };
+    const prev = i === 0 ? OV : { T: new THREE.Vector3(...ROOMS[i - 1].T), d: ROOMS[i - 1].d, e: ROOMS[i - 1].e };
     const e = ease(fly), T = new THREE.Vector3(...R.T);
-    goal.T.copy(prev.T).lerp(T, e); goal.d = prev.d + (R.d * (MOB() ? 1.35 : 1) - prev.d) * e;
+    goal.T.copy(prev.T).lerp(T, e); goal.d = prev.d + (R.d * (MOB() ? 1.35 : 1) - prev.d) * e; goal.e = prev.e + (R.e - prev.e) * e;
     // Abzieher auf der Wischkante
     const on = wp > 0 && wp < 1 && U[i].uDirt.value > 0.5;
     sq.visible = on; sheet.material.opacity = on ? 0.16 : 0;
@@ -305,16 +305,16 @@ if(gl_FragColor.a<.01)discard;}`
     });
     rail.forEach((b, k) => b.classList.toggle('on', k === i));
   }
-  function setHero() { tourP = -1; for (let r = 0; r < 5; r++) { U[r].uDirt.value = 0; PU.uD.value[r] = 0; PU.uS.value[r] = 0.35; } sq.visible = false; sheet.material.opacity = 0; snow.material.opacity = 0; goal.T.copy(OV.T); goal.d = OV.d * (MOB() ? 1.25 : 1); }
+  function setHero() { tourP = -1; for (let r = 0; r < 5; r++) { U[r].uDirt.value = 0; PU.uD.value[r] = 0; PU.uS.value[r] = 0.35; } sq.visible = false; sheet.material.opacity = 0; snow.material.opacity = 0; goal.T.copy(OV.T); goal.d = OV.d * (MOB() ? 1.25 : 1); goal.e = OV.e; }
   setHero();
-  window.ProfixTour = { setTour, setHero, rooms: ROOMS.length, snap() { cur.T.copy(goal.T); cur.d = goal.d; }, get visible() { return visible; }, set visible(v) { visible = v; } };
+  window.ProfixTour = { setTour, setHero, rooms: ROOMS.length, snap() { cur.T.copy(goal.T); cur.d = goal.d; cur.e = goal.e; }, get visible() { return visible; }, set visible(v) { visible = v; } };
 
   function frame(now) {
     requestAnimationFrame(frame);
     if (!visible) return;
     const t = (now - t0) / 1000; PU.uTime.value = t;
     const dt = Math.min(0.1, (now - (frame.l || now)) / 1000); frame.l = now; const k = RM ? 1 : 1 - Math.exp(-dt * 4.2);
-    cur.T.lerp(goal.T, k); cur.d += (goal.d - cur.d) * k;
+    cur.T.lerp(goal.T, k); cur.d += (goal.d - cur.d) * k; cur.e += (goal.e - cur.e) * k; DIR.set(1, cur.e * 2.1, 1.32).normalize();
     const heroF = tourP < 0 ? 1 : 0;
     const par = new THREE.Vector3(mx * 3.5, -my * 2, 0).multiplyScalar(heroF + 0.35);
     const camPos = cur.T.clone().add(DIR.clone().multiplyScalar(cur.d)).add(par);
