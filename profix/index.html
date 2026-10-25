@@ -604,7 +604,7 @@ if(!RM){
   cv.addEventListener('pointerleave',()=>lp=null);
   cv.addEventListener('click',e=>{cv.style.pointerEvents='none';const el=document.elementFromPoint(e.clientX,e.clientY);cv.style.pointerEvents='';const a=el&&el.closest('a,button');if(a)a.click()});
   const fast=()=>tl.timeScale(3.5);addEventListener('wheel',fast,{once:true,passive:true});addEventListener('touchmove',fast,{once:true,passive:true});addEventListener('keydown',fast,{once:true});
-  addEventListener('resize',()=>{if(!done)tl.progress(1)},{once:true});
+  const w0=innerWidth;addEventListener('resize',()=>{if(!done&&Math.abs(innerWidth-w0)>120)tl.progress(1)});
 })();
 </script>
 </body>
