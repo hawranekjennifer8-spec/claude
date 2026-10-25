@@ -76,6 +76,10 @@ Arbeitsweise:
   - Dunkel, Luftaufnahme vom Hof bei Dämmerung.
   - Fahrzeuge und Innenräume als Scroll-Story.
   - Fahrzeugfinder „Set the combination“, Filter „Pick two“, Finanzierungsrechner, Bestandskarten.
+- **Reinigungsfirma (sally.intoai_, CLEANY, „Client paid $2000“):**
+  - Hell und luftig in Weiß/Hellblau, gelbe CTA-Buttons.
+  - Hero-Video: Reinigungskraft sprüht Reiniger auf die Kamera, Schaum füllt das Bild, ein blaues Tuch wischt ihn weg und enthüllt die Headline („Making Every Space Spotless.“ / „Professional Care, Visible Results.“).
+  - Danach: Leistungs-Karten mit Fotos, „Good Cleaning Is in the Details“, Vorher/Nachher-Slider (Küche), „3 Easy Steps“, FAQ, Kontaktformular „A Fresh Home Starts Here“, Footer mit großer Wortmarke.
 - **Bau (seanaiux):** Luftaufnahme → Annäherung → Architektur („We build exceptional spaces“).
 
 **Präsentation**
@@ -100,6 +104,7 @@ Arbeitsweise:
 | Pasta | Spirale und Gabel | Hero: Gabel hebt echte Pasta, Sauce tropft (KI-Video aus echtem Foto). Fallback: echter freigestellter Teller dreht sich vor der Grana-Wand. Danach Slow-Cook-Uhr, Zutaten-Ballett, Galerie |
 | Logistik | Container-Stapler | Containerschiff von oben, Leistungs-Kacheln |
 | Autohaus | Luftaufnahme vom Hof | Fahrzeugfinder, Rechner, Bestand |
+| Reinigung | Schaum-Sprüh-Wisch-Reveal über dem echten Team-/Objektfoto | Vorher/Nachher-Slider mit echten Fotos des Betriebs, Leistungs-Karten, 3 Schritte, FAQ, Anfrage per mailto |
 
 **Technik**
 - **Animations-Kit** im Repo unter `jh-pitches/_kit/`. Davon kopiere ich nur die benötigten Dateien in jede Seite (`vendor/`), immer lokal und nie per CDN-Link:
