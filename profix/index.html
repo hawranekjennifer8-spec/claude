@@ -552,11 +552,10 @@ if(!RM){
   size();
   // Beschlag mit Kalkflecken
   ctx.fillStyle='rgba(228,235,238,.86)';ctx.fillRect(0,0,W,H);
-  ctx.filter='blur(26px)';
-  for(let i=0;i<Math.round(W*H/26000);i++){ctx.fillStyle=`rgba(${R(150,175)|0},${R(150,165)|0},${R(140,150)|0},${R(.06,.16)})`;ctx.beginPath();ctx.ellipse(R(0,W),R(0,H),R(40,190),R(30,120),R(0,3),0,7);ctx.fill()}
-  ctx.filter='blur(1.2px)';
-  for(let i=0;i<Math.round(W*H/2600);i++){const x=R(0,W),y=R(0,H),r=Math.pow(Math.random(),2.2)*13+1.5;ctx.fillStyle=`rgba(255,255,255,${R(.12,.32)})`;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();if(r>5){ctx.strokeStyle=`rgba(255,255,255,${R(.3,.55)})`;ctx.lineWidth=1;ctx.stroke()}}
-  ctx.filter='none';
+  const lo=document.createElement('canvas'),k=8;lo.width=Math.ceil(W/k);lo.height=Math.ceil(H/k);const lg=lo.getContext('2d');
+  for(let i=0;i<Math.round(W*H/22000);i++){const x=R(0,lo.width),y=R(0,lo.height),rx=R(5,24),g=lg.createRadialGradient(x,y,0,x,y,rx);g.addColorStop(0,`rgba(${R(150,172)|0},${R(148,162)|0},${R(138,148)|0},${R(.08,.2)})`);g.addColorStop(1,'rgba(150,150,140,0)');lg.fillStyle=g;lg.fillRect(x-rx,y-rx,rx*2,rx*2)}
+  ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(lo,0,0,W,H);
+  for(let i=0;i<Math.round(W*H/2600);i++){const x=R(0,W),y=R(0,H),r=Math.pow(Math.random(),2.2)*13+1.5;ctx.fillStyle=`rgba(255,255,255,${R(.1,.28)})`;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();if(r>5){ctx.strokeStyle=`rgba(255,255,255,${R(.3,.55)})`;ctx.lineWidth=1;ctx.stroke()}}
   for(let i=0;i<Math.round(W*H/1400);i++){ctx.fillStyle=`rgba(110,105,95,${R(.05,.18)})`;const s=R(.5,1.6);ctx.fillRect(R(0,W),R(0,H),s,s)}
   // Bläschen-Sprites
   const SP=[1.6,2.4,3.4,4.8,6.6,9,12.5].map(r=>{const d=Math.ceil(r*2+6),c=document.createElement('canvas');c.width=c.height=d*2;const g=c.getContext('2d');g.scale(2,2);const m=d/2;
@@ -564,7 +563,7 @@ if(!RM){
     g.lineWidth=Math.max(.5,r*.13);g.strokeStyle='rgba(255,255,255,.96)';g.stroke();
     g.lineWidth=Math.max(.4,r*.08);g.strokeStyle='rgba(96,160,212,.42)';g.beginPath();g.arc(m,m,r*.82,.5,2.7);g.stroke();
     g.fillStyle='#fff';g.beginPath();g.arc(m-r*.36,m-r*.38,Math.max(.5,r*.22),0,7);g.fill();return {c,d}});
-  function puff(x,y,r){ctx.filter='blur(14px)';ctx.fillStyle='rgba(252,254,255,.78)';ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();ctx.filter='none'}
+  function puff(x,y,r){const g=ctx.createRadialGradient(x,y,0,x,y,r*1.3);g.addColorStop(0,'rgba(252,254,255,.82)');g.addColorStop(.6,'rgba(252,254,255,.55)');g.addColorStop(1,'rgba(252,254,255,0)');ctx.fillStyle=g;ctx.fillRect(x-r*1.3,y-r*1.3,r*2.6,r*2.6)}
   // Schaum-Stöße: Kreise wachsen vom Auftreffpunkt nach außen
   const bursts=(MOB()?[[.5,.3,.42],[.42,.6,.46],[.58,.86,.4]]:[[.3,.36,.3],[.62,.5,.3],[.42,.78,.3]]).map(([x,y,r])=>({x:x*W,y:y*H,r:r*Math.max(W,H)*(MOB()?1.05:.62)}));
   const drops=[];bursts.forEach((b,bi)=>{const n=MOB()?650:1300;for(let i=0;i<n;i++){const a=R(0,7),d=Math.pow(Math.random(),.55)*b.r;drops.push({b:bi,x:b.x+Math.cos(a)*d*1.25,y:b.y+Math.sin(a)*d*.85,d:d/b.r,s:Math.min(6,Math.floor(Math.pow(Math.random(),2.4)*7))})}
@@ -590,7 +589,7 @@ if(!RM){
       if(d.a>0){fc.globalAlpha=d.a;fc.fillStyle='rgba(255,255,255,.9)';fc.beginPath();fc.ellipse(d.x,d.y,d.r,d.r*1.35,0,0,7);fc.fill();fc.fillStyle='rgba(47,134,196,.55)';fc.beginPath();fc.arc(d.x+d.r*.3,d.y+d.r*.4,d.r*.45,0,7);fc.fill();fc.globalAlpha=1}}
     if(!done||runs.some(d=>d.a>0))requestAnimationFrame(tick);else fx.remove()}
   requestAnimationFrame(tick);
-  const tl=gsap.timeline({delay:.2});
+  const tl=gsap.timeline({paused:true,delay:.2});
   bursts.forEach((b,bi)=>tl.to(st.p,{[bi]:1,duration:.34,ease:'power2.out',onUpdate:()=>paintBurst(bi)},bi*.16));
   tl.set(sq,{opacity:1},'+=.12');
   for(let i=0;i<n;i++){const y=(i+.5)*(H/n),l2r=i%2===0;
@@ -599,6 +598,7 @@ if(!RM){
   tl.to(sq,{opacity:0,duration:.2});
   tl.add(()=>{done=true;hero.classList.remove('wet');gsap.to(cv,{opacity:0,duration:.5,onComplete:()=>cv.remove()});sq.remove()});
   tl.to(gl,{xPercent:1400,duration:1.1,ease:'power2.inOut'},'-=.3');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>tl.play()));
   hero.classList.add('wet');let lp=null;
   cv.addEventListener('pointermove',e=>{if(done)return;const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;if(lp)erase(lp.x,lp.y,x,y,110);lp={x,y}});
   cv.addEventListener('pointerleave',()=>lp=null);
