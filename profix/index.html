@@ -62,14 +62,13 @@ section{position:relative}
 #grime{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;touch-action:pan-y}
 .hero.wiping #grime{pointer-events:auto;cursor:grab}
 .blade{position:absolute;left:0;top:0;z-index:6;pointer-events:none;opacity:0;will-change:transform}
-.blade .rub{position:absolute;left:0;top:0;width:12px;height:100%;background:linear-gradient(90deg,#1b2228,#39444d 60%,#1b2228);border-radius:6px}
-.blade .hold{position:absolute;left:10px;top:6%;width:18px;height:88%;background:linear-gradient(90deg,#c9d3db,#f4f7f9 45%,#a8b4be);border-radius:5px}
-.blade .stick{position:absolute;left:26px;top:calc(50% - 9px);width:min(34vw,320px);height:18px;background:linear-gradient(180deg,#5fe68a,#16a541);border-radius:0 10px 10px 0;box-shadow:0 10px 20px -8px rgba(0,0,0,.35)}
+.blade .rub{position:absolute;left:0;top:0;width:16px;height:100%;background:linear-gradient(90deg,#1b2228,#39444d 60%,#1b2228);border-radius:6px}
+.blade .hold{position:absolute;left:13px;top:4%;width:20px;height:92%;background:linear-gradient(90deg,#0c2233,#24506f 50%,#0c2233);border-radius:6px;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}
+.blade .stick{position:absolute;left:30px;top:calc(50% - 9px);width:min(34vw,320px);height:18px;background:linear-gradient(180deg,#5fe68a,#16a541);border-radius:0 10px 10px 0;box-shadow:0 10px 20px -8px rgba(0,0,0,.35)}
 .blade.flip{transform-origin:0 0}
-.hint{position:absolute;z-index:7;left:50%;bottom:22px;transform:translateX(-50%);font-size:13px;font-weight:600;color:var(--navy);background:rgba(255,255,255,.85);padding:8px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .5s}
 .glint{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.95) 50%,transparent 65%);mix-blend-mode:overlay;transform:translateX(-120%)}
 .h1w{position:relative;display:inline-block;overflow:hidden}
-@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.drop{width:min(62vw,280px);grid-row:1;justify-self:start;margin-bottom:-10px}.hero{padding-top:110px}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero .wrap>div:first-child{position:relative;z-index:1}.drop{position:absolute;right:-4vw;top:92px;width:34vw;max-width:200px;opacity:.95}.hero{padding-top:200px;align-items:start}.hero h1{margin-top:18px}}
 
 /* MARQUEE */
 .marq{background:var(--navy);color:var(--sky);overflow:hidden;padding:22px 0;white-space:nowrap}
@@ -82,7 +81,7 @@ section{position:relative}
 .sh{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,64px)}
 .sh h2{font-size:clamp(40px,6vw,96px);letter-spacing:-.05em;max-width:12ch}
 .sh p{max-width:40ch;color:var(--mut)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:dense;gap:16px}
 .card{position:relative;background:var(--white);border-radius:var(--r);padding:30px 28px 28px;display:flex;flex-direction:column;gap:12px;min-height:260px;box-shadow:0 1px 0 rgba(12,34,51,.04);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
 .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(29,106,166,.35)}
 .card .no{font-size:13px;font-weight:700;color:var(--blueD);letter-spacing:.08em}
@@ -100,7 +99,7 @@ details.more summary::after{content:"+";font-size:20px;line-height:1;transition:
 details.more[open] summary::after{transform:rotate(45deg)}
 details.more ul{columns:2;column-gap:28px;margin-top:14px;padding-left:18px;color:var(--mut);font-size:15px}
 details.more li{break-inside:avoid;margin-bottom:6px}
-@media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}.card.big{grid-column:span 2}}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.card.big{grid-column:auto}details.more ul{columns:1}.card{min-height:0}}
 
 /* FOTO */
@@ -132,7 +131,7 @@ details.more li{break-inside:avoid;margin-bottom:6px}
 .st3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .step{background:var(--sky);border-radius:var(--r);padding:30px;min-height:300px;display:flex;flex-direction:column}
 .step .n{font-size:clamp(60px,6vw,96px);font-weight:800;letter-spacing:-.06em;line-height:.9;color:var(--blue)}
-.step h3{font-size:clamp(22px,1.9vw,28px);margin:auto 0 10px}
+.step h3{font-size:clamp(22px,1.9vw,28px);margin:44px 0 10px}
 .step p{color:var(--mut)}
 @media(max-width:860px){.st3{grid-template-columns:1fr}.step{min-height:220px}.steps{margin:0 8px}}
 
@@ -205,9 +204,7 @@ footer{padding:clamp(60px,8vw,110px) 0 26px;overflow:hidden}
         </defs>
         <path d="M100 4C100 4 12 112 12 166a88 88 0 0 0 176 0C188 112 100 4 100 4Z" fill="url(#dg)"/>
         <path d="M100 4C100 4 12 112 12 166a88 88 0 0 0 176 0C188 112 100 4 100 4Z" fill="url(#dh)"/>
-        <path d="M52 150c-6 22 4 46 26 58" stroke="#fff" stroke-width="9" stroke-linecap="round" fill="none" opacity=".85"/>
-        <circle cx="64" cy="122" r="7" fill="#fff" opacity=".9"/>
-        <path d="M150 196l8-8M154 180l4 4" stroke="#3ee06a" stroke-width="6" stroke-linecap="round"/>
+        <path d="M46 156c-4 20 4 40 22 52" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".7"/>
       </svg>
       <i class="bub" style="width:54px;height:54px;left:-8%;top:58%;animation-delay:-1s"></i>
       <i class="bub" style="width:30px;height:30px;left:86%;top:20%;animation-delay:-3s"></i>
@@ -217,7 +214,6 @@ footer{padding:clamp(60px,8vw,110px) 0 26px;overflow:hidden}
   </div>
   <canvas id="grime" aria-hidden="true"></canvas>
   <div class="blade" id="blade" aria-hidden="true"><i class="stick"></i><i class="hold"></i><i class="rub"></i></div>
-  <div class="hint" id="hint" aria-hidden="true">Einfach selbst mitwischen</div>
 </section>
 
 <div class="marq" aria-hidden="true"><div class="t">
@@ -240,14 +236,14 @@ footer{padding:clamp(60px,8vw,110px) 0 26px;overflow:hidden}
       <article class="card rv"><span class="no">02</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5z"/></svg></span><h3>Grundreinigung</h3><p>Die Intensivreinigung, zum Beispiel vor einer Neuvermietung: Türblätter, Zargen, Fußleisten, Heizkörper und Steckdosen, bei Bedarf eine neue Versiegelung der Böden.</p></article>
       <article class="card rv"><span class="no">03</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/></svg></span><h3>Fenster- &amp; Glasreinigung</h3><p>Streifenfreier Glanz für Geschäftsräume und Wohngebäude, auch für Glasfassaden, Wintergärten, Glasdächer und Leuchtschriften.</p></article>
       <article class="card rv"><span class="no">04</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h5v-5h5v-5h5V6h3"/></svg></span><h3>Treppenhausreinigung</h3><p>Jede Etage bis zum Keller, Geländer und Fensterbänke inklusive. Auf Wunsch zuerst eine einmalige Grundreinigung mit der Einscheibenmaschine.</p></article>
-      <article class="card rv"><span class="no">05</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><h3>Sonderreinigung</h3><p>Für besonders hartnäckige Verschmutzungen, mit speziellem Equipment und fachkundiger Beratung.</p>
+      <article class="card big rv"><span class="no">05</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><h3>Sonderreinigung</h3><p>Für besonders hartnäckige Verschmutzungen, mit speziellem Equipment und fachkundiger Beratung.</p>
         <div class="pills"><span>Schwimmbad</span><span>Rolltreppen</span><span>Großküchen</span><span>Klimaanlagen</span><span>Maschinen</span><span>EDV</span><span>Kreuzfahrtschiff</span></div></article>
       <article class="card rv"><span class="no">06</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l6 4V9l6 4V5h6v16z"/></svg></span><h3>Industriereinigung</h3><p>Maschinen, Fertigungsanlagen, Industrieböden und Hallen, einmalig oder in festen Intervallen, nach Ihren Erfordernissen.</p></article>
       <article class="card rv"><span class="no">07</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M5 20V10l7-6 7 6v10"/></svg></span><h3>Baureinigung</h3><p>Innen- und Außenreinigung nach dem Bau, auf Wunsch inklusive Entsorgung des Bauschutts.</p></article>
       <article class="card rv"><span class="no">08</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16M5 8h14M5 12h14M5 16h14M12 16v5"/></svg></span><h3>Jalousienreinigung</h3><p>Reinigung und Konservierung von Außenjalousien gegen Korrosion, je nach Umweltbelastung alle ein bis drei Jahre.</p></article>
       <article class="card rv"><span class="no">09</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18v-6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6M2 14h20v4H2zM6 18v2M18 18v2"/></svg></span><h3>Teppich- &amp; Polsterreinigung</h3><p>Sessel, Sofas, Bürostühle und Teppiche: Flecken werden materialgerecht behandelt, auf Wunsch mit Antistatik oder Langzeitimprägnierung.</p></article>
       <article class="card rv"><span class="no">10</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12c0-5 4-8 8-8 0 5-3 8-8 8zM12 15c0-4-3-6-7-6 0 4 3 6 7 6z"/></svg></span><h3>Grünpflege</h3><p>Rasen, Wiese, Hecken, Busch und Baum: pflanzen, pflegen, düngen, wässern und mähen.</p></article>
-      <article class="card rv"><span class="no">11</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><h3>Hausmeisterdienst</h3><p>Aufräumarbeiten, kleine Reparaturen, Schließ- und Sicherheitsdienst, Laubentfernung und Entrümpelungen, als individuelles Rundum-sorglos-Paket.</p></article>
+      <article class="card big rv"><span class="no">11</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><h3>Hausmeisterdienst</h3><p>Aufräumarbeiten, kleine Reparaturen, Schließ- und Sicherheitsdienst, Laubentfernung und Entrümpelungen, als individuelles Rundum-sorglos-Paket.</p></article>
       <article class="card rv"><span class="no">12</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M4.9 7l14.2 10M4.9 17L19.1 7"/></svg></span><h3>Winterdienst</h3><p>Räumen und Streuen von Gehwegen und Zufahrten, Eisbeseitigung, Streugutbeseitigung und Schneeabtransport, mit 24-Stunden-Service.</p></article>
     </div>
   </div>
@@ -357,7 +353,7 @@ document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();co
 
 /* Hero: Schmutzschicht, Schaum, Abzieher */
 (function(){
-  const hero=document.getElementById('hero'),cv=document.getElementById('grime'),ctx=cv.getContext('2d'),blade=document.getElementById('blade'),hint=document.getElementById('hint');
+  const hero=document.getElementById('hero'),cv=document.getElementById('grime'),ctx=cv.getContext('2d'),blade=document.getElementById('blade');
   const glint=document.querySelector('.glint');
   if(RM){cv.remove();blade.remove();return}
   let W,H,dpr,done=false;
@@ -372,16 +368,17 @@ document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();co
     ctx.strokeStyle='rgba(120,110,95,.12)';ctx.lineCap='round';
     for(let i=0;i<26;i++){ctx.lineWidth=rnd(2,8);ctx.beginPath();const x=rnd(0,W),y=rnd(0,H*.4);ctx.moveTo(x,y);ctx.bezierCurveTo(x+rnd(-20,20),y+rnd(60,140),x+rnd(-20,20),y+rnd(160,280),x+rnd(-30,30),y+rnd(300,520));ctx.stroke()}
   }
+  function puff(x,y,r){ctx.globalCompositeOperation='source-over';const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(255,255,255,.85)');g.addColorStop(.6,'rgba(250,253,255,.55)');g.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill()}
   function foam(x,y,r){ctx.globalCompositeOperation='source-over';const g=ctx.createRadialGradient(x-r*.3,y-r*.3,r*.1,x,y,r);
     g.addColorStop(0,'rgba(255,255,255,.98)');g.addColorStop(.7,'rgba(246,251,255,.92)');g.addColorStop(1,'rgba(160,205,240,.55)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill()}
   function erase(x1,y1,x2,y2,w){ctx.globalCompositeOperation='destination-out';ctx.lineCap='round';ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke()}
   paint();
   // Schaum-Spritzer
   const blobs=[];const cx=()=>W*(W<900?.5:.38),cy=()=>H*.48;
-  for(let i=0;i<(W<900?70:130);i++){const a=rnd(0,Math.PI*2),d=Math.pow(Math.random(),.6)*Math.min(W,H)*.55;blobs.push({x:cx()+Math.cos(a)*d*1.5,y:cy()+Math.sin(a)*d*.8,r:rnd(8,W<900?26:38),t:rnd(0,.9)})}
+  for(let i=0;i<(W<900?70:130);i++){const a=rnd(0,Math.PI*2),d=Math.pow(Math.random(),.6)*Math.min(W,H)*.55;blobs.push({x:cx()+Math.cos(a)*d*1.5,y:cy()+Math.sin(a)*d*.8,r:rnd(10,W<900?24:34),t:rnd(0,.9)})}
   const st={p:0};let last=-1;
   const tl=gsap.timeline({delay:.5});
-  tl.to(st,{p:1,duration:1.1,ease:'power2.out',onUpdate(){blobs.forEach(b=>{if(!b.d&&b.t<=st.p){b.d=1;foam(b.x,b.y,b.r);for(let k=0;k<3;k++)foam(b.x+rnd(-b.r,b.r),b.y+rnd(-b.r,b.r),b.r*rnd(.3,.6))}})}});
+  tl.to(st,{p:1,duration:1.1,ease:'power2.out',onUpdate(){blobs.forEach(b=>{if(!b.d&&b.t<=st.p){b.d=1;puff(b.x,b.y,b.r*2.4);for(let k=0;k<9;k++){const a=rnd(0,7),d=rnd(0,b.r*1.4);foam(b.x+Math.cos(a)*d,b.y+Math.sin(a)*d,b.r*rnd(.12,.5))}foam(b.x,b.y,b.r*.6)}})}});
   // Abzieher in Bahnen
   const bands=W<900?4:3,bh=H/bands*1.18;let pos={x:0,y:0},prev=null;
   blade.style.height=bh+'px';
