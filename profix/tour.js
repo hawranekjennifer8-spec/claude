@@ -306,7 +306,7 @@ if(gl_FragColor.a<.01)discard;}`
     });
     rail.forEach((b, k) => b.classList.toggle('on', k === i));
   }
-  function setHero() { tourP = -1; for (let r = 0; r < 5; r++) { ghostT[r] = 0; U[r].uDirt.value = 0; PU.uD.value[r] = 0; PU.uS.value[r] = 0.35; } sq.visible = false; sheet.material.opacity = 0; snow.material.opacity = 0; goal.T.copy(OV.T); goal.d = OV.d * (MOB() ? 1.25 : 1); goal.e = OV.e; }
+  function setHero() { tourP = -1; for (let r = 0; r < 5; r++) { ghostT[r] = 0; U[r].uDirt.value = 0; PU.uD.value[r] = 0; PU.uS.value[r] = 0.35; } sq.visible = false; sheet.material.opacity = 0; snow.material.opacity = 0; goal.T.copy(OV.T); goal.d = OV.d * (MOB() ? 1.55 : 1); goal.e = OV.e; }
   setHero();
   window.ProfixTour = { setTour, setHero, rooms: ROOMS.length, snap() { cur.T.copy(goal.T); cur.d = goal.d; cur.e = goal.e; }, get visible() { return visible; }, set visible(v) { visible = v; } };
 
@@ -323,7 +323,7 @@ if(gl_FragColor.a<.01)discard;}`
     camera.position.copy(camPos); camera.lookAt(cur.T);
     // Bildausschnitt: Text links (Desktop) bzw. oben (Handy)
     const mob = MOB();
-    camera.setViewOffset(W, Hh, mob ? 0 : -W * (tourP < 0 ? 0.25 : 0.19), mob ? (tourP < 0 ? -Hh * 0.2 : Hh * 0.2) : 0, W, Hh);
+    camera.setViewOffset(W, Hh, mob ? 0 : -W * (tourP < 0 ? 0.25 : 0.19), mob ? (tourP < 0 ? -Hh * 0.36 : Hh * 0.24) : 0, W, Hh);
     root.position.y = heroF * Math.sin(t * 0.6) * 0.18; root.rotation.y = heroF * Math.sin(t * 0.25) * 0.04;
     sun.position.copy(cur.T).add(new THREE.Vector3(10, 18, 12)); sun.target.position.copy(cur.T);
     const a = snow.geometry.attributes.position;
