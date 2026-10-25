@@ -260,7 +260,7 @@ if(gl_FragColor.a<.01)discard;}`
   scene.add(snow);
 
   /* ===== Kamera, Rundgang ===== */
-  const OV = { T: new THREE.Vector3(2.6, 5.6, 1.6), d: 74, e: 0.62 };
+  const OV = { T: new THREE.Vector3(2.6, 5.6, 1.6), d: 74, e: 0.3 };
   const DIR = new THREE.Vector3();
   const cur = { T: OV.T.clone(), d: OV.d, e: OV.e }, goal = { T: OV.T.clone(), d: OV.d, e: OV.e };
   let W = 1, Hh = 1, mx = 0, my = 0, hero = 1, tourP = -1, visible = true, t0 = performance.now();
