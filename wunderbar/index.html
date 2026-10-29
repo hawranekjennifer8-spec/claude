@@ -464,7 +464,7 @@ const stmt=document.getElementById('statement');(function sp(n){[...n.childNodes
 /* hero video */
 /* Dampf: WebGL über dem echten Foto, endlos und ohne Ruckeln */
 const mirror=document.getElementById('mirror'),mbox=document.getElementById('mbox'),scv=document.getElementById('steam');
-const steam=(!RM&&window.Steam)?Steam(scv,MOB?.95:1):null;let heroOn=true;
+const steam=(!RM&&window.Steam)?Steam(scv,MOB?.55:.5):null;let heroOn=true;
 function fitSteam(){const r=mirror.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,MOB?1.25:1.5);const W=Math.round(r.width*d),H=Math.round(r.height*d);if(scv.width!==W||scv.height!==H){scv.width=W;scv.height=H}return d}
 let sd=fitSteam();addEventListener('resize',()=>{sd=fitSteam()});
 new IntersectionObserver(e=>{heroOn=e[0].isIntersecting}).observe(document.getElementById('hstage'));
