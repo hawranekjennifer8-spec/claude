@@ -132,7 +132,7 @@ html.no-intro #intro{display:none}
 .cert img{width:100%}
 .cert:hover{z-index:5}
 /* gallery */
-.gallery{padding:clamp(90px,11vw,150px) 0;background:var(--ink)}
+.gallery{padding:clamp(90px,11vw,150px) 0;background:var(--ink);overflow:hidden}
 .band{display:flex;gap:18px;width:max-content;margin-top:40px;will-change:transform}
 .band.rev{margin-top:18px}
 .band button{flex:0 0 auto;border:0;padding:0;background:none;cursor:zoom-in;width:clamp(200px,22vw,320px);aspect-ratio:4/5;overflow:hidden;border-radius:6px;position:relative}
