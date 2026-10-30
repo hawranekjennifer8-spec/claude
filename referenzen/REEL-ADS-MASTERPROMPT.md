@@ -9,6 +9,7 @@
 | v1 | Aufnahmen in ihre Glam-Fotos montiert | „unprofessionell, 08/15, draufgeklatscht“ | Perspektive/Licht passen nicht, Standardschrift |
 | v2 | 3D-Geräte auf dunkler Bühne, Bodoni-Typo | besser, aber nicht Senior | künstliche CSS-Bühne, wirkt gerendert |
 | v3 | dito + Montage | „viel besser“ | – |
+| v5 | „Studio Cut“: Rahmen mit Label/Zähler, Seiten in Karte 1000×1160, Wipe-Übergang | „schlecht geschnitten, auch vom Bildformat“ – ABER Endkarte (Paper, schwarze breite Grotesk + rote Kursive „als nächstes?“) gefällt ihr | Seiten in Karte beschnitten/zu klein; Schnitt zu gleichförmig |
 | v4 | Vorher/Nachher, Whip-Montage, 3D-Raster, Tunnel, Gold-Endkarte | „nicht professionell, Schriftarten gar nicht, Flop“ | **zu viele Effekte, KI-Luxus-Template-Look** (Gold-Glanz, Bokeh, Pillen-Chips, Bodoni überall, Tunnel), keine echte Kamera |
 
 **Kernerkenntnis aus der Referenz @idanweb:** Die Wirkung kommt NICHT aus Typo-Effekten. Sie kommt aus
@@ -26,6 +27,12 @@
 1. **Jenny filmt (beste Qualität, kostenlos):** iPhone, 4K 30 fps, Hochformat, Kamera hinter ihrer Schulter (POV), MacBook auf schönem Tisch (Matcha, LV-Block, warmes Lampenlicht), rote Nägel am Trackpad, je Seite 6–8 s langsam scrollen, Display-Helligkeit 100 %, Night-Shift aus. Ich liefere die Shotliste + Seiten-Links, schneide, grade (warm, Korn), setze Takt, Hook-Zeile und Endkarte.
 2. **Fotoreal generiert (braucht Higgsfield-Credits, ca. 7 Clips):** Image-to-Video „POV über die Schulter, Hand mit roten Nägeln am MacBook-Trackpad, Bildschirm grün“ → Bildschirm per Eckpunkt-Tracking mit den echten Aufnahmen ersetzen (Perspektive + Glanz + leichte Unschärfe passend).
 3. **Rein digital nur als Notlösung:** dann editorial-schlicht – vollflächige Handy-Aufnahmen, harte Schnitte, eine Grotesk-Zeile, keine Effekte.
+
+## Nächster Schritt (v6, beim nächsten Mal)
+- Endkarte und Typo-System aus v5 BEHALTEN (Archivo Expanded + Instrument Serif Italic in Rot #B3121F + Geist Mono).
+- Seiten bildschirmfüllend im echten Handy-Format (1080 breit, oben bündig), keine Karte, kein Rahmen-UI.
+- Harte Schnitte im Takt, 2–2,5 s pro Seite wie @idanweb, Wow-Moment jeder Seite im Schnitt treffen.
+- Optional echtes Kamera-Material (Jenny filmt MacBook/Hand nach Shotliste).
 
 ## 3. Drehbuch v5 „Studio Cut“ (digital, auf Basis von v3 – Jennys Wahl 30.10.)
 
