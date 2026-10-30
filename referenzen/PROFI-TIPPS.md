@@ -63,3 +63,38 @@
 - **Gefühl:** Alles wirkt souverän, flüssig animiert und high-end, wie von einem Senior-Webdesigner mit Marketing-Gespür.
 - **Schriften:** mehrere, bewusst kombinierte Schriftarten, nie 08/15.
 - **Ziel:** die Nummer 1 werden. Dafür jede Referenz, jeden Skill und jeden Connector nutzen und mit Jennys Vorlieben und Abneigungen abgleichen.
+
+## Claude-Skills (@alan.buildz – „5 must have Claude Skills“)
+1. **Stop Slop** (github.com/hardikpandya/stop-slop): entfernt KI-Floskeln aus Texten (Füllwörter, „nicht X, sondern Y“, Gedankenstriche, Dreier-Listen). Für alle Website-, Post- und Ad-Texte, zusammen mit humanizer.
+2. **OmniRoute** (Router, mehrere GitHub-Forks): leitet Claude Code bei erreichtem Limit an andere Modelle weiter. Läuft lokal auf dem eigenen Rechner, ist also hier in der Cloud nicht nutzbar. Optional später auf Jennys Mac.
+3. **Apple Design Skill:** Apples Designsprache (klare Typo, viel Weißraum, Produkt im Fokus, Glas-Effekte, ruhige Animationen) als Skill. Kein fester Repo-Link, wird mit dem skill-creator selbst erzeugt.
+4. **Task Observer** (github.com/rebelytics/one-skill-to-rule-them-all): beobachtet die Arbeit und gibt einen täglichen Rückblick mit Fehlern und Vorschlägen.
+5. **Find Skills:** sucht zur Aufgabe („Ich will eine Landingpage bauen“) die passenden Skills (z. B. frontend-design, copywriting, seo-audit). Bei uns erledigen das SearchSkills und SearchPlugins.
+
+## Arbeitsregeln (Verbote-Kit, Karpathy) → siehe CLAUDE.md im Repo-Hauptordner
+
+## Recht (@itsmariahbrunner – „How to turn Claude into a legal team“)
+- **Plugin `commercial-legal` von Anthropic:** In Claude unter Customize → Plugins hinzufügen.
+  - Zuerst `/commercial-legal:cold-start-interview`: Rolle, Standort **Deutschland**, eigene Regeln (z. B. „automatische Verlängerungen und Kündigungsgebühren markieren“).
+  - Dann `/commercial-legal:review vertrag.pdf`: markiert Klauseln nach den eigenen Regeln und schlägt Änderungen vor.
+- Einsatz für Jenny: Webdesign-Kundenverträge, Hosting- und SaaS-Verträge (Shopify-Apps, Vercel, Higgsfield), NDAs.
+- **Deutsches Recht beachten:**
+  - automatische Vertragsverlängerung gegenüber Verbrauchern nur mit monatlicher Kündbarkeit (§ 309 Nr. 9 BGB)
+  - Kündigungsbutton bei Online-Verträgen (§ 312k BGB)
+- Das Plugin ersetzt keine Anwältin bzw. keinen Anwalt; es ist US-geprägt, deshalb immer Standort Deutschland angeben.
+
+## KI-Marketing im Shop (@itsmariahbrunner – Alia by Dotdigital, Shopify-App)
+- **Idee:** Besucher in Echtzeit segmentieren und je Segment ein anderes Pop-up zeigen:
+  - Kaufbereite: Rubbellos
+  - Wiederkehrende: Überraschungsrabatt
+  - Besucher aus Paid Social: Aktionsrabatt
+- Pop-ups im A/B-Test vergleichen.
+- Versandkalender für Aktionen (z. B. Black Friday) mit steigenden Kosten pro Kontakt einplanen.
+- **Pflicht für Deutschland (Magnifio, LUMINOSO, PYRO, ZOIA):**
+  1. **Tracking und Segmentierung** (wiederkehrend, Quelle, Verhalten) erst nach Einwilligung im Cookie-Banner (§ 25 TDDDG). Das Pop-up-Tool darf vorher nicht tracken.
+  2. **Newsletter** nur mit aktiver Einwilligung und Double-Opt-In (Art. 7 DSGVO, § 7 Abs. 2 UWG), dazu Link zur Datenschutzerklärung im Pop-up. Rabatt gegen Anmeldung ist erlaubt, wenn klar beschrieben.
+  3. **Rabattangaben** („45 % Rabatt“, Streichpreise) beziehen sich auf den niedrigsten Preis der letzten 30 Tage (§ 11 PAngV).
+  4. **Rubbellos und Überraschungsrabatt** sind Verkaufsförderung bzw. Gewinnspiel: Bedingungen klar und leicht zugänglich angeben (§ 6 DDG, § 5a UWG). Keine Fake-Countdowns und keine Schein-Knappheit (§ 5 UWG).
+  5. **Kleinunternehmer:** keine USt ausweisen, Hinweis „Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.“
+  6. App-Anbieter in Datenschutzerklärung und AV-Vertrag aufnehmen.
+- Umsetzung erst nach Jennys Freigabe (die App ist kostenpflichtig). Jede Änderung im Shop zuerst rechtlich prüfen.
