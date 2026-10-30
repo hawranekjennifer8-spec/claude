@@ -13,6 +13,15 @@
   - Editoriale Seiten mit großer Serif-Typo, schwebenden Objekten, tiefem Blau und weichen Farbverläufen.
   - Präsentiert auf dem MacBook mit Hand am Trackpad in farbigem Licht.
 - **@design4me_:** fertige Premium-Interaktionen (Hover Water, Box Grid, Spiral Gallery, Hanging Card, Image Trail, Runaround Text) statt Eigenbau.
+- **@aaltodigital – „I built this before my coffee got cold“ (Claude + Framer):**
+  - Kaffee-Site als filmische Scroll-Reise vom Ursprung zum Produkt: Plantage im Nebel, rote Kaffeekirschen am Zweig, Kirschen fallen, Erntekorb, aufgeschnittene Kirsche („Two seeds per cherry“), grüne Bohnen fließen in den Röster, Röstflamme, schwebende Bohne, Shop.
+  - Prinzip: Herkunft und Herstellung als Kapitel-Story, jedes Kapitel ein Vollbild-Moment mit kurzer Zeile.
+  - Gebaut mit Framer.
+- **@aaltodigital – „Websites can't have aura“ (Aura Maldives):**
+  - Hotel- und Resort-Site, Hero mit Wasservilla und Steg.
+  - Scroll führt durch die Glasfront ins Interieur, dann Schwarzblende, dann POV-Füße am Pool („Drift into Paradise“).
+  - **Reel-Format = genau Jennys Look:** dunkler Raum, MacBook, Hand mit ROTEN NÄGELN am Trackpad, oben zweizeiliger Text („"Websites can't have aura" / The Website“), am Ende Abblende und IG-Logo.
+  - Vorlage für Hotel-Sites (zusammen mit der Webild-Villa) und für Jennys eigene Reels.
 - **@blochsocialhaus – „1 photo? No problem.“:**
   - 3×3-Feed aus einem einzigen Produktfoto, in einer Farbwelt (Braun/Caramel).
   - Mischung aus Produkt, Textur-Close-up, typografischer Kachel, Lifestyle-Hand mit Nägeln, Mock-up-Kachel („will you … get coffee with me?“).
