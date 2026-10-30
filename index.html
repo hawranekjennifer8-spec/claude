@@ -4,15 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="J.H. Digital Atelier – Webdesign, Shops und Markenauftritte aus Wiesbaden. Senior-Webdesign mit Scroll-Animationen.">
+<title>J.H. Digital Atelier · Webdesign aus Wiesbaden</title>
 <meta property="og:title" content="J.H. Digital Atelier · Portfolio">
-<meta property="og:image" content="https://jh-digital-atelier.vercel.app/media/luminoso.jpg">
+<meta property="og:description" content="J.H. Digital Atelier – Webdesign, Shops und Markenauftritte aus Wiesbaden. Senior-Webdesign mit Scroll-Animationen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jh-digital-atelier.vercel.app/">
+<meta property="og:image" content="https://jh-digital-atelier.vercel.app/media/og-atelier.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Visitenkarte von J.H. Digital Atelier in einer Hand mit roten Nägeln">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jh-digital-atelier.vercel.app/media/og-atelier.jpg">
 <style>body{margin:0}</style>
 </head>
 <body>
-<title>J.H. Digital Atelier · Webdesign aus Wiesbaden</title>
-<meta property="og:description" content="J.H. Digital Atelier – Webdesign, Shops und Markenauftritte aus Wiesbaden. Senior-Webdesign mit Scroll-Animationen.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23141416'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23f4f2ee' stroke-width='1.5'/%3E%3Ctext x='32' y='40' font-size='22' text-anchor='middle' fill='%23f4f2ee' font-family='Georgia,serif' font-style='italic'%3EJH%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://jh-digital-atelier.vercel.app/">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -181,6 +186,33 @@ body.tone-dark .cursor{border-color:var(--night-fg)}
 .col .frame{flex:none;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
 @keyframes up{to{transform:translateY(-50%)}}
 
+/* ---------- atelier: editorial collage, photos crossfade with a slow zoom-out ---------- */
+.s-atelier .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1480px;margin:0 auto}
+.s-atelier .display{font-size:clamp(40px,5vw,84px)}
+.s-atelier .label{display:block;margin-bottom:24px}
+.s-atelier .lead{margin-top:26px}
+.sign{display:block;margin-top:26px;font-family:var(--display);font-style:italic;font-size:clamp(24px,2vw,32px);color:#d2b07a}
+.collage{--h:min(66svh,620px);--g:16px;display:flex;gap:var(--g);justify-content:center;align-items:center}
+.stack{display:flex;flex-direction:column;gap:var(--g);transform:translateY(7%)}
+.cf{position:relative;overflow:hidden;border-radius:6px;aspect-ratio:4/5;height:var(--h);background:#1a1714;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.stack .cf{height:calc((var(--h) - var(--g))/2)}
+.cf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.8s ease,transform 7.5s cubic-bezier(.2,.6,.2,1)}
+.cf img.on{opacity:1;transform:scale(1)}
+.s-atelier .collage{opacity:0;transform:translateY(36px);transition:opacity 1.2s ease .35s,transform 1.6s var(--ease) .35s}
+.s-atelier.is-active .collage{opacity:1;transform:none}
+
+/* ---------- instagram: 3x3 feed, tiles appear one by one ---------- */
+.s-insta .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1400px;margin:0 auto}
+.s-insta .display{font-size:clamp(40px,5vw,84px)}
+.s-insta .label{display:block;margin-bottom:24px}
+.s-insta .lead{margin-top:26px}
+.s-insta .plink{display:inline-flex;margin-top:26px;font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+.feed{--fh:min(70svh,660px);width:min(100%,calc(var(--fh)/1.25));margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;text-decoration:none}
+.feed span{position:relative;aspect-ratio:4/5;overflow:hidden;background:#ddd9d2;opacity:0;transform:scale(.92)}
+.s-insta.is-active .feed span{opacity:1;transform:none;transition:opacity .9s ease calc(.4s + var(--i)*.11s),transform 1.2s var(--ease) calc(.4s + var(--i)*.11s)}
+.feed img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.feed span:hover img{transform:scale(1.06)}
+
 /* ---------- process ---------- */
 .s-proc .wrap{display:flex;flex-direction:column;justify-content:safe center;gap:clamp(28px,5vh,60px);max-width:1400px;margin:0 auto}
 .s-proc .display{font-size:clamp(38px,5.4vw,88px)}
@@ -215,6 +247,11 @@ body.tone-dark .cursor{border-color:var(--night-fg)}
   .p-info{gap:14px}
   .p-meta{font-size:12.5px}
   .wall{height:38svh;order:2}
+  .s-atelier .wrap,.s-insta .wrap{grid-template-columns:minmax(0,1fr);align-content:start;gap:28px}
+  .collage{--h:min(46svh,520px);--g:10px}
+  .feed{--fh:min(56svh,560px)}
+  .s-atelier .lead,.s-insta .lead,.sign,.s-insta .plink{margin-top:16px}
+  .s-atelier .label,.s-insta .label{margin-bottom:14px}
   .tiles,.tiles.t4{grid-template-columns:repeat(2,minmax(0,1fr));max-width:min(720px,calc((100svh - 300px) * 1.05))}
   .steps{grid-template-columns:1fr 1fr;row-gap:24px}
   .step:nth-child(3){border-left:0;padding-left:0}
@@ -301,6 +338,21 @@ body.tone-dark .cursor{border-color:var(--night-fg)}
     </div>
   </section>
 
+  <section class="slide s-atelier dark" data-name="Atelier" data-tone="dark" id="atelierSlide">
+    <div class="wrap">
+      <div>
+        <span class="label rv" id="atelierLabel">[ Atelier ]</span>
+        <h2 class="display"><span class="ln" style="--d:0"><span>Persönlich.</span></span><span class="ln" style="--d:1"><span><i>Bis ins Detail.</i></span></span></h2>
+        <p class="lead rv" style="--d:4">Hinter J.H. Digital Atelier stehe ich, Jennifer Hawranek. Jede Website entsteht persönlich in Wiesbaden, und Sie sprechen vom ersten Entwurf bis zum Launch immer direkt mit mir.</p>
+        <span class="sign rv" style="--d:6">Jenny</span>
+      </div>
+      <div class="collage" aria-hidden="true">
+        <div class="cf" data-imgs="01,07,05"></div>
+        <div class="stack"><div class="cf" data-imgs="03,06,09" data-sm></div><div class="cf" data-imgs="02,04,08" data-sm></div></div>
+      </div>
+    </div>
+  </section>
+
   <section class="slide s-wall dark" data-name="Haltung" data-tone="dark" id="wallSlide">
     <div class="wrap">
       <div class="stmt">
@@ -325,6 +377,18 @@ body.tone-dark .cursor{border-color:var(--night-fg)}
         <div class="step rv" style="--d:6"><em>04</em><h3>Launch</h3><p>Domain, SSL, Impressum, Datenschutz und SEO. Danach bleibe ich für Pflege und Kampagnen an Ihrer Seite.</p></div>
       </div>
       <div class="services rv" style="--d:8"><span>Webdesign</span><span>Shopify-Shops</span><span>Brand Identity &amp; Logo</span><span>Kampagnenbilder</span><span>Instagram-Feeds</span><span>Domain &amp; Hosting</span></div>
+    </div>
+  </section>
+
+  <section class="slide s-insta" data-name="Instagram">
+    <div class="wrap">
+      <div>
+        <span class="label rv" id="instaLabel">[ Instagram ]</span>
+        <h2 class="display"><span class="ln" style="--d:0"><span>Ein Feed mit</span></span><span class="ln" style="--d:1"><span><i>rotem Faden.</i></span></span></h2>
+        <p class="lead rv" style="--d:4">So sieht der Feed des Ateliers aus: warmes Licht, echte Details, jede Arbeit im selben Look. Denselben roten Faden baue ich auch für Ihre Marke, passend zu Ihrer Website.</p>
+        <a class="plink rv" style="--d:6" data-hover href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener">@jh.digitalatelier ↗</a>
+      </div>
+      <a class="feed" id="feed" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener" aria-label="Instagram-Feed von J.H. Digital Atelier öffnen" data-hover></a>
     </div>
   </section>
 
@@ -381,15 +445,17 @@ function frame(k,small){
 
 var deck=document.getElementById('deck'), anchor=document.getElementById('wallSlide');
 var REAL=P.filter(function(p){return !p.concept}), CON=P.filter(function(p){return p.concept});
-var divIndex=2+REAL.length;
+var atelier=document.getElementById('atelierSlide');
+var divIndex=3+REAL.length;
 P.forEach(function(p,i){
   if(p.concept&&!document.getElementById('conSlide')){
+    deck.insertBefore(atelier,anchor);
     var d=document.createElement('section');d.className='slide s-grid';d.id='conSlide';d.dataset.name='Konzepte';
     d.innerHTML='<div class="wrap"><div class="grid-head"><h2 class="display"><span class="ln"><span>Konzepte aus <i>der Region</i></span></span></h2><span class="label rv" style="--d:2">[ '+String(divIndex+1).padStart(2,'0')+' · Konzept-Entwürfe ]</span></div>'+
       '<p class="lead rv" style="--d:3;max-width:1320px;width:100%;margin:0 auto">Eigene Entwürfe für Betriebe aus Wiesbaden, jeder mit eigenem Intro, eigener Scroll-Story und echten Bildern. Nicht beauftragt und nicht die offiziellen Websites der Betriebe.</p><div class="tiles'+(CON.length===4?' t4':'')+'" id="tiles2"></div></div>';
     deck.insertBefore(d,anchor);
   }
-  var n=String(i+3+(p.concept?1:0)).padStart(2,'0'), s=document.createElement('section');
+  var n=String(i+3+(p.concept?2:0)).padStart(2,'0'), s=document.createElement('section');
   s.className='slide s-proj'+(p.dark?' dark':''); s.dataset.name=p.name.replace(/<[^>]+>/g,'');
   if(p.dark) s.dataset.tone='dark'; s.style.setProperty('--bg',p.bg);
   var web=p.href?'<a class="plink" href="'+p.href+'" target="_blank" rel="noopener">'+p.url+' ↗</a>':p.url;
@@ -435,6 +501,26 @@ var wall=document.getElementById('wall');
   col.innerHTML=html;wall.appendChild(col);
 });
 
+/* atelier collage + instagram feed (real atelier photos) */
+var AT='media/atelier/';
+[].forEach.call(atelier.querySelectorAll('.cf'),function(f){
+  var sm=f.hasAttribute('data-sm');
+  f.innerHTML=f.dataset.imgs.split(',').map(function(n,j){return '<img src="'+AT+n+(sm?'-sm':'')+'.jpg" alt="" decoding="async"'+(j?' loading="lazy"':'')+(j?'':' class="on"')+'>'}).join('');
+});
+var feedHtml='',FEED=['01','02','03','04','05','06','07','08','09'];
+FEED.forEach(function(n,i){feedHtml+='<span style="--i:'+i+'"><img src="'+AT+n+'-sm.jpg" alt="" loading="lazy" decoding="async"></span>'});
+document.getElementById('feed').innerHTML=feedHtml;
+var cycT=null;
+function cycle(on){
+  clearInterval(cycT);cycT=null; if(!on)return;
+  var fr=[].slice.call(atelier.querySelectorAll('.cf')),tick=0;
+  cycT=setInterval(function(){
+    var f=fr[tick%fr.length],im=f.querySelectorAll('img'),k=0;
+    for(var j=0;j<im.length;j++)if(im[j].classList.contains('on'))k=j;
+    im[k].classList.remove('on');im[(k+1)%im.length].classList.add('on');tick++;
+  },2200);
+}
+
 /* ---------- navigation ---------- */
 var slides=[].slice.call(deck.querySelectorAll('.slide')),cur=-1,lock=false,outroT;
 var total=slides.length;
@@ -442,7 +528,9 @@ document.getElementById('tot').textContent='/ '+String(total).padStart(2,'0');
 var nWall=slides.indexOf(anchor)+1;
 document.getElementById('wallLabel').textContent='[ '+String(nWall).padStart(2,'0')+' · Haltung ]';
 document.getElementById('procLabel').textContent='[ '+String(nWall+1).padStart(2,'0')+' · Ablauf ]';
-document.getElementById('contactLabel').textContent='[ '+String(nWall+2).padStart(2,'0')+' · Kontakt ]';
+document.getElementById('instaLabel').textContent='[ '+String(nWall+2).padStart(2,'0')+' · Instagram ]';
+document.getElementById('contactLabel').textContent='[ '+String(nWall+3).padStart(2,'0')+' · Kontakt ]';
+document.getElementById('atelierLabel').textContent='[ '+String(slides.indexOf(atelier)+1).padStart(2,'0')+' · Atelier ]';
 var outro=document.getElementById('outro');
 function media(slide,on){
   [].forEach.call(slide.querySelectorAll('video'),function(v){
@@ -454,7 +542,7 @@ function media(slide,on){
 function go(n){
   n=Math.max(0,Math.min(total-1,n)); if(n===cur) return;
   slides.forEach(function(s,i){var a=i===n;if(s.classList.contains('is-active')&&!a)media(s,false);s.classList.toggle('is-active',a)});
-  cur=n; media(slides[n],true);
+  cur=n; media(slides[n],true); cycle(slides[n]===atelier);
   document.getElementById('cur').textContent=String(n+1).padStart(2,'0');
   document.getElementById('bar').style.width=((n+1)/total*100)+'%';
   document.getElementById('secName').textContent=slides[n].dataset.name||'';
