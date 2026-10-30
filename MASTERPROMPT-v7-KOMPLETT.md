@@ -87,6 +87,23 @@ Arbeitsweise:
 - Hand an Maus oder Trackpad, sanfter Zoom.
 - Am Ende Abblende mit Instagram-Logo und Handle.
 
+**Neu vom 30.10.2026 (Jennys Reels und Screenshots)**
+- **Logistik-Kapitel (@mattxwebb, „The potential of high end websites“):** Vollbild-Kapitel beim Scrollen („Made at the source → Shipped by the container → Landed in the West → Delivered → Fitted and finished“). Jedes Kapitel hat ein großes Bild, das nächste schiebt sich darüber, mit kurzer Serif-Zeile unten links. Für Betriebe mit einer Geschichte in Etappen: Reinigung (Boden → Dom), Bau, Handwerk.
+- **Café-Pour-Scroll (@paulina.coding, „Your daily pour“):** Ein Glas freigestellt auf warmem Braun. Beim Scrollen wird eingegossen (Espresso, Milch, Matcha), Name und Preis wechseln links. Riesige Grotesk-Headline, ruhige Fläche. Für Cafés mit echten Getränkefotos; der Gieß-Effekt braucht ein echtes Video oder Credits.
+- **Kaffee-Feed (@blochsocialhaus):** Instagram-Raster mit warmen Brauntönen, Latte-Art von oben, Hände mit Tassen, viel Holz und Tageslicht. Bildsprache-Vorbild für Café-Feeds und Social-Kacheln.
+- **Claude + Übernatural (@katarina.uxdesign):** Galerie-Seiten mit Editorial-Serif („Between shores“), 3D-Eishöhle („See through complexity“), Pixel-Typo über Ozean („Listening to the open ocean since 2001“), Panorama-Karussell (MARS, OSTREL). Maßstab: eine starke Idee pro Seite, viel Luft, große Typo.
+- **uberdesigner.ai (@seanaiux):** Template auswählen → Prompt kopieren → in Claude einfügen → Claude baut die Seite als Vite+React-Projekt und als Figma-Datei. Kostenlose Templates mit Account. Braucht Jennys Login; ohne Login nutze ich die frei sichtbaren Vorlagen als Richtung.
+- **Kunden-Onboarding (@mat_aleixo, „Onboard this $8K client“):**
+  1. Vertrag vorbereiten und digital unterschreiben lassen.
+  2. Persönliches Kundenportal in Notion (Banner im Kundenlook, Projektüberblick, Zeitplan, Dokumente).
+  3. Willkommensdokument.
+  4. Rechnung mit Zahlungslink.
+  5. Strategie-Call.
+  6. Lieferung und Fortschritt im Portal.
+  Gilt für Jennys eigene Abläufe bei neuen Kunden.
+
+**Standard-Bausteine aus 21st.dev (in Vanilla nachgebaut, lokal):** Editorial Image Hero (#19077), Hover Image List (#28258), Comparison Slider with Highlights (#19262), Scroll Horizontal Gallery (#24623), Giant Wordmark Footer (#35508), Alice Scroll Story (#7970, Parallax-Storytelling).
+
 ## 3. Die 5 Pflicht-Elemente jeder Website
 1. Scroll-Storyline: Kamera und Story bewegen sich beim Scrollen.
 2. Butterweiche Animationen.
@@ -322,6 +339,7 @@ Aus dem Reel von @itsmariahbrunner („6 Websites to give AI better taste“). B
 | **Motionographer** (motionographer.com) | Magazin und Archiv für Motion Design, Animation und Werbefilme | Hochwertige Motion-Referenzen und Agentur-Niveau für Animationen und Videos |
 | **tasteskill v2** (github.com/Leonxlnx/taste-skill, MIT, als Skill `design-taste-frontend`) | Art-Direction-Skill mit Richtungs-Bibliothek aus 247 Galerie-Seiten, Bildsuche in offenen Archiven, Browser-Inspector und Kritik-Loop | Richtung und Komposition ziehen, Seiten im Browser vermessen. Bei Konflikten gilt dieser Masterprompt (kursive Akzente und Labels sind bei Jenny erlaubt) |
 | **Web Interface Guidelines** (Vercel, als Skill `web-design-guidelines`) | Aktuelle UI-, UX- und Barrierefreiheits-Regeln von vercel-labs | Jede Seite vor der Abgabe damit prüfen und die Funde im Format `file:line` ausgeben |
+| **uberdesigner.ai** | Template-Galerie; jedes Template hat einen Prompt für Claude und liefert Vite+React plus Figma | Komplette Seitenvorlagen. Braucht Jennys Account |
 | **21st.dev** (CLI `@21st-dev/cli`, als Skill `21st-dev-components`) | Riesige Bibliothek fertiger UI-Komponenten, Themes, Templates, Logos und Remotion-Video-Blöcke, dazu 21st AI für UI-Varianten | Bausteine suchen und den Code holen; in Vanilla übersetzen und lokal hosten. Braucht Jennys API-Key (`API_KEY_21ST`) |
 
 **Regeln dazu**
