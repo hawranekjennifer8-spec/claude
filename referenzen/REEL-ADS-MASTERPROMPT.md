@@ -27,6 +27,21 @@
 2. **Fotoreal generiert (braucht Higgsfield-Credits, ca. 7 Clips):** Image-to-Video „POV über die Schulter, Hand mit roten Nägeln am MacBook-Trackpad, Bildschirm grün“ → Bildschirm per Eckpunkt-Tracking mit den echten Aufnahmen ersetzen (Perspektive + Glanz + leichte Unschärfe passend).
 3. **Rein digital nur als Notlösung:** dann editorial-schlicht – vollflächige Handy-Aufnahmen, harte Schnitte, eine Grotesk-Zeile, keine Effekte.
 
+## 3. Drehbuch v5 „Studio Cut“ (digital, auf Basis von v3 – Jennys Wahl 30.10.)
+
+**Style-Brief:** Ruhig, präzise, teuer. Wie der Showreel eines Design-Studios, nicht wie ein Template. Die Seiten sind der Star, die Typo rahmt sie nur.
+- **Type (aus VELHARMON-Referenz):** Archivo Expanded (wdth 125, 600) in Versalien für Headlines, Laufweite −0,02 em · Instrument Serif Italic für genau ein Akzentwort · Geist Mono 500 in Versalien für Labels „[ 01 — EISCAFÉ ]“. Kein Bodoni, kein Gold.
+- **Farbe:** Ink #0A0A0A, Paper #F1EEE8, einziger Akzent Nagellack-Rot #B3121F (Fortschrittspunkt, ein Wort).
+- **Layout:** fester Studio-Rahmen wie ein Interface: oben Label + Zähler „01 / 08“, große abgerundete Website-Karte (1000 × 1120 px), darunter dünne Fortschrittslinie. Text liegt nie auf Website-Inhalt (Ausnahme Hook auf einfarbiger Fläche, wie @idanweb).
+- **Motion:** 120 BPM, Schnitt alle 1,5 s auf den Beat. Genau EIN Übergang: Masken-Wipe von unten (0,2 s, expo). Zähler rollt, Karte atmet leicht (Scale 1 → 1,025). Feines Korn, sonst keine Effekte.
+
+| Zeit | Bild | Text |
+|---|---|---|
+| 0,0–2,0 | Eiskugeln vollflächig (Handy-Aufnahme, Kugeln fallen) | „WIR BAUEN WEBSITES.“ → „Du *entscheidest.*“ (Reveal aus Maske, auf dem Beat) |
+| 2,0–14,0 | Studio-Rahmen, 8 Seiten à 1,5 s: Imkerei, Gebäudereinigung, Pasta-Bar, Café, Pizzeria, Bauunternehmen, Boutique-Hotel, Malerbetrieb; dazwischen 2 Glam-Blitzschnitte (Matcha, Laptop) à 0,5 s | Nur Label + Zähler |
+| 14,0–16,5 | Jennys Visitenkarte vollflächig, langsamer Push-in | – |
+| 16,5–20,5 | Paper-Endkarte | „DEINE WEBSITE“ / „*als nächstes?*“ · „Kostenloses Erstgespräch →“ · @jh.digitalatelier |
+
 ---
 
 # J.H. Digital Atelier – Reel- & Ads-Masterprompt v1 (30.10.2026)
