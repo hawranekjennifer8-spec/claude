@@ -219,7 +219,7 @@ figcaption,.fc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;colo
   #leistungen.sec{padding:96px 0 40px;min-height:100svh}
   #leistungen .sec-head{margin-bottom:24px}
   .fan-stage{height:calc(100svh - 380px);min-height:360px}
-  .card{height:calc((100svh - 380px)*.9);min-height:330px;width:auto;margin-left:0}
+  .card{height:calc((100svh - 380px)*.76);min-height:300px;width:auto;margin-left:0}
   .card h3{font-size:clamp(18px,1.5vw,23px)}
 }
 .buddy svg{transform:scaleX(-1)}
