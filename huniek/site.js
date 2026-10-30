@@ -108,7 +108,7 @@ function setupReveals(){
   const mm=gsap.matchMedia();
   mm.add('(min-width:981px)',()=>{
     const cards=$$('.card',fan),n=cards.length;
-    gsap.set(cards,{rotation:0,y:0});
+    gsap.set(cards,{rotation:0,y:0,xPercent:-50});
     const tl=gsap.timeline({scrollTrigger:{trigger:'#leistungen',start:'top top',end:'+=120%',pin:true,scrub:.7,anticipatePin:1}});
     cards.forEach((c,i)=>{const d=i-(n-1)/2;tl.to(c,{rotation:d*9.4,y:Math.abs(d)*14,ease:'power2.out',duration:1},0)});
     cards.forEach(c=>{c.addEventListener('mouseenter',()=>gsap.to(c,{scale:1.05,zIndex:20,duration:.4,ease:'power3.out'}));c.addEventListener('mouseleave',()=>gsap.to(c,{scale:1,zIndex:1,duration:.5,ease:'power3.out'}))});

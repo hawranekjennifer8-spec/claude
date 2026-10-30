@@ -85,7 +85,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .marquee .track span::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--c)}
 
 /* chameleon companion */
-.buddy{position:fixed;left:clamp(10px,2vw,30px);bottom:clamp(10px,2vw,26px);z-index:40;width:clamp(96px,10vw,150px);pointer-events:none;filter:drop-shadow(0 10px 14px rgba(0,0,0,.18));opacity:0;transform:translateY(20px)}
+.buddy{position:fixed;right:clamp(10px,2vw,30px);bottom:clamp(10px,2vw,26px);z-index:40;width:clamp(84px,9vw,140px);pointer-events:none;filter:drop-shadow(0 10px 14px rgba(0,0,0,.18));opacity:0;transform:translateY(20px)}
 .buddy svg{width:100%;overflow:visible}
 .buddy .body{fill:var(--cham);transition:fill .9s var(--ease)}
 .buddy .lid{fill:var(--cham);transition:fill .9s var(--ease);transform-box:fill-box;transform-origin:50% 0;transform:scaleY(0)}
@@ -214,6 +214,15 @@ figcaption,.fc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;colo
 .foot a{text-decoration:none}.foot a:hover{color:var(--paper)}
 .foot .note{flex-basis:100%;font-size:12px;color:#8a857c;border-top:1px solid rgba(250,248,244,.12);padding-top:20px}
 
+/* fan sizing (desktop, pinned) */
+@media (min-width:981px){
+  #leistungen.sec{padding:96px 0 40px;min-height:100svh}
+  #leistungen .sec-head{margin-bottom:24px}
+  .fan-stage{height:calc(100svh - 380px);min-height:360px}
+  .card{height:calc((100svh - 380px)*.9);min-height:330px;width:auto;margin-left:0}
+  .card h3{font-size:clamp(18px,1.5vw,23px)}
+}
+.buddy svg{transform:scaleX(-1)}
 /* responsive */
 @media (max-width:980px){
   .nav{display:none}
