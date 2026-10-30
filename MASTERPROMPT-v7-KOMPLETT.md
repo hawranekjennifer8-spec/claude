@@ -86,6 +86,13 @@ Arbeitsweise:
 - MacBook- oder Monitor-Mockup auf Holztisch in passender Location, dunkler Raum mit warmem Licht.
 - Hand an Maus oder Trackpad, sanfter Zoom.
 - Am Ende Abblende mit Instagram-Logo und Handle.
+- **Showreel „We make websites / You judge.“ (@idanweb, 30.10.2026):**
+  - Format: 9:16, ca. 25 s.
+  - Hook mit zweizeiligem Text, dann 7 Websites à 2–2,7 s als POV auf ein MacBook mit Hand am Trackpad.
+  - Jede Seite läuft in einem eigenen Raum bzw. Licht, mit harten Schnitten im Takt.
+  - Ende: Abblende mit pulsierendem IG-Logo und Handle; IG-Wasserzeichen oben rechts.
+  - Für Jenny: Hook mit Glam-Hand + Visitenkarte, „Wir bauen Websites. / Du entscheidest.“, Räume im Luxus-Look.
+  - Vollständiger Prompt: `referenzen/SHOWREEL-PROMPT.md`, Video: `referenzen/2026-10-30_idanweb_we-make-websites-you-judge.mp4`.
 
 **Neu vom 30.10.2026 (Jennys Reels und Screenshots)**
 - **Logistik-Kapitel (@mattxwebb, „The potential of high end websites“):** Vollbild-Kapitel beim Scrollen („Made at the source → Shipped by the container → Landed in the West → Delivered → Fitted and finished“). Jedes Kapitel hat ein großes Bild, das nächste schiebt sich darüber, mit kurzer Serif-Zeile unten links. Für Betriebe mit einer Geschichte in Etappen: Reinigung (Boden → Dom), Bau, Handwerk.
