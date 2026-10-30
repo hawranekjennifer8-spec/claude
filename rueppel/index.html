@@ -69,6 +69,7 @@ header.nav.hide{transform:translateY(-100%)}
 #hero .cue{position:absolute;left:var(--pad);bottom:clamp(24px,4vh,40px);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 @media (max-width:760px){
  #hero{height:220vh}
+ #hero .iris img{object-position:58% 50%}
  #hero .hl{top:88px;transform:none;max-width:none;right:var(--pad)}
  #hero h1{font-size:clamp(40px,11.6vw,60px)}
  #hero .meta{display:none}
@@ -99,7 +100,7 @@ header.nav.hide{transform:translateY(-100%)}
 .climb{position:relative;height:calc(var(--n,6) * 100vh)}
 .climb .stage{position:sticky;top:0;height:100svh;overflow:hidden}
 .ch{position:absolute;inset:0;clip-path:inset(100% 0 0 0)}
-.ch:first-child{clip-path:inset(0 0 0 0)}
+.ch:first-of-type{clip-path:inset(0 0 0 0)}
 .ch img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.12)}
 .ch::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,26,35,.55),rgba(14,26,35,0) 38%),linear-gradient(0deg,rgba(14,26,35,.72),rgba(14,26,35,0) 46%)}
 .ch .txt{position:absolute;right:var(--pad);bottom:clamp(30px,7vh,80px);left:calc(var(--pad) + 120px);display:flex;align-items:flex-end;justify-content:space-between;gap:30px;z-index:2}
@@ -525,7 +526,7 @@ lenis.on('scroll',({scroll})=>{nav.classList.toggle('solid',scroll>innerHeight*.
 const iris=$('#hero .iris');
 const R0=()=>(mobile()?innerWidth*.36:Math.min(innerWidth*.18,innerHeight*.34))+'px';
 const R1=()=>Math.hypot(innerWidth,innerHeight)*.62+'px';
-const CX=()=>mobile()?'50%':'70%',CY=()=>mobile()?'60%':'54%';
+const CX=()=>mobile()?'50%':'70%',CY=()=>mobile()?'50%':'54%';
 gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom bottom',scrub:.6,invalidateOnRefresh:true}})
   .fromTo(iris,{'--r':R0,'--cx':CX,'--cy':CY},{'--r':R1,'--cx':'50%','--cy':'50%',ease:'power1.in',duration:1},0)
   .fromTo('#hero .iris img',{'--s':1.22},{'--s':1,ease:'none',duration:1},0)
