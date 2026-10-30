@@ -360,7 +360,7 @@ window.MEDIA = window.MEDIA || {graziella:{p:'media/graziella.jpg',v:'media/graz
 var M=window.MEDIA;
 var P=[
  {k:'graziella',cat:'Restaurant',name:'Da Graziella',claim:'Sizilianische Abende, online so warm wie im Wintergarten.',client:'Ristorante Da Graziella, Bad Kreuznach',svc:'Website · Bildwelt · Kampagnen',url:'ristorantedagraziella.de',href:'https://ristorantedagraziella.de',bg:'#140c0a',dark:1},
- {k:'zitra',cat:'Getränkemarke',name:'ZITRA',claim:'Eine Eistee-Marke mit schwebenden Früchten und Mut zur Farbe.',client:'Demo-Marke des Ateliers',svc:'Branding · 3D-Scroll-Website · Produktbilder',url:'zitra · Demo',bg:'#efe8cf'},
+ {k:'zitra',cat:'Getränkemarke',name:'ZITRA',claim:'Eine Eistee-Marke mit schwebenden Früchten und Mut zur Farbe.',client:'Eigene Marke des Ateliers',svc:'Branding · 3D-Scroll-Website · Produktbilder',url:'zitra',status:'Eigenprojekt',bg:'#efe8cf'},
  {k:'pyro',cat:'Streetwear',name:'PYRO',claim:'Streetwear mit italienischer Haltung, clean und hell inszeniert.',client:'PYRO · Riviera Club',svc:'Shopify-Shop · Model-Bildwelt · Branding',url:'pyrothebrand.com',href:'https://pyrothebrand.com',bg:'#e8e6e1'},
  {k:'magnifio',cat:'Fashion',name:'MAGNIFIO',claim:'Mode für jede Saison, erzählt wie ein Modemagazin.',client:'MAGNIFIO',svc:'Shopify-Shop · Landingpage · SEO-Texte',url:'magnifio.de',href:'https://magnifio.de',bg:'#efe5dc'},
  {k:'luminoso',cat:'Schmuck',name:'LUMINOSO',claim:'Feiner Schmuck auf dunkler Bühne. Jedes Detail bekommt sein Licht.',client:'LUMINOSO Jewelry',svc:'Luxus-Theme · Katalog · Rechtssicherheit',url:'luminosojewelry.de',href:'https://www.luminosojewelry.de',bg:'#0f0d0b',dark:1},
@@ -398,7 +398,7 @@ P.forEach(function(p,i){
     '<span class="label rv" style="--d:0">[ <b>'+n+'</b> · '+p.cat+' ]</span>'+
     '<h2 class="display"><span class="ln" style="--d:1"><span>'+p.name+'</span></span></h2>'+
     '<p class="p-claim rv" style="--d:3">'+p.claim+'</p><hr class="hair rv" style="--d:4">'+
-    '<dl class="p-meta rv" style="--d:5"><dt class="opt">'+(p.concept?'Für':'Kunde')+'</dt><dd class="opt">'+p.client+'</dd><dt>Leistung</dt><dd>'+p.svc+'</dd><dt class="opt">Status</dt><dd class="opt"><span class="status'+(p.concept?' demo':'')+'">'+(p.concept?'Konzept-Entwurf · nicht beauftragt':'Live')+'</span></dd><dt>Web</dt><dd>'+web+'</dd></dl></div>'+
+    '<dl class="p-meta rv" style="--d:5"><dt class="opt">'+(p.concept?'Für':'Kunde')+'</dt><dd class="opt">'+p.client+'</dd><dt>Leistung</dt><dd>'+p.svc+'</dd><dt class="opt">Status</dt><dd class="opt"><span class="status'+(p.concept?' demo':'')+'">'+(p.concept?'Konzept-Entwurf · nicht beauftragt':(p.status||'Live'))+'</span></dd><dt>Web</dt><dd>'+web+'</dd></dl></div>'+
     '<div class="p-media">'+open+'<div class="chrome"><i></i><i></i><i></i><span>'+p.url+'</span></div>'+frame(p.k)+(p.href?'</a>':'</div>')+'</div></div>';
   deck.insertBefore(s,anchor);
 });
