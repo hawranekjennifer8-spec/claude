@@ -1,4 +1,25 @@
-# J.H. Digital Atelier – Showreel-Prompt „Wir bauen Websites. Du entscheidest.“ (v1, 30.10.2026)
+# J.H. Digital Atelier – Showreel-Prompt „Wir bauen Websites. Du entscheidest.“ (v2, 30.10.2026)
+
+## v2 – So wird es gebaut (Jenny hat v1 als unprofessionell abgelehnt)
+
+**Lehren aus v1 (nie wieder):**
+- Keine Website-Aufnahmen in Standfotos (KI-Bilder mit Laptop/Handy) montieren. Das Foto steht still, Licht, Spiegelung und Ausschnitt passen nicht, und es wirkt „draufgeklatscht“.
+- Keine weiße Standardschrift, die nur einblendet: Das ist Template-Niveau ohne Wow.
+- Wenn Credits/Material fehlen, vorher klar sagen statt mit einem Notbehelf zu bauen.
+
+**v2-Weg „Komplett digital, 3D-Look“ (von Jenny gewählt):**
+- Dunkle Luxus-Bühne (#0B0C10) mit warmem Amber-Glow, Bokeh-Lichtern, Filmkorn, Vignette und weich auslaufender Bodenspiegelung.
+- MacBook (Space Black, Kamera, Unterteil mit Griffmulde) und iPhone (Titanrahmen, Dynamic Island, Statusleiste mit Uhrzeit und Akku) sauber in HTML/CSS-3D gebaut. Die echten Aufnahmen laufen exakt im Geräteformat (Desktop 1280×800 in 16:10, Mobil 390×844), dazu ein Glas-Schimmer, der über den Bildschirm wandert.
+- Bei Kunden mit Desktop- und Mobil-Aufnahme stehen MacBook und iPhone nebeneinander, ohne Überlappung.
+- Kamera: Geräte fliegen mit 3D-Drehung (rotateY ±38° → ±7°) und Unschärfe → scharf herein (0,6 s, expo.out), driften langsam weiter und fliegen zur Gegenseite hinaus. Schnitt alle 2,1 s mit 0,25 s Überlappung.
+- Typo: Bodoni Moda (optische Größe 22, damit die Haarstriche am Handy nicht brechen) + Manrope. Wörter fahren aus Masken hoch, Buchstaben werden aus der Unschärfe scharf, Goldverlauf mit Glanz-Sweep, Linie zeichnet sich, Label „01 —— RESTAURANT“, unten URL + Status-Pill (Live / Konzept / Eigenprojekt).
+- Hook (2,75 s): „Wir bauen“ (Masken-Reveal) / „Websites.“ (Gold-Glanz, Buchstaben aus Blur) / Goldlinie / „DU ENTSCHEIDEST.“ (Sperrschrift), dahinter dreht sich das 3D-Band aus Portfolio-Screens wie im Portfolio-Intro. Danach Lichtblitz und Zoom in Szene 1.
+- Outro: „Deine Website / *als Nächstes?*“, das Instagram-Logo zeichnet sich als Linie und wechselt in den IG-Farbverlauf, Handle buchstabenweise, darunter „J.H. · DIGITAL ATELIER · WIESBADEN“.
+- Technik: Seite `reel.html` + `reel.js` (GSAP-Timeline, pausiert), Bild für Bild deterministisch per Playwright gerendert (Timeline.seek pro Frame, Aufnahmen als JPG-Sequenzen), 1080×1920, 30 fps, ffmpeg H.264 CRF 18. Projekte: Da Graziella, ZITRA, Kaffee & Kissen, PYRO, PASTASCIUTTA, LUMINOSO, MAGNIFIO (≈ 21 s).
+
+---
+
+# v1 (Grundlage, Referenz-Analyse)
 
 **Referenz:** Reel von @idanweb, „We make websites / You judge.“ (9:16, 25 s)
 Datei: `referenzen/2026-10-30_idanweb_we-make-websites-you-judge.mp4`, Kontaktbogen daneben.
