@@ -1,3 +1,34 @@
+# J.H. Digital Atelier – Reel- & Ads-Masterprompt v2 (30.10.2026, gilt ab sofort)
+
+> Vor JEDEM Reel komplett lesen. v1 (unten) bleibt als Material-/Referenzliste gültig, aber Abschnitt 0 hat Vorrang.
+
+## 0. Fehler-Logbuch – warum v1 bis v4 durchgefallen sind (nie wiederholen)
+
+| Version | Was ich gebaut habe | Jennys Urteil | Eigentlicher Grund |
+|---|---|---|---|
+| v1 | Aufnahmen in ihre Glam-Fotos montiert | „unprofessionell, 08/15, draufgeklatscht“ | Perspektive/Licht passen nicht, Standardschrift |
+| v2 | 3D-Geräte auf dunkler Bühne, Bodoni-Typo | besser, aber nicht Senior | künstliche CSS-Bühne, wirkt gerendert |
+| v3 | dito + Montage | „viel besser“ | – |
+| v4 | Vorher/Nachher, Whip-Montage, 3D-Raster, Tunnel, Gold-Endkarte | „nicht professionell, Schriftarten gar nicht, Flop“ | **zu viele Effekte, KI-Luxus-Template-Look** (Gold-Glanz, Bokeh, Pillen-Chips, Bodoni überall, Tunnel), keine echte Kamera |
+
+**Kernerkenntnis aus der Referenz @idanweb:** Die Wirkung kommt NICHT aus Typo-Effekten. Sie kommt aus
+1. **echter Kamera**: echtes MacBook, echter Raum, echte Hand am Trackpad, natürliches Licht, leichtes Handwackeln,
+2. **echtem Live-Scrollen** der Seite (Spiegelungen, Display-Helligkeit, Tastatur im Bild),
+3. **Rhythmus**: Hartschnitte im Takt, jede Seite 2–2,7 s,
+4. **minimaler Schrift**: eine native, schlichte Zeile („We make websites / You judge.“), sonst nur das IG-Handle.
+
+## 1. Neue Regeln (Vorrang vor allem anderen)
+- **Always:** echtes Footage (gefilmt oder fotoreal generiert) · Seiten in voller Schärfe, ruhig, ohne Pop-ups · max. 2 Textzeilen im ganzen Reel plus Endkarte · eine schlichte Grotesk (z. B. Instrument Sans/Inter Tight) oder IG-native Schrift, weiß, ohne Glanz · Schnitte hart auf dem Beat.
+- **Never:** Gold-Glanz-Sweeps, Bokeh-Bühnen, Pillen-Chips mit Nummern, 3D-Tunnel/Kartenwolken, Bodoni als Effektschrift, mehr als ein Übergangseffekt-Typ, künstliche CSS-Geräte, Fotos mit eingeklebten Screens.
+- **Selbsttest vor Abgabe:** Neben das @idanweb-Reel legen. Wenn man in 1 s erkennt, dass meins gerendert ist → nicht abgeben.
+
+## 2. Produktionswege (in dieser Reihenfolge)
+1. **Jenny filmt (beste Qualität, kostenlos):** iPhone, 4K 30 fps, Hochformat, Kamera hinter ihrer Schulter (POV), MacBook auf schönem Tisch (Matcha, LV-Block, warmes Lampenlicht), rote Nägel am Trackpad, je Seite 6–8 s langsam scrollen, Display-Helligkeit 100 %, Night-Shift aus. Ich liefere die Shotliste + Seiten-Links, schneide, grade (warm, Korn), setze Takt, Hook-Zeile und Endkarte.
+2. **Fotoreal generiert (braucht Higgsfield-Credits, ca. 7 Clips):** Image-to-Video „POV über die Schulter, Hand mit roten Nägeln am MacBook-Trackpad, Bildschirm grün“ → Bildschirm per Eckpunkt-Tracking mit den echten Aufnahmen ersetzen (Perspektive + Glanz + leichte Unschärfe passend).
+3. **Rein digital nur als Notlösung:** dann editorial-schlicht – vollflächige Handy-Aufnahmen, harte Schnitte, eine Grotesk-Zeile, keine Effekte.
+
+---
+
 # J.H. Digital Atelier – Reel- & Ads-Masterprompt v1 (30.10.2026)
 
 > Gilt für jedes Reel, jede Story und jede Meta-Ad des Ateliers. Ergänzt Masterprompt v7 (`MASTERPROMPT-v7-KOMPLETT.md`) und den Showreel-Prompt v2 (`referenzen/SHOWREEL-PROMPT.md`). Vor jedem Video komplett lesen.
