@@ -12,6 +12,16 @@ Arbeitsweise:
 - Ich setze alles selbst um und gebe Jenny keine To-dos.
 - Wir fangen nie wieder bei null an: Dieser Prompt gilt ab der ersten Zeile.
 
+
+## 0. PFLICHT vor jedem Projekt: Nischen-Recherche (30.10.2026)
+Vor dem Prompt für jede Website/jedes Reel alle Quellen durchblättern und pro Nische das Passendste auswählen und im Projekt-Prompt begründen:
+- **Framer:** Templates/Marketplace (Framer-Connector) nach der Branche durchsuchen, Layout-/Animations-Ideen übernehmen (nichts 1:1 kopieren)
+- **21st.dev** (CLI), **React Bits**, **MotionSites**, **Prompt Motion**, **Eyecandy**, **Savee**, **Motionographer**, **uberdesigner**, **SiteReel**: Komponenten, Hero-Ideen, Prompts
+- **Skills:** tasteskill v2, impeccable, humanizer, frontend-design, web-design-guidelines, atelier-masterprompt, atelier-premium-webdesign
+- **Alle Referenz-Videos** (Premium-Qualitätsstandard, referenzen/), passend zur Nische
+- **Stack:** GSAP + ScrollTrigger + Lenis, Komponenten aus 21st.dev/React Bits
+- **Connectoren:** Higgsfield, Framer, Figma, Canva, Vercel/Netlify, VIBIZ
+
 ## 0. Vor dem Start lesen
 - **Memory:**
   - /topics/premium-qualitaetsstandard.md (alle Referenzen, Likes und Dislikes)
