@@ -253,8 +253,7 @@ form.req{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
 .btn svg{transition:transform .4s var(--ease)}.btn:hover svg{transform:translateX(4px)}
 @media (max-width:860px){.kg{grid-template-columns:1fr}form.req{grid-template-columns:1fr}.f.w,.send{grid-column:1}}
 .word-mark{margin-top:clamp(90px,14vh,170px);position:relative;line-height:.78;font-family:var(--serif);font-weight:300;letter-spacing:-.055em;font-size:clamp(110px,28vw,480px);white-space:nowrap;user-select:none}
-.word-mark span{display:block}.word-mark .o{color:transparent;-webkit-text-stroke:1px rgba(243,241,235,.35)}
-.word-mark .f2{position:absolute;left:0;top:0;color:var(--paper);clip-path:inset(0 calc(100% - var(--f,0%)) 0 0)}
+.word-mark span{display:inline-block;padding:0 .04em .06em 0;color:transparent;-webkit-text-stroke:1px rgba(243,241,235,.35);background:linear-gradient(90deg,var(--paper) var(--f,0%),transparent var(--f,0%));-webkit-background-clip:text;background-clip:text}
 footer.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:26px 0 calc(26px + env(safe-area-inset-bottom));border-top:1px solid rgba(243,241,235,.18);font-size:13px;color:rgba(243,241,235,.6)}
 footer.foot a{text-decoration:none;margin-left:22px}
 footer.foot a:first-child{margin-left:0}
@@ -461,7 +460,7 @@ footer.foot a:first-child{margin-left:0}
       <div class="send"><small>Das Formular öffnet Ihr E-Mail-Programm. Über diese Seite werden keine Daten gespeichert. <a href="datenschutz.html">Datenschutz</a></small><button class="btn" type="submit">Anfrage senden <svg width="18" height="10" viewBox="0 0 18 10" fill="none" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor"/></svg></button></div>
     </form>
   </div>
-  <div class="word-mark" id="wm" aria-hidden="true"><span class="o">Rüppel</span><span class="f2">Rüppel</span></div>
+  <div class="word-mark" id="wm" aria-hidden="true"><span>Rüppel</span></div>
   <footer class="foot"><span>© Gebäudereinigung Rüppel Service GmbH · Konzeptentwurf von J.H. Digital Atelier</span><span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span></footer>
 </section>
 </main>
@@ -609,7 +608,7 @@ $$('.tl li img').forEach(im=>gsap.from(im,{clipPath:'inset(0 0 100% 0)',duration
 gsap.from('.team li',{opacity:0,y:16,stagger:.05,duration:.8,ease:'expo.out',scrollTrigger:{trigger:'.team',start:'top 82%'}});
 
 /* Wortmarke füllt sich */
-gsap.fromTo('#wm',{'--f':'0%'},{'--f':'100%',ease:'none',scrollTrigger:{trigger:'#wm',start:'top 95%',end:'max',scrub:true}});
+gsap.fromTo('#wm span',{'--f':'0%'},{'--f':'100%',ease:'none',scrollTrigger:{trigger:'#wm',start:'top 95%',end:'max',scrub:true}});
 
 let lw=innerWidth;addEventListener('resize',()=>{if(Math.abs(innerWidth-lw)>40){lw=innerWidth;ScrollTrigger.refresh()}});
 addEventListener('load',()=>ScrollTrigger.refresh());
