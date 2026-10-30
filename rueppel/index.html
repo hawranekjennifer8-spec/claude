@@ -213,7 +213,7 @@ header.nav.hide{transform:translateY(-100%)}
 .tl li b{font-weight:500;font-variant-numeric:tabular-nums;font-size:15px}
 .tl li h3{font-family:var(--serif);font-weight:300;font-size:clamp(24px,2.3vw,34px);line-height:1.15}
 .tl li img{margin-top:18px;width:min(420px,100%);aspect-ratio:4/3;object-fit:cover}
-@media (max-width:760px){.tl{grid-template-columns:1fr}.tl .yr{position:relative;top:0}.tl .yr .y{font-size:96px}.tl li{grid-template-columns:64px 1fr;opacity:1}}
+@media (max-width:760px){.tl{grid-template-columns:1fr}.tl .yr{position:relative;top:0}.tl .yr .y{display:none}.tl .yr p{margin:0 0 30px}.tl li{grid-template-columns:64px 1fr;opacity:1}}
 
 /* ---------- team ---------- */
 #team{padding:0 var(--pad) clamp(100px,15vh,170px)}
@@ -224,7 +224,7 @@ header.nav.hide{transform:translateY(-100%)}
 .team li .serif{font-size:clamp(22px,2vw,30px);font-weight:300}
 .team li span{font-size:13px;color:var(--mute);text-align:right}
 .team p.s{color:var(--mute);margin-top:14px;font-size:14px;max-width:250px}
-@media (max-width:900px){.team{grid-template-columns:1fr}.team ul{grid-template-columns:1fr}}
+@media (max-width:900px){.team{grid-template-columns:1fr}.team ul{grid-template-columns:1fr}.team li{flex-direction:column;align-items:flex-start;gap:2px}.team li span{text-align:left}}
 
 /* ---------- kontakt ---------- */
 #kontakt{background:var(--ink);color:var(--paper);padding:clamp(100px,15vh,180px) var(--pad) 0;position:relative;overflow:hidden}
@@ -317,7 +317,7 @@ footer.foot a:first-child{margin-left:0}
   <div class="climb" style="--n:6">
     <div class="stage">
       <div class="scale" aria-hidden="true"><span>100 m</span><span>Boden</span><i class="dot"></i></div>
-      <article class="ch"><img src="media/unterfuehrung.jpg" alt="Reinigung einer Bahnhofsunterführung in Hofheim" decoding="async" width="1600" height="899"><div class="txt"><div class="word">Boden<em>.</em></div><p class="info"><b>Stadt Hofheim</b>Bahnhofsunterführungen: Wände, Decken und Böden, gründlich und materialschonend.</p></div></article>
+      <article class="ch"><img style="object-position:32% 50%" src="media/unterfuehrung.jpg" alt="Reinigung einer Bahnhofsunterführung in Hofheim" decoding="async" width="1600" height="899"><div class="txt"><div class="word">Boden<em>.</em></div><p class="info"><b>Stadt Hofheim</b>Bahnhofsunterführungen: Wände, Decken und Böden, gründlich und materialschonend.</p></div></article>
       <article class="ch"><img src="media/marriott-glas.jpg" alt="Glasreinigung an der Fensterfront des Marriott Wiesbaden" decoding="async" width="1600" height="901"><div class="txt"><div class="word">Glas<em>.</em></div><p class="info"><b>Marriott Wiesbaden</b>Fenster und Rahmen, streifenfrei. Saubere Glasflächen lassen mehr Licht in die Räume.</p></div></article>
       <article class="ch"><img src="media/rheingau.jpg" alt="Fassadenreinigung an einer Mauer am Rhein im Rheingau" decoding="async" width="1998" height="1123"><div class="txt"><div class="word">Fassade<em>.</em></div><p class="info"><b>Rheingau</b>Fassadenreinigung am Rhein. Die Fassade ist die Visitenkarte eines Gebäudes.</p></div></article>
       <article class="ch"><img src="media/bruecke.jpg" alt="Hubsteiger an der Theodor-Heuss-Brücke zwischen Mainz und Wiesbaden" decoding="async" width="1600" height="900"><div class="txt"><div class="word">Brücke<em>.</em></div><p class="info"><b>Theodor-Heuss-Brücke</b>Bauwerksreinigung zwischen Wiesbaden und Mainz, mit Hubsteiger über dem Rhein.</p></div></article>
@@ -608,7 +608,7 @@ $$('.tl li img').forEach(im=>gsap.from(im,{clipPath:'inset(0 0 100% 0)',duration
 gsap.from('.team li',{opacity:0,y:16,stagger:.05,duration:.8,ease:'expo.out',scrollTrigger:{trigger:'.team',start:'top 82%'}});
 
 /* Wortmarke füllt sich */
-gsap.fromTo('#wm',{'--f':'0%'},{'--f':'100%',ease:'none',scrollTrigger:{trigger:'#wm',start:'top 95%',end:'bottom 70%',scrub:true}});
+gsap.fromTo('#wm',{'--f':'0%'},{'--f':'100%',ease:'none',scrollTrigger:{trigger:'#wm',start:'top 95%',end:'max',scrub:true}});
 
 let lw=innerWidth;addEventListener('resize',()=>{if(Math.abs(innerWidth-lw)>40){lw=innerWidth;ScrollTrigger.refresh()}});
 addEventListener('load',()=>ScrollTrigger.refresh());
