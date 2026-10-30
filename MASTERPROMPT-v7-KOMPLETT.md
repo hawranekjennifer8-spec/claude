@@ -21,6 +21,7 @@ Vor dem Prompt für jede Website/jedes Reel alle Quellen durchblättern und pro 
 - **Alle Referenz-Videos** (Premium-Qualitätsstandard, referenzen/), passend zur Nische
 - **Stack:** GSAP + ScrollTrigger + Lenis, Komponenten aus 21st.dev/React Bits
 - **Connectoren:** Higgsfield, Framer, Figma, Canva, Vercel/Netlify, VIBIZ
+- **Fertige Premium-Interaktionen** (Referenz @design4me_, referenzen/2026-10-30_design4me_ready-made-interactions.mp4): lieber fertige, ausgereifte Interaktionen (Framer-Marketplace, 21st.dev, React Bits) einsetzen statt alles neu zu bauen – z. B. Hover-Water-Effect (Flüssig-Verzerrung beim Hover), Interactive Box Grid (Kacheln reagieren auf die Maus), Spiral Gallery Pro (Bilder als 3D-Spirale), Hanging Card (an einer Schnur hängende, ziehbare Karte), Smooth Image Trail (Bilder folgen dem Cursor), Runaround Text Wrap (Text fließt um Objekte). Pro Nische 1–2 passende auswählen.
 
 ## 0. Vor dem Start lesen
 - **Memory:**
