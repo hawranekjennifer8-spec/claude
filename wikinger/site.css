@@ -55,7 +55,7 @@ a{color:inherit}
 .door-foot{position:absolute;left:0;right:0;bottom:22px;pointer-events:none;display:flex;justify-content:space-between;padding:0 var(--pad);font-size:13px;z-index:2}
 .hours{margin:0;display:flex;align-items:center;gap:8px}.hours::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green2)}
 .scrollcue{letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--green)}
-.vision-sec{padding:clamp(90px,11vw,160px) 0;text-align:center}
+.vision-sec{padding:clamp(50px,6vw,90px) 0 clamp(90px,11vw,160px);text-align:center}
 .vision{margin:0 auto;max-width:1100px}
 .vision p{font:400 clamp(28px,3.8vw,56px)/1.18 var(--serif);margin:0 auto;max-width:26ch;text-wrap:balance}
 .vision b{font-weight:400;color:var(--green)}

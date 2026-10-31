@@ -48,7 +48,7 @@ if (!RM) {
 /* Reveals */
 $$('.vision, .label, .h2, .body, .menu li, .room, .notes, .htable, .ctas').forEach(el => {
   if (el.closest('.door')) return;
-  gsap.from(el, {y:40, opacity:0, duration:1, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 88%'}});
+  gsap.from(el, {y:40, opacity:0, duration:1, ease:'power3.out', scrollTrigger:{trigger:el, start: el.matches('.vision') ? 'top bottom' : 'top 88%'}});
 });
 
 /* Heißer Stein: Garstufen-Marke + Bildzoom */
