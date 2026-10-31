@@ -98,3 +98,6 @@
   5. **Kleinunternehmer:** keine USt ausweisen, Hinweis „Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.“
   6. App-Anbieter in Datenschutzerklärung und AV-Vertrag aufnehmen.
 - Umsetzung erst nach Jennys Freigabe (die App ist kostenpflichtig). Jede Änderung im Shop zuerst rechtlich prüfen.
+
+## Regel 31.10.2026 – Jede Seite individuell (Jenny)
+Keine „Massen-Webseite“: Webers Wikinger v1 war ein KAVOS-Klon (gleicher Aufbau, gleiches Reservierungs-Widget, nur Farben/Bilder getauscht) – „das merkt man sofort“. Ab jetzt pro Betrieb eigenes Konzept aus dessen echter Identität (Fassade, Logo-Form, Farben, Räume): eigene Palette, eigenes Schriftpaar, eigene Leit-Interaktion, eigener Reservierungs-/Kontaktweg. Vor dem Bauen im PROMPT.md festhalten, was sich von den bisherigen Seiten unterscheidet. Gemeinsam bleibt nur der Technik-Stack.
