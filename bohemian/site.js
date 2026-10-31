@@ -121,6 +121,7 @@ $$('#wish button').forEach(b => b.addEventListener('click', () => {
   gsap.from('#match .card', {y:30, opacity:0, stagger:.08, duration:.6, ease:'power3.out'});
 }));
 $$('#wish button').forEach(b => b.setAttribute('aria-pressed', 'false'));
+$('#wish button').click();
 
 addEventListener('load', () => { ScrollTrigger.refresh(); showCat(+$('.tabs [aria-selected=true]').dataset.t); });
 })();

@@ -49,7 +49,7 @@ button{font:inherit;color:inherit}
 .ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 60s linear infinite}
 .ring text{font:400 15px var(--sans);letter-spacing:.62em;fill:var(--gold)}
 @keyframes spin{to{transform:rotate(360deg)}}
-.hero-circle{position:absolute;inset:9%;border-radius:50%;overflow:hidden}
+.hero-circle{position:absolute;inset:9%;border-radius:50%;overflow:hidden;transform:scaleX(-1)}
 .hero-circle img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .hero-oval{position:absolute;left:-8%;bottom:-4%;width:30%;aspect-ratio:2/3;border-radius:999px;overflow:hidden;border:6px solid var(--puder)}
 .hero-oval img{width:100%;height:100%;object-fit:cover}
