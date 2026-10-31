@@ -1,146 +1,137 @@
-(()=>{
-const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
-gsap.registerPlugin(ScrollTrigger);
+(() => {
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MAIL = 'info@webers-wikinger.de';
+// Öffnungszeiten (Webers Wikinger): Di–Fr 16:30, Sa 11:30, letzte Online-Reservierung 21:30; So/Mo Ruhetag
+const OPEN = {2:[16,30],3:[16,30],4:[16,30],5:[16,30],6:[11,30]}, LAST = [21,30], LEAD = 24*36e5;
+const pad = n => String(n).padStart(2,'0');
+const DAYS = ['So','Mo','Di','Mi','Do','Fr','Sa'];
 
-/* split headlines into word masks */
-$$('.split').forEach(el=>{const t=document.createElement('div');t.innerHTML=el.innerHTML;const out=[];
-  t.childNodes.forEach(n=>{const em=n.nodeType===1&&n.tagName==='EM';n.textContent.split(/\s+/).filter(Boolean).forEach(w=>out.push(em?`<em>${w}</em>`:w))});
-  el.innerHTML=out.map(w=>`<span class="ln"><span>${w}</span></span>`).join(' ')});
+/* heute geöffnet */
+const now = new Date(), o = OPEN[now.getDay()];
+$('#todayHours').textContent = o ? `Heute ab ${o[0]}:${pad(o[1])} Uhr geöffnet` : 'Heute Ruhetag · Di – Sa geöffnet';
 
 /* smooth scroll */
-let lenis=null;
-if(!RM&&window.Lenis){lenis=new Lenis({duration:1.15});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
-$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');const t=id.length>1&&$(id);if(!t)return;e.preventDefault();lenis?lenis.scrollTo(id==='#top'?0:t,{offset:-60}):t.scrollIntoView({behavior:'smooth'})}));
+gsap.registerPlugin(ScrollTrigger);
+let lenis;
+if (!RM) { lenis = new Lenis({lerp:.09}); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
+$$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = $(a.getAttribute('href')); if (!t) return; e.preventDefault(); lenis ? lenis.scrollTo(t, {offset: a.getAttribute('href') === '#top' ? 0 : -70, duration:1.4}) : t.scrollIntoView(); }));
 
-/* header + mobile bar */
-const hdr=$('#hdr'),mbar=$('.mbar');
-ScrollTrigger.create({start:0,end:'max',onUpdate:s=>hdr.classList.toggle('solid',s.scroll()>60)});
-const mb=()=>{if(!mbar)return;const y=scrollY,r=$('#reservieren').getBoundingClientRect();mbar.classList.toggle('hide',y<innerHeight*.7||(r.top<innerHeight*.8&&r.bottom>innerHeight*.2))};mb();ScrollTrigger.create({start:0,end:'max',onUpdate:mb});
-
-/* today's opening hours */
-(()=>{const d=new Date().getDay(),h=$('#todayHours');const open={2:'16:30',3:'16:30',4:'16:30',5:'16:30',6:'11:30'};
-  h.innerHTML=open[d]?`<i></i>Heute ab ${open[d]} Uhr geöffnet`:`<i class="off"></i>Heute Ruhetag – wir freuen uns auf Ihre Reservierung`})();
-
-/* fire particles */
-function fire(canvas,opts){const ctx=canvas.getContext('2d');let W,H,parts=[],pow=opts.pow||0;
-  const size=()=>{const r=canvas.getBoundingClientRect(),d=Math.min(devicePixelRatio,2);W=canvas.width=r.width*d;H=canvas.height=r.height*d};size();addEventListener('resize',size);
-  const api={set p(v){pow=v},get p(){return pow}};
-  const tick=()=>{ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,W,H);ctx.globalCompositeOperation='lighter';
-    const n=Math.round(pow*opts.rate);for(let i=0;i<n;i++){const x=W*(opts.x+(Math.random()-.5)*opts.w);parts.push({x,y:H*opts.y,vx:(Math.random()-.5)*1.2,vy:-(2+Math.random()*3.5)*(H/900),r:(18+Math.random()*34)*(W/900),l:1})}
-    parts=parts.filter(p=>p.l>0);for(const p of parts){p.x+=p.vx+Math.sin(p.y*.012)*.6;p.y+=p.vy;p.l-=.016;p.r*=.985;
-      const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);const a=Math.max(0,p.l);
-      g.addColorStop(0,`rgba(255,${180+70*a|0},${90*a|0},${.55*a})`);g.addColorStop(.4,`rgba(240,${100+60*a|0},30,${.32*a})`);g.addColorStop(1,'rgba(200,60,10,0)');
-      ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fill()}
-    if(pow>0||parts.length)requestAnimationFrame(tick);else running=false};
-  let running=false;api.start=()=>{if(!running){running=true;requestAnimationFrame(tick)}};return api}
-
-/* reveals */
-function reveals(){
-  $$('.split').filter(el=>!el.closest('.hero')).forEach(el=>gsap.from($$('.ln>span',el),{yPercent:110,duration:1.15,ease:'expo.out',stagger:.035,scrollTrigger:{trigger:el,start:'top 86%'}}));
-  $$('.body,.cite,.eyebrow').filter(el=>!el.closest('.hero')&&!el.closest('.season')).forEach(el=>gsap.from(el,{y:24,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}}));
-  gsap.from('.card',{y:70,opacity:0,stagger:.1,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:'.cards',start:'top 85%'}});
-  gsap.from('.parfait figure',{clipPath:'inset(0 100% 0 0)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:'.parfait',start:'top 80%'}});
-  gsap.fromTo('.parfait img',{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:'.parfait',start:'top bottom',end:'bottom top',scrub:true}});
-  $$('.count b').forEach(b=>{const n=+b.dataset.n,o={v:0};gsap.to(o,{v:n,duration:2,ease:'power3.out',scrollTrigger:{trigger:b,start:'top 88%'},onUpdate:()=>b.textContent=Math.round(o.v)+(b.dataset.x||'')})});
-  const it=$('#interior');gsap.to(it,{x:()=>-(it.scrollWidth-innerWidth*.92),ease:'none',scrollTrigger:{trigger:it,start:'top bottom',end:'bottom top',scrub:true,invalidateOnRefresh:true}});
-  gsap.from('.gin-pic',{clipPath:'inset(100% 0 0 0)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:'.gin',start:'top 75%'}});
-  gsap.from('.gin-glass',{y:120,opacity:0,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'.gin',start:'top 70%'}});
-  gsap.from('.notes span',{y:20,opacity:0,stagger:.08,duration:.8,scrollTrigger:{trigger:'.notes',start:'top 92%'}});
-  gsap.from('.rcard',{y:60,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'.rcard',start:'top 85%'}});
-  gsap.fromTo('.res-bg img',{scale:1.15},{scale:1,ease:'none',scrollTrigger:{trigger:'.res',start:'top bottom',end:'bottom top',scrub:true}});
-  gsap.from('.cpic',{clipPath:'inset(0 0 100% 0)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:'.cpic',start:'top 80%'}});
-  /* season: fire + switch */
-  const seas=$('#season'),fc=fire($('#fire'),{x:.62,y:.86,w:.32,rate:5});
-  ScrollTrigger.create({trigger:seas,start:'top 80%',end:'bottom 10%',onUpdate:s=>{fc.p=seas.dataset.s==='winter'?Math.sin(Math.min(1,s.progress)*Math.PI)*1+.25:0;fc.start()},onLeave:()=>fc.p=0,onLeaveBack:()=>fc.p=0});
-  $$('.switch button').forEach(b=>b.addEventListener('click',()=>{seas.dataset.s=b.dataset.v;$$('.switch button').forEach(x=>x.setAttribute('aria-selected',x===b));
-    $$('.st').forEach(t=>t.classList.toggle('on',t.classList.contains(b.dataset.v==='winter'?'st-w':'st-s')));fc.p=b.dataset.v==='winter'?1:0;fc.start()}));
-  gsap.fromTo('.sp img',{scale:1.15},{scale:1,ease:'none',scrollTrigger:{trigger:seas,start:'top bottom',end:'bottom top',scrub:true}});
+/* intro: Logo wächst ins Bild, Fläche hebt sich */
+const seen = sessionStorage.getItem('ww-intro');
+const heroIn = () => gsap.from('.door-txt .h1 span, .door-txt .label', {y:60, opacity:0, duration:1.2, stagger:.12, ease:'power3.out'});
+if (seen || RM) { document.documentElement.classList.add('no-intro'); heroIn(); }
+else {
+  sessionStorage.setItem('ww-intro', '1'); lenis && lenis.stop();
+  gsap.timeline({onComplete(){ $('#intro').remove(); lenis && lenis.start(); }})
+    .to('.intro-logo', {clipPath:'inset(0% 0 0 0)', duration:1.5, ease:'power2.inOut'})
+    .to('#intro p', {opacity:1, duration:.6}, '-=.3')
+    .to('#intro', {yPercent:-100, duration:1.1, ease:'power4.inOut'}, '+=.5')
+    .from('.door-pic', {'--m':18, duration:1.3, ease:'power3.out'}, '-=.7')
+    .add(heroIn, '-=1');
 }
 
-/* smoke above the hot stone */
-function smoke(c){const ctx=c.getContext('2d');let W,H,ps=[];const sz=()=>{const r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio,2);W=c.width=r.width*d;H=c.height=r.height*d};sz();addEventListener('resize',sz);
-  let on=true;ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom top',onLeave:()=>on=false,onEnterBack:()=>{on=true;requestAnimationFrame(t)}});
-  const t=()=>{ctx.clearRect(0,0,W,H);if(ps.length<70&&Math.random()<.5)ps.push({x:W*(.6+Math.random()*.22),y:H*(.62+Math.random()*.08),r:(30+Math.random()*50)*(W/1400),vx:(Math.random()-.4)*.4,vy:-(.5+Math.random()*.8)*(H/900),l:0,m:220+Math.random()*160});
-    for(const p of ps){p.l++;p.x+=p.vx+Math.sin((p.y+p.l)*.01)*.4;p.y+=p.vy;p.r*=1.006;const a=Math.sin(Math.min(1,p.l/p.m)*Math.PI)*.11;
-      const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);g.addColorStop(0,`rgba(240,232,220,${a})`);g.addColorStop(1,'rgba(240,232,220,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fill()}
-    ps=ps.filter(p=>p.l<p.m);if(on)requestAnimationFrame(t)};if(!RM)requestAnimationFrame(t)}
+/* Header */
+ScrollTrigger.create({start:80, onToggle: s => $('#hdr').classList.toggle('solid', s.isActive)});
+ScrollTrigger.create({trigger:'#stein', start:'top 80%', endTrigger:'#reservieren', end:'top 90%', onToggle: s => $('.mres').classList.toggle('hide', !s.isActive)});
 
-/* hero */
-function hero(){
-  const tl=gsap.timeline();
-  tl.from('.hero-pic img',{scale:1.25,duration:2.4,ease:'expo.out'})
-    .from('.hero .eyebrow,.hero .lead,.hero .ctas,.hero .hours',{y:24,opacity:0,stagger:.1,duration:1,ease:'power3.out'},'-=1.9')
-    .from($$('.hero .ln>span'),{yPercent:110,duration:1.2,ease:'expo.out',stagger:.05},'-=1.9');
-  gsap.to('.hero-pic img',{yPercent:10,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
-  smoke($('#smoke'));
+/* Scroll-Story: Zeltbogen öffnet sich, Vision erscheint */
+if (!RM) {
+  const mob = innerWidth < 640;
+  gsap.set('.door-pic', {'--m': mob ? 74 : 30});
+  gsap.timeline({scrollTrigger:{trigger:'.door', start:'top top', end:'bottom bottom', scrub:.6}})
+    .to('.door-txt, .door-foot', {opacity:0, y:-40, duration:.25}, 0)
+    .to('.door-pic', {'--m': mob ? 900 : 420, duration:.6, ease:'power2.in'}, 0)
+    .to('.door-pic img', {scale:1, duration:.6}, 0)
+    .to('.door-pic', {'--dim':.55, duration:.2}, .5)
+    .to('.vision', {autoAlpha:1, duration:.2}, .62)
+    .from('.vision p', {y:50, duration:.25}, .62);
+} else gsap.set('.vision', {autoAlpha:1});
+
+/* Reveals */
+$$('.label, .h2, .body, .menu li, .room, .notes, .htable, .ctas').forEach(el => {
+  if (el.closest('.door')) return;
+  gsap.from(el, {y:40, opacity:0, duration:1, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 88%'}});
+});
+
+/* Heißer Stein: Garstufen-Marke + Bildzoom */
+gsap.to('#garDot', {left:'calc(100% - 11px)', ease:'none', scrollTrigger:{trigger:'.stein', start:'top 70%', end:'bottom 40%', scrub:.5}});
+gsap.fromTo('.stein-pic img', {scale:1.18}, {scale:1, ease:'none', scrollTrigger:{trigger:'.stein', start:'top bottom', end:'bottom top', scrub:true}});
+gsap.fromTo('.gin-pic img', {scale:1.15, yPercent:-4}, {scale:1, yPercent:4, ease:'none', scrollTrigger:{trigger:'.gin', start:'top bottom', end:'bottom top', scrub:true}});
+
+/* Speisekarte: Foto folgt dem Cursor */
+const peek = $('#peek'), pimg = peek.querySelector('img');
+if (matchMedia('(pointer:fine)').matches) {
+  const qx = gsap.quickTo(peek, 'x', {duration:.6, ease:'power3'}), qy = gsap.quickTo(peek, 'y', {duration:.6, ease:'power3'});
+  addEventListener('mousemove', e => { qx(e.clientX - 150); qy(e.clientY - 190); });
+  $$('.menu li').forEach(li => {
+    li.addEventListener('mouseenter', () => { pimg.src = li.dataset.img; gsap.to(peek, {opacity:1, scale:1, rotate:li.dataset.r || -3, duration:.4}); });
+    li.addEventListener('mouseleave', () => gsap.to(peek, {opacity:0, scale:.85, duration:.3}));
+  });
 }
 
-/* intro */
-async function intro(){
-  let seen=false;try{seen=sessionStorage.getItem('ww-intro')==='1'}catch(e){}
-  if(RM||seen){document.documentElement.classList.add('no-intro');hero();return}
-  try{sessionStorage.setItem('ww-intro','1')}catch(e){}
-  lenis&&lenis.stop();
-  let svg='';try{svg=await(await fetch('img/logo.svg')).text()}catch(e){}
-  const box=$('#introLogo');box.innerHTML=svg;const s=$('svg',box);const el=$('#intro');
-  const done=()=>{gsap.to(el,{clipPath:'inset(0 0 100% 0)',duration:1.1,ease:'expo.inOut',onComplete:()=>{el.remove();lenis&&lenis.start();ScrollTrigger.refresh()}});hero()};
-  if(!s){done();return}
-  s.insertAdjacentHTML('afterbegin','<defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#E3C890"/><stop offset="1" stop-color="#F1EBE1"/></linearGradient><clipPath id="lc"><rect id="lr" x="0" y="717" width="1169" height="0"/></clipPath></defs>');
-  const p=$('path',s);p.setAttribute('clip-path','url(#lc)');p.setAttribute('fill','url(#lg)');
-  const f=fire($('#introFire'),{x:.5,y:1,w:.6,rate:4});
-  const tl=gsap.timeline({onComplete:done});
-  tl.to('#lr',{attr:{y:0,height:717},duration:1.4,ease:'power2.inOut'})
-    .to('.intro-claim',{opacity:1,y:0,duration:.7,ease:'power3.out'},'-=.3')
-    .to('#introFire',{opacity:.9,duration:.4,onStart:()=>{f.p=1;f.start()}},'-=.5')
-    .to({},{duration:.7})
-    .add(()=>{f.p=0});
+/* Das Haus: Linien zeichnen, Zähler, Hotspots */
+$$('.plan-svg .ln').forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = RM ? 0 : L; });
+if (!RM) gsap.to('.plan-svg .ln', {strokeDashoffset:0, duration:2.4, stagger:.18, ease:'power2.inOut', scrollTrigger:{trigger:'.plan', start:'top 75%'}});
+const c = $('.cnt'); gsap.from(c, {textContent:0, duration:1.8, snap:{textContent:1}, ease:'power2.out', scrollTrigger:{trigger:c, start:'top 85%'}});
+const ROOMS = {
+  empore:{img:'img/innen1.webp', alt:'Gastraum mit Holzbalken', n:'60', h:'Plätze auf der Empore.', t:'Zusammen mit den 45 Plätzen im Erdgeschoss bietet unser Haus über 105 Gästen Platz.'},
+  eg:{img:'img/innen3.webp', alt:'Gedeckte Tische unter Holzbalken', n:'45', h:'Plätze im Erdgeschoss.', t:'Holzbalken, gedeckte Tische – zu jeder Jahreszeit ein einzigartiges Ambiente.'},
+  kamin:{img:'img/kamin.webp', alt:'Brennender Kamin im Restaurant', n:'Winter', h:'Urgemütliche Kaminatmosphäre.', t:'Im Winter zeichnet sich unser Restaurant durch eine urgemütliche Kaminatmosphäre aus.'},
+  terrasse:{img:'img/terrasse1.webp', alt:'Terrasse in der Altstadt mit Sonnenschirmen', n:'Sommer', h:'Eine der schönsten Terrassen der Altstadt.', t:'Im Sommer speist man bei uns draußen, mitten in der Wiesbadener Altstadt.'}
+};
+$$('.hot').forEach(b => b.addEventListener('click', () => {
+  if (b.classList.contains('on')) return;
+  $$('.hot').forEach(x => x.classList.toggle('on', x === b));
+  const r = ROOMS[b.dataset.k];
+  gsap.to('#room', {opacity:0, y:14, duration:.25, onComplete(){
+    $('#roomImg').src = r.img; $('#roomImg').alt = r.alt; $('#roomN').textContent = r.n; $('#roomH').textContent = r.h; $('#roomT').textContent = r.t;
+    gsap.to('#room', {opacity:1, y:0, duration:.5, ease:'power3.out'});
+  }});
+}));
+Object.values(ROOMS).forEach(r => { new Image().src = r.img; });
+
+/* Reservierung als Satz */
+const fDay = $('#fDay'), fTime = $('#fTime'), fG = $('#fGuests');
+for (let i = 1; i <= 10; i++) fG.add(new Option(i, i, false, i === 2));
+const slotsFor = d => {
+  const op = OPEN[d.getDay()]; if (!op) return [];
+  const out = [];
+  for (let m = op[0]*60 + op[1]; m <= LAST[0]*60 + LAST[1]; m += 30) {
+    const t = new Date(d); t.setHours(Math.floor(m/60), m%60, 0, 0);
+    if (t - Date.now() >= LEAD) out.push(`${pad(t.getHours())}:${pad(t.getMinutes())}`);
+  }
+  return out;
+};
+for (let i = 0; i < 60; i++) {
+  const d = new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate() + i);
+  if (slotsFor(d).length) fDay.add(new Option(`${DAYS[d.getDay()]}, ${pad(d.getDate())}.${pad(d.getMonth()+1)}.`, d.toISOString().slice(0,10)));
 }
+const fillTimes = () => {
+  const d = new Date(fDay.value + 'T12:00'), keep = fTime.value; fTime.length = 0;
+  slotsFor(d).forEach(s => fTime.add(new Option(s, s, false, s === keep)));
+  if (!fTime.value) fTime.value = fTime.options[Math.min(4, fTime.length-1)].value;
+};
+fDay.addEventListener('change', fillTimes); fillTimes();
 
-/* reservation */
-(()=>{
-  const MAIL='info@webers-wikinger.de',MON=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],WD=['So','Mo','Di','Mi','Do','Fr','Sa'];
-  const OPEN={2:[16,30],3:[16,30],4:[16,30],5:[16,30],6:[11,30]},LAST=[21,30],LEAD=24*60*60*1000;
-  const today=new Date();today.setHours(0,0,0,0);const max=new Date(today);max.setDate(max.getDate()+90);
-  let view=new Date(today.getFullYear(),today.getMonth(),1),sel=null,slot=null,guests=2,step=1,area='egal';
-  $$('#area button').forEach(b=>b.addEventListener('click',()=>{area=b.dataset.a;$$('#area button').forEach(x=>x.classList.toggle('sel',x===b))}));
-  const cal=$('#cal'),title=$('#calTitle'),prev=$('#calPrev'),next=$('#calNext'),slots=$('#slots'),form=$('#rform');
-  const fmt=d=>`${WD[d.getDay()]}, ${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')}.${d.getFullYear()}`;
-  function go(n){step=n;$$('.rstep',form).forEach(s=>s.classList.toggle('on',+s.dataset.s===n));$$('.steps li',form).forEach((l,i)=>l.classList.toggle('on',i<Math.min(n,3)));
-    if(n===3)$('#summary').innerHTML=`<b>${fmt(sel)}</b> · <b>${slot} Uhr</b> · <b>${guests} ${guests===1?'Person':'Personen'}</b>${area!=='egal'?` · Wunsch: <b>${area}</b>`:''}`;}
-  function render(){title.textContent=`${MON[view.getMonth()]} ${view.getFullYear()}`;cal.innerHTML='';
-    const first=(view.getDay()+6)%7,days=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
-    for(let i=0;i<first;i++)cal.insertAdjacentHTML('beforeend','<span class="pad"></span>');
-    for(let d=1;d<=days;d++){const dt=new Date(view.getFullYear(),view.getMonth(),d);const b=document.createElement('button');b.type='button';b.textContent=d;
-      const off=dt<today||dt>max||!OPEN[dt.getDay()]||!daySlots(dt).length;b.disabled=off;
-      if(+dt===+today)b.classList.add('today');if(sel&&+dt===+sel)b.classList.add('sel');
-      b.setAttribute('aria-label',fmt(dt)+(off?' – nicht verfügbar':''));
-      b.addEventListener('click',()=>{sel=dt;slot=null;render();buildSlots();go(2)});cal.appendChild(b)}
-    prev.disabled=view<=new Date(today.getFullYear(),today.getMonth(),1);next.disabled=new Date(view.getFullYear(),view.getMonth()+1,1)>max}
-  function daySlots(dt){const o=OPEN[dt.getDay()];if(!o)return[];const out=[];let h=o[0],m=o[1];const now=new Date();
-    while(h<LAST[0]||(h===LAST[0]&&m<=LAST[1])){const t=new Date(dt);t.setHours(h,m);if(t-now>=LEAD)out.push(`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`);m+=30;if(m===60){m=0;h++}}return out}
-  function buildSlots(){slots.innerHTML='';daySlots(sel).forEach(s=>{const b=document.createElement('button');b.type='button';b.textContent=s;if(s===slot)b.classList.add('sel');
-    b.addEventListener('click',()=>{slot=s;$$('button',slots).forEach(x=>x.classList.toggle('sel',x===b))});slots.appendChild(b)})}
-  prev.addEventListener('click',()=>{view.setMonth(view.getMonth()-1);render()});next.addEventListener('click',()=>{view.setMonth(view.getMonth()+1);render()});
-  const gOut=$('#gOut'),big=$('#bigGroup');const setG=v=>{guests=Math.max(1,Math.min(10,v));gOut.textContent=guests;big.hidden=guests<10};
-  $('#gMinus').addEventListener('click',()=>setG(guests-1));$('#gPlus').addEventListener('click',()=>{if(guests===10){big.hidden=false;return}setG(guests+1)});
-  $$('[data-back]',form).forEach(b=>b.addEventListener('click',()=>go(step-1)));
-  $('[data-next="3"]',form).addEventListener('click',()=>{if(!slot){slots.animate([{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'none'}],{duration:300});return}go(3)});
-  form.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(form),err=$('#err');
-    const name=(f.get('name')||'').trim(),tel=(f.get('tel')||'').trim(),mail=(f.get('mail')||'').trim();
-    if(name.length<2){err.textContent='Bitte geben Sie Ihren Namen an.';return}
-    if(!/^[+\d][\d\s/()-]{5,}$/.test(tel)){err.textContent='Bitte geben Sie eine gültige Telefonnummer an.';return}
-    if(mail&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){err.textContent='Bitte prüfen Sie Ihre E-Mail-Adresse.';return}
-    err.textContent='';
-    const subj=`Reservierungsanfrage – ${fmt(sel)}, ${slot} Uhr, ${guests} ${guests===1?'Person':'Personen'}`;
-    const body=[`Liebes Team vom Webers Wikinger,`,``,`ich möchte gerne einen Tisch reservieren:`,``,`Datum: ${fmt(sel)}`,`Uhrzeit: ${slot} Uhr`,`Personen: ${guests}`,area!=='egal'?`Platzwunsch: ${area}`:'',f.get('anlass')?`Anlass: ${f.get('anlass')}`:'',f.get('note')?`Anmerkung: ${f.get('note')}`:'',``,`Name: ${name}`,`Telefon: ${tel}`,mail?`E-Mail: ${mail}`:'',``,`Vielen Dank und bis bald!`].filter((l,i,a)=>l!==''||a[i-1]!=='').join('\n');
-    const href=`mailto:${MAIL}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
-    $('#mailFallback').href=href;location.href=href;go(4)});
-  $$('[data-res]').forEach(a=>a.addEventListener('click',()=>{if(step===4){form.reset();sel=null;slot=null;setG(2);render();go(1)}}));
-  if(![...Array(40)].some((_,i)=>{const d=new Date(today);d.setDate(d.getDate()+i);return d.getMonth()===today.getMonth()&&OPEN[d.getDay()]&&daySlots(d).length}))view.setMonth(view.getMonth()+1);
-  render();
-})();
+$('#rform').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target, v = Object.fromEntries(new FormData(f));
+  const bad = ['name','tel'].filter(k => !v[k].trim() || (k === 'tel' && v.tel.replace(/\D/g,'').length < 6));
+  $$('.f').forEach(l => l.classList.toggle('bad', bad.includes(l.querySelector('input,select').name)));
+  if (bad.length) { $('#err').textContent = 'Bitte Name und Telefonnummer eintragen.'; f.querySelector(`[name=${bad[0]}]`).focus(); return; }
+  $('#err').textContent = '';
+  const day = fDay.options[fDay.selectedIndex].text + new Date(fDay.value).getFullYear();
+  const area = v.area || 'egal';
+  const subject = `Reservierungsanfrage – ${day}, ${v.time} Uhr, ${v.guests} Personen`;
+  const body = `Liebes Team vom Webers Wikinger,\n\nich möchte gern einen Tisch reservieren:\n\nTag: ${day}\nUhrzeit: ${v.time} Uhr\nPersonen: ${v.guests}\nPlatzwunsch: ${area}\n\nName: ${v.name}\nTelefon: ${v.tel}${v.mail ? `\nE-Mail: ${v.mail}` : ''}${v.note ? `\nAnmerkung: ${v.note}` : ''}\n\nIch freue mich auf Ihre Bestätigung.\nViele Grüße\n${v.name}`;
+  const href = `mailto:${MAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  $('#mailFallback').href = href;
+  $('#thanksT').textContent = `${day} um ${v.time} Uhr · ${v.guests} ${v.guests === '1' ? 'Person' : 'Personen'}${v.area ? ' · ' + v.area : ''}`;
+  f.hidden = true; $('#thanks').hidden = false;
+  gsap.from('#thanks > *', {y:30, opacity:0, stagger:.1, duration:.8, ease:'power3.out'});
+  location.href = href;
+});
 
-reveals();intro();
-addEventListener('load',()=>ScrollTrigger.refresh());
+addEventListener('load', () => ScrollTrigger.refresh());
 })();

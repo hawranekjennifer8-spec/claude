@@ -4,165 +4,150 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Webers Wikinger · Traditionsrestaurant in der Wiesbadener Altstadt · Online reservieren (Konzept)</title>
-<meta name="description" content="Konzept-Entwurf von J.H. Digital Atelier für das Traditionsrestaurant Webers Wikinger, Grabenstraße 14, Wiesbaden – Steaks auf dem heißen Stein, Kaminatmosphäre und Online-Reservierung.">
+<meta name="description" content="Konzept-Entwurf von J.H. Digital Atelier für das Traditionsrestaurant Webers Wikinger, Grabenstraße 14, Wiesbaden – Steaks auf dem heißen Stein, Kaminatmosphäre, Terrasse und Online-Reservierung.">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Webers Wikinger · Wiesbaden (Konzept)">
-<meta property="og:description" content="Auf den Punkt. Auf dem heißen Stein. Jetzt Tisch reservieren.">
+<meta property="og:description" content="Ehrliche Gastlichkeit in der Altstadt. Jetzt Tisch reservieren.">
 <meta property="og:image" content="https://jh-konzept-wikinger.vercel.app/img/og.jpg">
-<meta name="theme-color" content="#121010">
+<meta name="theme-color" content="#EFE7DA">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="img/steak.webp" as="image">
+<link rel="preload" href="fonts/young-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/innen2.webp" as="image">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Webers Wikinger","servesCuisine":["Steaks","Deutsch"],"telephone":"+49611307622","email":"info@webers-wikinger.de","acceptsReservations":true,"address":{"@type":"PostalAddress","streetAddress":"Grabenstraße 14","postalCode":"65183","addressLocality":"Wiesbaden","addressCountry":"DE"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"16:30","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"11:30","closes":"23:00"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
 
-<div id="intro" aria-hidden="true">
-  <div class="intro-in"><div id="introLogo" class="intro-logo"></div><p class="intro-claim">Traditionsrestaurant · Wiesbadener Altstadt</p></div>
-  <canvas id="introFire"></canvas>
-</div>
+<div id="intro" aria-hidden="true"><span class="logo intro-logo"></span><p>Grabenstraße 14 · Wiesbaden</p></div>
 
 <header class="hdr" id="hdr">
-  <a class="brand" href="#top" aria-label="Webers Wikinger – zur Startseite"><img src="img/logo.svg" alt="Webers Wikinger" width="92" height="56"></a>
-  <nav class="nav" aria-label="Hauptnavigation"><a href="#kueche">Küche</a><a href="#haus">Kamin &amp; Terrasse</a><a href="#gin">Unser Gin</a><a href="#kontakt">Kontakt</a></nav>
-  <a class="btn btn-glow btn-sm" href="#reservieren" data-res>Tisch reservieren</a>
+  <a class="brand" href="#top" aria-label="Webers Wikinger – zur Startseite"><span class="logo"></span></a>
+  <nav class="nav" aria-label="Hauptnavigation"><a href="#stein">Heißer Stein</a><a href="#karte">Speisen</a><a href="#haus">Das Haus</a><a href="#gin">Gin</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn btn-sm" href="#reservieren">Tisch reservieren</a>
 </header>
 
 <main id="main">
-<section class="hero" id="top">
-  <figure class="hero-pic"><img src="img/steak.webp" alt="Rindersteak auf dem heißen Stein mit Pommes und Saucen" width="1244" height="830"></figure>
-  <canvas id="smoke" aria-hidden="true"></canvas>
-  <div class="hero-txt">
-    <p class="eyebrow">Grabenstraße 14 · Wiesbaden</p>
-    <h1 class="h1 split">Auf den Punkt. <em>Auf dem heißen Stein.</em></h1>
-    <p class="lead">Rindersteaks aus Südamerika, täglich frisch geliefert – auf dem heißen Stein oder nach Ihren Wünschen auf den Punkt gegrillt.</p>
-    <div class="ctas"><a class="btn btn-glow" href="#reservieren" data-res>Tisch reservieren</a><a class="btn btn-ghost" href="#kueche">Unsere Küche</a></div>
-    <p class="hours" id="todayHours"></p>
+<section class="door" id="top">
+  <div class="door-in">
+    <div class="door-txt">
+      <p class="label">Traditionsrestaurant · Wiesbadener Altstadt</p>
+      <h1 class="h1"><span class="l">Ehrliche</span> <span class="r">Gastlichkeit.</span></h1>
+    </div>
+    <figure class="door-pic" id="doorPic"><img src="img/innen2.webp" alt="Gastraum mit Holzbalken und brennendem Kamin" width="967" height="1043"></figure>
+    <div class="door-foot"><p class="hours" id="todayHours"></p><span class="scrollcue">Eintreten</span></div>
+    <blockquote class="vision" id="vision"><p>„Unser Bestreben ist es, <b>ehrliche Gastlichkeit</b> bei höchster Produktqualität erlebbar zu machen und damit Ihnen, als unseren Gästen, Freude und Zufriedenheit zu schenken.“</p><cite>A. u. P. Weber</cite></blockquote>
   </div>
 </section>
 
-<section class="vision">
-  <div class="wrap">
-    <p class="eyebrow center">Unsere Vision</p>
-    <blockquote class="quote split">„Unser Bestreben ist es, <em>ehrliche Gastlichkeit</em> bei höchster Produktqualität erlebbar zu machen und damit Ihnen, als unseren Gästen, Freude und Zufriedenheit zu schenken.“</blockquote>
-    <p class="cite">— A. u. P. Weber</p>
+<section class="stein" id="stein">
+  <div class="stein-in wrap">
+    <figure class="stein-pic">
+      <img src="img/steak.webp" alt="Rindersteak auf dem heißen Stein mit Pommes und Saucen" width="1244" height="830" loading="lazy">
+      <svg class="steam" viewBox="0 0 300 300" aria-hidden="true"><path d="M90 300c-20-40 30-60 10-100s20-60 0-100"/><path d="M150 300c-25-45 25-65 5-110s25-55 5-95"/><path d="M210 300c-20-40 30-60 10-100s20-60 0-100"/></svg>
+    </figure>
+    <div class="stein-txt">
+      <p class="label"><span class="rn">I</span> Der heiße Stein</p>
+      <h2 class="h2">Auf den Punkt. <span class="acc">Auf dem heißen Stein.</span></h2>
+      <p class="body">Bekannt sind wir für unsere ausgezeichneten Rindersteaks aus Südamerika, täglich frisch geliefert – auf dem „heißen Stein“ oder nach Ihren Wünschen auf den Punkt gegrillt.</p>
+      <div class="gar" aria-hidden="true"><i class="gar-dot" id="garDot"></i><span>Rare</span><span>Medium Rare</span><span>Medium</span><span>Medium Well</span><span>Well Done</span></div>
+    </div>
   </div>
 </section>
 
-<section class="kitchen" id="kueche">
+<section class="karte" id="karte">
   <div class="wrap">
-    <p class="eyebrow">Kulinarische Impressionen</p>
-    <h2 class="h2 split">Vier Gründe, <em>wiederzukommen.</em></h2>
-    <div class="cards">
-      <article class="card"><figure><img src="img/steak2.webp" alt="Steak mit Kräuterbutter und Beilagen" loading="lazy"></figure><div class="cbody"><span class="n">01</span><h3>Fleisch</h3><p>Täglich frisch geliefert. Bekannt sind wir für unsere ausgezeichneten Rindersteaks aus Südamerika – auf dem „heißen Stein“ oder perfekt gegrillt.</p></div></article>
-      <article class="card"><figure><img src="img/fisch.webp" alt="Fischfilet auf dem Teller" loading="lazy"></figure><div class="cbody"><span class="n">02</span><h3>Fisch</h3><p>Frische und punktgenaue Garzeit: Lachsfilet, Zanderfilet und Seeteufel.</p></div></article>
-      <article class="card"><figure><img src="img/schnitzel2.webp" alt="Schnitzel mit Spiegelei und Bratkartoffeln" loading="lazy"></figure><div class="cbody"><span class="n">03</span><h3>Schnitzel</h3><p>Kokos-, Aprikosen-, Camembert-Schnitzel – oder ganz traditionell mit Bratkartoffeln, Spiegelei und Röstzwiebeln.</p></div></article>
-      <article class="card"><figure><img src="img/salat.webp" alt="Salat mit gebratenem Fleisch" loading="lazy"></figure><div class="cbody"><span class="n">04</span><h3>Saison</h3><p>Frischer Spargel, köstliche Pfifferlinge – im Herbst und Winter Wild- und Gansgerichte.</p></div></article>
-    </div>
-    <div class="parfait">
-      <figure><img src="img/parfait.webp" alt="Honig-Nougat-Parfait mit Logo" loading="lazy"></figure>
-      <div><p class="eyebrow">Nur bei uns</p><h3 class="h3">Honig-Nougat-<em>Parfait.</em></h3><p class="body">Ein besonderes Highlight, das Sie nur in unserem Restaurant genießen können.</p></div>
-    </div>
+    <p class="label"><span class="rn">II</span> Kulinarische Impressionen</p>
+    <h2 class="h2">Aus unserer <span class="acc">Küche.</span></h2>
+    <ol class="menu">
+      <li data-img="img/steak2.webp"><span class="mn">Fleisch</span><p>Täglich frisch geliefert: Rindersteaks aus Südamerika – auf dem heißen Stein oder perfekt gegrillt.</p><img src="img/steak2.webp" alt="Steak mit Kräuterbutter" loading="lazy"></li>
+      <li data-img="img/fisch.webp"><span class="mn">Fisch</span><p>Frische und punktgenaue Garzeit: Lachsfilet, Zanderfilet und Seeteufel.</p><img src="img/fisch.webp" alt="Fischfilet auf dem Teller" loading="lazy"></li>
+      <li data-img="img/schnitzel2.webp"><span class="mn">Schnitzel</span><p>Kokos-, Aprikosen-, Camembert-Schnitzel – oder traditionell mit Bratkartoffeln, Spiegelei und Röstzwiebeln.</p><img src="img/schnitzel2.webp" alt="Schnitzel mit Spiegelei" loading="lazy"></li>
+      <li data-img="img/salat.webp"><span class="mn">Saison</span><p>Frischer Spargel, köstliche Pfifferlinge – im Herbst und Winter Wild- und Gansgerichte.</p><img src="img/salat.webp" alt="Salat mit gebratenem Fleisch" loading="lazy"></li>
+      <li data-img="img/parfait.webp"><span class="mn">Honig-Nougat-Parfait</span><p>Unser Dessert-Highlight, das Sie nur in unserem Restaurant genießen können.</p><img src="img/parfait.webp" alt="Honig-Nougat-Parfait mit Logo" loading="lazy"></li>
+    </ol>
   </div>
+  <figure class="peek" id="peek" aria-hidden="true"><img alt=""></figure>
 </section>
 
 <section class="haus" id="haus">
-  <div class="season" id="season" data-s="winter">
-    <figure class="sp sp-w"><img src="img/kamin.webp" alt="Brennender Kamin im Restaurant" loading="lazy"></figure>
-    <figure class="sp sp-s"><img src="img/terrasse1.webp" alt="Terrasse in der Altstadt mit Sonnenschirmen" loading="lazy"></figure>
-    <canvas id="fire" aria-hidden="true"></canvas>
-    <div class="season-txt">
-      <div class="switch" role="tablist" aria-label="Jahreszeit"><button role="tab" aria-selected="true" data-v="winter">Winter</button><button role="tab" aria-selected="false" data-v="sommer">Sommer</button><span class="knob"></span></div>
-      <div class="st st-w on"><h2 class="h2">Urgemütliche <em>Kaminatmosphäre.</em></h2><p class="body">Im Winter zeichnet sich unser Restaurant durch eine urgemütliche Kaminatmosphäre aus – zu jeder Jahreszeit ein einzigartiges Ambiente.</p></div>
-      <div class="st st-s"><h2 class="h2">Eine der schönsten <em>Terrassen</em> der Altstadt.</h2><p class="body">Im Sommer speist man bei uns draußen, mitten in der Wiesbadener Altstadt.</p></div>
+  <div class="wrap haus-in">
+    <div class="haus-head">
+      <p class="label"><span class="rn">III</span> Das Haus</p>
+      <h2 class="h2">Über <b class="cnt" data-n="105">105</b>+ Plätze <span class="acc">für Ihre Feier.</span></h2>
     </div>
-  </div>
-  <div class="wrap counts">
-    <div class="count"><b data-n="105" data-x="+">0</b><span>Plätze für Ihre Feier</span></div>
-    <div class="count"><b data-n="45">0</b><span>im Erdgeschoss</span></div>
-    <div class="count"><b data-n="60">0</b><span>auf der Empore</span></div>
-  </div>
-  <div class="interior" id="interior">
-    <figure><img src="img/innen1.webp" alt="Gastraum mit Holzbalken" loading="lazy"></figure>
-    <figure><img src="img/innen2.webp" alt="Gastraum mit gedeckten Tischen" loading="lazy"></figure>
-    <figure><img src="img/innen3.webp" alt="Tische im Erdgeschoss" loading="lazy"></figure>
-    <figure><img src="img/empore.webp" alt="Holztreppe zur Empore" loading="lazy"></figure>
-    <figure><img src="img/innen4.webp" alt="Gedeckter Tisch im Restaurant" loading="lazy"></figure>
+    <div class="plan">
+      <svg class="plan-svg" viewBox="0 0 820 520" aria-hidden="true">
+        <path class="ln" d="M20 470h780"/>
+        <path class="ln" d="M330 470V200L520 40l190 160v270"/>
+        <path class="ln" d="M330 200h380M380 160v310M470 85v385M570 85v385M660 160v310"/>
+        <path class="ln" d="M330 320h380M520 320v-30M560 320v-30M600 320v-30M640 320v-30M680 320v-30M500 290h210"/>
+        <path class="ln" d="M470 470l100-150M480 455h20M500 425h20M520 395h20M540 365h20"/>
+        <path class="ln" d="M345 470v-80h60v80M355 470c0-25 20-25 20-45 10 15 20 20 20 45"/>
+        <path class="ln" d="M60 470v-110M20 360c20-40 80-40 80 0M140 470v-110M100 360c20-40 80-40 80 0M30 430h140M200 470v-50h60v50"/>
+      </svg>
+      <button class="hot on" style="left:69%;top:46%" data-k="empore"><i></i><span>Empore</span></button>
+      <button class="hot" style="left:66%;top:80%" data-k="eg"><i></i><span>Erdgeschoss</span></button>
+      <button class="hot" style="left:45.5%;top:70%" data-k="kamin"><i></i><span>Kamin</span></button>
+      <button class="hot" style="left:12%;top:62%" data-k="terrasse"><i></i><span>Terrasse</span></button>
+    </div>
+    <div class="room" id="room" aria-live="polite">
+      <figure><img id="roomImg" src="img/innen1.webp" alt="Gastraum mit Holzbalken" loading="lazy"></figure>
+      <p class="room-n" id="roomN">60</p>
+      <h3 class="h3" id="roomH">Plätze auf der Empore.</h3>
+      <p class="body" id="roomT">Zusammen mit den 45 Plätzen im Erdgeschoss bietet unser Haus über 105 Gästen Platz.</p>
+    </div>
   </div>
 </section>
 
 <section class="gin" id="gin">
-  <div class="wrap gin-grid">
-    <figure class="gin-pic"><img src="img/gin1.webp" alt="Flaschen des Webers Wikinger Gin" loading="lazy"></figure>
+  <div class="wrap gin-in">
+    <figure class="gin-pic"><img src="img/gin1.webp" alt="Flaschen des Webers Wikinger Gin mit Gin Tonic" loading="lazy"></figure>
     <div>
-      <p class="eyebrow">Handcrafted</p>
-      <h2 class="h2 split">WEBERS WIKINGER <em>GIN.</em></h2>
+      <p class="label"><span class="rn">IV</span> Handcrafted</p>
+      <h2 class="h2">Webers Wikinger Gin.</h2>
       <p class="body">Ein einzigartiger Mix aus Wacholder und Zitrone – Frische und Leichtigkeit, die jeden Gin-Liebhaber begeistert. Erhältlich direkt in unserem Restaurant oder telefonisch unter <a class="lnk" href="tel:+49611307622">0611 307622</a>. Ein ideales Geschenk.</p>
-      <div class="notes"><span>Wacholder</span><span>Zitrus</span><span>Frische</span></div>
+      <p class="notes"><span>Wacholder</span><span>Zitrone</span></p>
     </div>
-    <figure class="gin-glass"><img src="img/gintonic.webp" alt="Gin Tonic mit Gurke und Minze" loading="lazy"></figure>
   </div>
 </section>
 
 <section class="res" id="reservieren">
-  <div class="res-bg"><img src="img/innen1.webp" alt="" loading="lazy"></div>
-  <div class="wrap res-grid">
-    <div>
-      <p class="eyebrow">Online reservieren</p>
-      <h2 class="h2 split">Ihr Platz <em>am Kamin.</em></h2>
-      <p class="body">Reservieren Sie in drei Schritten – rund um die Uhr. Online-Reservierungen nehmen wir mit 24 Stunden Vorlauf an; wir bestätigen Ihren Tisch so schnell wie möglich.</p>
-      <ul class="res-facts"><li><b>Di – Fr</b> 16:30 – 23:00</li><li><b>Samstag</b> 11:30 – 23:00</li><li><b>So &amp; Mo</b> Ruhetag</li></ul>
-      <p class="small">Kurzfristig oder heute? Bitte anrufen: <a class="lnk" href="tel:+49611307622">0611 307622</a></p>
-    </div>
-    <form class="rcard" id="rform" novalidate>
-      <ol class="steps" aria-hidden="true"><li class="on">Tag</li><li>Uhrzeit &amp; Gäste</li><li>Kontakt</li></ol>
-      <div class="rstep on" data-s="1">
-        <div class="cal-head"><button type="button" class="cal-nav" id="calPrev" aria-label="Vorheriger Monat">‹</button><strong id="calTitle"></strong><button type="button" class="cal-nav" id="calNext" aria-label="Nächster Monat">›</button></div>
-        <div class="cal-dow"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span></div>
-        <div class="cal" id="cal" role="grid" aria-label="Datum wählen"></div>
-        <p class="hint">Online frühestens 24 Stunden im Voraus.</p>
+  <div class="wrap">
+    <p class="label"><span class="rn">V</span> Online reservieren</p>
+    <form class="sentence" id="rform" novalidate>
+      <p>Ich möchte am <label class="f"><span class="sr">Tag</span><select id="fDay" name="day" required></select></label>
+      um <label class="f"><span class="sr">Uhrzeit</span><select id="fTime" name="time" required></select></label> Uhr
+      mit <label class="f"><span class="sr">Personen</span><select id="fGuests" name="guests"></select></label> Personen
+      <label class="f"><span class="sr">Bereich</span><select name="area"><option value="">irgendwo</option><option value="Erdgeschoss">im Erdgeschoss</option><option value="Empore">auf der Empore</option><option value="Terrasse">auf der Terrasse</option></select></label>
+      Platz nehmen. Mein Name ist <label class="f w"><span class="sr">Name</span><input name="name" autocomplete="name" placeholder="Vor- und Nachname" required></label>,
+      erreichbar unter <label class="f w"><span class="sr">Telefon</span><input name="tel" type="tel" autocomplete="tel" placeholder="Telefonnummer" required></label>.</p>
+      <div class="extra">
+        <label>E-Mail (optional)<input name="mail" type="email" autocomplete="email"></label>
+        <label>Anmerkung (optional)<input name="note" placeholder="z. B. Geburtstag, Allergien, Kinderstuhl"></label>
       </div>
-      <div class="rstep" data-s="2">
-        <p class="lbl">Uhrzeit</p><div class="slots" id="slots"></div>
-        <p class="lbl">Personen</p>
-        <div class="guests"><button type="button" id="gMinus" aria-label="Weniger Personen">−</button><output id="gOut">2</output><button type="button" id="gPlus" aria-label="Mehr Personen">+</button></div>
-        <p class="small" id="bigGroup" hidden>Mehr als 10 Personen oder eine Feier? Für bis zu 105 Gäste stellen wir gern etwas zusammen – rufen Sie uns an: <a class="lnk" href="tel:+49611307622">0611 307622</a></p>
-        <p class="lbl">Platzwunsch</p>
-        <div class="area" id="area"><button type="button" class="sel" data-a="egal">Egal</button><button type="button" data-a="Erdgeschoss">Erdgeschoss</button><button type="button" data-a="Empore">Empore</button><button type="button" data-a="Terrasse">Terrasse</button></div>
-        <div class="rnav"><button type="button" class="btn btn-ghost" data-back>Zurück</button><button type="button" class="btn btn-glow" data-next="3">Weiter</button></div>
-      </div>
-      <div class="rstep" data-s="3">
-        <div class="summary" id="summary"></div>
-        <label>Name<input name="name" autocomplete="name" required></label>
-        <label>Telefon<input name="tel" type="tel" autocomplete="tel" required></label>
-        <label>E-Mail<input name="mail" type="email" autocomplete="email"></label>
-        <label>Anlass (optional)<select name="anlass"><option value="">–</option><option>Geburtstag</option><option>Jahrestag</option><option>Firmenessen</option><option>Familienfeier</option><option>Sonstiges</option></select></label>
-        <label>Anmerkung (optional)<textarea name="note" rows="2" placeholder="z. B. Allergien, Kinderstuhl"></textarea></label>
-        <p class="legal">Ihre Angaben werden ausschließlich in Ihrem E-Mail-Programm an Webers Wikinger übergeben und nicht auf dieser Website gespeichert – mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>. Platzwünsche berücksichtigen wir gern, soweit möglich. Die Reservierung ist verbindlich, sobald wir sie bestätigen.</p>
-        <div class="rnav"><button type="button" class="btn btn-ghost" data-back>Zurück</button><button type="submit" class="btn btn-glow">Reservierung anfragen</button></div>
-        <p class="err" id="err" role="alert"></p>
-      </div>
-      <div class="rstep" data-s="4">
-        <div class="done"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#C8A46A" stroke-width="1.5"/><path d="M15 27l7 7 15-16" fill="none" stroke="#C8A46A" stroke-width="2"/></svg>
-        <h3>Fast geschafft.</h3><p>Ihr E-Mail-Programm hat sich mit Ihrer Anfrage geöffnet – bitte nur noch absenden. Wir melden uns mit der Bestätigung.</p>
-        <p class="small">Nichts geöffnet? Schreiben Sie an <a class="lnk" id="mailFallback" href="mailto:info@webers-wikinger.de">info@webers-wikinger.de</a> oder rufen Sie an: <a class="lnk" href="tel:+49611307622">0611 307622</a>.</p></div>
-      </div>
+      <div class="send"><button class="btn" type="submit">Anfrage senden</button><p class="err" id="err" role="alert"></p></div>
+      <p class="small">Online nehmen wir Reservierungen mit 24 Stunden Vorlauf an, Dienstag bis Samstag. Kurzfristig, mehr als 10 Personen oder eine Feier bis 105 Gäste? Rufen Sie an: <a class="lnk" href="tel:+49611307622">0611 307622</a>.</p>
+      <p class="legal">Ihre Angaben werden nur in Ihrem E-Mail-Programm an Webers Wikinger übergeben und nicht auf dieser Website gespeichert – mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>. Platzwünsche berücksichtigen wir, soweit möglich. Verbindlich wird die Reservierung mit unserer Bestätigung.</p>
     </form>
+    <div class="thanks" id="thanks" hidden>
+      <span class="logo"></span>
+      <h2 class="h2">Fast geschafft.</h2>
+      <p class="body" id="thanksT"></p>
+      <p class="small">Ihr E-Mail-Programm hat sich mit der Anfrage geöffnet – bitte nur noch absenden. Nichts geöffnet? <a class="lnk" id="mailFallback" href="mailto:info@webers-wikinger.de">E-Mail hier öffnen</a> oder <a class="lnk" href="tel:+49611307622">0611 307622</a> anrufen.</p>
+    </div>
   </div>
 </section>
 
-<section class="contact" id="kontakt">
-  <div class="wrap cgrid">
-    <figure class="cpic"><img src="img/fassade.webp" alt="Außenansicht von Webers Wikinger in der Grabenstraße" loading="lazy"></figure>
+<section class="kontakt" id="kontakt">
+  <div class="wrap k-in">
+    <figure class="k-pic"><img src="img/fassade.webp" alt="Außenansicht von Webers Wikinger in der Grabenstraße" loading="lazy"></figure>
     <div>
-      <p class="eyebrow">Kontakt</p>
-      <h2 class="h2">Mitten in der <em>Altstadt.</em></h2>
-      <p class="body">Webers Wikinger<br>Grabenstraße 14<br>65183 Wiesbaden</p>
-      <p class="body"><a class="lnk" href="tel:+49611307622">0611 307622</a><br><a class="lnk" href="mailto:info@webers-wikinger.de">info@webers-wikinger.de</a></p>
-      <table class="htable"><tr><td>Dienstag – Freitag</td><td>16:30 – 23:00</td></tr><tr><td>Samstag</td><td>11:30 – 23:00</td></tr><tr><td>Sonntag &amp; Montag</td><td>Ruhetag</td></tr></table>
-      <div class="ctas"><a class="btn btn-glow" href="#reservieren" data-res>Tisch reservieren</a><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Webers+Wikinger+Grabenstra%C3%9Fe+14+65183+Wiesbaden" target="_blank" rel="noopener">Route planen</a></div>
+      <p class="label">Kontakt</p>
+      <h2 class="h2">Mitten in der <span class="acc">Altstadt.</span></h2>
+      <p class="body">Grabenstraße 14 · 65183 Wiesbaden<br><a class="lnk" href="tel:+49611307622">0611 307622</a> · <a class="lnk" href="mailto:info@webers-wikinger.de">info@webers-wikinger.de</a></p>
+      <dl class="htable"><dt>Dienstag – Freitag</dt><dd>16:30 – 23:00</dd><dt>Samstag</dt><dd>11:30 – 23:00</dd><dt>Sonntag &amp; Montag</dt><dd>Ruhetag</dd></dl>
+      <p class="ctas"><a class="btn" href="#reservieren">Tisch reservieren</a><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Webers+Wikinger+Grabenstra%C3%9Fe+14+65183+Wiesbaden" target="_blank" rel="noopener">Route planen</a></p>
     </div>
   </div>
 </section>
@@ -170,13 +155,12 @@
 
 <footer class="ftr">
   <div class="wrap ftr-in">
-    <img src="img/logo.svg" alt="Webers Wikinger" width="92" height="56">
+    <span class="logo"></span>
     <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
-    <p class="big-wm" aria-hidden="true">WIKINGER</p>
     <p class="fine">© Webers Wikinger · Wiesbaden · Konzeptentwurf von J.H. Digital Atelier</p>
   </div>
 </footer>
-<a class="mbar hide" href="#reservieren" data-res>Tisch reservieren</a>
+<a class="mres hide" href="#reservieren">Reservieren</a>
 
 <script src="vendor/gsap.min.js"></script><script src="vendor/ScrollTrigger.min.js"></script><script src="vendor/lenis.min.js"></script><script src="site.js"></script>
 </body>

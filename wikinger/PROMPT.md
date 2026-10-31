@@ -16,14 +16,33 @@
 - Logo: Zelt-/Dreiecksform mit „WEBERS WIKINGER“ und zwei Schilden → vektorisiert, unverändert.
 - Fotos: nur von webers-wikinger.de (Food, Interieur, Kamin, Terrasse, Gin). Keine erkennbaren Gäste.
 
-## Nischen-Recherche
+## v2 – individuell (31.10.2026)
+Jenny: v1 war ein KAVOS-Klon (gleicher Aufbau, gleiches Reservierungs-Widget, nur andere Farben) – „das merkt man sofort“. Regel: jede Seite eigenes Konzept, eigene Farben, eigene Schriften, eigene Interaktionen, eigener Reservierungsweg. Nichts von KAVOS übernehmen außer Technik-Stack.
+
+### Idee: „Eintreten ins Wikingerhaus“
+Herkunft des Looks = ihr echtes Haus: cremefarbene Fassade, grüne Markise/Schrift, Fachwerk-Balken innen, Zeltform des Logos.
+- Farben: Leinen #EFE7DA, Papier #F7F2E9, Markisengrün #1F4D3A, Tinte #18211C, Eiche #6B4A30, Glut #B4532A (nur beim heißen Stein).
+- Schrift: Young Serif (Headlines, kräftig, handwerklich) + Familjen Grotesk (skandinavische Grotesk, Text/Labels). Akzent über Farbe (Grün), keine Kursiv-Serif wie KAVOS.
+- Motiv: Zeltbogen des Logos als Bildmaske überall; Kapitelzählung mit römischen Ziffern; zwei Kreise des Logos als Hotspot-Punkte.
+
+### Ablauf
+1. Intro: Creme-Fläche, Logo „wächst“ von unten nach oben ins Bild (Clip), Fläche hebt sich wie ein Vorhang.
+2. Hero/Scroll-Story: Innenraum mit Kamin im Zeltbogen-Fenster; beim Scrollen öffnet sich der Bogen bis bildfüllend („Eintreten“), danach erscheint die Vision von A. u. P. Weber auf dem Raum.
+3. Kapitel I „Der heiße Stein“ (einzige dunkle Sektion): Steak-Foto, aufsteigender Dampf (SVG), Garstufen-Skala, deren Marke beim Scrollen wandert.
+4. Kapitel II Speisekarte als Editorial-Liste (Fleisch, Fisch, Schnitzel, Saison, Dessert/Parfait); Hover: Foto folgt dem Cursor (design4me „Image Trail“); Handy: Foto in der Zeile.
+5. Kapitel III Das Haus: Schnittzeichnung (Linien zeichnen sich beim Scrollen) mit Hotspots Erdgeschoss 45 · Empore 60 · Kamin · Terrasse → echtes Foto + Text daneben; „Über 105 Plätze“.
+6. Kapitel IV Gin auf Markisengrün, Flaschenfoto im Zeltbogen.
+7. Reservierung als Satz zum Ausfüllen: „Ich möchte am [Tag] um [Uhrzeit] mit [Personen] [Bereich] Platz nehmen. Mein Name ist [ ], erreichbar unter [ ].“ Nur Di–Sa, ≥24 h Vorlauf, Slots bis 21:30; vorausgefüllte E-Mail an info@webers-wikinger.de.
+8. Kontakt mit Fassade im Bogen, Footer in Markisengrün.
+
+## Nischen-Recherche (v1)
 Steakhouse/Traditionshaus: Referenzen FORNO NERO (Zubereitung als Story), @aaltodigital (Kapitel), @zachex (Editorial, Split), Da-Graziella-Luxus-Look (abends, warm, Korn), design4me (Hover-Reveal), Apple-Design (eine Botschaft pro Screen). Unterschied zu KAVOS: rustikal-edel statt mediterran – Holz, Glut, Messing.
 
-## Design
+## Design (v1, verworfen)
 - Farben: Holzkohle #121010, Eiche #2A1E17, Glut #E36A2B, Messing #C8A46A, Leinen #F1EBE1, Tanne #2F3B33.
 - Schrift: Fraunces (Display, Kursiv-Akzent) + Manrope (Text, gesperrte Labels).
 
-## Wow-Momente
+## Wow-Momente (v1, verworfen)
 1. Intro: Logo zeichnet sich, Glutfunken steigen.
 2. Hero: Steak auf dem heißen Stein, Dampf/Rauch steigt (Canvas), „Auf den Punkt. *Auf dem heißen Stein.*“
 3. **Winter/Sommer-Schalter:** Kamin (mit Feuer-Partikeln) ↔ Terrasse – ein Klick wechselt Bild, Text und Stimmung.
