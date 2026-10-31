@@ -18,3 +18,6 @@ Konzeptseiten (jh-konzept-*) sind absichtlich noindex – NICHT prüfen.
 
 ## Ablage
 seo/<domain>/<datum>/FULL-AUDIT-REPORT.md, ACTION-PLAN.md, ERLEDIGT.md (was behoben wurde + woran man es merkt)
+
+## Lauf-Protokoll
+- 2026-10-31: magnifio.de NICHT geprüft – Website aus der Cloud-Umgebung nicht erreichbar (Proxy 403, Web-Abruf ohne Freigabe), Shopify-Connector muss neu verbunden werden, Plugin-Installation (pip) wurde blockiert. Status bleibt „offen“, nächster Lauf startet wieder mit magnifio.de.
