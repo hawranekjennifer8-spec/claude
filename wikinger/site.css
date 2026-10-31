@@ -169,7 +169,7 @@ body{background:var(--night)}
 .parfait{display:grid;grid-template-columns:.9fr 1.1fr;gap:6vw;align-items:center;margin-top:clamp(80px,10vw,140px)}
 .parfait figure{border-radius:8px;overflow:hidden;aspect-ratio:4/3}.parfait img{width:100%;height:100%;object-fit:cover}
 /* haus / season */
-.haus{background:var(--night)}
+.haus{background:var(--night);position:relative;overflow:hidden}
 .season{position:relative;height:100svh;overflow:hidden}
 .sp{position:absolute;inset:0;transition:opacity 1.1s ease,transform 1.6s cubic-bezier(.2,.8,.2,1)}
 .sp img{width:100%;height:100%;object-fit:cover}
