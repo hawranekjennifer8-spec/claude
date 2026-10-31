@@ -130,7 +130,7 @@ html.no-intro #intro{display:none}
   .strip figure{width:62vw}
   .mbar{display:flex;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;justify-content:center;padding:16px;border-radius:999px;background:var(--gold);color:var(--night);font-weight:600;font-size:14px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;box-shadow:0 16px 40px -10px rgba(0,0,0,.9);transition:transform .4s,opacity .4s}
   .mbar.hide{transform:translateY(140%);opacity:0}
-  .big-wm{font-size:12vw;letter-spacing:.12em}.ftr{padding-bottom:110px}
+  .big-wm{font-size:12vw;letter-spacing:.12em}
   .ftr{padding-bottom:110px}
   .rnav .btn{padding:15px 18px}
 }
