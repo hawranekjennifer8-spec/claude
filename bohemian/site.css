@@ -2,7 +2,7 @@
 @font-face{font-family:Jost;src:url(fonts/jost.woff2) format("woff2");font-weight:300 600;font-display:swap}
 :root{--puder:#F4EDE6;--sand:#E7DACB;--mokka:#1B1613;--ink:#2A221D;--text:#5E5148;--gold:#B8913F;--goldg:linear-gradient(100deg,#A9822F 0%,#E6CB78 48%,#B8913F 100%);--line:rgba(42,34,29,.14);--pad:clamp(20px,5vw,72px);--serif:Marcellus,Georgia,serif;--sans:Jost,system-ui,sans-serif}
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
 body{margin:0;background:var(--puder);color:var(--ink);font:300 17px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%}
 figure{margin:0}
@@ -42,7 +42,7 @@ button{font:inherit;color:inherit}
 .nav a:hover::after{transform:scaleX(1)}
 
 /* hero */
-.hero{min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(30px,5vw,80px);padding:120px var(--pad) 60px;max-width:1440px;margin:0 auto}
+.hero{overflow:hidden;min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(30px,5vw,80px);padding:120px var(--pad) 60px;max-width:1440px;margin:0 auto}
 .lead{font-size:clamp(17px,1.4vw,20px);color:var(--text);max-width:40ch;margin:26px 0 0}
 .ctas{display:flex;flex-wrap:wrap;gap:14px;margin:36px 0 0}
 .hero-art{position:relative;aspect-ratio:1/1;width:min(100%,600px);justify-self:center}
