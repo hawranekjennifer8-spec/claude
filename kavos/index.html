@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KAVOS · Griechisches Restaurant in Wiesbaden · Online reservieren (Konzept)</title>
+<meta name="description" content="Konzept-Entwurf von J.H. Digital Atelier für KAVOS, griechisches Restaurant in der Grabenstraße 11, Wiesbaden – köstlich griechisch, mit Online-Reservierung.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="KAVOS · köstlich griechisch (Konzept)">
+<meta property="og:description" content="Griechische Wein- und Esskultur in Wiesbaden. Jetzt Tisch reservieren.">
+<meta property="og:image" content="https://jh-konzept-kavos.vercel.app/img/og.jpg">
+<meta name="theme-color" content="#0E0F12">
+<link rel="icon" href="img/gabel.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/k09.webp" as="image">
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"KAVOS Restaurant","servesCuisine":"Griechisch","telephone":"+496111574745","email":"maria@kavos-restaurant.de","acceptsReservations":true,"address":{"@type":"PostalAddress","streetAddress":"Grabenstraße 11","postalCode":"65183","addressLocality":"Wiesbaden","addressCountry":"DE"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"16:30","closes":"24:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"11:30","closes":"24:00"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<div id="intro" aria-hidden="true">
+  <div class="intro-in">
+    <div id="introLogo" class="intro-logo"></div>
+    <p class="intro-claim">köstlich griechisch</p>
+  </div>
+  <canvas id="introFire"></canvas>
+</div>
+
+<header class="hdr" id="hdr">
+  <a class="brand" href="#top" aria-label="KAVOS – zur Startseite"><img src="img/logo.svg" alt="KAVOS" width="148" height="32"></a>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="#flambiert">Am Tisch flambiert</a><a href="#karte">Speisekarte</a><a href="#weine">Weine</a><a href="#kontakt">Kontakt</a>
+  </nav>
+  <a class="btn btn-gold btn-sm" href="#reservieren" data-res>Tisch reservieren</a>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-txt">
+    <p class="eyebrow">Grabenstraße 11 · Wiesbaden</p>
+    <h1 class="h1 split">Köstlich <em>griechisch.</em></h1>
+    <p class="lead">Genießen Sie den einfachen Luxus griechischer Wein- und Esskultur – von den Küsten der Ägäis und den Inselwelten der Kykladen bis zu den Bergen Makedoniens.</p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="#reservieren" data-res>Tisch reservieren</a>
+      <a class="btn btn-ghost" href="#karte">Zur Speisekarte</a>
+    </div>
+    <p class="hours" id="todayHours"></p>
+  </div>
+  <figure class="hero-pic"><img src="img/k09.webp" alt="Geschmortes Fleisch auf Kürbispüree wird mit der Pinzette angerichtet" width="1080" height="1920"></figure>
+  <img class="hero-okto" src="img/oktopus.svg" alt="" aria-hidden="true">
+</section>
+
+<!-- OMA -->
+<section class="oma">
+  <div class="wrap oma-grid">
+    <div class="oma-txt">
+      <p class="eyebrow">Unsere Geschichte</p>
+      <blockquote class="quote split">„Besitzer Kostas Papadopoulos kocht nur das, was er von seiner Oma gelernt hat. Im KAVOS wird deshalb nicht nach Rezepten aus Kochbüchern gekocht, sondern nach den Geheimrezepten von <em>Oma Elpida</em> …“</blockquote>
+      <p class="cite">— Der Maintower-Geheimtipp</p>
+      <p class="body rv">Ihre Gerichte aus der traditionellen Küche werden im KAVOS im modernen Design serviert. Für Fisch und Meeresfrüchte verarbeiten wir ausschließlich tagesfrische Ware, je nach Marktangebot und Qualität.</p>
+    </div>
+    <div class="oma-pics">
+      <figure class="op op1"><img src="img/k37.webp" alt="Hände in Handschuhen richten in der Küche an" loading="lazy" width="1080" height="1920"></figure>
+      <figure class="op op2"><img src="img/k28.webp" alt="Bons hängen am Küchenpass" loading="lazy" width="1080" height="1920"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- FLAMBIERT -->
+<section class="flame" id="flambiert">
+  <div class="flame-stage">
+    <figure class="flame-pic"><img src="img/k22.webp" alt="Glühende Pfanne im warmen Licht" loading="lazy" width="1080" height="1920"></figure>
+    <canvas id="fire"></canvas>
+    <div class="flame-txt">
+      <p class="eyebrow">Signature</p>
+      <h2 class="h2 split">Am Tisch <em>flambiert.</em></h2>
+      <ul class="flist">
+        <li><b>Aubergine nach Omas Art</b><span>à la minute gegrillt, auf Knusperteig mit Fetakäse und Knoblauchmousse</span></li>
+        <li><b>Saganaki nach Omas Art</b><span>Schafs- und Ziegenkäse mit Tomaten, Peperoni und rotem Pfeffer aus dem Ofen</span></li>
+        <li><b>Feta-Saganaki</b><span>100 % Schafskäse aus der Pfanne, an Ouzo flambiert</span></li>
+        <li><b>Juvetsi vom Lamm</b><span>geschmorte Lammkeule mit griechischen Nudeln und kretanischem Graviera</span></li>
+        <li><b>Risogalo</b><span>hausgemachter Milchreis auf Zimtkruste mit süßen Kataifi-Fäden</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SPEISEKARTE -->
+<section class="menu light" id="karte">
+  <div class="wrap">
+    <p class="eyebrow dark">Speisekarte · Auszug</p>
+    <h2 class="h2 split">Traditionell griechisch, <em>köstlich griechisch.</em></h2>
+    <p class="body">Mezédes isst man reichhaltig. Sie eröffnen einen Abend oder begleiten ihn mit vielfältigen Gaumenfreuden – gerne stellen wir Ihnen eine Auswahl zusammen.</p>
+    <div class="tabs" role="tablist" aria-label="Speisekarte">
+      <button role="tab" aria-selected="true" data-t="kalt">Mezédes kalt</button>
+      <button role="tab" aria-selected="false" data-t="warm">Mezédes warm</button>
+      <button role="tab" aria-selected="false" data-t="meer">Meer</button>
+      <button role="tab" aria-selected="false" data-t="grill">Vom Grill</button>
+      <button role="tab" aria-selected="false" data-t="ofen">Ofen &amp; Geschmortes</button>
+      <button role="tab" aria-selected="false" data-t="suess">Süßer Schluss</button>
+    </div>
+    <div class="panels">
+      <div class="panel on" data-p="kalt">
+        <div class="dish"><h4>Mezédes-Variationen</h4><p>Tzatziki, Tarama, Auberginenmus, Fava, Fetamus, Fetakäse, Oliven, Peperoni, Gravieramus, Oktopussalat – für eine oder zwei Personen</p></div>
+        <div class="dish"><h4>Fava <i>VG</i></h4><p>original hausgemachtes Kichererbsenpüree aus Santorini</p></div>
+        <div class="dish"><h4>Melitzanosalata <i>V</i></h4><p>hausgemachtes Auberginenmus mit mediterranen Kräutern, Feta, Olivenöl und Knoblauch</p></div>
+        <div class="dish"><h4>Tirosalata <i>V</i></h4><p>pikanter Fetamus nach hauseigener Rezeptur</p></div>
+        <div class="dish"><h4>Tarama</h4><p>Delikatesse aus Kaviar vom Seehecht</p></div>
+        <div class="dish"><h4>Oktopussalat</h4><p>kretanische Art an kaltgepresstem Olivenöl – oder Santorini Art mit Olivenerde auf Fava</p></div>
+      </div>
+      <div class="panel" data-p="warm">
+        <div class="dish"><h4>Gegrillter Oktopus</h4><p>so zart, dass er auf der Zunge zergeht – kretanische Art oder Santorini Art mit Fava, Olivenerde und karamellisierten Zwiebeln</p></div>
+        <div class="dish"><h4>Kolokitokeftedes <i>V</i></h4><p>Zucchinifrikadellen auf Püree von roter Paprika und frischem Limettenjoghurt</p></div>
+        <div class="dish"><h4>Baby-Calamaris</h4><p>an Ouzo flambiert, mit Tzatziki, Tomaten-Marmelade oder Knoblauch-Chili-Creme</p></div>
+        <div class="dish"><h4>Saganaki-Garnelen</h4><p>im Pfännchen an Ragout aus Tomaten, Feta und Chili, am Tisch flambiert</p></div>
+        <div class="dish"><h4>Tirokroketes <i>V</i></h4><p>Schafskäsebällchen auf hausgemachter Tomatenmarmelade</p></div>
+        <div class="dish"><h4>Spinakopita <i>V</i></h4><p>knuspriger Blätterteig mit Blattspinat und Fetamousse auf Basilikumpesto</p></div>
+      </div>
+      <div class="panel" data-p="meer">
+        <div class="dish star"><h4>Kritarotto · Omas Empfehlung</h4><p>gegrillte Gambas an traditionellen griechischen Nudeln in Garnelen-Fischsud gegart, mit einem Schuss Sepia-Tinte</p></div>
+        <div class="dish"><h4>Ganze Fische vom Grill</h4><p>Dorade, Loup de Mer, Lachskoteletts – je nach Marktangebot, siehe Tagestafel</p></div>
+        <div class="dish"><h4>Garides · Gambas</h4><p>gegrillt mit Kartoffelchips, auf Tzatziki, Knobi-Chili-Creme oder Tomaten-Feta-Chili-Ragout</p></div>
+        <div class="dish"><h4>Baby Calamaris</h4><p>in Ouzo flambiert mit Kartoffelchips</p></div>
+      </div>
+      <div class="panel" data-p="grill">
+        <div class="dish"><h4>Zarter Lamm-Souvlaki</h4><p>mit hausgemachtem Tzatziki, Kartoffelchips und Krautsalat</p></div>
+        <div class="dish"><h4>Zarte Lammkoteletts</h4><p>vom Grill</p></div>
+        <div class="dish"><h4>Lammfilets</h4><p>an hausgemachter Thymian-Soße</p></div>
+        <div class="dish"><h4>Plaka Paidakia</h4><p>Lammkoteletts, Lammspieß, Lammfilet</p></div>
+        <div class="dish"><h4>Biftekia</h4><p>gefüllt mit Fetakäse</p></div>
+        <div class="dish"><h4>Diafora</h4><p>Schweinefleischspieß, Lammspieß, gefüllte Bifteki</p></div>
+      </div>
+      <div class="panel" data-p="ofen">
+        <div class="dish"><h4>Moussaka</h4><p>mit handgerührter Béchamel und kretanischem Graviera-Käse</p></div>
+        <div class="dish"><h4>Juvetsi vom Lamm</h4><p>geschmorte Lammkeule mit griechischen Nudeln, am Tisch flambiert</p></div>
+        <div class="dish"><h4>Kokinisto Omas Art</h4><p>zartes Lammragout in würziger Rotwein-Oregano-Soße</p></div>
+        <div class="dish"><h4>Kalbsbäckchen</h4><p>in Rotwein-Orangen-Soße geschmort</p></div>
+      </div>
+      <div class="panel" data-p="suess">
+        <div class="dish"><h4>Risogalo</h4><p>hausgemachter Milchreis mit Vanillearoma auf Zimtkruste, am Tisch flambiert</p></div>
+        <div class="dish"><h4>Galaktobureko</h4><p>Blätterteig-Röllchen mit Grießpudding und Vanilleeis</p></div>
+        <div class="dish"><h4>Greek Cheesecake</h4><p>mit einem Schuss Grand Marnier und Waldbeer-Tomatenmarmelade</p></div>
+        <div class="dish"><h4>Tsureki</h4><p>hausgemachter Zopfkuchen an Vanillecreme, karamellisierten Haselnüssen und heißer Schokosauce</p></div>
+      </div>
+    </div>
+    <p class="note">V vegetarisch · VG vegan · Fisch und Meeresfrüchte nur bei frischer Lieferung. Aktuelle Preise und Allergene in der <a href="https://www.kavos-wiesbaden.de/wp-content/uploads/go-x/u/402f0e61-7161-4c7d-9079-5cdbf89f459e/Kavos-Speisekarte_Nachdruck.pdf" target="_blank" rel="noopener">vollständigen Speisekarte (PDF)</a>.</p>
+  </div>
+</section>
+
+<!-- WEINE -->
+<section class="wine" id="weine">
+  <div class="wrap">
+    <p class="eyebrow">Weinkarte</p>
+    <h2 class="h2 split">Die Wiege der <em>europäischen Weinkultur.</em></h2>
+    <p class="body rv">Wir haben uns aufgemacht, die besten Weingüter Griechenlands für Sie zu finden – die größte Auswahl an griechischen Vorzeige-Weingütern im Rhein-Main-Gebiet.</p>
+  </div>
+  <div class="route" id="route">
+    <svg class="route-line" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path id="routePath" d="M0 80 C 150 20, 260 110, 400 60 S 650 10, 760 70 S 920 100, 1000 40" fill="none" stroke="#C9A15B" stroke-width="1.4"/></svg>
+    <div class="stops">
+      <div class="stop"><span class="n">01</span><h4>Ägäis</h4><p>Küsten und Inseln – Fisch und Meeresfrüchte, tagesfrisch.</p></div>
+      <div class="stop"><span class="n">02</span><h4>Kykladen</h4><p>Santorini – unsere Fava und der Oktopus nach Santorini Art.</p></div>
+      <div class="stop"><span class="n">03</span><h4>Peloponnes</h4><p>Weingut Tetramythos – Cabernet Sauvignon und Mavrodafni.</p></div>
+      <div class="stop"><span class="n">04</span><h4>Makedonien</h4><p>Goumenissa vom Weingut Hatzivaritis, Alpha Estate aus Amyndeon und Vegoritis – der erste Schaumwein Griechenlands in Flaschengärung, exklusiv bei uns.</p></div>
+    </div>
+  </div>
+  <div class="wrap"><a class="lnk" href="https://www.kavos-wiesbaden.de/wp-content/uploads/go-x/u/31101bd5-d636-48bf-bbe9-fb88727884e8/Kavos-Weinkarte_31082023_Einzelseiten.pdf" target="_blank" rel="noopener">Weinkarte ansehen (PDF) →</a></div>
+</section>
+
+<!-- FINE DINING -->
+<section class="fine" id="fine-dining">
+  <div class="wrap fine-head">
+    <div><p class="eyebrow">Greek Fine Dining</p><h2 class="h2 split">Ein genussvoller Abend <em>mit tollen Gästen.</em></h2></div>
+    <p class="body">Greek Fine Dining im KAVOS mit Sakis Kalliontzis – mit freundlicher Unterstützung der Geldermann Sektkellerei.</p>
+  </div>
+  <div class="strip" id="strip">
+    <figure><img src="img/k07-s.webp" alt="Fein angerichtete Teller auf dem Pass" loading="lazy"></figure>
+    <figure><img src="img/k24-s.webp" alt="Anrichten mit der Pinzette" loading="lazy"></figure>
+    <figure><img src="img/k12-s.webp" alt="Vorspeisen in Schalen und auf Olivenerde" loading="lazy"></figure>
+    <figure><img src="img/k36-s.webp" alt="Sauce wird mit dem Löffel angegossen" loading="lazy"></figure>
+    <figure><img src="img/k15-s.webp" alt="Zwei Teller mit Fisch und Fleisch" loading="lazy"></figure>
+    <figure><img src="img/k45-s.webp" alt="Karotten werden mit der Pinzette angerichtet" loading="lazy"></figure>
+    <figure><img src="img/k31-s.webp" alt="Kleine Schale auf dem Edelstahl-Pass" loading="lazy"></figure>
+  </div>
+</section>
+
+<!-- PRESSE -->
+<section class="press" aria-label="Presse">
+  <div class="marquee"><div class="mq-in" id="mq">
+    <p>„In einem der besten gastronomischen Neuzugänge in Wiesbaden seit Jahren.“ <span>— FAZ, Lokaltermin</span></p>
+    <p>„Bartheke, Lampen und Stühle – vor einer dunklen, raffiniert gespachtelten Wand, viele Kissen und ein Weinregal, in dem die Flaschen zu schweben scheinen.“ <span>— Wiesbadener Kurier, Dippegucken</span></p>
+    <p>„Zwischen Oktopus und Olivenerde.“ <span>— Wiesbadener Kurier</span></p>
+    <p>„Der Maintower-Geheimtipp: Kavos.“ <span>— Maintower</span></p>
+  </div></div>
+</section>
+
+<!-- RESERVIERUNG -->
+<section class="res" id="reservieren">
+  <div class="res-bg"><img src="img/k41.webp" alt="" loading="lazy"></div>
+  <div class="wrap res-grid">
+    <div class="res-intro">
+      <p class="eyebrow">Online reservieren</p>
+      <h2 class="h2 split">Ihr Tisch <em>wartet.</em></h2>
+      <p class="body">In drei Schritten zur Reservierungsanfrage – rund um die Uhr. Wir bestätigen Ihren Tisch so schnell wie möglich.</p>
+      <ul class="res-facts">
+        <li><b>Mo – Fr</b> ab 16:30 Uhr</li>
+        <li><b>Samstag</b> ab 11:30 Uhr</li>
+        <li><b>Sonntag</b> Ruhetag</li>
+      </ul>
+      <p class="small">Lieber persönlich? <a class="lnk" href="tel:+496111574745">0611 1574745</a></p>
+    </div>
+    <form class="rcard" id="rform" novalidate>
+      <ol class="steps" aria-hidden="true"><li class="on">Tag</li><li>Uhrzeit &amp; Gäste</li><li>Kontakt</li></ol>
+      <div class="rstep on" data-s="1">
+        <div class="cal-head"><button type="button" class="cal-nav" id="calPrev" aria-label="Vorheriger Monat">‹</button><strong id="calTitle"></strong><button type="button" class="cal-nav" id="calNext" aria-label="Nächster Monat">›</button></div>
+        <div class="cal-dow"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span></div>
+        <div class="cal" id="cal" role="grid" aria-label="Datum wählen"></div>
+        <p class="hint" id="hint1">Bitte wählen Sie einen Tag.</p>
+      </div>
+      <div class="rstep" data-s="2">
+        <p class="lbl">Uhrzeit</p>
+        <div class="slots" id="slots"></div>
+        <p class="lbl">Personen</p>
+        <div class="guests"><button type="button" id="gMinus" aria-label="Weniger Personen">−</button><output id="gOut">2</output><button type="button" id="gPlus" aria-label="Mehr Personen">+</button></div>
+        <p class="small" id="bigGroup" hidden>Für Gruppen ab 9 Personen rufen Sie uns bitte an: <a class="lnk" href="tel:+496111574745">0611 1574745</a></p>
+        <div class="rnav"><button type="button" class="btn btn-ghost" data-back>Zurück</button><button type="button" class="btn btn-gold" data-next="3">Weiter</button></div>
+      </div>
+      <div class="rstep" data-s="3">
+        <div class="summary" id="summary"></div>
+        <label>Name<input name="name" autocomplete="name" required></label>
+        <label>Telefon<input name="tel" type="tel" autocomplete="tel" required></label>
+        <label>E-Mail<input name="mail" type="email" autocomplete="email"></label>
+        <label>Anlass (optional)<select name="anlass"><option value="">–</option><option>Geburtstag</option><option>Jahrestag</option><option>Geschäftsessen</option><option>Date</option><option>Sonstiges</option></select></label>
+        <label>Anmerkung (optional)<textarea name="note" rows="2" placeholder="z. B. Allergien, Kinderstuhl, Terrasse"></textarea></label>
+        <p class="legal">Ihre Angaben werden ausschließlich in Ihrem E-Mail-Programm an das KAVOS übergeben und nicht auf dieser Website gespeichert. Mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>. Die Reservierung ist verbindlich, sobald wir sie bestätigen.</p>
+        <div class="rnav"><button type="button" class="btn btn-ghost" data-back>Zurück</button><button type="submit" class="btn btn-gold">Reservierung anfragen</button></div>
+        <p class="err" id="err" role="alert"></p>
+      </div>
+      <div class="rstep" data-s="4">
+        <div class="done"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#C9A15B" stroke-width="1.5"/><path d="M15 27l7 7 15-16" fill="none" stroke="#C9A15B" stroke-width="2"/></svg>
+        <h3>Fast geschafft.</h3><p>Ihr E-Mail-Programm hat sich mit Ihrer Anfrage geöffnet – bitte nur noch absenden. Wir melden uns mit der Bestätigung.</p>
+        <p class="small">Hat sich nichts geöffnet? Schreiben Sie an <a class="lnk" id="mailFallback" href="mailto:maria@kavos-restaurant.de">maria@kavos-restaurant.de</a> oder rufen Sie an: <a class="lnk" href="tel:+496111574745">0611 1574745</a>.</p></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt">
+  <div class="wrap cgrid">
+    <figure class="cpic"><img src="img/k34.webp" alt="Weinregal im KAVOS" loading="lazy" width="1080" height="1920"></figure>
+    <div>
+      <p class="eyebrow">Kontakt</p>
+      <h2 class="h2">KAVOS <em>Restaurant</em></h2>
+      <p class="body">Grabenstraße 11<br>65183 Wiesbaden</p>
+      <p class="body"><a class="lnk" href="tel:+496111574745">0611 1574745</a><br><a class="lnk" href="mailto:kostas@kavos-wiesbaden.de">kostas@kavos-wiesbaden.de</a></p>
+      <table class="htable"><tr><td>Montag – Freitag</td><td>16:30 – 24:00</td></tr><tr><td>Samstag</td><td>11:30 – 24:00</td></tr><tr><td>Sonntag</td><td>Ruhetag</td></tr></table>
+      <div class="ctas"><a class="btn btn-gold" href="#reservieren" data-res>Tisch reservieren</a><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=KAVOS+Restaurant+Grabenstra%C3%9Fe+11+65183+Wiesbaden" target="_blank" rel="noopener">Route planen</a></div>
+      <p class="small"><a class="lnk" href="https://www.instagram.com/kavos_restaurant/" target="_blank" rel="noopener">Instagram</a> · <a class="lnk" href="https://www.facebook.com/Kavos.Wiesbaden" target="_blank" rel="noopener">Facebook</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <img src="img/logo.svg" alt="KAVOS" width="148" height="32">
+    <p class="big-wm" aria-hidden="true">KAVOS</p>
+    <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+    <p class="fine">© KAVOS Restaurant · Wiesbaden · Konzeptentwurf von J.H. Digital Atelier</p>
+  </div>
+</footer>
+
+<a class="mbar" href="#reservieren" data-res>Tisch reservieren</a>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
