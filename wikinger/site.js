@@ -111,6 +111,7 @@ const fillTimes = () => {
 };
 fDay.addEventListener('change', fillTimes); fillTimes();
 
+$('#rform').addEventListener('input', e => e.target.closest('.f')?.classList.remove('bad'));
 $('#rform').addEventListener('submit', e => {
   e.preventDefault();
   const f = e.target, v = Object.fromEntries(new FormData(f));
