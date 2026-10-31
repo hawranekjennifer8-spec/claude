@@ -42,7 +42,7 @@ function reveals(){
   gsap.from('.card',{y:70,opacity:0,stagger:.1,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:'.cards',start:'top 85%'}});
   gsap.from('.parfait figure',{clipPath:'inset(0 100% 0 0)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:'.parfait',start:'top 80%'}});
   gsap.fromTo('.parfait img',{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:'.parfait',start:'top bottom',end:'bottom top',scrub:true}});
-  $$('.count b').forEach(b=>{const n=+b.dataset.n,o={v:0};gsap.to(o,{v:n,duration:2,ease:'power3.out',scrollTrigger:{trigger:b,start:'top 88%'},onUpdate:()=>b.textContent=Math.round(o.v)})});
+  $$('.count b').forEach(b=>{const n=+b.dataset.n,o={v:0};gsap.to(o,{v:n,duration:2,ease:'power3.out',scrollTrigger:{trigger:b,start:'top 88%'},onUpdate:()=>b.textContent=Math.round(o.v)+(b.dataset.x||'')})});
   const it=$('#interior');gsap.to(it,{x:()=>-(it.scrollWidth-innerWidth*.92),ease:'none',scrollTrigger:{trigger:it,start:'top bottom',end:'bottom top',scrub:true,invalidateOnRefresh:true}});
   gsap.from('.gin-pic',{clipPath:'inset(100% 0 0 0)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:'.gin',start:'top 75%'}});
   gsap.from('.gin-glass',{y:120,opacity:0,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'.gin',start:'top 70%'}});
