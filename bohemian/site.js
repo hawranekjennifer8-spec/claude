@@ -63,7 +63,7 @@ else {
 
 /* Header, Handy-Leiste */
 ScrollTrigger.create({start:60, onToggle: s => $('#hdr').classList.toggle('solid', s.isActive)});
-ScrollTrigger.create({trigger:'#ritual', start:'top 80%', endTrigger:'#kontakt', end:'top 70%', onToggle: s => $('.mbar').classList.toggle('hide', !s.isActive)});
+ScrollTrigger.create({trigger:'#ritual', start:'top 80%', endTrigger:'#termin', end:'top 85%', onToggle: s => $('.mbar').classList.toggle('hide', !s.isActive)});
 
 /* Hero-Parallaxe */
 if (!RM) {
