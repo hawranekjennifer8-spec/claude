@@ -38,7 +38,7 @@ function fire(canvas,opts){const ctx=canvas.getContext('2d');let W,H,parts=[],po
 /* reveals */
 function reveals(){
   $$('.split').forEach(el=>gsap.from($$('.ln>span',el),{yPercent:110,duration:1.15,ease:'expo.out',stagger:.04,scrollTrigger:{trigger:el,start:'top 86%'}}));
-  $$('.rv,.body,.lead,.cite').forEach(el=>gsap.from(el,{y:26,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
+  $$('.rv,.body,.lead,.cite').filter(el=>!el.closest('.hero')).forEach(el=>gsap.from(el,{y:26,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
   $$('.op').forEach((el,i)=>{gsap.from(el,{clipPath:'inset(100% 0 0 0)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:'.oma-pics',start:'top 75%'},delay:i*.15});
     gsap.fromTo($('img',el),{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:'.oma',start:'top bottom',end:'bottom top',scrub:true}})});
   gsap.from('.flist li',{y:30,opacity:0,stagger:.08,duration:.9,ease:'power3.out',scrollTrigger:{trigger:'.flist',start:'top 85%'}});
