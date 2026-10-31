@@ -16,7 +16,7 @@ $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttri
 /* header + mobile bar */
 const hdr=$('#hdr'),mbar=$('.mbar');
 ScrollTrigger.create({start:0,end:'max',onUpdate:s=>hdr.classList.toggle('solid',s.scroll()>60)});
-ScrollTrigger.create({trigger:'#reservieren',start:'top 80%',end:'bottom 20%',onToggle:s=>mbar&&mbar.classList.toggle('hide',s.isActive)});
+const mb=()=>{if(!mbar)return;const y=scrollY,r=$('#reservieren').getBoundingClientRect();mbar.classList.toggle('hide',y<innerHeight*.7||(r.top<innerHeight*.8&&r.bottom>innerHeight*.2))};mb();ScrollTrigger.create({start:0,end:'max',onUpdate:mb});
 
 /* today's opening hours */
 (()=>{const d=new Date().getDay(),h=$('#todayHours');const open={1:'16:30',2:'16:30',3:'16:30',4:'16:30',5:'16:30',6:'11:30'};
