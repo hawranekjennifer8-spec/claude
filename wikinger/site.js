@@ -32,7 +32,7 @@ else {
 }
 
 /* Header */
-ScrollTrigger.create({start:80, onToggle: s => $('#hdr').classList.toggle('solid', s.isActive)});
+const onS = () => $('#hdr').classList.toggle('solid', scrollY > 80); addEventListener('scroll', onS, {passive:true}); onS();
 ScrollTrigger.create({trigger:'#stein', start:'top 80%', endTrigger:'#reservieren', end:'top 90%', onToggle: s => $('.mres').classList.toggle('hide', !s.isActive)});
 
 /* Scroll-Story: Zeltbogen öffnet sich, Vision erscheint */
