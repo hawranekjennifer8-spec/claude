@@ -27,7 +27,7 @@ else {
     .to('.intro-logo', {clipPath:'inset(0% 0 0 0)', duration:1.5, ease:'power2.inOut'})
     .to('#intro p', {opacity:1, duration:.6}, '-=.3')
     .to('#intro', {yPercent:-100, duration:1.1, ease:'power4.inOut'}, '+=.5')
-    .from('.door-pic', {'--m':18, duration:1.3, ease:'power3.out'}, '-=.7')
+    .from('.door-pic', {'--m':12, duration:1.3, ease:'power3.out'}, '-=.7')
     .add(heroIn, '-=1');
 }
 
@@ -38,12 +38,12 @@ ScrollTrigger.create({trigger:'#stein', start:'top 80%', endTrigger:'#reserviere
 /* Scroll-Story: Zeltbogen öffnet sich, Vision erscheint */
 if (!RM) {
   const mob = innerWidth < 640;
-  gsap.set('.door-pic', {'--m': mob ? 74 : 30});
+  gsap.set('.door-pic', {'--m': mob ? 96 : 34});
   gsap.timeline({scrollTrigger:{trigger:'.door', start:'top top', end:'bottom bottom', scrub:.6}})
     .to('.door-txt, .door-foot', {opacity:0, y:-40, duration:.25}, 0)
-    .to('.door-pic', {'--m': mob ? 900 : 420, duration:.6, ease:'power2.in'}, 0)
+    .to('.door-pic', {'--m': mob ? 1100 : 640, duration:.6, ease:'power2.in'}, 0)
     .to('.door-pic img', {scale:1, duration:.6}, 0)
-    .to('.door-pic', {'--dim':.55, duration:.2}, .5)
+    .to('.door-pic', {'--dim':.62, duration:.15}, .5)
     .to('.vision', {autoAlpha:1, duration:.2}, .62)
     .from('.vision p', {y:50, duration:.25}, .62);
 } else gsap.set('.vision', {autoAlpha:1});
