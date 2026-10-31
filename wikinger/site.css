@@ -169,6 +169,7 @@ a{color:inherit}
   body{font-size:16px}
   .hdr .btn{display:none}
   .door-pic{--m:100}
+  .door-txt{padding-top:24vh}.door-foot{display:none}
   .door-txt .h1{font-size:13vw;line-height:1}.door-txt .h1 span{display:block}
   .door-foot{justify-content:center}.scrollcue{display:none}
   .gar span{writing-mode:vertical-rl;transform:rotate(180deg);height:92px}
