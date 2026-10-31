@@ -38,18 +38,15 @@ ScrollTrigger.create({trigger:'#stein', start:'top 80%', endTrigger:'#reserviere
 /* Scroll-Story: Zeltbogen öffnet sich, Vision erscheint */
 if (!RM) {
   const mob = innerWidth < 640;
-  gsap.set('.door-pic', {'--m': mob ? 96 : 34});
+  gsap.set('.door-pic', {'--m': mob ? 100 : 70});
   gsap.timeline({scrollTrigger:{trigger:'.door', start:'top top', end:'bottom bottom', scrub:.6}})
-    .to('.door-txt, .door-foot', {opacity:0, y:-40, duration:.25}, 0)
-    .to('.door-pic', {'--m': mob ? 1100 : 640, duration:.6, ease:'power2.in'}, 0)
-    .to('.door-pic img', {scale:1, duration:.6}, 0)
-    .to('.door-pic', {'--dim':.62, duration:.15}, .5)
-    .to('.vision', {autoAlpha:1, duration:.2}, .62)
-    .from('.vision p', {y:50, duration:.25}, .62);
-} else gsap.set('.vision', {autoAlpha:1});
+    .to('.door-txt, .door-foot', {opacity:0, y:-40, duration:.3}, 0)
+    .to('.door-pic', {'--m': mob ? 260 : 140, duration:1, ease:'power1.inOut'}, 0)
+    .to('.door-pic img', {scale:1, duration:1}, 0);
+}
 
 /* Reveals */
-$$('.label, .h2, .body, .menu li, .room, .notes, .htable, .ctas').forEach(el => {
+$$('.vision, .label, .h2, .body, .menu li, .room, .notes, .htable, .ctas').forEach(el => {
   if (el.closest('.door')) return;
   gsap.from(el, {y:40, opacity:0, duration:1, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 88%'}});
 });

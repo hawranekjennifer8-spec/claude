@@ -45,21 +45,21 @@ a{color:inherit}
 .nav a:hover::after{transform:scaleX(1)}
 
 /* door hero */
-.door{height:260vh;position:relative}
+.door{height:200vh;position:relative}
 .door-in{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.door-pic{position:absolute;inset:0;--m:34;-webkit-mask:var(--tent) center 100%/calc(var(--m)*1%) auto no-repeat;mask:var(--tent) center 100%/calc(var(--m)*1%) auto no-repeat}
-.door-pic img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
-.door-pic::after{content:"";position:absolute;inset:0;background:rgba(14,20,16,var(--dim,0))}
+.door-pic{position:absolute;top:0;bottom:0;left:50%;width:min(100%,980px);transform:translateX(-50%);--m:70;-webkit-mask:var(--tent) center 100%/calc(var(--m)*1%) auto no-repeat;mask:var(--tent) center 100%/calc(var(--m)*1%) auto no-repeat}
+.door-pic img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;transform:scale(1.12)}
 .door-txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding-top:clamp(96px,14vh,150px);text-align:center;z-index:2;pointer-events:none}
 .door-txt .h1{font-size:clamp(44px,6.4vw,104px);padding:0 var(--pad)}
 .door-txt .h1 span{display:inline-block}
 .door-foot{position:absolute;left:0;right:0;bottom:22px;pointer-events:none;display:flex;justify-content:space-between;padding:0 var(--pad);font-size:13px;z-index:2}
 .hours{margin:0;display:flex;align-items:center;gap:8px}.hours::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green2)}
 .scrollcue{letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--green)}
-.vision{position:absolute;inset:0;margin:0;display:grid;place-content:center;justify-items:center;text-align:center;padding:0 var(--pad);color:var(--paper);z-index:3;opacity:0;visibility:hidden}
-.vision p{font:400 clamp(26px,3.6vw,52px)/1.2 var(--serif);max-width:24ch;margin:0;text-wrap:balance}
-.vision b{font-weight:400;color:#D9C9A3}
-.vision cite{margin-top:28px;font:600 12px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;font-style:normal}
+.vision-sec{padding:clamp(90px,11vw,160px) 0;text-align:center}
+.vision{margin:0 auto;max-width:1100px}
+.vision p{font:400 clamp(28px,3.8vw,56px)/1.18 var(--serif);margin:0 auto;max-width:26ch;text-wrap:balance}
+.vision b{font-weight:400;color:var(--green)}
+.vision cite{display:block;margin-top:30px;font:600 12px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;font-style:normal;color:var(--green)}
 
 /* stein */
 .stein{background:var(--ink);color:var(--paper);padding:clamp(90px,12vw,170px) 0}
@@ -168,7 +168,7 @@ a{color:inherit}
 @media (max-width:640px){
   body{font-size:16px}
   .hdr .btn{display:none}
-  .door-pic{--m:96}
+  .door-pic{--m:100}
   .door-txt .h1{font-size:13vw;line-height:1}.door-txt .h1 span{display:block}
   .door-foot{justify-content:center}.scrollcue{display:none}
   .gar span{writing-mode:vertical-rl;transform:rotate(180deg);height:92px}
