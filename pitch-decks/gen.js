@@ -70,7 +70,7 @@ function bullets(s, list, o) {
 // ------------------------------------------------------------------ 01 Titel
 let s = newSlide(ESP);
 label(s, '[ J.H. DIGITAL ATELIER · VORSCHLAG FÜR ' + C.name.toUpperCase() + ' ]', 'A89A88');
-title(s, [L(C.title[0], false, null, true), L(C.title[1], true, AS, true), L(C.title[2], true, AS)], { x: 0.6, y: 1.55, w: 5.6, h: 3.0, fontSize: 46, color: CREAM, lineSpacingMultiple: 0.95 });
+title(s, [L(C.title[0], false, null, true), L(C.title[1], true, AS, true), L(C.title[2], true, AS)], { x: 0.6, y: 1.45, w: 5.2, h: 3.1, fontSize: (m => m > 20 ? 32 : m > 13 ? 37 : 44)(Math.max(...C.title.map(t => t.length))), color: CREAM, lineSpacingMultiple: 0.95 });
 text(s, C.sub + '\n' + C.place + ' · November 2026', { x: 0.6, y: 4.75, w: 5.0, h: 0.9, fontSize: 14, color: 'BFB3A4' });
 bvid(s, 'hero', 6.05, 1.25, 6.9);
 foot(s, true);
@@ -119,10 +119,10 @@ s.addNotes(C.notes.scene);
 // ------------------------------------------------------------------ 04 Was er heute findet
 s = newSlide(GREYBG);
 label(s, '[ 03 · WAS ' + C.who.toUpperCase() + ' HEUTE FINDET ]', '8C8279');
-title(s, [L('Was ' + C.who + ' heute findet')], { x: 0.6, y: 0.95, w: 7, h: 0.8, fontSize: 36, color: INK });
+title(s, [L('Was ' + C.who, false, null, true), L('heute findet', true, A)], { x: 0.6, y: 0.95, w: 4.55, h: 1.3, fontSize: 30, color: INK, lineSpacingMultiple: 0.98 });
 if (!C.oldNone) img(s, M + 'old_b.png', 5.3, 1.0, 7.9, BR);
 else { s.addShape(pres.ShapeType.roundRect, { x: 5.3, y: 1.0, w: 7.9, h: 7.9 * BR, rectRadius: 0.1, fill: { color: 'D6D1CA' }, line: { color: 'C9C2B8' } }); s.addText([L('www.' + C.wish, false), L('', false)], { x: 5.3, y: 2.6, w: 7.9, h: 1, fontFace: HEAD, fontSize: 30, color: '8C8279', align: 'center', isTextBox: true }); text(s, 'Diese Adresse führt heute nirgendwohin.', { x: 5.3, y: 3.6, w: 7.9, h: 0.4, fontSize: 13, align: 'center', color: '8C8279' }); }
-numberedRows(s, C.findings, 0.6, 2.25, 4.55, false);
+numberedRows(s, C.findings, 0.6, 2.6, 4.55, false, 1.33);
 text(s, C.oldNone ? ('Recherche vom ' + DATE + ' · Google, Instagram') : ('Aufnahme von ' + C.oldUrl + ', ' + DATE), { x: 0.6, y: 6.6, w: 7, h: 0.25, fontSize: 9, color: '9A8F82' });
 foot(s, false);
 s.addNotes(C.notes.findings);
