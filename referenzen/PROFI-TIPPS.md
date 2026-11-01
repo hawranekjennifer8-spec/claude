@@ -101,3 +101,10 @@
 
 ## Regel 31.10.2026 – Jede Seite individuell (Jenny)
 Keine „Massen-Webseite“: Webers Wikinger v1 war ein KAVOS-Klon (gleicher Aufbau, gleiches Reservierungs-Widget, nur Farben/Bilder getauscht) – „das merkt man sofort“. Ab jetzt pro Betrieb eigenes Konzept aus dessen echter Identität (Fassade, Logo-Form, Farben, Räume): eigene Palette, eigenes Schriftpaar, eigene Leit-Interaktion, eigener Reservierungs-/Kontaktweg. Vor dem Bauen im PROMPT.md festhalten, was sich von den bisherigen Seiten unterscheidet. Gemeinsam bleibt nur der Technik-Stack.
+
+## @ramanstudio_ca – „LEVANTO“ Bad-Sanierung (01.11.2026, Jenny: „bombastisch“)
+Video: referenzen/2026-11-01_ramanstudio_levanto-bad-sanierung.mp4 (+ Kontaktbogen).
+- **Hero = Scroll-Bausequenz:** Beim Scrollen baut sich das Bad vom Rohbau auf („Bare board to red marble“ → „floor to ceiling“ → Walk-in-Dusche „lit from within“ → „Floating stone, warm brass“ → „Ready for the long soak“). Technik: Bildsequenz/Video, per ScrollTrigger auf Frames gemappt (canvas, 100–150 WebP-Frames), kurze Zeilen links oben wechseln pro Bauphase.
+- **Herstellung für echte Betriebe:** Start-Frame = echtes Vorher-Foto (Rohbau/altes Bad), End-Frame = echtes Nachher-Foto derselben Kamera-Position → Image-to-Video mit Start+End-Frame (Higgsfield/Kling/Veo „first-last frame“), Bewegung: Kamera steht, Materialien „wachsen“ ein. Nichts dazuerfinden: nur Vorher/Nachher-Paare des Betriebs; KI erzeugt nur die Übergangsframes. Ohne Paar → Grundriss-Slider oder 3D-Planung → Foto.
+- Danach: dunkle Sektionen mit Zahlen (Projekte · Jahre · Bauzeit), Laufband mit Leistungen, „Sie sehen den Stein, bevor wir ihn schneiden“ (Materialfreigabe), Leistungsraster, 4 Bauschritte, Projektgalerie, Formular „Kostenlose Vor-Ort-Beratung“.
+- Präsentation: MacBook-POV, Hand am Trackpad, Farbverlauf-Hintergrund.
