@@ -1,0 +1,10 @@
+# Geheimnisse nie hochladen (API-Keys, Tokens)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+.vercel/
+node_modules/
+.DS_Store
