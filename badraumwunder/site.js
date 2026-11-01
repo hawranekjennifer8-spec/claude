@@ -3,16 +3,6 @@ const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAl
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const MAIL = 'info@badraumwunder.de';
 
-/* Vorher-Nachher-Projekte laut badraumwunder.de */
-const CASES = [
-  ['3,8 m²','Komfortdusche statt Wanne','Das in die Jahre gekommene Wannenbad wurde durch eine große Fünfeckdusche in ein großzügiges Duschbad verwandelt. Ein wandhängendes Eck-WC erleichtert den Zugang zum Fenster. Der Eckwaschtisch bietet viel Stauraum und Ablagefläche.'],
-  ['3,9 m²','Wannenbad wird Duschbad','Das alte Wannenbad aus den 1980ern wurde in ein komfortables Duschbad umgebaut. Eine spezielle Duschform ermöglicht trotz begrenztem Platz eine großzügige Dusche. Ein Eckwaschtisch mit Ablage und Unterschrank sowie Hochschränke bieten ausreichend Stauraum.'],
-  ['2,8 m²','Gäste-WC bekommt Dusche','Das Gäste-WC erhielt eine Duschgelegenheit. Wegklappbare Duschabtrennungen schaffen nach dem Duschen mehr Bewegungsraum. Ein schlanker Waschtisch und ein Sprossenheizkörper vervollständigen das kompakte Bad.'],
-  ['3,5 m²','Duschbad mit Bidet','Das 3,5 m² große Wannenbad wurde altersgerecht modernisiert. Anstelle der Badewanne entstand ein komfortabler WC-Bidet-Bereich. Die ebenerdige Dusche mit gebogener Abtrennung und eine großzügige Waschtischanlage runden das Konzept ab.'],
-  ['3,3 m²','Duschbad mit Waschmaschine','Durch eine geschickte Anordnung der Glas-Schiebeelemente wurde Platz für eine große Walk-in-Dusche und einen versteckten Stellplatz für die Waschmaschine geschaffen. Verschiebbare Duschgläser schützen WC und Waschmaschine vor Spritzwasser.'],
-  ['3,4 m²','Modernes Komfort-Duschbad','Das kleine Duschbad im Keller eines Bungalows wurde modernisiert. Wegklappbare Duschgläser und ein geänderter Türanschlag bieten mehr Bewegungsfreiheit. Eine große Waschtischanlage und ein Edelstahl-Heizkörper im Duschbereich ergänzen das moderne Design.']
-];
-
 /* Smooth Scroll */
 gsap.registerPlugin(ScrollTrigger);
 let lenis;
@@ -43,23 +33,15 @@ else {
 
 /* Kopfleiste & Handy-Leiste */
 const onS = () => $('#hdr').classList.toggle('solid', scrollY > 60); addEventListener('scroll', onS, {passive:true}); onS();
-ScrollTrigger.create({trigger:'#vorher-nachher', start:'top 70%', endTrigger:'#planer', end:'top 80%', onToggle: s => $('.mbar').classList.toggle('hide', !s.isActive)});
+ScrollTrigger.create({trigger:'#kundenbaeder', start:'top 70%', endTrigger:'#planer', end:'top 80%', onToggle: s => $('.mbar').classList.toggle('hide', !s.isActive)});
 ScrollTrigger.create({trigger:'#ausstellung', start:'top 80%', endTrigger:'#kontakt', end:'top 70%', onToggle: s => s.isActive && $('.mbar').classList.remove('hide')});
 
-/* Vorher / Nachher */
-const setCmp = v => { $('#after').style.clipPath = `inset(0 0 0 ${v}%)`; $('#handle').style.left = v + '%'; };
-const showCase = i => {
-  $$('#cases button').forEach((b, j) => b.setAttribute('aria-selected', j === i));
-  $('#cA').src = `img/plan${i+1}a.webp`; $('#cB').src = `img/plan${i+1}b.webp`;
-  const [m, t, d] = CASES[i]; $('#cM2').textContent = m; $('#cT').textContent = t; $('#cD').textContent = d;
-  $('#cRange').value = 50; setCmp(50);
-  gsap.fromTo('.vn-txt > *', {y:16, opacity:0}, {y:0, opacity:1, stagger:.06, duration:.5});
-};
-$('#cases').innerHTML = CASES.map(([m, t], i) => `<button type="button" role="tab" aria-selected="false"><b>${m}</b>${t}</button>`).join('');
-$$('#cases button').forEach((b, i) => b.addEventListener('click', () => showCase(i)));
-$('#cRange').addEventListener('input', e => setCmp(e.target.value));
-showCase(0);
-ScrollTrigger.create({trigger:'#compare', start:'top 70%', once:true, onEnter:() => { const o = {v:50}; gsap.timeline().to(o, {v:15, duration:.9, ease:'power2.inOut', onUpdate:() => setCmp(o.v)}).to(o, {v:85, duration:1.2, ease:'power2.inOut', onUpdate:() => setCmp(o.v)}).to(o, {v:50, duration:.8, ease:'power2.inOut', onUpdate:() => { setCmp(o.v); $('#cRange').value = o.v; }}); }});
+/* Kundenbäder: Bilder öffnen sich von unten, Spalten leicht versetzt */
+if (!RM) {
+  gsap.fromTo('.kb-lead img', {scale:1.15}, {scale:1, ease:'none', scrollTrigger:{trigger:'.kb-lead', start:'top bottom', end:'bottom 60%', scrub:true}});
+  $$('.kb-lead, .kb-grid figure').forEach(f => gsap.fromTo(f, {clipPath:'inset(100% 0% 0% 0%)'}, {clipPath:'inset(0% 0% 0% 0%)', duration:1.2, ease:'power3.inOut', scrollTrigger:{trigger:f, start:'top 92%'}}));
+  ScrollTrigger.matchMedia({'(min-width: 641px)': () => $$('.kb-grid img').forEach((im, i) => gsap.fromTo(im, {yPercent:-6, scale:1.14}, {yPercent:6, scale:1.14, ease:'none', scrollTrigger:{trigger:im.parentNode, start:'top bottom', end:'bottom top', scrub:true}}))});
+}
 
 /* Bad-Planer */
 const SIZES = {'unter 4 m²':[70,60], '4–5 m²':[96,72], '5–7 m²':[120,90], 'über 7 m²':[150,105]};
@@ -105,7 +87,7 @@ $$('.rlist li').forEach((li, i) => ScrollTrigger.create({trigger:li, start:'top 
 $$('.rlist li')[0].classList.add('on');
 
 /* Reveals */
-$$('.vn .label, .vn .h2, .planer .label, .planer .h2, .show-head > *, .mat .label, .mat .h2, .mat .body, .mat-grid figure, .rules-side > .label, .rules-side > .h2, .d3 .label, .d3 .h2, .d3 .body, .d3-grid figure, .flow .label, .flow .h2, .steps li, .team-grid > *, .k-grid > *').forEach(el =>
+$$('.vn .label, .vn .h2, .vn .kb-head .body, .planer .label, .planer .h2, .show-head > *, .mat .label, .mat .h2, .mat .body, .mat-grid figure, .rules-side > .label, .rules-side > .h2, .d3 .label, .d3 .h2, .d3 .body, .d3-grid figure, .flow .label, .flow .h2, .steps li, .team-grid > *, .k-grid > *').forEach(el =>
   gsap.from(el, {y:40, opacity:0, duration:1, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 90%'}}));
 
 addEventListener('load', () => ScrollTrigger.refresh());

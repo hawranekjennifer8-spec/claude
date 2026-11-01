@@ -4,3 +4,6 @@ set -e
 curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5h/f55c5bff-722d-4dc1-a65a-6295c96dacb1.zip" -o /tmp/brw-media.zip
 rm -rf img && unzip -o -q /tmp/brw-media.zip
 ls img | wc -l
+curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5h/f839412c-ff57-4274-ab56-cd8b60808f97.zip" -o /tmp/brw-kb.zip
+unzip -o -q /tmp/brw-kb.zip
+ls img | wc -l
