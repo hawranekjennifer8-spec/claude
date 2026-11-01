@@ -22,7 +22,7 @@ $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = $(a
 /* Intro: Grundriss zeichnet sich, Maßzahl zählt 3,0 → 7,0 m² */
 const heroIn = () => {
   gsap.from('.hero-txt > *', {y:40, opacity:0, duration:1.1, stagger:.1, ease:'power3.out'});
-  gsap.from('.hero-pic img', {clipPath:'inset(0 0 0 100%)', duration:1.4, ease:'power3.inOut'});
+  gsap.fromTo('.hero-pic img', {clipPath:'inset(0% 0% 0% 100%)'}, {clipPath:'inset(0% 0% 0% 0%)', duration:1.4, ease:'power3.inOut'});
   const d = $('.dims .d'), L = 400; d.style.strokeDasharray = L; gsap.fromTo(d, {strokeDashoffset:L}, {strokeDashoffset:0, duration:1.6, delay:.8, ease:'power2.inOut'});
   gsap.from('.tag', {y:20, opacity:0, duration:.8, delay:1.4});
   gsap.from('.facts li', {y:30, opacity:0, stagger:.08, duration:.9, delay:.6, ease:'power3.out'});

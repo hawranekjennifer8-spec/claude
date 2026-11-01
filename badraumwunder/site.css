@@ -13,7 +13,7 @@ button{font:inherit;color:inherit}
 .label{display:flex;align-items:center;gap:12px;font:600 12px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--stein);margin:0 0 20px}
 .label::before{content:"";width:28px;height:1px;background:var(--blau)}
 .h1,.h2,.h3{font-family:var(--head);font-weight:650;line-height:1;letter-spacing:-.03em;margin:0;text-wrap:balance}
-.h1{font-size:clamp(46px,7vw,112px)}
+.h1{font-size:clamp(44px,6vw,96px)}
 .h2{font-size:clamp(36px,5vw,74px)}
 .h3{font-size:clamp(24px,2.2vw,32px);line-height:1.1}
 .b{color:var(--blau)}
@@ -46,7 +46,7 @@ button{font:inherit;color:inherit}
 .nav a:hover::after{transform:scaleX(1)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center;max-width:1440px;margin:0 auto;padding:130px var(--pad) 70px;min-height:100vh}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,5vw,80px);align-items:center;max-width:1440px;margin:0 auto;padding:130px var(--pad) 70px;min-height:100vh}
 .lead{font-size:clamp(17px,1.35vw,20px);color:var(--stein);max-width:44ch;margin:26px 0 0}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 0}
 .hero-pic{position:relative;padding:0 30px 34px 0}
