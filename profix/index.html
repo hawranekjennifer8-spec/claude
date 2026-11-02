@@ -62,7 +62,11 @@ p.big{font-size:clamp(18px,1.5vw,22px);color:var(--soft);max-width:34em}
 
 /* Hero */
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:var(--fog)}
+.hero .media{position:absolute;inset:0;overflow:hidden}
 .hero .img,.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero canvas{touch-action:pan-y}
+#fx{pointer-events:none}
+.sq{position:absolute;left:0;top:0;opacity:0;pointer-events:none;z-index:3;will-change:transform;filter:drop-shadow(0 10px 18px rgba(11,26,38,.28))}
 .hero .img{object-fit:cover;object-position:20% 50%}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.9) 0,rgba(255,255,255,.62) 28%,rgba(255,255,255,0) 52%);pointer-events:none}
 .hero .txt{position:absolute;z-index:2;left:var(--m);bottom:clamp(40px,9vh,110px);max-width:min(640px,52vw)}
@@ -297,7 +301,7 @@ footer{padding:clamp(70px,9vw,130px) 0 30px;overflow:hidden}
 <section class="hero" id="top" aria-labelledby="h1">
   <div class="media">
     <img class="img" id="heroimg" src="media/hero-1600.webp" srcset="media/hero-800.webp 860w, media/hero-1600.webp 1680w" sizes="100vw" alt="Bodentiefe Glaswand in einem hellen Büro mit Blick über die Dächer" width="1680" height="944" fetchpriority="high">
-    <canvas id="herofog" aria-hidden="true"></canvas>
+    <canvas id="herofog" aria-hidden="true"></canvas><canvas id="fx" aria-hidden="true"></canvas><div class="sq" id="sq" aria-hidden="true"></div>
   </div>
   <div class="txt">
     <p class="lbl hx">Meisterbetrieb · Wiesbaden-Biebrich · Rhein/Main</p>
@@ -326,10 +330,10 @@ footer{padding:clamp(70px,9vw,130px) 0 30px;overflow:hidden}
   <div class="wrap">
     <p class="lbl" id="nm-h"><b>02</b> Profix in Zahlen</p>
     <ul>
-      <li data-rv><div class="n">Meister</div><p>Meisterbetrieb im Gebäudereiniger-Handwerk</p></li>
-      <li data-rv><div class="n" data-count="12">12</div><p>Leistungen aus einer Hand, vom Büro bis zum Winterdienst</p></li>
-      <li data-rv><div class="n"><span data-count="24">24</span><small>h</small></div><p>Winterdienst als 24-Stunden-Service</p></li>
-      <li data-rv><div class="n" data-count="5" data-dec="1">5,0</div><p>bei Google, 26 Rezensionen (Stand Oktober 2026)</p></li>
+      <li><div class="n">Meister</div><p>Meisterbetrieb im Gebäudereiniger-Handwerk</p></li>
+      <li><div class="n" data-count="12">12</div><p>Leistungen aus einer Hand, vom Büro bis zum Winterdienst</p></li>
+      <li><div class="n"><span data-count="24">24</span><small>h</small></div><p>Winterdienst als 24-Stunden-Service</p></li>
+      <li><div class="n" data-count="5" data-dec="1">5,0</div><p>bei Google, 26 Rezensionen (Stand Oktober 2026)</p></li>
     </ul>
   </div>
 </section>
@@ -507,6 +511,19 @@ const S=[
 ];
 const IMG=['buero','buero','abzieher','treppe',null,'halle',null,null,null,null,null,null];
 
+/* Beschlag-Ebene: unscharfes Motiv, Dunst, Kondenstropfen */
+function fogLayer(W,H,im,px,py){const f=document.createElement('canvas'),d=Math.min(devicePixelRatio||1,2);
+  f.width=Math.ceil(W*d);f.height=Math.ceil(H*d);const c=f.getContext('2d');c.scale(d,d);
+  const ir=im.naturalWidth/im.naturalHeight;let dw,dh;if(ir>W/H){dh=H;dw=H*ir}else{dw=W;dh=W/ir}
+  const dx=(W-dw)*px,dy=(H-dh)*py,s=document.createElement('canvas'),k=1/22;s.width=Math.max(8,Math.round(W*k));s.height=Math.max(8,Math.round(H*k));
+  s.getContext('2d').drawImage(im,dx*k,dy*k,dw*k,dh*k);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';c.drawImage(s,0,0,W,H);
+  c.fillStyle='rgba(234,242,248,.64)';c.fillRect(0,0,W,H);
+  let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  for(let i=0,n=Math.round(W*H/1500);i<n;i++){const x=rnd()*W,y=rnd()*H,q=rnd(),r=q<.82?.5+rnd()*1.5:q<.97?2+rnd()*3.5:5.5+rnd()*5;
+    if(r<1.6){c.fillStyle=`rgba(255,255,255,${.25+rnd()*.35})`;c.beginPath();c.arc(x,y,r,0,7);c.fill();continue}
+    const g=c.createRadialGradient(x-r*.3,y-r*.35,r*.1,x,y,r);g.addColorStop(0,'rgba(255,255,255,.75)');g.addColorStop(.55,'rgba(225,236,244,.35)');g.addColorStop(1,'rgba(11,26,38,.22)');
+    c.fillStyle=g;c.beginPath();c.ellipse(x,y,r,r*1.06,0,0,7);c.fill();c.fillStyle='rgba(255,255,255,.95)';c.beginPath();c.arc(x-r*.35,y-r*.4,Math.max(.6,r*.18),0,7);c.fill()}
+  return f}
 /* Beschlag-Wisch: beschlagene Scheibe, von einer Abzieherkante freigezogen */
 class Fog{
   constructor(cv,img,o={}){this.cv=cv;this.img=img;this.o=o;this.p=0;this.c=cv.getContext('2d');this.ok=false;
@@ -514,22 +531,7 @@ class Fog{
     (img.complete&&img.naturalWidth)?go():img.addEventListener('load',go,{once:true});
     let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(()=>{if(this.ok){this.size();this.draw()}},120)})}
   size(){const r=this.cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);this.W=r.width;this.H=r.height;this.cv.width=Math.round(r.width*d);this.cv.height=Math.round(r.height*d);this.c.setTransform(d,0,0,d,0,0);this.build()}
-  build(){const W=this.W,H=this.H,im=this.img,f=document.createElement('canvas'),d=Math.min(devicePixelRatio||1,2);
-    f.width=Math.ceil(W*d);f.height=Math.ceil(H*d);const c=f.getContext('2d');c.scale(d,d);
-    const ir=im.naturalWidth/im.naturalHeight;let dw,dh;if(ir>W/H){dh=H;dw=H*ir}else{dw=W;dh=W/ir}
-    const px=this.o.px??.5,py=this.o.py??.5,dx=(W-dw)*px,dy=(H-dh)*py;
-    const s=document.createElement('canvas'),k=1/22;s.width=Math.max(8,Math.round(W*k));s.height=Math.max(8,Math.round(H*k));
-    const sc=s.getContext('2d');sc.drawImage(im,dx*k,dy*k,dw*k,dh*k);
-    c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';c.drawImage(s,0,0,W,H);
-    c.fillStyle='rgba(234,242,248,.62)';c.fillRect(0,0,W,H);
-    let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
-    const n=Math.round(W*H/1500);
-    for(let i=0;i<n;i++){const x=rnd()*W,y=rnd()*H,q=rnd(),r=q<.82?.5+rnd()*1.5:q<.97?2+rnd()*3.5:5.5+rnd()*5;
-      if(r<1.6){c.fillStyle=`rgba(255,255,255,${.25+rnd()*.35})`;c.beginPath();c.arc(x,y,r,0,7);c.fill();continue}
-      const g=c.createRadialGradient(x-r*.3,y-r*.35,r*.1,x,y,r);g.addColorStop(0,'rgba(255,255,255,.75)');g.addColorStop(.55,'rgba(225,236,244,.35)');g.addColorStop(1,'rgba(11,26,38,.22)');
-      c.fillStyle=g;c.beginPath();c.ellipse(x,y,r,r*1.06,0,0,7);c.fill();
-      c.fillStyle='rgba(255,255,255,.95)';c.beginPath();c.arc(x-r*.35,y-r*.4,Math.max(.6,r*.18),0,7);c.fill()}
-    this.f=f}
+  build(){this.f=fogLayer(this.W,this.H,this.img,this.o.px??.5,this.o.py??.5)}
   draw(){if(!this.ok)return;const c=this.c,W=this.W,H=this.H,p=Math.max(0,Math.min(1,this.p));c.clearRect(0,0,W,H);if(p>=1)return;
     c.drawImage(this.f,0,0,W,H);if(p<=0)return;
     const T=H*Math.tan(this.o.ang??.21),X=p*(W+T+40);
@@ -545,8 +547,68 @@ class Fog{
 }
 
 /* Hero */
-const heroFog=RM?null:new Fog($('#herofog'),$('#heroimg'),{px:MOB()?.74:.2,py:.5,ang:.2});
-if(RM)$('#herofog').remove();
+
+
+/* HERO-Intro: beschlagene Scheibe, Sprühschaum, Abzieher in Bahnen, ablaufende Tropfen */
+function showHeroText(d){const ws=$$('#h1 .w>span');if(RM){gsap.set(ws,{yPercent:0});gsap.set('.hx',{opacity:1,y:0});return}
+  gsap.to(ws,{yPercent:0,duration:1.4,ease:'expo.out',stagger:.07,delay:d});gsap.to('.hx',{opacity:1,y:0,duration:1.2,ease:'expo.out',stagger:.08,delay:d+.3})}
+function heroIntro(){
+  const media=$('.hero .media'),cv=$('#herofog'),fx=$('#fx'),sq=$('#sq'),img=$('#heroimg');
+  gsap.set($$('#h1 .w>span'),{yPercent:110});gsap.set('.hx',{opacity:0,y:18});gsap.set(img,{scale:1.07});
+  const ctx=cv.getContext('2d'),fc=fx.getContext('2d');let W,H,done=false,started=false,tl;const R=(a,b)=>a+Math.random()*(b-a);
+  function size(){const d=Math.min(2,devicePixelRatio||1);W=media.clientWidth;H=media.clientHeight;[cv,fx].forEach(c=>{c.width=W*d;c.height=H*d});ctx.setTransform(d,0,0,d,0,0);fc.setTransform(d,0,0,d,0,0)}
+  function begin(){if(started)return;started=true;size();
+    ctx.drawImage(fogLayer(W,H,img,MOB()?.74:.2,.5),0,0,W,H);
+    // Bläschen-Sprites
+    const SP=[1.6,2.4,3.4,4.8,6.6,9,12.5].map(r=>{const d=Math.ceil(r*2+6),c=document.createElement('canvas');c.width=c.height=d*2;const g=c.getContext('2d');g.scale(2,2);const m=d/2;
+      g.fillStyle='rgba(255,255,255,.55)';g.beginPath();g.arc(m,m,r,0,7);g.fill();
+      g.lineWidth=Math.max(.5,r*.13);g.strokeStyle='rgba(255,255,255,.96)';g.stroke();
+      g.lineWidth=Math.max(.4,r*.08);g.strokeStyle='rgba(46,155,234,.42)';g.beginPath();g.arc(m,m,r*.82,.5,2.7);g.stroke();
+      g.fillStyle='#fff';g.beginPath();g.arc(m-r*.36,m-r*.38,Math.max(.5,r*.22),0,7);g.fill();return {c,d}});
+    function puff(x,y,r){const g=ctx.createRadialGradient(x,y,0,x,y,r*1.3);g.addColorStop(0,'rgba(252,254,255,.86)');g.addColorStop(.6,'rgba(252,254,255,.58)');g.addColorStop(1,'rgba(252,254,255,0)');ctx.fillStyle=g;ctx.fillRect(x-r*1.3,y-r*1.3,r*2.6,r*2.6)}
+    // Schaum-Stöße: wachsen vom Auftreffpunkt nach außen
+    const bursts=(MOB()?[[.5,.28,.42],[.4,.58,.46],[.6,.86,.4]]:[[.62,.32,.3],[.36,.52,.3],[.74,.76,.3]]).map(([x,y,r])=>({x:x*W,y:y*H,r:r*Math.max(W,H)*(MOB()?1.05:.62)}));
+    const drops=[];bursts.forEach((b,bi)=>{for(let i=0,n=MOB()?650:1300;i<n;i++){const a=R(0,7),d=Math.pow(Math.random(),.55)*b.r;drops.push({b:bi,x:b.x+Math.cos(a)*d*1.25,y:b.y+Math.sin(a)*d*.85,d:d/b.r,s:Math.min(6,Math.floor(Math.pow(Math.random(),2.4)*7))})}
+      for(let i=0;i<14;i++){const a=R(0,7),d=R(0,b.r*.7);drops.push({b:bi,p:1,x:b.x+Math.cos(a)*d*1.2,y:b.y+Math.sin(a)*d*.8,d:d/b.r,s:R(40,90)})}});
+    drops.sort((a,b)=>a.d-b.d);
+    const st={p:[0,0,0]},drawn=new Set();
+    function paintBurst(bi){const p=st.p[bi];drops.forEach((o,i)=>{if(o.b!==bi||drawn.has(i)||o.d>p)return;drawn.add(i);if(o.p){puff(o.x,o.y,o.s);return}const s=SP[o.s];ctx.drawImage(s.c,o.x-s.d/2,o.y-s.d/2,s.d,s.d)})}
+    // Abzieher (Profix-Blau)
+    const n=MOB()?4:3,bh=H/n*1.16,hw=MOB()?150:300;
+    sq.innerHTML=`<svg width="${hw+30}" height="${bh}" viewBox="0 0 ${hw+30} ${bh}"><rect x="0" y="0" width="9" height="${bh}" rx="3" fill="#0b1a26"/><rect x="7" y="5" width="16" height="${bh-10}" rx="3" fill="#b8c3cb"/><rect x="8" y="5" width="5" height="${bh-10}" fill="#e3e9ed"/><rect x="19" y="5" width="4" height="${bh-10}" fill="#8996a0"/><rect x="21" y="${bh/2-17}" width="26" height="34" rx="7" fill="#8996a0"/><rect x="42" y="${bh/2-13}" width="${hw-20}" height="26" rx="13" fill="#2e9bea"/><rect x="${hw*.45}" y="${bh/2-13}" width="${hw*.42}" height="26" rx="13" fill="#1f7fc4"/><circle cx="${hw+18}" cy="${bh/2}" r="9" fill="#1f7fc4"/></svg>`;
+    sq.style.height=bh+'px';
+    const pos={x:-60,y:0,dir:1};let prev=null;const runs=[];
+    function erase(x1,y1,x2,y2,w){ctx.globalCompositeOperation='destination-out';ctx.strokeStyle='#000';ctx.lineCap='round';ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.globalCompositeOperation='source-over'}
+    function place(){sq.style.transform=`translate(${pos.x}px,${pos.y-bh/2}px) scaleX(${pos.dir}) rotate(${pos.dir*-2}deg)`;
+      if(prev){erase(prev.x,prev.y,pos.x,pos.y,bh*.98);if(Math.random()<.45)runs.push({x:pos.x-pos.dir*R(20,60),y:pos.y+bh*.47,v:R(40,90),len:R(30,120),r:R(2,3.6),t:0})}
+      prev={x:pos.x,y:pos.y}}
+    // Tropfen laufen an der Kante herunter
+    let lt=performance.now();
+    (function tick(now){now=now||performance.now();const dt=Math.min(.05,(now-lt)/1000);lt=now;fc.clearRect(0,0,W,H);
+      for(const d of runs){if(d.t<d.len){const ny=d.y+d.v*dt;erase(d.x,d.y,d.x,ny,d.r*1.4);d.y=ny;d.t+=d.v*dt;d.v*=.985}d.a=(d.a??1)-(d.t>=d.len?dt*1.2:0);
+        if(d.a>0){fc.globalAlpha=d.a;fc.fillStyle='rgba(255,255,255,.92)';fc.beginPath();fc.ellipse(d.x,d.y,d.r,d.r*1.35,0,0,7);fc.fill();fc.fillStyle='rgba(46,155,234,.55)';fc.beginPath();fc.arc(d.x+d.r*.3,d.y+d.r*.4,d.r*.45,0,7);fc.fill();fc.globalAlpha=1}}
+      if(!done||runs.some(d=>d.a>0))requestAnimationFrame(tick);else fx.remove()})();
+    tl=gsap.timeline({delay:.25});
+    bursts.forEach((b,bi)=>tl.to(st.p,{[bi]:1,duration:.34,ease:'power2.out',onUpdate:()=>paintBurst(bi)},.15+bi*.16));
+    tl.set(sq,{opacity:1},'+=.12');
+    for(let i=0;i<n;i++){const y=(i+.5)*(H/n),l2r=i%2===0;
+      tl.add(()=>{Object.assign(pos,{x:l2r?-70:W+70,y,dir:l2r?1:-1});prev=null;place()});
+      tl.to(pos,{x:l2r?W+70:-70,duration:MOB()?.5:.66,ease:'power1.inOut',onUpdate:place});
+      if(i===1&&!MOB())tl.add(()=>showHeroText(0))}
+    tl.to(sq,{opacity:0,duration:.2});
+    tl.add(()=>{done=true;gsap.to(cv,{opacity:0,duration:.6,onComplete:()=>cv.remove()})});
+    tl.to(img,{scale:1,duration:3.4,ease:'expo.out'},0);
+    // Mit Maus/Finger mitwischen, solange es noch nass ist
+    let lp=null;cv.addEventListener('pointermove',e=>{if(done)return;const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;if(lp)erase(lp.x,lp.y,x,y,110);lp={x,y}});
+    cv.addEventListener('pointerleave',()=>lp=null);
+    const fast=()=>tl.timeScale(3.2);addEventListener('wheel',fast,{once:true,passive:true});addEventListener('keydown',fast,{once:true});
+    const w0=innerWidth;addEventListener('resize',()=>{if(!done&&Math.abs(innerWidth-w0)>120)tl.progress(1)});
+  }
+  if(MOB())showHeroText(.2);
+  const go=()=>{if(MOB()){new IntersectionObserver((e,o)=>{if(e[0].intersectionRatio>.35){o.disconnect();begin()}},{threshold:[.35]}).observe(media)}else begin()};
+  (img.complete&&img.naturalWidth)?go():img.addEventListener('load',go,{once:true});
+}
+if(RM){['#herofog','#fx','#sq'].forEach(s=>$(s).remove());showHeroText(0)}
 
 /* Statement: Wisch an den Scroll gekoppelt */
 const stFog=RM?null:new Fog($('#stfog'),$('#stimg'),{px:.5,py:.5,ang:.24});
@@ -620,18 +682,19 @@ addEventListener('scroll',onScroll,{passive:true});onScroll();
 
 if(RM){$$('[data-count]').forEach(()=>{})}
 else{
-  // Hero-Intro: Wisch, dann Text
-  const ws=$$('#h1 .w>span');gsap.set(ws,{yPercent:110});gsap.set('.hx',{opacity:0,y:18});
-  const run=()=>{const tl=gsap.timeline({delay:.35});
-    if(heroFog)tl.to(heroFog,{p:1,duration:2.1,ease:'power2.inOut',onUpdate:()=>heroFog.draw()},0);
-    tl.to('.hero .img',{scale:1,duration:2.6,ease:'expo.out'},0)
-      .to(ws,{yPercent:0,duration:1.4,ease:'expo.out',stagger:.07},.75)
-      .to('.hx',{opacity:1,y:0,duration:1.2,ease:'expo.out',stagger:.08},1.05)};
-  gsap.set('.hero .img',{scale:1.06});
-  const hi=$('#heroimg');(hi.complete&&hi.naturalWidth)?run():hi.addEventListener('load',run,{once:true});
+  // Hero-Intro: Schaum aufsprühen, Abzieher zieht in Bahnen ab, dann Text
+  heroIntro();
+  // Hero beim Weiterscrollen: Bild driftet, Text weicht
+  gsap.to('.hero .img',{yPercent:9,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  if(!MOB())gsap.to('.hero .txt',{y:-80,opacity:0,ease:'none',scrollTrigger:{trigger:'.hero',start:'25% top',end:'85% top',scrub:true}});
 
   // Überschriften aus Masken
-  $$('[data-split]').forEach(el=>{if(el.id==='h1')return;gsap.from(el.querySelectorAll('.w>span'),{yPercent:110,duration:1.3,ease:'expo.out',stagger:.06,scrollTrigger:{trigger:el,start:'top 86%',once:true}})});
+  const bq=$('.stance blockquote');gsap.fromTo(bq.querySelectorAll('.w>span'),{opacity:.14},{opacity:1,stagger:.12,ease:'none',scrollTrigger:{trigger:bq,start:'top 78%',end:'bottom 42%',scrub:true}});
+  // Bilder öffnen sich wie ein Vorhang
+  [['#stpane','inset(14% 7% 14% 7%)'],['#einsatz .ph','inset(16% 10% 16% 10%)']].forEach(([s,from])=>gsap.fromTo(s,{clipPath:from},{clipPath:'inset(0% 0% 0% 0%)',ease:'none',scrollTrigger:{trigger:s,start:'top 95%',end:'top 35%',scrub:true}}));
+  gsap.from('.list li',{y:34,opacity:0,duration:1.1,ease:'expo.out',stagger:.045,scrollTrigger:{trigger:'#list',start:'top 85%',once:true}});
+  gsap.from('.nums li',{y:40,opacity:0,duration:1.2,ease:'expo.out',stagger:.08,scrollTrigger:{trigger:'.nums ul',start:'top 88%',once:true}});
+  $$('[data-split]').forEach(el=>{if(el.id==='h1'||el.tagName==='BLOCKQUOTE')return;gsap.from(el.querySelectorAll('.w>span'),{yPercent:110,duration:1.3,ease:'expo.out',stagger:.06,scrollTrigger:{trigger:el,start:'top 86%',once:true}})});
   // Eingänge
   $$('[data-rv]').forEach(el=>gsap.from(el,{y:28,opacity:0,duration:1.2,ease:'expo.out',clearProps:'opacity,transform',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
   // Bilder: leichter Zoom-out
