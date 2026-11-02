@@ -90,10 +90,10 @@ $('#dform').addEventListener('submit', e => {
 });
 
 /* Werkstatt-Strecke */
-$('#strip').innerHTML = Array.from({length:19}, (_, i) => `<figure><img src="img/w${i+1}.webp" width="1050" height="700" alt="Aus der Werkstatt der Autolackiererei Götter" loading="lazy"></figure>`).join('');
+$('#strip').innerHTML = [1,2,3,16,4,5,17,6,7,18,8,19].map(i => `<figure><img src="img/w${i}.webp" width="1050" height="700" alt="Aus der Werkstatt der Autolackiererei Götter" loading="lazy"></figure>`).join('');
 ScrollTrigger.matchMedia({'(min-width: 1001px)': () => {
   const st = $('#strip');
-  gsap.to(st, {x:() => -(st.scrollWidth - innerWidth + 48), ease:'none', scrollTrigger:{trigger:'.shop', start:'top top', end:() => '+=' + (st.scrollWidth - innerWidth), pin:true, scrub:.6, invalidateOnRefresh:true}});
+  gsap.to(st, {x:() => -(st.scrollWidth - innerWidth + 48), ease:'none', scrollTrigger:{trigger:'.shop', start:'top top', end:() => '+=' + (st.scrollWidth - innerWidth)*.7, pin:true, scrub:.6, invalidateOnRefresh:true}});
 }});
 
 /* Öffnungszeiten live (Europe/Berlin) */
