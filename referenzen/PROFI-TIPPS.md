@@ -117,3 +117,17 @@ Video: referenzen/2026-11-02_designby-abhay_obsidian-scroll-to-wash.mp4 (+ Konta
 - **Passt für:** Autoaufbereiter, Reinigung, Restaurierung, Polster, alles mit sichtbarem Vorher/Nachher.
 - **Für echte Betriebe:** Wie bei LEVANTO nur echte Vorher/Nachher-Paare desselben Autos und derselben Kameraposition; KI erzeugt nur Übergangsframes. Fremde Marken-Logos und Kennzeichen unkenntlich machen. Reine KI-Bilder nicht als Kundenarbeit ausgeben.
 - Präsentation: MacBook-POV im dunklen Raum, Hand am Trackpad, Ende mit Instagram-Handle.
+
+## @uijonah – „Calibre“ Uhren-Website, Explosionsansicht (02.11.2026)
+Video: referenzen/2026-11-02_uijonah_calibre-uhr-explosion.mov (+ Kontaktbogen).
+- **Hero = ein Produkt, das beim Scrollen zerlegt wird:** Schwarze Skelett-Uhr auf Schwarz, Titel „Calibre“ groß und dünn daneben. Die Kamera taucht ins Uhrwerk („Six beats a second. Slowed twelve times.“), dann schwebt die Uhr in Einzelteile auseinander („102 parts. Nothing hidden.“), dann Oberflächen-Makro („Côtes de Genève“), zum Schluss wieder ganz: „Wear the Calibre“ mit Button.
+- **Warum es wirkt:** Eine einzige Sache füllt den Bildschirm, jede Station belegt genau ein Qualitätsmerkmal in einem Satz. Weißraum ist hier Schwarz.
+- **Technik:** Wie LEVANTO/Obsidian als Bildsequenz per ScrollTrigger; für echtes Drehen und Zerlegen alternativ 3D-Modell (three.js, GLB) nach PROFI-TIPPS-Regeln.
+- **Passt für:** Schmuck (LUMINOSO: Stein, Fassung, Punze), Uhren, Technik, Handwerk. Zahlen und Fachbegriffe nur, wenn sie für das echte Produkt belegt sind.
+- Präsentation: POV am Laptop im dunklen Raum, Hook „Pov: You mastered interactive websites“, Call-to-Action „comment BUILD for prompt“.
+
+## @cesarbizn – „Harvey“ Sales-Agent für Claude Code (02.11.2026)
+Video: referenzen/2026-11-02_cesarbizn_harvey-sales-agent.mov (+ Kontaktbogen). Deutsches Reel über ein GitHub-Projekt mit MIT-Lizenz laut Einblendung; Repo-Adresse nicht im Video erkannt, Code nicht geprüft.
+- **Laut Video:** Du sagst, was du verkaufst → Harvey sucht Firmen über OpenStreetMap, liest deren Website und filtert (Beispiel: „No online booking“) → schreibt je Firma eine persönliche Mail (unter 75 Wörter) → Antworten landen vorbereitet im Postfach, du gibst frei. Läuft lokal mit Dashboard (Kontakte, Mails, Gespräche), alle 15 Minuten, Ruhezeiten nachts, über den Claude-Plan.
+- **Idee für uns:** Website-Filter passt zu maps-lead-finder: lokale Betriebe ohne Online-Buchung oder gute Website finden und eine echte Beobachtung pro Betrieb notieren.
+- **ACHTUNG Recht DE:** Unaufgeforderte Werbe-Mails sind nach § 7 UWG auch an Firmen ohne Einwilligung grundsätzlich unzulässig (Abmahnrisiko). Vollautomatisches Cold-Mailing nicht so übernehmen. Sauberer: nur Recherche und Entwurf, Kontakt per Brief oder Telefon im zulässigen Rahmen; vor Einsatz rechtlich klären.
