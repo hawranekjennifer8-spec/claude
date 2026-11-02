@@ -108,3 +108,12 @@ Video: referenzen/2026-11-01_ramanstudio_levanto-bad-sanierung.mp4 (+ Kontaktbog
 - **Herstellung für echte Betriebe:** Start-Frame = echtes Vorher-Foto (Rohbau/altes Bad), End-Frame = echtes Nachher-Foto derselben Kamera-Position → Image-to-Video mit Start+End-Frame (Higgsfield/Kling/Veo „first-last frame“), Bewegung: Kamera steht, Materialien „wachsen“ ein. Nichts dazuerfinden: nur Vorher/Nachher-Paare des Betriebs; KI erzeugt nur die Übergangsframes. Ohne Paar → Grundriss-Slider oder 3D-Planung → Foto.
 - Danach: dunkle Sektionen mit Zahlen (Projekte · Jahre · Bauzeit), Laufband mit Leistungen, „Sie sehen den Stein, bevor wir ihn schneiden“ (Materialfreigabe), Leistungsraster, 4 Bauschritte, Projektgalerie, Formular „Kostenlose Vor-Ort-Beratung“.
 - Präsentation: MacBook-POV, Hand am Trackpad, Farbverlauf-Hintergrund.
+
+## @designby.abhay – „Obsidian“ Autoaufbereitung, Scroll-to-Wash (02.11.2026, Einblendung „Opus 5.5 + Higgsfield“)
+Video: referenzen/2026-11-02_designby-abhay_obsidian-scroll-to-wash.mp4 (+ Kontaktbogen).
+- **Hero = Scroll-Verwandlung am Produkt:** Schlammverkrustetes schwarzes SUV in dunkler Werkstatt mit Lichtbändern, Zeile „Scroll to wash it“. Beim Scrollen wäscht sich der Wagen sauber, ohne dass die Kamera wegspringt. Technik wie LEVANTO: Bildsequenz per ScrollTrigger auf Frames (canvas, WebP).
+- **Kapitel statt Sektionen:** Danach fährt die Kamera in Makros: „Look closer.“ (Lack unter hellem Licht) → „Swirls out …“ (Polierkreise im Lack) → Finale im warmen Abendlicht vor dem Tor: „Keys back. Jaw drops.“ mit Buchungs-Hinweis. Das Scrollen erzählt den Ablauf der Dienstleistung vom Abgeben bis zur Übergabe.
+- **Typo:** Eine Zeile gefüllt, die zweite als Kontur, mal links, mal rechts neben dem Motiv; kurze Sätze, kleine Unterzeile, unten eine feste Buchungsleiste.
+- **Passt für:** Autoaufbereiter, Reinigung, Restaurierung, Polster, alles mit sichtbarem Vorher/Nachher.
+- **Für echte Betriebe:** Wie bei LEVANTO nur echte Vorher/Nachher-Paare desselben Autos und derselben Kameraposition; KI erzeugt nur Übergangsframes. Fremde Marken-Logos und Kennzeichen unkenntlich machen. Reine KI-Bilder nicht als Kundenarbeit ausgeben.
+- Präsentation: MacBook-POV im dunklen Raum, Hand am Trackpad, Ende mit Instagram-Handle.
