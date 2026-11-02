@@ -2,7 +2,7 @@
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const MAIL = 'info@autolackiererei-wiesbaden.de';
-const TONES = [['Tiefschwarz','#16181B','#C9CDD2'],['Brillantsilber','#8E9399','#E6E9EC'],['Signalrot','#B5140F','#FF6A5F'],['Tiefseeblau','#1F3A5F','#8DB4E8'],['Polarweiß','#E9E7E1','#FFFFFF'],['Racinggrün','#2F4A3A','#9CCFAE']];
+const TONES = [['Signalrot','#B5140F','#FF6A5F'],['Tiefschwarz','#16181B','#C9CDD2'],['Brillantsilber','#8E9399','#E6E9EC'],['Tiefseeblau','#1F3A5F','#8DB4E8'],['Polarweiß','#E9E7E1','#FFFFFF'],['Racinggrün','#2F4A3A','#9CCFAE']];
 
 /* Smooth Scroll */
 gsap.registerPlugin(ScrollTrigger);
@@ -30,7 +30,9 @@ else {
 /* Kopfleiste & Handy-Leiste */
 const onS = () => $('#hdr').classList.toggle('solid', scrollY > 60); addEventListener('scroll', onS, {passive:true}); onS();
 const mbar = $('#mbar');
-ScrollTrigger.create({trigger:'#schaden', start:'top 80%', end:'bottom 30%', onToggle: s => mbar.classList.toggle('hide', s.isActive)});
+const mb = () => { const st = ScrollTrigger.getById('dmgS'); mbar.classList.toggle('hide', scrollY < innerHeight*.6 || (st && st.isActive)); };
+ScrollTrigger.create({id:'dmgS', trigger:'#schaden', start:'top 80%', end:'bottom 30%', onToggle: mb});
+addEventListener('scroll', mb, {passive:true}); mb();
 
 /* Lackprobe: Farbton wählen, Glanzlicht folgt Finger/Maus */
 const panel = $('#panel');
