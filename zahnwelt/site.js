@@ -32,9 +32,16 @@
 
   // Hero-Portal: der Logo-Kreis öffnet sich
   const hero = $('#hero');
-  const r0 = () => mob() ? innerWidth * .34 : Math.min(innerWidth, innerHeight) * .30;
+  const r0 = () => {
+    if (!mob()) { hero.style.removeProperty('--y0'); return Math.min(innerWidth, innerHeight) * .30; }
+    // Handy: Kreis zwischen Header und Text einpassen
+    const top = $('.hdr').offsetHeight, txt = $('.hero-txt').offsetTop, room = txt - top;
+    hero.style.setProperty('--y0', (top + room / 2) + 'px');
+    return Math.max(70, Math.min(innerWidth * .36, room / 2 - 26));
+  };
   const rMax = () => Math.hypot(innerWidth, innerHeight);
-  if (!reduce) {
+  if (reduce) hero.style.setProperty('--r', r0() + 'px');
+  else {
     gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: '+=130%', pin: true, scrub: .6, invalidateOnRefresh: true } })
       .fromTo(hero, { '--r': () => r0() + 'px', '--z': 1.12, '--sh': 0 }, { '--r': () => rMax() + 'px', '--z': 1, '--sh': 1, ease: 'power2.in', duration: 1 })
       .to('.hero-txt', { opacity: 0, y: -50, duration: .35 }, 0)
