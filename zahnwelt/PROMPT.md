@@ -19,14 +19,14 @@ Sehr viele Bewertungen (663) = großer Patientenstamm und Budget. Website: stati
 ## Bilder
 27 echte Praxisfotos aus der Galerie der eigenen Website (1296×1944 bzw. 1944×1296), als WebP. Keine Patienten, keine Vorher-nachher-Bilder.
 
-## Idee (individuell)
-Thema „Eine Welt betreten“: der Kreis aus dem Logo ist das Portal.
-- Intro: Logo-Kreis zeichnet sich (Gelb → Grün), Logo erscheint.
-- Hero: Fenster im Logo-Kreis zeigt den echten Empfang. Beim Scrollen öffnet sich der Kreis bildschirmfüllend: man „betritt“ die Zahnwelt.
-- Signatur 1 – Lichtstimmungen: Der Empfang leuchtet je nach Tageszeit violett, rosé oder bernstein (drei echte Fotos). Drei Hochformat-Paneele, das aktive wird breit.
-- Signatur 2 – Lupe: Über dem Behandlungszimmer liegt eine Lupe (2,4-fach), die Maus/Finger folgt. Sie zeigt, wie die Intraoralkamera arbeitet.
-- Rundgang (horizontal), Leistungen, Familien-Bereich (an Eltern gerichtet), Termin-Anfrage per E-Mail mit Live-Öffnungsstatus.
-Schrift: Plus Jakarta Sans (variabel) + Instrument Serif kursiv für Akzente.
+## Idee (v2 nach Feedback 06.11.2026: „professioneller, vertrauenswürdiger, mehr medizinisch – keine Spielothek“)
+Klare, helle Klinik-Optik in den Logofarben. Grün ist die Hauptfarbe, Gelb und Orange kommen nur als kleine Akzente vor. Dazu eine leicht grün getönte Fläche (#F4F7F2), feine Linien, nur eine Schrift (Plus Jakarta Sans) und ruhige Animationen.
+- Hero: Text links („Zahnmedizin, die erklärt, bevor sie behandelt“), rechts ein echtes Empfangsfoto. Dahinter zeichnet sich ein Zahn als feine Linie. Eine Karte zeigt 4,9 ★ / 663 Bewertungen, darunter der Live-Öffnungsstatus.
+- Vertrauensleiste: seit 2011 · 5 Fachrichtungen · Mo–Sa · Notfälle täglich erreichbar · Parken im Hof.
+- Signatur: Anatomischer Querschnitt eines Backenzahns als eigene Linienzeichnung (Schmelz, Zahnfleisch, Wurzel/Knochen, Pulpa). Beim Scrollen leuchtet die passende Schicht pro Fachbereich auf: Prophylaxe, Parodontologie, Implantologie/Kieferchirurgie, Kieferorthopädie, Diagnostik.
+- Ablauf in 4 Schritten (aus den Aussagen der Praxis zur gemeinsamen Besprechung am Monitor).
+- Lupe (Intraoralkamera), Praxisräume als ruhiges Raster, Familien-Abschnitt (an Eltern gerichtet), Terminanfrage.
+- Entfernt: Lichtstimmungen, Portal-Effekt und rotierender Ring (zu verspielt).
 
 ## Recht (amtliche Quellen, geprüft 06.11.2026)
 - Impressum nach § 5 Abs. 1 Nr. 5 DDG (Kammer, gesetzliche Berufsbezeichnung, berufsrechtliche Regelungen). Quelle: gesetze-im-internet.de/ddg/__5.html.
