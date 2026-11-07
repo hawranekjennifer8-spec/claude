@@ -4,6 +4,13 @@ Quelle: Verbote-Kit (Orange Hat Guy, Folge 12) nach github.com/multica-ai/andrej
 
 **IMMER (Jennys Taste, ohne Hinweis anwenden – bei Webseiten, Stamore, Apps, Instagram, Videos, Bildern):** Lenis + GSAP/ScrollTrigger, 21st.dev, Framer, alle Skills, alle Referenz-Videos in referenzen/ (zuletzt 2026-11-07-*), smoothe flüssige Animationen, 4K-Bilder in hoch realistischer Auflösung, jedes Detail prüfen. Details: referenzen/PROFI-TIPPS.md und Memory /topics/premium-qualitaetsstandard.md.
 
+## V0 – Start-Ritual: IMMER automatisch VOR Beginn jeder Aufgabe (nie erst auf Nachfrage von Jenny)
+1. Memory lesen: /topics/premium-qualitaetsstandard.md (/init), /topics/atelier-masterprompt.md, /topics/webdesign-animation-referenz.md, /topics/model-fotografie-prompts.md + passende /areas/-Datei.
+2. Repo lesen: MASTERPROMPT-v7-KOMPLETT.md, referenzen/PROFI-TIPPS.md, referenzen/REEL-ADS-MASTERPROMPT.md (Fehler-Logbuch).
+3. Referenz-Videos/-Bilder in referenzen/ zur Nische ansehen (Kontaktbogen per ffmpeg), passende auswählen.
+4. Skills laden (atelier-premium-webdesign, design-taste-frontend, apple-design, 21st-dev-components, stop-slop …) und Connectoren prüfen (Framer, 21st.dev, Higgsfield, Figma, Canva …).
+5. Erst dann PROMPT.md schreiben: welche Referenzen, Komponenten und Animationen (Lenis + GSAP) gewählt wurden und warum – und danach bauen.
+
 ## V1 – Nicht überkomplizieren
 So wenig Code wie nötig, nichts auf Vorrat, keine Funktionen/Einstellungen, um die keiner gebeten hat. Prüffrage: Fände ein Senior-Entwickler das zu kompliziert? Könnten 200 Zeilen auch 50 sein → neu schreiben. (Gilt für Code, NICHT für Design-Qualität: Animationen und Look bleiben High-End.)
 
