@@ -134,3 +134,19 @@ Video: referenzen/2026-11-02_cesarbizn_harvey-sales-agent.mov (+ Kontaktbogen). 
 
 ## IMMER: echtes Logo + Logofarben, unverändert (02.11.2026)
 Jennys Regel (mit Nachdruck): Auf jeder Kundenseite das **echte Logo des Betriebs unverändert** einsetzen (nicht neu zeichnen, nicht durch eine eigene Wortmarke ersetzen) und die **Farben aus diesem Logo unverändert** als Markenfarben der Seite nehmen. Anlass: Autolackiererei Götter v1 hatte eine selbst gesetzte Wortmarke „F. GÖTTER“ und Signalrot statt Logo und Logofarben. Im PROMPT.md vorab festhalten: Logo-Datei + Quelle, Hex-Werte aus dem Logo.
+
+## IMMER-Regel + Referenz-Videos vom 07.11.2026 (gilt für ALLES: Webseiten, Stamore, Apps, Instagram, Videos, Bilder)
+Jennys Taste. Er wird bei jeder Aufgabe automatisch angewendet, ohne Hinweis von ihr: Lenis + GSAP/ScrollTrigger, 21st.dev, Framer, alle Skills und Referenzen, smoothe flüssige Animationen, 4K-Bilder in hoch realistischer Auflösung und Liebe zum Detail.
+- `2026-11-07-uiuxjam-komponenten.mp4` (@ui.ux.jam): Fertige Premium-Komponenten statt Eigenbau. Dazu gehören ein 3D Memory Album (Foto-Leiste neben großem Editorial-Porträt mit Riesen-Wortmarke), ein Card Folder (Karten 01/02/03 fächern auf), eine CMS Shuffle Gallery und Editorial-Raster.
+- `2026-11-07-yllkaedits-*.mp4` (@yllkaedits, 4 Videos): Aus EINEM Produktfoto entsteht eine ganze Kampagne. Dazu gehören:
+  - freigestellter Hero auf Weiß und Beauty-Porträt mit Produkt
+  - Food-Styling, z. B. Lipgloss als tropfende Eiskugel, Stapel-Skulptur, Bonbon- oder Fruchtgummi-Bett, Handtuch-Muster, Honig-Makro
+  - eine knallige Farbwelt, abgeleitet aus dem Produkt
+- `2026-11-07-polanaeem-loop-bagel.mp4`: LOOP-Bagel. Beim Scrollen wird der Bagel Schicht für Schicht belegt („Built in layers“ → „Built to bite“). Die Sektionsfarbe wechselt mit jeder Schicht. Serif-Versalien, MacBook auf Holztisch.
+- `2026-11-07-websitedesigners-interior.mp4`: Interior-Portfolio für 1,5k $. Dunkel-warm, 4K-Raumfotos, Outline-Wortmarke, „Choose the direction“ mit 3 Karten, „Let's talk about your project“.
+- `2026-11-07-aimenwebs-barbershop.mp4`: „hard part“-Barbershop in Schwarz-Weiß. Dazu gehören:
+  - 3D-Stuhl, dessen Licht der Maus folgt
+  - Preisliste mit Dauer pro Leistung, Barber-Wahl „Four mirrors“, Mitgliedschaften
+  - große 4,9 als Bewertung und freier Slot live („free at 2:40 PM“)
+  - Buchung in unter einer Minute
+- Feedback Zahnwelt: Arztpraxen müssen seriös, vertrauenswürdig und medizinisch wirken, „keine Spielothek“.

@@ -2,6 +2,8 @@
 
 Quelle: Verbote-Kit (Orange Hat Guy, Folge 12) nach github.com/multica-ai/andrej-karpathy-skills (MIT), auf Deutsch und auf Jennys Arbeitsweise angepasst. Vor jeder Aufgabe zusätzlich lesen: MASTERPROMPT-v7-KOMPLETT.md, referenzen/PROFI-TIPPS.md, referenzen/REEL-ADS-MASTERPROMPT.md. Ergänzend (Erweiterung, kein Ersatz): agency-intelligence/MASTER-SYSTEM-v3.md – Rechtsaussagen nur mit amtlicher Quelle, Status VERIFIED/AVAILABLE/REFERENCED/MISSING/UNKNOWN, keine Produktions-Deploys echter Kundenseiten ohne Freigabe; letzter Stand: agency-intelligence/INVENTUR-*.md.
 
+**IMMER (Jennys Taste, ohne Hinweis anwenden – bei Webseiten, Stamore, Apps, Instagram, Videos, Bildern):** Lenis + GSAP/ScrollTrigger, 21st.dev, Framer, alle Skills, alle Referenz-Videos in referenzen/ (zuletzt 2026-11-07-*), smoothe flüssige Animationen, 4K-Bilder in hoch realistischer Auflösung, jedes Detail prüfen. Details: referenzen/PROFI-TIPPS.md und Memory /topics/premium-qualitaetsstandard.md.
+
 ## V1 – Nicht überkomplizieren
 So wenig Code wie nötig, nichts auf Vorrat, keine Funktionen/Einstellungen, um die keiner gebeten hat. Prüffrage: Fände ein Senior-Entwickler das zu kompliziert? Könnten 200 Zeilen auch 50 sein → neu schreiben. (Gilt für Code, NICHT für Design-Qualität: Animationen und Look bleiben High-End.)
 
