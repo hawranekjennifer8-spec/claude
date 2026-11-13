@@ -34,8 +34,22 @@ def timing(spids):
             '</p:childTnLst></p:cTn></p:par></p:tnLst></p:timing>')
 
 
+import hashlib
+first, dup = {}, {}
 for it in zin.infolist():
+    if it.filename.startswith('ppt/media/'):
+        h = hashlib.sha1(zin.read(it.filename)).hexdigest()
+        if h in first: dup[it.filename.split('/')[-1]] = first[h].split('/')[-1]
+        else: first[h] = it.filename
+for it in zin.infolist():
+    if it.filename.startswith('ppt/media/') and it.filename.split('/')[-1] in dup:
+        continue
     data = zin.read(it.filename)
+    if it.filename.endswith('.rels') and dup:
+        x = data.decode('utf8')
+        for a, b in dup.items():
+            x = x.replace('../media/' + a + '"', '../media/' + b + '"')
+        data = x.encode('utf8')
     if re.match(r'ppt/slides/slide\d+\.xml$', it.filename):
         x = data.decode('utf8')
         # eindeutige IDs

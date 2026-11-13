@@ -14,7 +14,7 @@ const ESP = '17110C', CREAM = 'F3EDE2', PAPER = 'FBF8F2', INK = '1B1513', MUTED 
 const BR = 852 / 1280;      // browser mockup h/w (Leiste + 1280x800)
 const PH = 1320 / 636;      // phone mockup h/w
 const A = C.acc, AS = C.accSoft;
-const DATE = '13.11.2026';
+const DATE = '01.11.2026', SHOT = '13.11.2026';
 
 const pres = new pptxgen();
 pres.layout = 'LAYOUT_WIDE';
@@ -134,7 +134,7 @@ title(s, [L('Was ' + C.who, false, null, true), L('heute findet', true, A)], { x
 if (!C.oldNone) img(s, M + 'old_b.png', 5.3, 1.0, 7.9, BR);
 else { s.addShape(pres.ShapeType.roundRect, { x: 5.3, y: 1.0, w: 7.9, h: 7.9 * BR, rectRadius: 0.1, fill: { color: 'D6D1CA' }, line: { color: 'C9C2B8' } }); s.addText([L('www.' + C.wish, false), L('', false)], { x: 5.3, y: 2.6, w: 7.9, h: 1, fontFace: HEAD, fontSize: 30, color: '8C8279', align: 'center', isTextBox: true }); text(s, 'Diese Adresse führt heute nirgendwohin.', { x: 5.3, y: 3.6, w: 7.9, h: 0.4, fontSize: 13, align: 'center', color: '8C8279' }); }
 numberedRows(s, C.findings, 0.6, 2.6, 4.55, false, 1.33);
-text(s, C.oldNone ? ('Recherche vom ' + DATE + ' · Google, Instagram') : ('Aufnahme von ' + C.oldUrl + ', ' + DATE), { x: 0.6, y: 6.6, w: 7, h: 0.25, fontSize: 9, color: '9A8F82' });
+text(s, C.oldNone ? ('Recherche vom ' + DATE + ' · Google, Instagram') : ('Aufnahme von ' + C.oldUrl + ', ' + SHOT), { x: 0.6, y: 6.6, w: 7, h: 0.25, fontSize: 9, color: '9A8F82' });
 foot(s, false);
 s.addNotes(C.notes.findings);
 

@@ -103,7 +103,7 @@ def dur(f):
     return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).decode())
 
 
-def loop(src, out, target, xf=0.6):
+def loop(src, out, target, xf=0.6, crf='22'):
     d = dur(src)
     n = max(1, int((target - xf) // (d - xf)) + 1) if d < target else 1
     if n == 1:
@@ -116,7 +116,8 @@ def loop(src, out, target, xf=0.6):
         lab = f'[x{i}]'
         fc.append(f'{prev}[{i}:v]xfade=transition=fade:duration={xf}:offset={off:.3f}{lab}')
         prev = lab
-    run(['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', ';'.join(fc), '-map', prev] + ENC + [out])
+    enc = [crf if v == '22' else v for v in ENC]
+    run(['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', ';'.join(fc), '-map', prev] + enc + [out])
 
 
 def poster(src, t, out):
@@ -136,7 +137,7 @@ seg('d', md['intro_end'] - 4.0, md['intro_end'], f'{TMP}/hero1.mp4')
 loop(f'{TMP}/hero1.mp4', f'{OUT}/hero.mp4', 45, xf=0.8)
 poster(f'{OUT}/hero.mp4', 1.0, f'{OUT}/hero_p.png')
 seg('d', md['intro_end'] - 1.0, md['end'] + 1.6, f'{TMP}/full1.mp4')
-loop(f'{TMP}/full1.mp4', f'{OUT}/full.mp4', 2 * dur(f'{TMP}/full1.mp4') - 1)
+loop(f'{TMP}/full1.mp4', f'{OUT}/full.mp4', 2 * dur(f'{TMP}/full1.mp4') - 1, crf='25')
 poster(f'{OUT}/full.mp4', 0.5, f'{OUT}/full_p.png')
 for i in (1, 2, 3):
     k = f'hl{i}'
