@@ -64,7 +64,7 @@ async function scrollTo(y, speed) {
 }
 if (!MOB) await p.mouse.move(640, 420);
 // Reihenfolge nach Position
-async function findY(alts) { for (const a of [].concat(alts)) { const y = await targetY(a); if (y !== null) return y; } return null; }
+async function findY(alts) { for (const a of [].concat(alts)) { if (a === '__top__') return 0; const y = await targetY(a); if (y !== null) return y; } return null; }
 const tg = [];
 for (const n of needles) { const y = await findY(n); tg.push([[].concat(n)[0], y]); }
 fs.writeFileSync(out + '/targets.json', JSON.stringify(tg));
