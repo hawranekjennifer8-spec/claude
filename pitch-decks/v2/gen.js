@@ -14,7 +14,7 @@ const ESP = '17110C', CREAM = 'F3EDE2', PAPER = 'FBF8F2', INK = '1B1513', MUTED 
 const BR = 852 / 1280;      // browser mockup h/w (Leiste + 1280x800)
 const PH = 1320 / 636;      // phone mockup h/w
 const A = C.acc, AS = C.accSoft;
-const DATE = '01.11.2026';
+const DATE = '13.11.2026';
 
 const pres = new pptxgen();
 pres.layout = 'LAYOUT_WIDE';
@@ -23,7 +23,7 @@ pres.company = 'J.H. Digital Atelier';
 pres.title = 'Vorschlag für ' + C.name;
 pres.theme = { headFontFace: HEAD, bodyFontFace: BODY };
 
-const TOTAL = 16;
+const TOTAL = 17;
 let n = 0;
 const b64 = f => 'image/png;base64,' + fs.readFileSync(f).toString('base64');
 
@@ -72,11 +72,22 @@ let s = newSlide(ESP);
 label(s, '[ J.H. DIGITAL ATELIER · VORSCHLAG FÜR ' + C.name.toUpperCase() + ' ]', 'A89A88');
 title(s, [L(C.title[0], false, null, true), L(C.title[1], true, AS, true), L(C.title[2], true, AS)], { x: 0.6, y: 1.45, w: 5.2, h: 3.1, fontSize: (m => m > 20 ? 32 : m > 13 ? 37 : 44)(Math.max(...C.title.map(t => t.length))), color: CREAM, lineSpacingMultiple: 0.95 });
 text(s, C.sub + '\n' + C.place + ' · November 2026', { x: 0.6, y: 4.75, w: 5.0, h: 0.9, fontSize: 14, color: 'BFB3A4' });
-bvid(s, 'hero', 6.05, 1.25, 6.9);
+bvid(s, 'intro', 6.05, 1.25, 6.9);
 foot(s, true);
 s.addNotes(C.notes.title || 'Begrüßung, kurz vorstellen: „Wir sind von J.H. Digital Atelier, einem Webdesign-Studio aus Wiesbaden. Wir haben uns Ihren Auftritt im Netz angeschaut und Ihnen etwas mitgebracht – zehn Minuten, dann entscheiden Sie selbst.“ Noch nicht zu viel verraten.');
 
-// ------------------------------------------------------------------ 02 Ausgangspunkt
+// ------------------------------------------------------------------ 02 QR – live mitschauen
+s = newSlide(CREAM);
+label(s, '[ LIVE MITSCHAUEN ]', A);
+title(s, [L('Schauen Sie', false, null, true), L('gleich mit.', true, A)], { x: 0.6, y: 1.6, w: 6.4, h: 2.4, fontSize: 52, color: INK, lineSpacingMultiple: 0.95 });
+text(s, 'Kamera aufs Handy, Code scannen – und die neue Seite während der Präsentation selbst durchscrollen. So, wie ' + C.whoPl + ' sie erleben würden.', { x: 0.6, y: 4.2, w: 5.6, h: 1.0 });
+text(s, C.url, { x: 0.6, y: 5.35, w: 6.5, h: 0.35, fontSize: 12, bold: true, color: INK });
+s.addShape(pres.ShapeType.roundRect, { x: 7.85, y: 1.05, w: 4.85, h: 4.85, rectRadius: 0.16, fill: { color: 'FFFFFF' }, line: { color: 'E3DACD', width: 0.75 }, shadow: { type: 'outer', color: '3A2A1A', opacity: 0.12, blur: 16, offset: 5, angle: 90 } });
+s.addImage({ path: M + 'qr.png', x: 8.2, y: 1.4, w: 4.15, h: 4.15 });
+foot(s, false);
+s.addNotes('Gleich am Anfang den Inhaber den Code selbst scannen lassen: „Nehmen Sie gern Ihr Handy – dann sehen Sie die Seite parallel bei sich.“ Das Erlebnis auf dem eigenen Handy ist das stärkste Argument.');
+
+// ------------------------------------------------------------------ 03 Ausgangspunkt
 s = newSlide(CREAM);
 label(s, '[ 01 · DER AUSGANGSPUNKT ]', A);
 title(s, [L(C.start.head[0]), L(C.start.head[1], true, A)], { x: 0.6, y: 0.95, w: 12, h: 0.9, fontSize: 38, color: INK });
@@ -139,17 +150,29 @@ s.addNotes(C.notes.cost);
 s = newSlide(ESP);
 label(s, '[ 05 · DER VORSCHLAG ]', 'A89A88');
 title(s, [L('Und so könnte', false, null, true), L('es aussehen.', true, AS)], { x: 0.6, y: 2.2, w: 5.6, h: 2.6, fontSize: 54, color: CREAM, lineSpacingMultiple: 0.95 });
-bvid(s, 'hero2', 6.6, 1.5, 6.3);
+bvid(s, 'hero', 6.6, 1.5, 6.3);
 foot(s, true);
 s.addNotes('Kurze Pause, dann umschalten. „Wir haben uns erlaubt, schon mal etwas vorzubereiten.“ – Laptop oder Tablet zum Inhaber drehen.');
 
-// ------------------------------------------------------------------ 07 Vorher / Nachher Desktop
+// ------------------------------------------------------------------ 08 Der erste Eindruck (Intro)
+s = newSlide(ESP);
+label(s, '[ 06 · DER ERSTE EINDRUCK ]', 'A89A88');
+title(s, [L('So öffnet sich '), L('Ihre Seite.', true, AS)], { x: 0.6, y: 0.95, w: 12, h: 0.75, fontSize: 34, color: CREAM });
+bvid(s, 'intro', 0.6, 2.05, 7.2);
+pvid(s, 'pintro', 8.15, 2.05, 2.3);
+tag(s, 'AM COMPUTER', 0.6, 1.62, 'D6CCC0');
+tag(s, 'AM HANDY', 8.55, 1.62, 'D6CCC0');
+text(s, 'Die ersten Sekunden entscheiden. So begrüßt Ihre neue Seite jeden Besucher – echte Aufnahmen der Konzeptseite beim ersten Aufruf.', { x: 10.8, y: 2.1, w: 1.95, h: 3.2, fontSize: 13, color: 'BFB3A4' });
+foot(s, true);
+s.addNotes('Nichts sagen, einfach laufen lassen. Dann: „Das ist der erste Eindruck – am Computer und am Handy. Genau hier entscheidet ' + C.who + ', ob ' + C.who2 + ' bleibt.“');
+
+// ------------------------------------------------------------------ 09 Vorher / Nachher Desktop
 s = newSlide(PAPER);
-label(s, '[ 06 · VORHER / NACHHER ]', A);
+label(s, '[ 07 · VORHER / NACHHER ]', A);
 title(s, [L(C.ba[0] + ' '), L('Ein ganz anderer Eindruck.', true, A)], { x: 0.6, y: 0.95, w: 12, h: 0.8, fontSize: 34, color: INK });
 if (!C.oldNone) img(s, M + 'old_b.png', 0.25, 2.0, 6.4, BR);
 else { s.addShape(pres.ShapeType.roundRect, { x: 0.25, y: 2.0, w: 6.4, h: 6.4 * BR, rectRadius: 0.08, fill: { color: 'E9E4DD' }, line: { color: 'D8CFC2' } }); s.addText('Keine eigene Website', { x: 0.25, y: 3.7, w: 6.4, h: 0.6, fontFace: HEAD, fontSize: 24, italic: true, color: '8C8279', align: 'center', isTextBox: true }); }
-bvid(s, 'after', 6.7, 2.0, 6.4);
+bvid(s, 'hero', 6.7, 2.0, 6.4);
 tag(s, 'VORHER', 0.75, 6.45, '8C8279', 'E9E4DD');
 tag(s, 'NACHHER', 7.2, 6.45, 'FFFFFF', A);
 text(s, C.ba[1], { x: 2.4, y: 6.5, w: 4.0, h: 0.3, fontSize: 12, color: '8C8279' });
@@ -158,7 +181,7 @@ s.addNotes('Nichts sagen, drei Sekunden wirken lassen. Dann: „Links das, was '
 
 // ------------------------------------------------------------------ 08 Handy
 s = newSlide(CREAM);
-label(s, '[ 06 · VORHER / NACHHER · AM HANDY ]', A);
+label(s, '[ 07 · VORHER / NACHHER · AM HANDY ]', A);
 title(s, [L(C.phone[0]), L(C.phone[1], true, A)], { x: 0.6, y: 0.95, w: 4.6, h: 1.5, fontSize: 36, color: INK });
 text(s, C.phone[2], { x: 0.6, y: 2.65, w: 4.3, h: 2.2, fontSize: 15 });
 if (!C.oldNone) img(s, M + 'old_p.png', 5.75, 0.55, 2.95, PH);
@@ -166,11 +189,11 @@ else { s.addShape(pres.ShapeType.roundRect, { x: 5.75, y: 0.55, w: 2.95, h: 2.95
 pvid(s, 'ph_c', 9.15, 0.55, 2.95);
 tag(s, 'VORHER', 6.47, 6.72, '8C8279', 'E9E4DD');
 tag(s, 'NACHHER', 9.87, 6.72, 'FFFFFF', A);
-s.addNotes('Das ist die wichtigste Folie. „Öffnen Sie gern mal Ihre jetzige Seite auf Ihrem Handy.“ Danach die neue zeigen – der QR-Code kommt gleich. Der Unterschied überzeugt mehr als jedes Wort.');
+s.addNotes('Das ist die wichtigste Folie. „Öffnen Sie gern mal Ihre jetzige Seite auf Ihrem Handy.“ Danach die neue zeigen – oder direkt auf dem eigenen Handy über den QR-Code vom Anfang. Der Unterschied überzeugt mehr als jedes Wort.');
 
 // ------------------------------------------------------------------ 09 In Bewegung
 s = newSlide(ESP);
-label(s, '[ 07 · IN BEWEGUNG ]', 'A89A88');
+label(s, '[ 08 · IN BEWEGUNG ]', 'A89A88');
 title(s, [L('Die neue Seite '), L('in Bewegung', true, AS)], { x: 0.6, y: 0.95, w: 12, h: 0.7, fontSize: 32, color: CREAM });
 { const vw = 7.75, vx = (W - vw) / 2; bvid(s, 'full', vx, 1.8, vw); text(s, 'Echte Bildschirmaufnahme der Konzeptseite', { x: vx, y: 1.8 + vw * BR + 0.1, w: vw, h: 0.3, fontSize: 10, color: '8A7E70', align: 'center' }); }
 foot(s, true);
@@ -191,7 +214,7 @@ C.hl.forEach((h, i) => {
 
 // ------------------------------------------------------------------ 13 Paket
 s = newSlide(PAPER);
-label(s, '[ 08 · WAS SIE BEKOMMEN ]', A);
+label(s, '[ 09 · WAS SIE BEKOMMEN ]', A);
 title(s, [L('Alles aus einer Hand – '), L('fertig, nicht halb fertig', true, A)], { x: 0.6, y: 0.95, w: 12, h: 0.9, fontSize: 34, color: INK });
 {
   const items = [
@@ -217,7 +240,7 @@ s.addNotes('Paket kurz durchgehen, Betonung: „Sie müssen sich um nichts kümm
 
 // ------------------------------------------------------------------ 14 Preis
 s = newSlide(ESP);
-label(s, '[ 09 · INVESTITION ]', 'A89A88');
+label(s, '[ 10 · INVESTITION ]', 'A89A88');
 title(s, [L('Klare Preise. '), L('Keine Überraschungen.', true, AS)], { x: 0.6, y: 0.95, w: 12, h: 0.9, fontSize: 34, color: CREAM });
 {
   const box = (x, head, price, per, lines, hi) => {
@@ -233,25 +256,17 @@ text(s, 'Festpreise · Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. ' +
 foot(s, true);
 s.addNotes('Preis ruhig und selbstbewusst nennen, nicht entschuldigen. Danach schweigen und reagieren lassen. Einwände: „Zu teuer“ → ' + C.objection + ' / „Läuft auch so“ → „Absolut – ' + C.runsFine + ' Wir sorgen dafür, dass das auch online jeder sieht.“ / „Mein Neffe macht das“ → „Gern – zeigen Sie ihm die Seite. Wir liefern fertig, rechtssicher und mit Pflege, Sie müssen sich um nichts kümmern.“ / „Muss ich überlegen“ → „Gerne. Der Entwurf steht ja schon – soll ich Ihnen den Link dalassen?“');
 
-// ------------------------------------------------------------------ 15 QR
-s = newSlide(CREAM);
-label(s, '[ 10 · LIVE ANSEHEN ]', A);
-title(s, [L('Nehmen Sie es', false, null, true), L('in die Hand.', true, A)], { x: 0.6, y: 1.6, w: 6.4, h: 2.4, fontSize: 52, color: INK, lineSpacingMultiple: 0.95 });
-text(s, 'Kamera aufs Handy, Code scannen – und die neue Seite selbst durchscrollen. So, wie ' + C.whoPl + ' sie erleben würden.', { x: 0.6, y: 4.2, w: 5.6, h: 1.0 });
-text(s, C.url, { x: 0.6, y: 5.35, w: 6.5, h: 0.35, fontSize: 12, bold: true, color: INK });
-s.addShape(pres.ShapeType.roundRect, { x: 7.85, y: 1.05, w: 4.85, h: 4.85, rectRadius: 0.16, fill: { color: 'FFFFFF' }, line: { color: 'E3DACD', width: 0.75 }, shadow: { type: 'outer', color: '3A2A1A', opacity: 0.12, blur: 16, offset: 5, angle: 90 } });
-s.addImage({ path: M + 'qr.png', x: 8.2, y: 1.4, w: 4.15, h: 4.15 });
-foot(s, false);
-s.addNotes('Den Inhaber den Code selbst scannen lassen – das Erlebnis auf dem eigenen Handy ist das stärkste Argument.');
-
 // ------------------------------------------------------------------ 16 Abschluss
 s = newSlide(ESP);
 label(s, '[ J.H. DIGITAL ATELIER ]', 'A89A88');
-title(s, [L(C.close[0], false, null, true), L(C.close[1], false, null, true), L(C.close[2], true, AS)], { x: 0.6, y: 1.7, w: 10.5, h: 2.6, fontSize: 46, color: CREAM, lineSpacingMultiple: 0.98 });
+title(s, [L(C.close[0], false, null, true), L(C.close[1], false, null, true), L(C.close[2], true, AS)], { x: 0.6, y: 1.7, w: 9.4, h: 2.6, fontSize: 46, color: CREAM, lineSpacingMultiple: 0.98 });
+s.addShape(pres.ShapeType.roundRect, { x: 10.55, y: 1.55, w: 2.15, h: 2.15, rectRadius: 0.1, fill: { color: 'FFFFFF' }, line: { color: 'FFFFFF' } });
+s.addImage({ path: M + 'qr.png', x: 10.7, y: 1.7, w: 1.85, h: 1.85 });
+text(s, 'Live ansehen', { x: 10.55, y: 3.8, w: 2.15, h: 0.3, fontSize: 10, color: 'A89A88', align: 'center' });
 s.addShape(pres.ShapeType.line, { x: 0.6, y: 4.75, w: 12.1, h: 0, line: { color: '3A3029', width: 0.75 } });
 s.addText([{ text: 'J.H.', options: { fontFace: HEAD, fontSize: 26, charSpacing: 6, color: CREAM, breakLine: true } }, { text: 'DIGITAL ATELIER', options: { fontFace: BODY, fontSize: 9, bold: true, charSpacing: 8, color: 'A89A88' } }], { x: 0.6, y: 5.05, w: 4, h: 0.9, margin: 0, isTextBox: true });
 s.addText([L('Jennifer Hawranek', false, null, true), L('jenniferhawranekdigitalatelier.de', false, null, true), L('Instagram @jh.digitalatelier')], { x: 7.6, y: 5.05, w: 5.1, h: 0.95, fontFace: BODY, fontSize: 13, color: 'BFB3A4', align: 'right', margin: 0, isTextBox: true, lineSpacingMultiple: 1.2 });
 foot(s, true);
 s.addNotes('Abschluss: Danke sagen, Kontaktdaten dalassen, nächsten Schritt konkret machen: „Wenn Sie möchten, ist die Seite in wenigen Tagen unter Ihrer Adresse online.“');
 
-pres.writeFile({ fileName: 'raw_' + KEY + '.pptx' }).then(f => console.log('wrote', f, n));
+pres.writeFile({ fileName: 'out/raw_' + KEY + '.pptx' }).then(f => console.log('wrote', f, n));
