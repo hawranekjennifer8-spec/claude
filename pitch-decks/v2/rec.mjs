@@ -49,17 +49,25 @@ async function targetY(needle) {
     return r.top + scrollY - innerHeight * 0.22;
   }, needle);
 }
-async function scrollTo(y, speed) {
-  const t0 = Date.now();
+async function scrollTo(y, speed, maxMs) {
+  const t0 = Date.now(); let last = Date.now();
   for (;;) {
     const cur = await p.evaluate(() => scrollY);
-    if (cur >= y - 4 || Date.now() - t0 > 25000) break;
-    const step = Math.min(speed / 30, Math.max(8, (y - cur) * 0.5));
+    if (cur >= y - 4 || Date.now() - t0 > (maxMs || 45000)) break;
+    const now = Date.now(); const dt = Math.min(0.08, (now - last) / 1000); last = now;
+    const step = Math.max(6, Math.min(speed * Math.max(dt, 0.033), (y - cur) * 0.6));
     if (MOB) await p.evaluate(d => window.scrollBy(0, d), step);
     else await p.mouse.wheel(0, step);
-    await sleep(33);
-    const after = await p.evaluate(() => scrollY);
-    if (after === cur && MOB === false) { /* Lenis glättet – weiter */ }
+    await sleep(16);
+  }
+}
+async function drift(ms, speed) {
+  const t0 = Date.now(); let last = Date.now();
+  while (Date.now() - t0 < ms) {
+    const now = Date.now(); const dt = Math.min(0.08, (now - last) / 1000); last = now;
+    const step = speed * Math.max(dt, 0.016);
+    if (MOB) await p.evaluate(d => window.scrollBy(0, d), step); else await p.mouse.wheel(0, step);
+    await sleep(16);
   }
 }
 if (!MOB) await p.mouse.move(640, 420);
@@ -75,7 +83,7 @@ for (const [i] of sorted) {
   const y = String([].concat(needles[i])[0]).startsWith('__after__:') ? tg[i][1] : await findY(needles[i]);
   await scrollTo(y, speed);
   mark('hl' + (i + 1));
-  await sleep(MOB ? 1600 : 2600);
+  await drift(MOB ? 1800 : 2800, MOB ? 120 : 170);
 }
 const H = await p.evaluate(() => document.documentElement.scrollHeight - innerHeight);
 await scrollTo(H - 2, speed * 1.4);
