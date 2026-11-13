@@ -64,14 +64,15 @@ async function scrollTo(y, speed) {
 }
 if (!MOB) await p.mouse.move(640, 420);
 // Reihenfolge nach Position
-async function findY(alts) { for (const a of [].concat(alts)) { if (a === '__top__') return 0; const y = await targetY(a); if (y !== null) return y; } return null; }
+let lastY = 0;
+async function findY(alts) { for (const a of [].concat(alts)) { if (a === '__top__') return (lastY = 0); if (a.startsWith('__after__:')) return (lastY = lastY + +a.split(':')[1]); const y = await targetY(a); if (y !== null) return (lastY = y); } return null; }
 const tg = [];
 for (const n of needles) { const y = await findY(n); tg.push([[].concat(n)[0], y]); }
 fs.writeFileSync(out + '/targets.json', JSON.stringify(tg));
 const sorted = tg.map((t, i) => [i, t[1]]).filter(t => t[1] !== null).sort((a, b) => a[1] - b[1]);
 const speed = MOB ? 650 : 520;
 for (const [i] of sorted) {
-  const y = await findY(needles[i]);
+  const y = String([].concat(needles[i])[0]).startsWith('__after__:') ? tg[i][1] : await findY(needles[i]);
   await scrollTo(y, speed);
   mark('hl' + (i + 1));
   await sleep(MOB ? 1600 : 2600);
