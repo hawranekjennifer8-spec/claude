@@ -125,19 +125,19 @@ section{scroll-margin-top:70px}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .filters button:hover{border-color:var(--ink)}
 .note{font-size:12px;color:var(--stone);margin:0 0 32px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(16px,1.8vw,28px);row-gap:clamp(28px,3vw,44px)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:clamp(12px,1.4vw,22px);row-gap:clamp(22px,2.4vw,34px)}
 .tile{margin:0;cursor:pointer;opacity:1;transition:opacity .5s,transform .6s var(--ease)}
 .tile.hide{display:none}
-.tile .frame{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#d8cfc6;box-shadow:0 22px 44px -30px rgba(27,25,26,.55);transition:transform .6s var(--ease),box-shadow .6s}
+.tile .frame{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#d8cfc6;box-shadow:0 22px 44px -30px rgba(27,25,26,.55);transition:transform .6s var(--ease),box-shadow .6s}
 .tile img,.tile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
 .tile video{opacity:0;transition:opacity .6s}
 .tile video.on{opacity:1}
 .tile:hover .frame{transform:translateY(-4px) scale(1.012);box-shadow:0 34px 60px -30px rgba(27,25,26,.6)}
-.tile figcaption{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.tile figcaption{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;padding-top:9px;font-size:10px!important;border-top:1px solid var(--line);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
 .tile figcaption span{color:var(--stone);font-weight:600}
 .tag{font-size:9px;letter-spacing:.2em;padding:4px 8px;border-radius:999px;border:1px solid var(--line);color:var(--stone)}
-@media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:10px;row-gap:18px}.tile figcaption{font-size:9px;letter-spacing:.14em}.tile .tag,.tile figcaption .go{display:none}}
 
 /* Großansicht */
 .lb{position:fixed;inset:0;z-index:50;background:rgba(17,15,16,.9);display:grid;place-items:center;padding:calc(20px + env(safe-area-inset-top,0px)) var(--gr) calc(20px + env(safe-area-inset-bottom,0px)) var(--gx);opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s .4s}
@@ -341,7 +341,7 @@ W.forEach(function(w){
   var f=document.createElement('figure');f.className='tile rv';f.dataset.g=w[2];f.dataset.cat=w[1];f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',w[1]+' in groß ansehen');
   f.innerHTML='<div class="frame"><img src="media/'+w[0]+'.jpg" alt="Website-Vorschau: '+w[1]+'" loading="lazy" decoding="async"><video muted loop playsinline preload="none" data-src="media/'+w[0]+'-sm.mp4" data-big="media/'+w[0]+'.mp4"></video></div>'+
     '<figcaption>'+w[1]+'<span class="go">Ansehen →</span>'+(w[3]===2?'<span class="tag">Eigenprojekt</span>':w[3]?'<span class="tag">Konzept</span>':'<span>Live</span>')+'</figcaption>';
-  f.style.transitionDelay=(grid.children.length%3)*90+'ms';
+  f.style.transitionDelay=(grid.children.length%4)*70+'ms';
   grid.appendChild(f);
 });
 
