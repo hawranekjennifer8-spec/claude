@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="J.H. Digital Atelier – Webdesign, Shops und Markenauftritte aus Wiesbaden. Senior-Webdesign mit Scroll-Animationen.">
-<title>J.H. Digital Atelier · Webdesign aus Wiesbaden</title>
+<title>J.H. Digital Atelier · Webdesign von Jennifer Hawranek</title>
+<meta name="description" content="J.H. Digital Atelier – Webseiten, Shops und Markenauftritte von Jennifer Hawranek. Animiert, schnell und bis ins Detail gestaltet.">
 <meta property="og:title" content="J.H. Digital Atelier · Portfolio">
-<meta property="og:description" content="J.H. Digital Atelier – Webdesign, Shops und Markenauftritte aus Wiesbaden. Senior-Webdesign mit Scroll-Animationen.">
+<meta property="og:description" content="Webseiten, Shops und Markenauftritte von Jennifer Hawranek. Animiert, schnell und bis ins Detail gestaltet.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jh-digital-atelier.vercel.app/">
 <meta property="og:image" content="https://jh-digital-atelier.vercel.app/media/og-atelier.jpg">
@@ -15,652 +15,360 @@
 <meta property="og:image:alt" content="Visitenkarte von J.H. Digital Atelier in einer Hand mit roten Nägeln">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://jh-digital-atelier.vercel.app/media/og-atelier.jpg">
-<style>body{margin:0}</style>
-</head>
-<body>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23141416'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23f4f2ee' stroke-width='1.5'/%3E%3Ctext x='32' y='40' font-size='22' text-anchor='middle' fill='%23f4f2ee' font-family='Georgia,serif' font-style='italic'%3EJH%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://jh-digital-atelier.vercel.app/">
-<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231b191a'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23f2ece4' stroke-width='1.5'/%3E%3Ctext x='32' y='40' font-size='22' text-anchor='middle' fill='%23f2ece4' font-family='Georgia,serif' font-style='italic'%3EJH%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="fonts/fonts.css">
 <style>
-/* Layout: keynote-style deck. Every slide is a strict grid — type and previews live in separate cells and never overlap. */
+/* Layout: eine ruhige Seite statt Folien – Start mit Jenny, kompaktes Video-Raster, Leistungen, Kontakt.
+   Ein fließender Farbfluss (Creme · Anthrazit · Nagellack-Rot) liegt fest dahinter und wechselt in dunklen Bereichen die Stimmung. */
 :root{
-  --porcelain:#f4f2ee;
-  --ink:#141416;
-  --stone:#6c6862;
-  --gold:#d65bbd;
-  --pink:#e27acd;
+  --paper:#f2ece4;
+  --ink:#1b191a;
+  --anthra:#262324;
+  --stone:#6e6763;
+  --red:#a3101d;      /* Nagellack-Rot */
+  --red-hi:#c2182a;
+  --blush:#e9c2bc;
+  --line:rgba(27,25,26,.14);
   --grot:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;
-  --line:rgba(20,20,22,.14);
-  --night:#1c1b1e;
-  --night-fg:#eeebe4;
-  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --serif:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --body:"Manrope","Helvetica Neue",Arial,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
-  --gx:max(28px,env(safe-area-inset-left,0px));
-  --gr:max(28px,env(safe-area-inset-right,0px));
-  --top:calc(84px + env(safe-area-inset-top,0px));
-  --bot:calc(92px + env(safe-area-inset-bottom,0px));
-  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --gx:max(20px,env(safe-area-inset-left,0px));
+  --gr:max(20px,env(safe-area-inset-right,0px));
   color-scheme:light;
 }
-html,body{height:100%}
-body{background:var(--porcelain);color:var(--ink);font-family:var(--body);overflow:hidden;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
-a{color:inherit}
-:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+#flow{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,header.site,footer.site{position:relative;z-index:1}
 
-/* ---------- deck ---------- */
-.deck{position:fixed;inset:0;overflow:hidden}
-.slide{position:absolute;inset:0;opacity:0;visibility:hidden;background:var(--bg,var(--porcelain));color:var(--fg,var(--ink));overflow:hidden;
-  transition:opacity .7s ease,visibility 0s linear .8s}
-.slide.is-active{opacity:1;visibility:visible;transition:opacity .9s ease .05s,visibility 0s}
-.slide::after{content:"";position:absolute;inset:-50%;background-image:var(--grain);opacity:.07;pointer-events:none;mix-blend-mode:multiply;animation:grain 1.2s steps(4) infinite}
-.dark{--bg:var(--night);--fg:var(--night-fg);--line:rgba(238,235,228,.16);--stone:#a39e95}
-.dark::after{mix-blend-mode:screen;opacity:.05}
-@keyframes grain{0%,100%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
-.wrap{position:relative;z-index:1;height:100%;padding:var(--top) var(--gr) var(--bot) var(--gx);overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
-.wrap::-webkit-scrollbar{display:none}
+/* ---------- Typo ---------- */
+.display{font-family:var(--grot);font-weight:850;font-stretch:125%;text-transform:uppercase;letter-spacing:-.035em;line-height:.92;margin:0;text-wrap:balance}
+.display i{display:inline-block;font-family:var(--serif);font-style:italic;font-weight:400;font-stretch:100%;text-transform:none;letter-spacing:-.02em;font-size:1.3em;line-height:.9;color:var(--red)}
+.dark .display i{color:#e0434f}
+.label{font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--stone)}
+.lead{font-size:clamp(15px,1.15vw,18px);line-height:1.65;color:var(--stone);margin:0;max-width:46ch}
+.dark{color:#f2ece4}
+.dark .lead,.dark .label{color:#b8b0aa}
 
-/* reveals */
-.rv{opacity:0;transform:translateY(28px)}
-.is-active .rv{opacity:1;transform:none;transition:opacity 1s var(--ease) calc(.3s + var(--d,0)*.08s),transform 1.2s var(--ease) calc(.3s + var(--d,0)*.08s)}
-.ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
-.ln>span{display:inline-block;transform:translateY(110%)}
-.is-active .ln>span{transform:none;transition:transform 1.3s var(--ease) calc(.2s + var(--d,0)*.1s)}
-
-.label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;color:var(--stone)}
-.label b{font-weight:600;color:var(--fg,var(--ink))}
-.display{font-family:var(--display);font-weight:400;letter-spacing:-.025em;line-height:.98;text-wrap:balance;margin:0}
-/* Typo-Duo: breite, fette Grotesk in Versalien + Bodoni-Kursiv in Atelier-Pink */
-.display{font-family:var(--grot);font-weight:850;font-stretch:125%;text-transform:uppercase;letter-spacing:-.035em;line-height:.9}
-.display .ln>span{font-size:.72em}
-.display i{font-family:var(--display);font-style:italic;font-weight:400;font-stretch:100%;text-transform:none;letter-spacing:-.02em;font-size:1.32em;color:#a3238a}
-.dark .display i{color:var(--pink)}
-.lead{font-size:clamp(15px,1.1vw,17px);line-height:1.65;color:var(--stone);margin:0;max-width:44ch}
-
-/* ---------- HUD ---------- */
-.hud{position:fixed;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;pointer-events:none;color:var(--ink);transition:color .7s ease;padding-left:var(--gx);padding-right:var(--gr)}
-.hud *{pointer-events:auto}
-.hud.top{top:0;padding-top:calc(22px + env(safe-area-inset-top,0px))}
-.hud.bottom{bottom:0;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
-body.tone-dark .hud{color:var(--night-fg)}
+/* ---------- Header ---------- */
+header.site{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:calc(16px + env(safe-area-inset-top,0px)) var(--gr) 16px var(--gx);transition:background .5s,color .5s,backdrop-filter .5s}
+header.site.solid{background:rgba(242,236,228,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+body.on-dark header.site{color:#f2ece4}
+body.on-dark header.site.solid{background:rgba(27,25,26,.78)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:36px;height:36px;flex:none}
+.brand svg{width:38px;height:38px;flex:none}
 .brand span{font-size:10px;letter-spacing:.32em;text-transform:uppercase;line-height:1.5}
-.brand span b{display:block;font-weight:600;letter-spacing:.42em}
-.hud-r{display:flex;align-items:center;gap:22px;font-size:10px;letter-spacing:.3em;text-transform:uppercase}
-.icon-btn{width:40px;height:40px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;opacity:.75;transition:opacity .3s,transform .4s var(--ease)}
-.icon-btn:hover{opacity:1;transform:scale(1.06)}
-.icon-btn svg{width:14px;height:14px}
-.counter{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums;min-width:90px}
-.counter small{font-family:var(--body);font-size:10px;letter-spacing:.3em;opacity:.55;margin-left:6px}
-.progress-wrap{flex:1;display:flex;align-items:center;gap:18px;justify-content:center;min-width:0}
-.progress{flex:1;max-width:520px;height:1px;background:currentColor;opacity:.25;position:relative}
-.progress i{position:absolute;inset:0 auto 0 0;width:0;background:currentColor;transition:width 1s var(--ease)}
-.sec-name{font-size:10px;letter-spacing:.3em;text-transform:uppercase;white-space:nowrap;opacity:.7}
-.nav-btns{display:flex;gap:10px}
+.brand b{display:block;font-weight:700;letter-spacing:.42em}
+nav.main{display:flex;gap:clamp(14px,2.4vw,34px)}
+nav.main a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;text-decoration:none;position:relative;padding:6px 0}
+nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+nav.main a:hover::after,nav.main a:focus-visible::after{transform:scaleX(1)}
+@media (max-width:560px){.brand span{display:none}nav.main{gap:14px}nav.main a{font-size:10px;letter-spacing:.16em}}
 
-.cursor{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--ink);border-radius:50%;z-index:99;pointer-events:none;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),border-color .6s,background .35s}
-body.tone-dark .cursor{border-color:var(--night-fg)}
-.cursor.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(214,91,189,.14)}
-@media (hover:none){.cursor{display:none}}
-
-.pre{position:fixed;inset:0;z-index:200;background:var(--ink);color:var(--porcelain);display:grid;place-items:center;transition:opacity 1s ease .2s,visibility 0s 1.3s}
-.pre.done{opacity:0;visibility:hidden}
-.pre svg{width:120px;height:120px}
-.pre circle{stroke-dasharray:340;stroke-dashoffset:340;animation:draw 1.6s var(--ease) forwards}
-.pre text{opacity:0;animation:fade 1s ease .5s forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-@keyframes fade{to{opacity:1}}
-
-/* ---------- media frames ---------- */
-.frame{position:relative;overflow:hidden;border-radius:8px;background:#ddd9d2;aspect-ratio:16/10;width:100%}
-.frame img,.frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
-.frame video{opacity:0;transition:opacity .6s ease}
-.frame video.on{opacity:1}
-
-/* ---------- 01 intro: headline row + ribbon row, never overlapping ---------- */
-.s-intro .wrap{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(8px,2vh,24px)}
-.intro-head{max-width:1400px;width:100%;margin:0 auto}
-.intro-head .display{font-size:clamp(44px,min(7.4vw,13svh),136px)}
-.intro-head .l2{text-align:right}
-.ribbon{position:relative;min-height:0;perspective:1500px;display:grid;place-items:center;margin-inline:calc(var(--gx)*-1) calc(var(--gr)*-1);overflow:hidden;
-  -webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.tilt{transform-style:preserve-3d;transform:translateY(calc(var(--ch,120px)*-.55)) rotateX(-8deg) rotateZ(-4deg)}
-.ring{position:relative;width:0;height:0;transform-style:preserve-3d;animation:spin 40s linear infinite}
-.ring .card{position:absolute;left:calc(var(--cw)/-2);top:calc(var(--ch)/-2);width:var(--cw);height:var(--ch);backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6px;overflow:hidden;box-shadow:0 26px 50px -28px rgba(0,0,0,.45);background:#ddd}
-.ring .card img{width:100%;height:100%;object-fit:cover;object-position:top}
-.s-intro .ribbon{--cw:200px;--ch:calc(var(--cw)*.625)}
-.s-intro .tilt{opacity:0;transition:opacity 1.4s ease .5s}
-.s-intro.is-active .tilt{opacity:1}
-@keyframes spin{to{transform:rotateY(-360deg)}}
-.intro-meta{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;max-width:1400px;width:100%;margin:0 auto}
-
-/* ---------- 02 grid ---------- */
-.s-grid .wrap{display:flex;flex-direction:column;gap:clamp(18px,3vh,32px)}
-.grid-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;max-width:1320px;width:100%;margin:0 auto}
-.grid-head .display{font-size:clamp(40px,5.6vw,92px)}
-.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,26px);max-width:min(1320px,calc((100svh - 330px) * 2.35));width:100%;margin:0 auto}
-.tile{margin:0;cursor:pointer;opacity:0;transform:translateY(40px) scale(.96);transition:opacity .9s ease,transform 1.3s var(--ease)}
-.is-active .tile{opacity:1;transform:none;transition-delay:calc(.25s + var(--i)*.07s)}
-.tile .frame{box-shadow:0 22px 44px -30px rgba(0,0,0,.5);transition:transform .6s var(--ease)}
-.tile:hover .frame{transform:translateY(-6px)}
-.tile figcaption{display:flex;justify-content:space-between;gap:10px;margin-top:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--stone)}
-.tile figcaption b{color:var(--ink);font-weight:600}
-
-/* ---------- projects: strict 2 columns ---------- */
-.s-proj .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr);gap:clamp(32px,5vw,88px);align-items:center;max-width:1520px;margin:0 auto}
-.p-info{display:flex;flex-direction:column;gap:clamp(16px,2.6vh,26px);min-width:0}
-.p-info .display{font-size:clamp(44px,5.6vw,104px);overflow-wrap:normal;word-break:keep-all;hyphens:none}
-.p-claim{font-family:var(--display);font-style:italic;font-size:clamp(18px,1.6vw,24px);line-height:1.35;margin:0;max-width:28ch}
-.hair{height:1px;background:var(--line);border:0;margin:0;width:100%}
-.p-meta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 26px;font-size:13px;line-height:1.5;margin:0}
-.p-meta dt{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);padding-top:3px}
-.p-meta dd{margin:0;min-width:0}
-.status{display:inline-flex;align-items:center;gap:8px}
-.status::before{content:"";width:7px;height:7px;border-radius:50%;background:#5c9a5f}
-.status.demo::before{background:var(--gold)}
-.tiles.t4{grid-template-columns:repeat(2,minmax(0,1fr));max-width:min(1080px,calc((100svh - 420px) * 1.5))}
-#conSlide .wrap{justify-content:center;min-height:100%}
-.tile{container-type:inline-size}.tile figcaption>*{white-space:nowrap}
-@container (max-width:330px){.tile figcaption>:not(b){display:none}}
-.s-grid .lead{margin-top:-6px}
-.plink{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
-.plink:hover{border-color:currentColor}
-.p-media{min-width:0;opacity:0;transform:translateY(36px);transition:opacity 1.1s ease .3s,transform 1.5s var(--ease) .3s}
-.is-active .p-media{opacity:1;transform:none}
-.browser{display:block;text-decoration:none;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 50px 100px -50px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.06)}
-.chrome{height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#ecebe8;border-bottom:1px solid rgba(0,0,0,.06)}
-.chrome i{width:10px;height:10px;border-radius:50%;background:#d6d3ce;flex:none}
-.chrome span{margin-left:12px;flex:1;max-width:340px;height:20px;border-radius:5px;background:#fff;font-size:10.5px;color:#77736c;display:flex;align-items:center;padding:0 10px;white-space:nowrap;overflow:hidden}
-.browser .frame{border-radius:0}
-
-/* ---------- haltung: tilted wall of columns, tiles never overlap ---------- */
-.s-wall .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1480px;margin:0 auto}
-.stmt .display{font-size:clamp(36px,4.4vw,72px)}
-.stmt .label{display:block;margin-bottom:24px}
-.stmt .lead{margin-top:26px}
-.wall{position:relative;height:min(64svh,600px);overflow:hidden;border-radius:14px;perspective:1200px;
-  -webkit-mask:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent);mask:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent)}
-.wall-in{position:absolute;inset:-20% -10%;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;transform:rotateX(18deg) rotateZ(-8deg) scale(1.05)}
-.col{display:flex;flex-direction:column;gap:18px;animation:up var(--t,30s) linear infinite}
-.col:nth-child(2){animation-direction:reverse}
-.col .frame{flex:none;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
-@keyframes up{to{transform:translateY(-50%)}}
-
-/* ---------- atelier: editorial collage, photos crossfade with a slow zoom-out ---------- */
-.s-atelier .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1480px;margin:0 auto}
-.s-atelier .display{font-size:clamp(40px,5vw,84px)}
-.s-atelier .label{display:block;margin-bottom:24px}
-.s-atelier .lead{margin-top:26px}
-.sign{display:block;margin-top:26px;font-family:var(--display);font-style:italic;font-size:clamp(24px,2vw,32px);color:var(--pink)}
-.collage{--h:min(66svh,620px);--g:16px;display:flex;gap:var(--g);justify-content:center;align-items:center}
-.stack{display:flex;flex-direction:column;gap:var(--g);transform:translateY(7%)}
-.cf{position:relative;overflow:hidden;border-radius:6px;aspect-ratio:4/5;height:var(--h);background:#1a1714;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
-.stack .cf{height:calc((var(--h) - var(--g))/2)}
-.cf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.8s ease,transform 7.5s cubic-bezier(.2,.6,.2,1)}
-.cf img.on{opacity:1;transform:scale(1)}
-.s-atelier .collage{opacity:0;transform:translateY(36px);transition:opacity 1.2s ease .35s,transform 1.6s var(--ease) .35s}
-.s-atelier.is-active .collage{opacity:1;transform:none}
-
-/* ---------- instagram: 3x3 feed, tiles appear one by one ---------- */
-.s-insta .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1400px;margin:0 auto}
-.s-insta .display{font-size:clamp(40px,5vw,84px)}
-.s-insta .label{display:block;margin-bottom:24px}
-.s-insta .lead{margin-top:26px}
-.s-insta .plink{display:inline-flex;margin-top:26px;font-size:12px;letter-spacing:.24em;text-transform:uppercase}
-.feed{--fh:min(70svh,660px);width:min(100%,calc(var(--fh)/1.25));margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;text-decoration:none}
-.feed span{position:relative;aspect-ratio:4/5;overflow:hidden;background:#ddd9d2;opacity:0;transform:scale(.92)}
-.s-insta.is-active .feed span{opacity:1;transform:none;transition:opacity .9s ease calc(.4s + var(--i)*.11s),transform 1.2s var(--ease) calc(.4s + var(--i)*.11s)}
-.feed img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.feed span:hover img{transform:scale(1.06)}
-
-/* ---------- process ---------- */
-.s-proc .wrap{display:flex;flex-direction:column;justify-content:safe center;gap:clamp(28px,5vh,60px);max-width:1400px;margin:0 auto}
-.s-proc .display{font-size:clamp(38px,5.4vw,88px)}
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
-.step{padding:24px 24px 0 0;display:flex;flex-direction:column;gap:12px;min-width:0}
-.step+.step{padding-left:24px;border-left:1px solid var(--line)}
-.step em{font-family:var(--display);font-size:40px;font-style:italic;color:var(--gold)}
-.step h3{font-family:var(--display);font-weight:400;font-size:23px;margin:0}
-.step p{margin:0;color:var(--stone);font-size:14px;line-height:1.65}
-.services{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
-.services span::before{content:"◆";font-size:7px;color:var(--gold);margin-right:10px;vertical-align:2px}
-
-/* ---------- contact ---------- */
-.s-contact .wrap{display:flex;flex-direction:column;justify-content:safe center;align-items:center;text-align:center;gap:32px}
-.s-contact .display{font-size:clamp(42px,6.6vw,118px)}
-.cta{display:inline-flex;align-items:center;gap:16px;padding:20px 34px;border:1px solid rgba(238,235,228,.5);font-size:11px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;transition:background .5s var(--ease),color .5s var(--ease)}
-.cta:hover{background:var(--night-fg);color:var(--night)}
-.contacts{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 42px;font-size:13px;letter-spacing:.06em}
-.contacts span{display:inline-flex;align-items:center;gap:10px;user-select:all}
-.contacts svg{width:16px;height:16px}
-.outro{position:absolute;inset:0;z-index:5;background:var(--night);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity 1.6s ease,visibility 0s 1.6s}
-.outro.on{opacity:1;visibility:visible;transition:opacity 1.6s ease}
-.outro div{display:flex;flex-direction:column;align-items:center;gap:22px;color:var(--night-fg)}
-.outro svg.mono{width:130px;height:130px}
-.ig{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.3em;text-transform:uppercase}
-.ig svg{width:22px;height:22px}
-.again{font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.6;margin-top:18px}
-
-/* ---------- tablet / phone ---------- */
-@media (max-width:980px){
-  .s-proj .wrap,.s-wall .wrap{grid-template-columns:minmax(0,1fr);align-content:center;gap:24px}
-  .p-info{gap:14px}
-  .p-meta{font-size:12.5px}
-  .wall{height:38svh;order:2}
-  .s-atelier .wrap,.s-insta .wrap{grid-template-columns:minmax(0,1fr);align-content:start;gap:28px}
-  .collage{--h:min(46svh,520px);--g:10px}
-  .feed{--fh:min(56svh,560px)}
-  .s-atelier .lead,.s-insta .lead,.sign,.s-insta .plink{margin-top:16px}
-  .s-atelier .label,.s-insta .label{margin-bottom:14px}
-  .tiles,.tiles.t4{grid-template-columns:repeat(2,minmax(0,1fr));max-width:min(720px,calc((100svh - 300px) * 1.05))}
-  .steps{grid-template-columns:1fr 1fr;row-gap:24px}
-  .step:nth-child(3){border-left:0;padding-left:0}
-  .sec-name,.hud-r .yr{display:none}
+/* ---------- Start ---------- */
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,64px);align-items:center;
+  padding:calc(110px + env(safe-area-inset-top,0px)) var(--gr) 40px var(--gx);max-width:1520px;margin:0 auto}
+.hero .label{display:block;margin-bottom:22px}
+.hero h1{font-size:clamp(40px,6.2vw,112px)}
+.hero h1 .row{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .row>span{display:inline-block;transform:translateY(105%);animation:up 1.3s var(--ease) forwards}
+.hero h1 .row:nth-child(2)>span{animation-delay:.12s}
+@keyframes up{to{transform:none}}
+.hero .lead{margin-top:26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 24px;border-radius:999px;text-decoration:none;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+  border:1.5px solid currentColor;transition:background .35s,color .35s,transform .45s var(--ease)}
+.btn.fill{background:var(--red);border-color:var(--red);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.btn.fill:hover{background:var(--red-hi);border-color:var(--red-hi)}
+.btn:not(.fill):hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.portrait{position:relative;justify-self:center;width:min(100%,430px)}
+.portrait .arch{aspect-ratio:4/5;border-radius:999px 999px 18px 18px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(27,25,26,.55);transform:rotate(2deg);background:#d8cfc6}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait figcaption{position:absolute;left:-18px;bottom:28px;background:var(--paper);padding:12px 16px;border-radius:12px;font-size:12px;line-height:1.45;box-shadow:0 18px 40px -22px rgba(27,25,26,.5);transform:rotate(-3deg)}
+.portrait figcaption b{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;color:var(--red)}
+.index{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);margin-top:clamp(10px,3vh,40px)}
+.index a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:20px 4px;text-decoration:none;border-bottom:1px solid var(--line);
+  font-family:var(--grot);font-weight:800;font-stretch:118%;text-transform:uppercase;font-size:clamp(16px,1.6vw,24px);letter-spacing:-.01em;transition:color .3s,padding .45s var(--ease)}
+.index a+a{border-left:1px solid var(--line);padding-left:20px}
+.index a small{font-family:var(--body);font-weight:600;font-stretch:100%;font-size:10px;letter-spacing:.24em;color:var(--stone)}
+.index a:hover{color:var(--red)}
+.index a:hover span.arr{transform:translateX(6px)}
+.index span.arr{transition:transform .45s var(--ease)}
+@media (max-width:860px){
+  .hero{grid-template-columns:minmax(0,1fr);padding-top:calc(96px + env(safe-area-inset-top,0px))}
+  .portrait{width:min(78%,340px)}
+  .index{grid-template-columns:minmax(0,1fr)}
+  .index a+a{border-left:0;padding-left:4px}
 }
-@media (max-width:560px){
-  :root{--top:calc(74px + env(safe-area-inset-top,0px));--bot:calc(84px + env(safe-area-inset-bottom,0px))}
-  .wrap{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
-  .hud{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
-  .brand span{display:none}
-  .counter{font-size:18px;min-width:64px}
-  .intro-head .l2{text-align:left}
-  .s-intro .ribbon{--cw:44vw}
-  .p-claim{font-size:17px}
-  .p-meta{grid-template-columns:auto minmax(0,1fr);gap:6px 16px}
-  .p-meta .opt{display:none}
-  .tiles{gap:12px}
-  .tile figcaption span{display:none}
-  .steps{grid-template-columns:1fr}
-  .step+.step{border-left:0;padding-left:0;border-top:1px solid var(--line)}
-  .step{padding-top:16px}
-  .step p{font-size:13px}
-  .s-proc .wrap{gap:20px}
-  .step em{font-size:28px}
-  .step h3{font-size:19px}
-  .services{display:none}
-  .step{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:10px;row-gap:4px;padding-top:12px}
-  .step em{grid-row:span 2}
-  .step p{font-size:12.5px;line-height:1.5}
-  .lead{font-size:14.5px}
-  .collage{--h:min(40svh,360px)}
-  .feed{--fh:min(40svh,360px)}
-  .s-atelier .wrap,.s-insta .wrap{gap:22px}
-}
-@media (max-height:640px) and (min-width:981px){.p-claim,.lead{display:none}}
-@media (max-width:560px) and (max-height:720px){.step p{display:none}.step{row-gap:0}}
-/* Seiden-Licht: ruhiger, fließender Farbschimmer in Atelier-Farben hinter Intro und Kontakt (Inspiration DILA, eigene Umsetzung) */
-.silk{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;pointer-events:none;opacity:0;transition:opacity 1.6s ease .2s}
-.slide.is-active>.silk{opacity:1}
+
+/* ---------- Portfolio ---------- */
+section{scroll-margin-top:70px}
+.work{background:rgba(242,236,228,.94);padding:clamp(70px,10vh,120px) var(--gr) clamp(70px,10vh,120px) var(--gx);border-radius:28px 28px 0 0}
+.wrap{max-width:1520px;margin:0 auto}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.head h2{font-size:clamp(34px,4.6vw,80px)}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:inherit;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:all .3s}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.filters button:hover{border-color:var(--ink)}
+.note{font-size:12px;color:var(--stone);margin:0 0 26px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,24px)}
+.tile{margin:0;cursor:pointer;opacity:1;transition:opacity .5s,transform .6s var(--ease)}
+.tile.hide{display:none}
+.tile .frame{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:#d8cfc6;box-shadow:0 22px 44px -30px rgba(27,25,26,.55);transition:transform .6s var(--ease),box-shadow .6s}
+.tile img,.tile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.tile video{opacity:0;transition:opacity .6s}
+.tile video.on{opacity:1}
+.tile:hover .frame{transform:translateY(-4px) scale(1.012);box-shadow:0 34px 60px -30px rgba(27,25,26,.6)}
+.tile figcaption{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.tile figcaption span{color:var(--stone);font-weight:600}
+.tag{font-size:9px;letter-spacing:.2em;padding:4px 8px;border-radius:999px;border:1px solid var(--line);color:var(--stone)}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Großansicht */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(17,15,16,.9);display:grid;place-items:center;padding:calc(20px + env(safe-area-inset-top,0px)) var(--gr) calc(20px + env(safe-area-inset-bottom,0px)) var(--gx);opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s .4s}
+.lb.open{opacity:1;visibility:visible;transition:opacity .4s}
+.lb video{width:min(1200px,100%);max-height:80svh;border-radius:12px;background:#000;object-fit:contain}
+.lb p{color:#f2ece4;font-size:11px;letter-spacing:.24em;text-transform:uppercase;margin:16px 0 0;text-align:center}
+.lb button{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:var(--gr);width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,236,228,.5);background:transparent;color:#f2ece4;font-size:20px;cursor:pointer}
+
+/* ---------- Leistungen ---------- */
+.services{padding:clamp(80px,12vh,140px) var(--gr) clamp(80px,12vh,140px) var(--gx)}
+.services .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.services h2{font-size:clamp(34px,4.4vw,76px)}
+.services .lead{margin-top:22px}
+.svc{list-style:none;margin:0;padding:0;border-top:1px solid rgba(242,236,228,.18)}
+.svc li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid rgba(242,236,228,.18)}
+.svc em{font-family:var(--serif);font-size:30px;color:#e0434f;line-height:1}
+.svc h3{margin:0 0 6px;font-family:var(--grot);font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:clamp(15px,1.3vw,19px);letter-spacing:.01em}
+.svc p{margin:0;color:#b8b0aa;font-size:14px;line-height:1.6}
+@media (max-width:860px){.services .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- Kontakt ---------- */
+.contact{min-height:80svh;display:grid;place-items:center;text-align:center;padding:clamp(80px,12vh,140px) var(--gr) 60px var(--gx)}
+.contact h2{font-size:clamp(36px,6vw,108px)}
+.contact .cta-row{justify-content:center;margin-top:36px}
+.contact .btn:not(.fill){color:#f2ece4}
+.contact .btn:not(.fill):hover{background:#f2ece4;color:var(--ink);border-color:#f2ece4}
+.mail{margin-top:26px;font-size:14px;color:#b8b0aa;user-select:all}
+footer.site{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px var(--gr) calc(22px + env(safe-area-inset-bottom,0px)) var(--gx);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#b8b0aa;background:rgba(27,25,26,.6)}
+footer.site nav{display:flex;gap:18px}
+footer.site a{text-decoration:none}
+footer.site a:hover{color:#f2ece4}
+
+/* Einblenden */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
+.rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important;transition-delay:0s!important}
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .hero h1 .row>span{transform:none}
 }
 </style>
+</head>
+<body>
+<canvas id="flow" aria-hidden="true"></canvas>
 
-<div class="pre" id="pre" aria-hidden="true">
-  <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width=".8"/><text x="60" y="74" text-anchor="middle" font-family="Bodoni Moda,Georgia,serif" font-size="44" font-style="italic" fill="currentColor">JH</text></svg>
-</div>
-<div class="cursor" id="cursor"></div>
-
-<header class="hud top">
-  <a class="brand" href="#" data-go="0" aria-label="Zur ersten Folie">
-    <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="2"/><text x="60" y="76" text-anchor="middle" font-family="Bodoni Moda,Georgia,serif" font-size="48" font-style="italic" fill="currentColor">JH</text></svg>
+<header class="site" id="top">
+  <a class="brand" href="#start" aria-label="J.H. Digital Atelier – Start">
+    <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="1.4"/><text x="60" y="74" text-anchor="middle" font-family="Bodoni Moda,Georgia,serif" font-size="44" font-style="italic" fill="currentColor">JH</text></svg>
     <span><b>J.H.</b>Digital Atelier</span>
   </a>
-  <div class="hud-r">
-    <span class="yr">Portfolio · 2026</span>
-    <button class="icon-btn" id="fs" aria-label="Vollbild"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 5V1h4M11 1h4v4M15 11v4h-4M5 15H1v-4"/></svg></button>
-  </div>
+  <nav class="main" aria-label="Hauptnavigation">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
 </header>
-<footer class="hud bottom">
-  <div class="counter"><span id="cur">01</span><small id="tot">/ 10</small></div>
-  <div class="progress-wrap"><span class="sec-name" id="secName">Intro</span><div class="progress"><i id="bar"></i></div></div>
-  <div class="nav-btns">
-    <button class="icon-btn" id="prev" aria-label="Vorherige Folie"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 3L5 8l5 5"/></svg></button>
-    <button class="icon-btn" id="next" aria-label="Nächste Folie"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 3l5 5-5 5"/></svg></button>
-  </div>
-</footer>
 
-<main class="deck" id="deck">
-  <section class="slide s-intro" data-name="Intro">
+<main>
+  <section class="hero" id="start" data-tone="light">
+    <div>
+      <span class="label">Jennifer Hawranek · Webdesign &amp; Marken</span>
+      <h1 class="display"><span class="row"><span>Wir gestalten</span></span><span class="row"><span><i>Marken mit Haltung.</i></span></span></h1>
+      <p class="lead">Ich entwerfe Webseiten, Shops und Markenauftritte für Restaurants, Mode, Handwerk und Manufakturen. Persönlich, animiert und bis ins Detail durchdacht – vom ersten Gespräch bis zum Launch.</p>
+      <div class="cta-row">
+        <a class="btn fill" href="#portfolio">Arbeiten ansehen <span aria-hidden="true">→</span></a>
+        <a class="btn" href="#kontakt">Kostenloses Erstgespräch</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <div class="arch"><img src="media/atelier/01.jpg" alt="Hand mit roten Nägeln hält die Visitenkarte von J.H. Digital Atelier" decoding="async" fetchpriority="high"></div>
+      <figcaption><b>Jenny</b>Ihre Ansprechpartnerin<br>vom Entwurf bis zum Launch</figcaption>
+    </figure>
+    <nav class="index" aria-label="Bereiche">
+      <a href="#portfolio"><span>Portfolio</span><small><span id="count">21</span> Projekte <span class="arr">→</span></small></a>
+      <a href="#leistungen"><span>Leistungen</span><small>Web · Shop · Marke <span class="arr">→</span></small></a>
+      <a href="#kontakt"><span>Kontakt</span><small>Erstgespräch <span class="arr">→</span></small></a>
+    </nav>
+  </section>
+
+  <section class="work" id="portfolio" data-tone="light">
     <div class="wrap">
-      <div class="intro-head">
-        <h1 class="display"><span class="ln" style="--d:0"><span>Wir gestalten</span></span><span class="ln l2" style="--d:1"><span><i>Marken mit Haltung.</i></span></span></h1>
+      <div class="head rv">
+        <h2 class="display">Ausgewählte<br><i>Arbeiten.</i></h2>
+        <div class="filters" role="group" aria-label="Arbeiten filtern">
+          <button type="button" data-f="all" aria-pressed="true">Alle</button>
+          <button type="button" data-f="gastro" aria-pressed="false">Gastronomie</button>
+          <button type="button" data-f="shop" aria-pressed="false">Shops &amp; Marken</button>
+          <button type="button" data-f="handwerk" aria-pressed="false">Handwerk</button>
+          <button type="button" data-f="beauty" aria-pressed="false">Beauty &amp; Praxis</button>
+        </div>
       </div>
-      <div class="ribbon" aria-hidden="true"><div class="tilt"><div class="ring" id="ring"></div></div></div>
-      <div class="intro-meta">
-        <p class="lead rv" style="--d:4">J.H. Digital Atelier entwirft Webseiten, Shops und Markenauftritte für Restaurants, Mode und Manufakturen. Handgemacht, bis ins Detail.</p>
-        <p class="label rv" style="--d:5;margin:0"><b>Wiesbaden</b> · Rhein-Main · Deutschlandweit</p>
-      </div>
+      <p class="note rv">Eine Auswahl aus Kundenprojekten und eigenen Konzept-Entwürfen. Zum Vergrößern antippen.</p>
+      <div class="grid" id="grid"></div>
     </div>
   </section>
 
-  <section class="slide s-grid" data-name="Arbeiten">
+  <section class="services dark" id="leistungen" data-tone="dark">
     <div class="wrap">
-      <div class="grid-head">
-        <h2 class="display"><span class="ln"><span>Ausgewählte <i>Arbeiten</i></span></span></h2>
-        <span class="label rv" style="--d:2">[ 02 · Übersicht ]</span>
+      <div class="rv">
+        <span class="label">Leistungen &amp; Ablauf</span>
+        <h2 class="display" style="margin-top:18px">Alles aus<br><i>einer Hand.</i></h2>
+        <p class="lead">Sie sprechen vom ersten Entwurf bis zum Launch immer direkt mit mir. Domain, Impressum, Datenschutz und SEO sind inklusive – rechtssicher nach deutschem Recht.</p>
       </div>
-      <div class="tiles" id="tiles"></div>
+      <ol class="svc rv">
+        <li><em>01</em><div><h3>Erstgespräch</h3><p>Kostenlos und unverbindlich: Ihre Marke, Ihre Kunden und das Ziel der Seite.</p></div></li>
+        <li><em>02</em><div><h3>Konzept &amp; Look</h3><p>Moodboard, Farbwelt, Schriften und eine Idee, die Ihre Seite trägt – bevor gebaut wird.</p></div></li>
+        <li><em>03</em><div><h3>Website, Shop &amp; Bildwelt</h3><p>Animierte, schnelle Website oder Shopify-Shop, Bilder im passenden Look und Texte, die nach Ihnen klingen.</p></div></li>
+        <li><em>04</em><div><h3>Launch &amp; Pflege</h3><p>Domain, SSL, Rechtstexte und SEO. Danach bleibe ich für Pflege, Instagram und Kampagnen an Ihrer Seite.</p></div></li>
+      </ol>
     </div>
   </section>
 
-  <section class="slide s-atelier dark" data-name="Atelier" data-tone="dark" id="atelierSlide">
-    <div class="wrap">
-      <div>
-        <span class="label rv" id="atelierLabel">[ Atelier ]</span>
-        <h2 class="display"><span class="ln" style="--d:0"><span>Persönlich.</span></span><span class="ln" style="--d:1"><span><i>Bis ins Detail.</i></span></span></h2>
-        <p class="lead rv" style="--d:4">Hinter J.H. Digital Atelier stehe ich, Jennifer Hawranek. Jede Website entsteht persönlich in Wiesbaden, und Sie sprechen vom ersten Entwurf bis zum Launch immer direkt mit mir.</p>
-        <span class="sign rv" style="--d:6">Jenny</span>
+  <section class="contact dark" id="kontakt" data-tone="dark">
+    <div class="rv">
+      <span class="label">Kontakt</span>
+      <h2 class="display" style="margin-top:18px">Lassen Sie uns<br>Ihre Marke <i>zeigen.</i></h2>
+      <div class="cta-row">
+        <a class="btn fill" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener">Nachricht auf Instagram <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="mailto:info@jenniferhawranekdigitalatelier.de">E-Mail schreiben</a>
       </div>
-      <div class="collage" aria-hidden="true">
-        <div class="cf" data-imgs="01,07,05"></div>
-        <div class="stack"><div class="cf" data-imgs="03,06,09" data-sm></div><div class="cf" data-imgs="02,04,08" data-sm></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide s-wall dark" data-name="Haltung" data-tone="dark" id="wallSlide">
-    <div class="wrap">
-      <div class="stmt">
-        <span class="label rv" id="wallLabel">[ 09 · Haltung ]</span>
-        <h2 class="display"><span class="ln" style="--d:0"><span>Zeit ist Luxus.</span></span><span class="ln" style="--d:1"><span><i>Ihre Website</i> sollte</span></span><span class="ln" style="--d:2"><span>sich so anfühlen.</span></span></h2>
-        <p class="lead rv" style="--d:5">Ich gestalte Webseiten auf Agentur-Niveau: maßgeschneidert, schnell geladen und bis ins letzte Detail durchdacht. Von der ersten Skizze bis zum Launch auf Ihrer eigenen Domain haben Sie eine Ansprechpartnerin.</p>
-      </div>
-      <div class="wall rv" style="--d:3" aria-hidden="true"><div class="wall-in" id="wall"></div></div>
-    </div>
-  </section>
-
-  <section class="slide s-proc" data-name="Ablauf">
-    <div class="wrap">
-      <div>
-        <span class="label rv" id="procLabel">[ 10 · Ablauf ]</span>
-        <h2 class="display" style="margin-top:20px"><span class="ln" style="--d:0"><span>Vom ersten Gespräch</span></span><span class="ln" style="--d:1"><span>zur <i>fertigen Marke</i></span></span></h2>
-      </div>
-      <div class="steps">
-        <div class="step rv" style="--d:3"><em>01</em><h3>Erstgespräch</h3><p>Kostenlos und unverbindlich. Wir sprechen über Ihre Marke, Ihre Gäste oder Kunden und das Ziel der Seite.</p></div>
-        <div class="step rv" style="--d:4"><em>02</em><h3>Konzept</h3><p>Moodboard, Farbwelt, Schriften und eine Idee, die Ihre Seite trägt. Sie sehen alles, bevor gebaut wird.</p></div>
-        <div class="step rv" style="--d:5"><em>03</em><h3>Design &amp; Build</h3><p>Animierte, schnelle Website, Bildwelt im passenden Look und Texte, die nach Ihnen klingen.</p></div>
-        <div class="step rv" style="--d:6"><em>04</em><h3>Launch</h3><p>Domain, SSL, Impressum, Datenschutz und SEO. Danach bleibe ich für Pflege und Kampagnen an Ihrer Seite.</p></div>
-      </div>
-      <div class="services rv" style="--d:8"><span>Webdesign</span><span>Shopify-Shops</span><span>Brand Identity &amp; Logo</span><span>Kampagnenbilder</span><span>Instagram-Feeds</span><span>Domain &amp; Hosting</span></div>
-    </div>
-  </section>
-
-  <section class="slide s-insta" data-name="Instagram">
-    <div class="wrap">
-      <div>
-        <span class="label rv" id="instaLabel">[ Instagram ]</span>
-        <h2 class="display"><span class="ln" style="--d:0"><span>Ein Feed mit</span></span><span class="ln" style="--d:1"><span><i>rotem Faden.</i></span></span></h2>
-        <p class="lead rv" style="--d:4">So sieht der Feed des Ateliers aus: warmes Licht, echte Details, jede Arbeit im selben Look. Denselben roten Faden baue ich auch für Ihre Marke, passend zu Ihrer Website.</p>
-        <a class="plink rv" style="--d:6" data-hover href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener">@jh.digitalatelier ↗</a>
-      </div>
-      <a class="feed" id="feed" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener" aria-label="Instagram-Feed von J.H. Digital Atelier öffnen" data-hover></a>
-    </div>
-  </section>
-
-  <section class="slide s-contact dark" data-name="Kontakt" data-tone="dark">
-    <div class="wrap">
-      <span class="label rv" id="contactLabel">[ 11 · Kontakt ]</span>
-      <h2 class="display"><span class="ln" style="--d:0"><span>Lassen Sie uns</span></span><span class="ln" style="--d:1"><span>Ihre Marke <i>zeigen.</i></span></span></h2>
-      <a class="cta rv" style="--d:4" data-hover href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener">Kostenloses Erstgespräch <svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="currentColor"><path d="M0 5h16M12 1l4 4-4 4"/></svg></a>
-      <div class="contacts rv" style="--d:6">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>@jh.digitalatelier</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>jenniferhawranekdigitalatelier.de</span>
-        <span style="gap:14px"><a href="impressum.html" style="color:inherit">Impressum</a><a href="datenschutz.html" style="color:inherit">Datenschutz</a></span>
-      </div>
-    </div>
-    <div class="outro" id="outro">
-      <div>
-        <svg class="mono" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="1"/><text x="60" y="76" text-anchor="middle" font-family="Bodoni Moda,Georgia,serif" font-size="48" font-style="italic" fill="currentColor">JH</text></svg>
-        <span class="label" style="color:inherit;letter-spacing:.5em">J.H. · Digital Atelier</span>
-        <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>@jh.digitalatelier</span>
-        <button class="again" data-go="0">Präsentation neu starten</button>
-      </div>
+      <p class="mail">info@jenniferhawranekdigitalatelier.de</p>
     </div>
   </section>
 </main>
-<nav aria-label="Rechtliches" style="position:fixed;right:max(28px,env(safe-area-inset-right,0px));bottom:6px;z-index:60;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;display:flex;gap:12px"><a href="impressum.html" style="color:inherit;text-decoration:none;mix-blend-mode:difference">Impressum</a><a href="datenschutz.html" style="color:inherit;text-decoration:none">Datenschutz</a></nav>
 
-<script>
-/* media map: poster (local), video + small video (hosted) */
-window.MEDIA = window.MEDIA || {graziella:{p:'media/graziella.jpg',v:'media/graziella.mp4',vs:'media/graziella-sm.mp4'},zitra:{p:'media/zitra.jpg',v:'media/zitra.mp4',vs:'media/zitra-sm.mp4'},pyro:{p:'media/pyro.jpg',v:'media/pyro.mp4',vs:'media/pyro-sm.mp4'},magnifio:{p:'media/magnifio.jpg',v:'media/magnifio.mp4',vs:'media/magnifio-sm.mp4'},luminoso:{p:'media/luminoso.jpg',v:'media/luminoso.mp4',vs:'media/luminoso-sm.mp4'},zoia:{p:'media/zoia.jpg',v:'media/zoia.mp4',vs:'media/zoia-sm.mp4'},wunderbar:{p:'media/wunderbar.jpg',v:'media/wunderbar.mp4',vs:'media/wunderbar-sm.mp4'},eichenhonig:{p:'media/eichenhonig.jpg',v:'media/eichenhonig.mp4',vs:'media/eichenhonig-sm.mp4'},teambau:{p:'media/teambau.jpg',v:'media/teambau.mp4',vs:'media/teambau-sm.mp4'},pastasciutta:{p:'media/pastasciutta.jpg',v:'media/pastasciutta.mp4',vs:'media/pastasciutta-sm.mp4'},profix:{p:'media/profix.jpg',v:'media/profix.mp4',vs:'media/profix-sm.mp4'},kaffeekissen:{p:'media/kaffeekissen.jpg',v:'media/kaffeekissen.mp4',vs:'media/kaffeekissen-sm.mp4'},huniek:{p:'media/huniek.jpg',v:'media/huniek.mp4',vs:'media/huniek-sm.mp4'},hundesalon:{p:'media/hundesalon.jpg',v:'media/hundesalon.mp4',vs:'media/hundesalon-sm.mp4'},kavos:{p:'media/kavos.jpg',v:'media/kavos.mp4',vs:'media/kavos-sm.mp4'},wikinger:{p:'media/wikinger.jpg',v:'media/wikinger.mp4',vs:'media/wikinger-sm.mp4'},bohemian:{p:'media/bohemian.jpg',v:'media/bohemian.mp4',vs:'media/bohemian-sm.mp4'},lilly:{p:'media/lilly.jpg',v:'media/lilly.mp4',vs:'media/lilly-sm.mp4'},badraumwunder:{p:'media/badraumwunder.jpg',v:'media/badraumwunder.mp4',vs:'media/badraumwunder-sm.mp4'},goetter:{p:'media/goetter.jpg',v:'media/goetter.mp4',vs:'media/goetter-sm.mp4'},zahnwelt:{p:'media/zahnwelt.jpg',v:'media/zahnwelt.mp4',vs:'media/zahnwelt-sm.mp4'}};
-</script>
+<footer class="site">
+  <span>© 2026 J.H. Digital Atelier · Jennifer Hawranek</span>
+  <nav aria-label="Rechtliches"><a href="#portfolio">Portfolio</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Projekt in groß">
+  <button type="button" id="lbClose" aria-label="Schließen">×</button>
+  <div><video id="lbVideo" muted loop playsinline controls></video><p id="lbCap"></p></div>
+</div>
+
+<script src="vendor/lenis.min.js"></script>
 <script>
 (function(){
-var M=window.MEDIA;
-var P=[
- {k:'graziella',cat:'Restaurant',name:'Da Graziella',claim:'Sizilianische Abende, online so warm wie im Wintergarten.',client:'Ristorante Da Graziella, Bad Kreuznach',svc:'Website · Bildwelt · Kampagnen',url:'ristorantedagraziella.de',href:'https://ristorantedagraziella.de',bg:'#140c0a',dark:1},
- {k:'zitra',cat:'Getränkemarke',name:'ZITRA',claim:'Eine Eistee-Marke mit schwebenden Früchten und Mut zur Farbe.',client:'Eigene Marke des Ateliers',svc:'Branding · 3D-Scroll-Website · Produktbilder',url:'zitra',status:'Eigenprojekt',bg:'#efe8cf'},
- {k:'pyro',cat:'Streetwear',name:'PYRO',claim:'Streetwear mit italienischer Haltung, clean und hell inszeniert.',client:'PYRO · Riviera Club',svc:'Shopify-Shop · Model-Bildwelt · Branding',url:'pyrothebrand.com',href:'https://pyrothebrand.com',bg:'#e8e6e1'},
- {k:'magnifio',cat:'Fashion',name:'MAGNIFIO',claim:'Mode für jede Saison, erzählt wie ein Modemagazin.',client:'MAGNIFIO',svc:'Shopify-Shop · Landingpage · SEO-Texte',url:'magnifio.de',href:'https://magnifio.de',bg:'#efe5dc'},
- {k:'luminoso',cat:'Schmuck',name:'LUMINOSO',claim:'Feiner Schmuck auf dunkler Bühne. Jedes Detail bekommt sein Licht.',client:'LUMINOSO Jewelry',svc:'Luxus-Theme · Katalog · Rechtssicherheit',url:'luminosojewelry.de',href:'https://www.luminosojewelry.de',bg:'#0f0d0b',dark:1},
- {k:'zoia',cat:'Kindermode',name:'ZOIA <i>Kids</i>',claim:'Personalisierte Geschenke und Montessori-Spielzeug, liebevoll wie in einem kleinen Concept Store.',client:'ZOIA Kids Store',svc:'Shopify-Shop · Theme · Rechtssicherheit',url:'zoia-kids-store.de',href:'https://zoia-kids-store.de',bg:'#efe9e2'},
- {k:'wunderbar',concept:1,cat:'Konzept · Café',name:'Café <i>wunderbar</i>',claim:'Spezialitätenkaffee, made with love: Latte-Art-Intro, Goldrahmen-Spiegel, Wochen-Specials und echte Fotos aus dem Café.',client:'Café wunderbar, Wiesbaden',svc:'Latte-Art-Intro · Spiegel-Hero · Tagesverlauf',url:'jh-konzept-wunderbar.vercel.app',href:'https://jh-konzept-wunderbar.vercel.app',bg:'#f5eee3'},
- {k:'eichenhonig',concept:1,cat:'Konzept · Imkerei',name:'Eichen<i>honig</i>',claim:'Waben füllen sich mit Honig, eine Biene begleitet durch die Seite, mit den echten Beuten, Gläsern und Kerzen der Imkerei.',client:'Imkerei Eichenhonig, Wiesbaden',svc:'Waben-Intro · fliegende Biene · Sortenwelt',url:'jh-konzept-eichenhonig.vercel.app',href:'https://jh-konzept-eichenhonig.vercel.app',bg:'#15100c',dark:1},
- {k:'teambau',concept:1,cat:'Konzept · Bauunternehmen',name:'Team <i>Bau</i>',claim:'Ein Kran setzt den Namen ab, danach zeichnet sich der Bauplan und 23 echte Referenzen folgen.',client:'Team Bau GmbH, Wiesbaden',svc:'Kran-Intro · Plan-zum-Bau · 23 Referenzen',url:'jh-konzept-teambau.vercel.app',href:'https://jh-konzept-teambau.vercel.app',bg:'#ecebe7'},
- {k:'pastasciutta',concept:1,cat:'Konzept · Pasta-Bar',name:'PASTA<i>SCIUTTA</i>',claim:'Stay sexy, stay al dente: Hero-Video aus einem echten Teller, Vorhang-Intro und echte Fotos aus dem Lokal.',client:'PASTASCIUTTA, Wiesbaden',svc:'Vorhang-Intro · Schmor-Uhr · Zutaten-Ballett',url:'jh-konzept-pastasciutta.vercel.app',href:'https://jh-konzept-pastasciutta.vercel.app',bg:'#1a1f15',dark:1},
- {k:'profix',concept:1,cat:'Konzept · Gebäudereinigung',name:'PRO<i>FIX</i>',claim:'Ein begehbares 3D-Gebäude: Raum für Raum wischt ein Abzieher den Staub weg, während sich die echten Aufgaben von Profix abhaken.',client:'Profix Gebäudereinigung, Wiesbaden',svc:'3D-Rundgang · Wisch-Shader · Reinigungsplan',url:'jh-konzept-profix.vercel.app',href:'https://jh-konzept-profix.vercel.app',bg:'#eaf4fc'},
- {k:'kaffeekissen',concept:1,cat:'Konzept · Boutique-Hotel',name:'Kaffee <i>&amp; Kissen</i>',claim:'Klein, fein und mit ganz viel Herz: Ein Bogenfenster mit den Profi-Fotos des Hauses öffnet sich beim Scrollen zum Vollbild, dazu acht Zimmer als Unikate, Hofcafé und Fasssauna.',client:'Kaffee &amp; Kissen, Oestrich-Winkel',svc:'Bogen-Hero · Zimmer-Galerie · Garten-Scroll',url:'jh-konzept-kaffeekissen.vercel.app',href:'https://jh-konzept-kaffeekissen.vercel.app',bg:'#f7f2ea'},
- {k:'huniek',concept:1,cat:'Konzept · Malerbetrieb',name:'Huniek',claim:'Das Chamäleon aus dem Logo malt sich ins Bild und wechselt beim Scrollen die Farbe. Dazu ein Farbfächer der Leistungen und echte Baustellen, die sich mit dem Pinsel vom Gerüst zur fertigen Fassade malen.',client:'Huniek Malerbetrieb, Wiesbaden',svc:'Logo-Intro · Pinsel-Reveal · Farbfächer',url:'jh-konzept-huniek.vercel.app',href:'https://jh-konzept-huniek.vercel.app',bg:'#f2eee7'},
- {k:'hundesalon',concept:1,cat:'Konzept · Hundesalon',name:'HundeSalon & mehr',claim:'Eine Schermaschine schneidet das goldene Wappen frei. Danach ein Besuch im Salon als horizontale Scroll-Story in fünf Stationen, eine Schnittlinie mit Schere als Fortschritt und echte Fotos aus dem Salon.',client:'HundeSalon & mehr, Wiesbaden',svc:'Logo-Intro · Scroll-Story · Galerie',url:'jh-konzept-hundesalon.vercel.app',href:'https://jh-konzept-hundesalon.vercel.app',bg:'#0d0c0b',dark:1},
- {k:'kavos',concept:1,cat:'Konzept · Restaurant',name:'KAVOS',claim:'Griechisches Restaurant mit Online-Reservierung in drei Schritten: Kalender nach Öffnungszeiten, Uhrzeit, Gäste und fertige Anfrage. Dazu Flammen, die beim Scrollen über die am Tisch flambierten Gerichte lodern.',client:'KAVOS Restaurant, Wiesbaden',svc:'Online-Reservierung · Flambé-Szene · Speisekarte',url:'jh-konzept-kavos.vercel.app',href:'https://jh-konzept-kavos.vercel.app',bg:'#0e0f12',dark:1},
- {k:'wikinger',concept:1,cat:'Konzept · Restaurant',name:'Webers Wikinger',claim:'Traditionsrestaurant in der Altstadt, ganz in den Farben seiner Fassade: Beim Scrollen öffnet sich der Zeltbogen aus dem Logo zum Gastraum, das Haus zeigt sich als Schnittzeichnung mit Empore, Kamin und Terrasse – und reserviert wird in einem einzigen Satz.',client:'Webers Wikinger, Wiesbaden',svc:'Online-Reservierung · Scroll-Story · Hausplan',url:'jh-konzept-wikinger.vercel.app',href:'https://jh-konzept-wikinger.vercel.app',bg:'#EFE7DA'},
- {k:'bohemian',concept:1,cat:'Konzept · Kosmetikstudio',name:'Bohemian Beauty by Ann',claim:'Holistic-Beauty-Studio in der Villa Florence: Das goldene Logo zeichnet sich zu Beginn selbst, die Seite lebt vom Kreis aus dem Logo – mit Ritual in drei Akten, Preis-Tabs und einem Finder, der zur passenden Behandlung führt.',client:'Bohemian Beauty by Ann, Wiesbaden',svc:'Logo-Animation · Behandlungs-Finder · Preisliste',url:'jh-konzept-bohemian.vercel.app',href:'https://jh-konzept-bohemian.vercel.app',bg:'#F4EDE6'},
- {k:'lilly',concept:1,cat:'Konzept · Laserstudio',name:"Lilly's Luxe Lounge",claim:'Laser- und Kosmetikstudio ganz in Licht gedacht: ein Lichtfeld, das dem Finger folgt, Geräte-Panels mit Lichtscan und ein Zonen-Wähler, auf dem Kundinnen ihre Behandlungszonen antippen und direkt anfragen.',client:"Lilly's Luxe Lounge, Wiesbaden",svc:'Zonen-Wähler · Lichtanimation · Terminanfrage',url:'jh-konzept-lilly.vercel.app',href:'https://jh-konzept-lilly.vercel.app',bg:'#0E0C11',dark:1},
- {k:'badraumwunder',concept:1,cat:'Konzept · Badsanierung',name:'Badraumwunder',claim:'Badstudio für kleine Bäder in der Sprache eines Planers: Grundriss-Intro, Maßlinien über dem Musterbad, echte Kundenbäder, die sich beim Scrollen öffnen, und ein Bad-Planer, der in drei Fragen zur Erstberatung führt – inklusive realer Kostenrahmen.',client:'Badraumwunder, Wiesbaden',svc:'Kundenbäder · Bad-Planer · Anfrage',url:'jh-konzept-badraumwunder.vercel.app',href:'https://jh-konzept-badraumwunder.vercel.app',bg:'#FBFBF9'},
- {k:'goetter',concept:1,cat:'Konzept · Autolackiererei',name:'Autolackiererei Götter',claim:'Meisterbetrieb in Wiesbaden-Schierstein im eigenen Gelb-Grau: ein Spritzgang lackiert das Logo frei, im Hero fließt animierter Metallic-Lack mit Klarlack-Reflexen, die Leistungen fächern sich auf wie ein Farbmusterfächer – und der Schaden-Check führt per Antippen am Auto zur Anfrage.',client:'Fahrzeuglackiererei Frank Götter, Wiesbaden',svc:'Schaden-Check · Metallic-Lack-Hero · Anfrage',url:'jh-konzept-goetter.vercel.app',href:'https://jh-konzept-goetter.vercel.app',bg:'#383330'},
- {k:'zahnwelt',concept:1,cat:'Konzept · Zahnarztpraxis',name:'ZAHNWELT Dr. Doganay',claim:'Zahnarztpraxis mitten in Wiesbaden mit 663 Google-Bewertungen, in einer ruhigen, hellen Klinik-Optik in den Logofarben. Ein gezeichneter Zahn-Querschnitt führt durch die Fachbereiche, vom Zahnschmelz bis zur Wurzel. Dazu eine Lupe für die Intraoralkamera und eine Terminanfrage mit Wunschzeit.',client:'ZAHNWELT Dr. Doganay & Kollegen, Wiesbaden',svc:'Zahn-Querschnitt · Ablauf · Terminanfrage',url:'jh-konzept-zahnwelt.vercel.app',href:'https://jh-konzept-zahnwelt.vercel.app',bg:'#388F10'}
+/* ---------- Projekte: nur Branche, keine Namen, keine Links ---------- */
+var W=[
+ ['graziella','Restaurant','gastro'],['zitra','Getränkemarke','shop',2],['pyro','Streetwear','shop'],['magnifio','Fashion-Shop','shop'],
+ ['luminoso','Schmuck-Shop','shop'],['zoia','Kindermode','shop'],['wunderbar','Café','gastro',1],['eichenhonig','Imkerei','shop',1],
+ ['teambau','Bauunternehmen','handwerk',1],['pastasciutta','Pasta-Bar','gastro',1],['profix','Gebäudereinigung','handwerk',1],['kaffeekissen','Boutique-Hotel','gastro',1],
+ ['huniek','Malerbetrieb','handwerk',1],['hundesalon','Hundesalon','beauty',1],['kavos','Restaurant','gastro',1],['wikinger','Restaurant','gastro',1],
+ ['bohemian','Kosmetikstudio','beauty',1],['lilly','Laserstudio','beauty',1],['badraumwunder','Badsanierung','handwerk',1],['goetter','Autolackiererei','handwerk',1],
+ ['zahnwelt','Zahnarztpraxis','beauty',1]
 ];
-var KEYS=P.map(function(p){return p.k});
-function poster(k){return (M[k]&&M[k].p)||''}
-function frame(k,small){
-  var m=M[k]||{}, v=small?m.vs:m.v;
-  return '<div class="frame"><img src="'+poster(k)+'" alt="" decoding="async">'+(v?'<video muted loop playsinline preload="none" data-src="'+v+'"></video>':'')+'</div>';
-}
-
-var deck=document.getElementById('deck'), anchor=document.getElementById('wallSlide');
-var REAL=P.filter(function(p){return !p.concept}), CON=P.filter(function(p){return p.concept});
-var atelier=document.getElementById('atelierSlide');
-var divIndex=3+REAL.length;
-P.forEach(function(p,i){
-  if(p.concept&&!document.getElementById('conSlide')){
-    deck.insertBefore(atelier,anchor);
-    var d=document.createElement('section');d.className='slide s-grid';d.id='conSlide';d.dataset.name='Konzepte';
-    d.innerHTML='<div class="wrap"><div class="grid-head"><h2 class="display"><span class="ln"><span>Konzepte aus <i>der Region</i></span></span></h2><span class="label rv" style="--d:2">[ '+String(divIndex+1).padStart(2,'0')+' · Konzept-Entwürfe ]</span></div>'+
-      '<p class="lead rv" style="--d:3;max-width:1320px;width:100%;margin:0 auto">Eigene Entwürfe für Betriebe aus Wiesbaden, jeder mit eigenem Intro, eigener Scroll-Story und echten Bildern. Nicht beauftragt und nicht die offiziellen Websites der Betriebe.</p><div class="tiles'+(CON.length===4?' t4':'')+'" id="tiles2"></div></div>';
-    deck.insertBefore(d,anchor);
-  }
-  var n=String(i+3+(p.concept?2:0)).padStart(2,'0'), s=document.createElement('section');
-  s.className='slide s-proj'+(p.dark?' dark':''); s.dataset.name=p.name.replace(/<[^>]+>/g,'');
-  if(p.dark) s.dataset.tone='dark'; s.style.setProperty('--bg',p.bg);
-  var web=p.href?'<a class="plink" href="'+p.href+'" target="_blank" rel="noopener">'+p.url+' ↗</a>':p.url;
-  var open=p.href?'<a class="browser" data-hover href="'+p.href+'" target="_blank" rel="noopener">':'<div class="browser">';
-  s.innerHTML='<div class="wrap"><div class="p-info">'+
-    '<span class="label rv" style="--d:0">[ <b>'+n+'</b> · '+p.cat+' ]</span>'+
-    '<h2 class="display"><span class="ln" style="--d:1"><span>'+p.name+'</span></span></h2>'+
-    '<p class="p-claim rv" style="--d:3">'+p.claim+'</p><hr class="hair rv" style="--d:4">'+
-    '<dl class="p-meta rv" style="--d:5"><dt class="opt">'+(p.concept?'Für':'Kunde')+'</dt><dd class="opt">'+p.client+'</dd><dt>Leistung</dt><dd>'+p.svc+'</dd><dt class="opt">Status</dt><dd class="opt"><span class="status'+(p.concept?' demo':'')+'">'+(p.concept?'Konzept-Entwurf · nicht beauftragt':(p.status||'Live'))+'</span></dd><dt>Web</dt><dd>'+web+'</dd></dl></div>'+
-    '<div class="p-media">'+open+'<div class="chrome"><i></i><i></i><i></i><span>'+p.url+'</span></div>'+frame(p.k)+(p.href?'</a>':'</div>')+'</div></div>';
-  deck.insertBefore(s,anchor);
+document.getElementById('count').textContent=W.length;
+var grid=document.getElementById('grid');
+W.forEach(function(w){
+  var f=document.createElement('figure');f.className='tile rv';f.dataset.g=w[2];f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',w[1]+' in groß ansehen');
+  f.innerHTML='<div class="frame"><img src="media/'+w[0]+'.jpg" alt="Website-Vorschau: '+w[1]+'" loading="lazy" decoding="async"><video muted loop playsinline preload="none" data-src="media/'+w[0]+'-sm.mp4" data-big="media/'+w[0]+'.mp4"></video></div>'+
+    '<figcaption>'+w[1]+(w[3]===2?'<span class="tag">Eigenprojekt</span>':w[3]?'<span class="tag">Konzept</span>':'<span>Live</span>')+'</figcaption>';
+  grid.appendChild(f);
 });
 
-/* ribbon: cards spaced on the ring so neighbours never touch; back half hidden */
-var ring=document.getElementById('ring'), N=12;
-function layoutRing(){
-  var rb=ring.closest('.ribbon'), h=rb.clientHeight||300, w=innerWidth;
-  var cw=Math.max(110,Math.min(250,w*(w<600?.46:.3),h/0.625/2.1));
-  rb.style.setProperty('--cw',cw.toFixed(1)+'px');
-  var R=(N*cw*1.2)/(2*Math.PI);
-  [].forEach.call(ring.children,function(c,i){c.style.transform='rotateY('+(360/N*i)+'deg) translateZ('+R.toFixed(1)+'px)'});
+/* Videos laufen automatisch, sobald sie im Bild sind */
+var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target.querySelector('video');if(!v)return;
+  if(e.isIntersecting){if(!v.src){v.src=v.dataset.src;v.addEventListener('playing',function(){v.classList.add('on')},{once:true});}var p=v.play();p&&p.catch&&p.catch(function(){});}
+  else{try{v.pause()}catch(_){}}});},{rootMargin:'120px'});
+[].forEach.call(grid.children,function(t){vio.observe(t)});
+
+/* Filter */
+[].forEach.call(document.querySelectorAll('.filters button'),function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+  var f=b.dataset.f;[].forEach.call(grid.children,function(t){t.classList.toggle('hide',f!=='all'&&t.dataset.g!==f)});
+});});
+
+/* Großansicht */
+var lb=document.getElementById('lb'),lv=document.getElementById('lbVideo'),lc=document.getElementById('lbCap');
+function openLb(t){var v=t.querySelector('video');lv.src=v.dataset.big;lc.textContent=t.querySelector('figcaption').firstChild.textContent;lb.classList.add('open');var p=lv.play();p&&p.catch&&p.catch(function(){});document.getElementById('lbClose').focus();}
+function closeLb(){lb.classList.remove('open');try{lv.pause()}catch(_){};lv.removeAttribute('src');lv.load();}
+grid.addEventListener('click',function(e){var t=e.target.closest('.tile');if(t)openLb(t)});
+grid.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var t=e.target.closest('.tile');if(t){e.preventDefault();openLb(t)}}});
+document.getElementById('lbClose').onclick=closeLb;lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))closeLb()});
+
+/* Einblenden */
+var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){rio.observe(el)});
+
+/* Smooth Scroll */
+var still=matchMedia('(prefers-reduced-motion: reduce)').matches,lenis=null;
+if(window.Lenis&&!still){lenis=new Lenis({lerp:.09});(function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(0);}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');var el=document.querySelector(id);if(!el)return;e.preventDefault();
+  if(lenis)lenis.scrollTo(el,{offset:id==='#start'?0:-60,duration:1.4});else el.scrollIntoView({behavior:still?'auto':'smooth'});history.replaceState(null,'',id);});});
+
+/* Kopfzeile + helle/dunkle Stimmung */
+var header=document.querySelector('header.site'),tone='light';
+function onScroll(){header.classList.toggle('solid',scrollY>40);
+  var y=innerHeight*.45,cur='light';document.querySelectorAll('[data-tone]').forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y)cur=s.dataset.tone});
+  if(cur!==tone){tone=cur;document.body.classList.toggle('on-dark',tone==='dark');}}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ---------- Farbfluss: Creme · Anthrazit · Nagellack-Rot ---------- */
+var cv=document.getElementById('flow'),gl=cv.getContext('webgl',{antialias:false,alpha:false});
+if(!gl)return;
+var vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+var fs='precision mediump float;uniform vec2 r;uniform float t;uniform vec2 m;uniform vec2 c;uniform float s;uniform vec3 cb,cr,cg,cc;'+
+'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}'+
+'float n(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),u.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),u.x),u.y);}'+
+'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p=p*2.02+vec2(1.7,9.2);a*=.5;}return v;}'+
+'void main(){float asp=r.x/r.y;vec2 uv=gl_FragCoord.xy/r;vec2 p=uv;p.x*=asp;float tt=t*.05;'+
+'vec2 q=vec2(fbm(p*1.1+vec2(0.,tt)),fbm(p*1.1+vec2(5.2,1.3)-tt));vec2 w=p+1.1*q+.12*(m-.5);'+
+'vec2 ctr=c+.06*vec2(sin(t*.11),cos(t*.09));'+
+'float d=length((w-ctr-vec2(.56,.56))*vec2(.95,1.1))-s+.28*fbm(w*1.6+tt*2.);'+
+'float core=1.-smoothstep(-.30,.0,d);float rim=1.-smoothstep(-.06,.26,d);float glow=1.-smoothstep(.1,.6,d);'+
+'vec3 col=cc;col=mix(col,cg,glow*.8);col=mix(col,cr,rim);col=mix(col,cb,core);'+
+'col+=(h(gl_FragCoord.xy+fract(t)*97.)-.5)*.03;gl_FragColor=vec4(col,1.);}';
+function sh(ty,src){var o=gl.createShader(ty);gl.shaderSource(o,src);gl.compileShader(o);return o;}
+var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
+if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;
+gl.useProgram(pr);
+var bf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+var loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+function U(x){return gl.getUniformLocation(pr,x)}
+var u={r:U('r'),t:U('t'),m:U('m'),c:U('c'),s:U('s'),cb:U('cb'),cr:U('cr'),cg:U('cg'),cc:U('cc')};
+function hex(x){return [parseInt(x.slice(1,3),16)/255,parseInt(x.slice(3,5),16)/255,parseInt(x.slice(5,7),16)/255]}
+var PAL={light:{cb:hex('#1b191a'),cr:hex('#a3101d'),cg:hex('#e9c2bc'),cc:hex('#f2ece4')},
+         dark:{cb:hex('#3d3436'),cr:hex('#7a0c18'),cg:hex('#2a2426'),cc:hex('#1b191a')}};
+var cur={};for(var k in PAL.light)cur[k]=PAL.light[k].slice();
+var mx=.5,my=.5,sx=.5,sy=.5,t0=performance.now();
+addEventListener('pointermove',function(e){mx=e.clientX/innerWidth;my=1-e.clientY/innerHeight},{passive:true});
+function size(){var d=Math.min(devicePixelRatio||1,1.5)*.5;cv.width=Math.max(2,Math.round(innerWidth*d));cv.height=Math.max(2,Math.round(innerHeight*d));gl.viewport(0,0,cv.width,cv.height);}
+addEventListener('resize',size);size();
+function frame(now){
+  sx+=(mx-sx)*.03;sy+=(my-sy)*.03;var tgt=PAL[tone];for(var k in cur)for(var i=0;i<3;i++)cur[k][i]+=(tgt[k][i]-cur[k][i])*.04;
+  var asp=innerWidth/innerHeight,narrow=innerWidth<860;
+  gl.uniform2f(u.r,cv.width,cv.height);gl.uniform1f(u.t,still?12.:(now-t0)/1000+12.);gl.uniform2f(u.m,sx,sy);
+  gl.uniform2f(u.c,(narrow?.78:.74)*asp,narrow?.14:.52);gl.uniform1f(u.s,narrow?.3:.4);
+  gl.uniform3fv(u.cb,cur.cb);gl.uniform3fv(u.cr,cur.cr);gl.uniform3fv(u.cg,cur.cg);gl.uniform3fv(u.cc,cur.cc);
+  gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  if(!still)requestAnimationFrame(frame);
 }
-for(var i=0;i<N;i++){var c=document.createElement('div');c.className='card';c.innerHTML='<img src="'+poster(KEYS[i%KEYS.length])+'" alt="" decoding="async">';ring.appendChild(c)}
-layoutRing(); addEventListener('resize',layoutRing);
-function fitTitles(){document.querySelectorAll('.p-info .display').forEach(function(h){h.style.fontSize='';var box=h.parentNode.clientWidth;if(!box)return;var words=h.textContent.trim().split(/\s+/);var m=document.createElement('span');m.style.cssText='position:absolute;visibility:hidden;white-space:nowrap;left:0;top:0;font-style:italic';h.appendChild(m);var fs=parseFloat(getComputedStyle(h).fontSize),n=0;function over(){for(var i=0;i<words.length;i++){m.textContent=words[i];if(m.offsetWidth*1.04>box)return true}return false}while(over()&&fs>24&&n<60){fs-=2;h.style.fontSize=fs+'px';n++}h.removeChild(m)})}
-fitTitles();addEventListener('resize',fitTitles);if(document.fonts)document.fonts.ready.then(fitTitles);
-
-/* grid */
-function addTiles(el,list,start){list.forEach(function(p,i){
-  var f=document.createElement('figure');f.className='tile';f.dataset.go=start+i;f.dataset.hover='';f.style.setProperty('--i',i);
-  f.innerHTML=frame(p.k,1)+'<figcaption><b>'+p.name.replace(/<[^>]+>/g,'')+'</b><span>'+p.cat.replace('Konzept · ','')+'</span></figcaption>';
-  el.appendChild(f);
-});}
-addTiles(document.getElementById('tiles'),REAL,2);
-addTiles(document.getElementById('tiles2'),CON,divIndex+1);
-
-/* wall: three columns, list doubled for a seamless loop */
-var wall=document.getElementById('wall');
-[0,1,2].forEach(function(c){
-  var col=document.createElement('div');col.className='col';col.style.setProperty('--t',(34+c*8)+'s');
-  var order=KEYS.slice(c*2).concat(KEYS.slice(0,c*2)), html='';
-  order.concat(order).forEach(function(k){html+='<div class="frame"><img src="'+poster(k)+'" alt="" loading="lazy" decoding="async"></div>'});
-  col.innerHTML=html;wall.appendChild(col);
-});
-
-/* atelier collage + instagram feed (real atelier photos) */
-var AT='media/atelier/';
-[].forEach.call(atelier.querySelectorAll('.cf'),function(f){
-  var sm=f.hasAttribute('data-sm');
-  f.innerHTML=f.dataset.imgs.split(',').map(function(n,j){return '<img src="'+AT+n+(sm?'-sm':'')+'.jpg" alt="" decoding="async"'+(j?' loading="lazy"':'')+(j?'':' class="on"')+'>'}).join('');
-});
-var feedHtml='',FEED=['01','02','03','04','05','06','07','08','09'];
-FEED.forEach(function(n,i){feedHtml+='<span style="--i:'+i+'"><img src="'+AT+n+'-sm.jpg" alt="" loading="lazy" decoding="async"></span>'});
-document.getElementById('feed').innerHTML=feedHtml;
-var cycT=null;
-function cycle(on){
-  clearInterval(cycT);cycT=null; if(!on)return;
-  var fr=[].slice.call(atelier.querySelectorAll('.cf')),tick=0;
-  cycT=setInterval(function(){
-    var f=fr[tick%fr.length],im=f.querySelectorAll('img'),k=0;
-    for(var j=0;j<im.length;j++)if(im[j].classList.contains('on'))k=j;
-    im[k].classList.remove('on');im[(k+1)%im.length].classList.add('on');tick++;
-  },2200);
-}
-
-/* ---------- navigation ---------- */
-var slides=[].slice.call(deck.querySelectorAll('.slide')),cur=-1,lock=false,outroT;
-var total=slides.length;
-document.getElementById('tot').textContent='/ '+String(total).padStart(2,'0');
-var nWall=slides.indexOf(anchor)+1;
-document.getElementById('wallLabel').textContent='[ '+String(nWall).padStart(2,'0')+' · Haltung ]';
-document.getElementById('procLabel').textContent='[ '+String(nWall+1).padStart(2,'0')+' · Ablauf ]';
-document.getElementById('instaLabel').textContent='[ '+String(nWall+2).padStart(2,'0')+' · Instagram ]';
-document.getElementById('contactLabel').textContent='[ '+String(nWall+3).padStart(2,'0')+' · Kontakt ]';
-document.getElementById('atelierLabel').textContent='[ '+String(slides.indexOf(atelier)+1).padStart(2,'0')+' · Atelier ]';
-var outro=document.getElementById('outro');
-function media(slide,on){
-  [].forEach.call(slide.querySelectorAll('video'),function(v){
-    if(on){ if(!v.src&&v.dataset.src){v.src=v.dataset.src;v.addEventListener('playing',function(){v.classList.add('on')},{once:true});}
-      var pr=v.play(); pr&&pr.catch&&pr.catch(function(){}); }
-    else { try{v.pause()}catch(e){} }
-  });
-}
-function go(n){
-  n=Math.max(0,Math.min(total-1,n)); if(n===cur) return;
-  slides.forEach(function(s,i){var a=i===n;if(s.classList.contains('is-active')&&!a)media(s,false);s.classList.toggle('is-active',a)});
-  cur=n; media(slides[n],true); cycle(slides[n]===atelier);
-  document.getElementById('cur').textContent=String(n+1).padStart(2,'0');
-  document.getElementById('bar').style.width=((n+1)/total*100)+'%';
-  document.getElementById('secName').textContent=slides[n].dataset.name||'';
-  document.body.classList.toggle('tone-dark',slides[n].dataset.tone==='dark');
-  slides[n].querySelector('.wrap').scrollTop=0;
-  clearTimeout(outroT);outro.classList.remove('on');
-  if(slides[n].classList.contains('s-contact')) outroT=setTimeout(function(){outro.classList.add('on')},7000);
-}
-function step(d){if(lock)return;lock=true;go(cur+d);setTimeout(function(){lock=false},900)}
-document.getElementById('next').onclick=function(){step(1)};
-document.getElementById('prev').onclick=function(){step(-1)};
-addEventListener('keydown',function(e){
-  if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();step(1)}
-  else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();step(-1)}
-  else if(e.key==='Home')go(0); else if(e.key==='End')go(total-1);
-  else if(e.key==='f'||e.key==='F')toggleFs();
-});
-addEventListener('wheel',function(e){
-  var w=slides[cur]&&slides[cur].querySelector('.wrap');
-  if(w&&w.scrollHeight>w.clientHeight+4){ if(e.deltaY>0&&w.scrollTop+w.clientHeight<w.scrollHeight-2)return; if(e.deltaY<0&&w.scrollTop>2)return; }
-  if(Math.abs(e.deltaY)<18)return; step(e.deltaY>0?1:-1);
-},{passive:true});
-var tx=0,ty=0;
-addEventListener('touchstart',function(e){tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
-addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.2)step(dx<0?1:-1)},{passive:true});
-document.addEventListener('click',function(e){
-  var t=e.target.closest('[data-go]'); if(!t||e.target.closest('a[target]'))return;
-  e.preventDefault(); go(+t.dataset.go);
-});
-function toggleFs(){try{if(!document.fullscreenElement){var p=document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();p&&p.catch&&p.catch(function(){})}else document.exitFullscreen()}catch(err){}}
-document.getElementById('fs').onclick=toggleFs;
-
-var cu=document.getElementById('cursor'),mx=-100,my=-100,cx=-100,cy=-100;
-addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY});
-document.addEventListener('mouseover',function(e){cu.classList.toggle('big',!!e.target.closest('button,a,[data-hover],[data-go]'))});
-(function loop(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cu.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(loop)})();
-
-function ready(){setTimeout(function(){document.getElementById('pre').classList.add('done');go(0)},1400)}
-if(document.readyState==='complete')ready();else addEventListener('load',ready);
+requestAnimationFrame(frame);
+if(still)addEventListener('scroll',function(){requestAnimationFrame(frame)},{passive:true});
 })();
 </script>
-<script>
-/* Farbfluss – großer, langsam fließender Blob in Atelier-Farben auf allen Atelier-Folien (nicht auf Projektfolien) */
-(function(){
-  var targets=[].slice.call(document.querySelectorAll('.slide:not(.s-proj)'));
-  if(!targets.length) return;
-  var cv=document.createElement('canvas'); cv.className='silk'; cv.setAttribute('aria-hidden','true');
-  var gl=cv.getContext('webgl',{antialias:false,alpha:false});
-  if(!gl) return;
-  var vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
-  var fs='precision mediump float;uniform vec2 r;uniform float t;uniform vec2 m;uniform vec2 c;uniform float s;uniform vec3 cb,cr,cg,cc;'+
-  'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}'+
-  'float n(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),u.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),u.x),u.y);}'+
-  'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p=p*2.02+vec2(1.7,9.2);a*=.5;}return v;}'+
-  'void main(){float asp=r.x/r.y;vec2 uv=gl_FragCoord.xy/r;vec2 p=uv;p.x*=asp;float tt=t*.05;'+
-  'vec2 q=vec2(fbm(p*1.1+vec2(0.,tt)),fbm(p*1.1+vec2(5.2,1.3)-tt));'+
-  'vec2 w=p+1.1*q+.12*(m-.5);'+
-  'vec2 ctr=c+.06*vec2(sin(t*.11),cos(t*.09));'+
-  'float d=length((w-ctr-vec2(.56,.56))*vec2(.95,1.1))-s+.28*fbm(w*1.6+tt*2.);'+
-  'float core=1.-smoothstep(-.30,.0,d);float rim=1.-smoothstep(-.06,.26,d);float glow=1.-smoothstep(.1,.6,d);'+
-  'vec3 col=cc;col=mix(col,cg,glow*.8);col=mix(col,cr,rim);col=mix(col,cb,core);'+
-  'col+=(h(gl_FragCoord.xy+fract(t)*97.)-.5)*.03;gl_FragColor=vec4(col,1.);}';
-  function sh(ty,src){var o=gl.createShader(ty);gl.shaderSource(o,src);gl.compileShader(o);return o;}
-  var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
-  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)) return;
-  gl.useProgram(pr);
-  var bf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-  var loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-  function U(n){return gl.getUniformLocation(pr,n)}
-  var u={r:U('r'),t:U('t'),m:U('m'),c:U('c'),s:U('s'),cb:U('cb'),cr:U('cr'),cg:U('cg'),cc:U('cc')};
-  function hex(x){return [parseInt(x.slice(1,3),16)/255,parseInt(x.slice(3,5),16)/255,parseInt(x.slice(5,7),16)/255]}
-  // hell: Creme-Grund, Anthrazit-Kern, Pink-Rand · dunkel: Anthrazit-Grund, Grau/Pink-Schimmer
-  var LIGHT={cb:hex('#1c1b1e'),cr:hex('#d65bbd'),cg:hex('#efc6e4'),cc:hex('#f4f2ee')};
-  var DARK={cb:hex('#4a4750'),cr:hex('#b0559f'),cg:hex('#2e2b33'),cc:hex('#1c1b1e')};
-  // Blob-Position je Folie wechselt, damit jede Folie eigen wirkt
-  var POS={Intro:[.55,.42,.38],Arbeiten:[.92,.95,.26],Konzepte:[.05,.95,.26],Atelier:[.3,.88,.32],Haltung:[.22,.12,.3],Ablauf:[.95,.98,.24],Instagram:[.06,.08,.3],Kontakt:[.12,.85,.34]},POSD=[.9,.9,.28];
-  var pal=LIGHT,pos=POS.Intro,host=null,raf=0,t0=performance.now(),mx=.5,my=.5,sx=.5,sy=.5;
-  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  addEventListener('pointermove',function(e){mx=e.clientX/innerWidth;my=1-e.clientY/innerHeight},{passive:true});
-  function size(){if(!host)return;var d=Math.min(devicePixelRatio||1,1.5)*.5;cv.width=Math.max(2,Math.round(host.clientWidth*d));cv.height=Math.max(2,Math.round(host.clientHeight*d));gl.viewport(0,0,cv.width,cv.height);}
-  addEventListener('resize',size);
-  function draw(now){sx+=(mx-sx)*.03;sy+=(my-sy)*.03;
-    gl.uniform2f(u.r,cv.width,cv.height);gl.uniform1f(u.t,still?12.:(now-t0)/1000+12.);gl.uniform2f(u.m,sx,sy);
-    var narrow=innerWidth<720;gl.uniform2f(u.c,narrow?pos[0]*.55*innerWidth/innerHeight+.1:pos[0]*innerWidth/innerHeight,pos[1]);gl.uniform1f(u.s,narrow?pos[2]*.85:pos[2]);
-    gl.uniform3fv(u.cb,pal.cb);gl.uniform3fv(u.cr,pal.cr);gl.uniform3fv(u.cg,pal.cg);gl.uniform3fv(u.cc,pal.cc);
-    gl.drawArrays(gl.TRIANGLE_STRIP,0,4);}
-  function loop(now){draw(now);if(!still&&host&&!document.hidden)raf=requestAnimationFrame(loop);}
-  function attach(slide){cancelAnimationFrame(raf);host=slide;
-    if(!slide){if(cv.parentNode)cv.parentNode.removeChild(cv);return;}
-    pal=slide.dataset.tone==='dark'?DARK:LIGHT;pos=POS[slide.dataset.name]||POSD;
-    if(cv.parentNode!==slide)slide.insertBefore(cv,slide.firstChild);
-    size();raf=requestAnimationFrame(loop);}
-  function sync(){var a=null;targets.forEach(function(s){if(s.classList.contains('is-active'))a=s});if(a!==host)attach(a);}
-  var mo=new MutationObserver(sync);targets.forEach(function(s){mo.observe(s,{attributes:true,attributeFilter:['class']})});
-  document.addEventListener('visibilitychange',function(){if(!document.hidden&&host){cancelAnimationFrame(raf);raf=requestAnimationFrame(loop)}});
-  sync();
-})();
-</script>
-
 </body>
 </html>
