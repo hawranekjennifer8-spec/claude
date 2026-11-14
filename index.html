@@ -70,7 +70,7 @@ nav.main{display:flex;gap:clamp(14px,2.4vw,34px)}
 nav.main a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;text-decoration:none;position:relative;padding:6px 0}
 nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
 nav.main a:hover::after,nav.main a:focus-visible::after{transform:scaleX(1)}
-@media (max-width:560px){.brand span{display:none}nav.main{gap:14px}nav.main a{font-size:10px;letter-spacing:.16em}}
+@media (max-width:560px){.brand span{display:none}nav.main{gap:12px}nav.main a{font-size:9.5px;letter-spacing:.12em}nav.main a[href="#instagram"]{display:none}}
 
 /* ---------- Start: links Text, rechts großes Bild – klares 2-Spalten-Raster ---------- */
 .hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:center;
@@ -96,7 +96,7 @@ nav.main a:hover::after,nav.main a:focus-visible::after{transform:scaleX(1)}
 .portrait figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--stone)}
 .portrait figcaption b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:24px;letter-spacing:0;text-transform:none;color:var(--red)}
 /* Bereiche-Leiste */
-.index{max-width:1440px;margin:0 auto;padding:0 var(--gr) 0 var(--gx);display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.index{max-width:1440px;margin:0 auto;padding:0 var(--gr) 0 var(--gx);display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .index a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:26px 0;text-decoration:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   font-family:var(--grot);font-weight:800;font-stretch:118%;text-transform:uppercase;font-size:clamp(16px,1.5vw,22px);letter-spacing:-.01em;transition:color .3s}
 .index a+a{padding-left:clamp(16px,2vw,28px);border-left:1px solid var(--line)}
@@ -105,6 +105,7 @@ nav.main a:hover::after,nav.main a:focus-visible::after{transform:scaleX(1)}
 .index a:hover{color:var(--red)}
 .index span.arr{display:inline-block;transition:transform .45s var(--ease)}
 .index a:hover span.arr{transform:translateX(6px)}
+@media (max-width:1100px){.index{grid-template-columns:repeat(2,minmax(0,1fr))}.index a:nth-child(3){border-left:0;padding-left:0}}
 @media (max-width:860px){
   .hero{grid-template-columns:minmax(0,1fr);gap:28px;padding-top:calc(88px + env(safe-area-inset-top,0px))}
   .portrait .ph{min-height:0;aspect-ratio:4/5;flex:none}
@@ -118,14 +119,16 @@ nav.main a:hover::after,nav.main a:focus-visible::after{transform:scaleX(1)}
 section{scroll-margin-top:70px}
 .work{background:var(--paper);padding:clamp(80px,11vh,130px) var(--gr) clamp(80px,11vh,130px) var(--gx)}
 .wrap{max-width:1440px;margin:0 auto}
-.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:18px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:24px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.head .lead{justify-self:end}
+@media (max-width:860px){.head{grid-template-columns:minmax(0,1fr)}.head .lead{justify-self:start}}
 .head h2{font-size:clamp(34px,4.6vw,80px)}
 .filters{display:flex;flex-wrap:wrap;gap:8px}
 .filters button{font:inherit;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:all .3s}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .filters button:hover{border-color:var(--ink)}
 .note{font-size:12px;color:var(--stone);margin:0 0 32px}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:clamp(12px,1.4vw,22px);row-gap:clamp(22px,2.4vw,34px)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(28px,4vh,44px);column-gap:clamp(12px,1.4vw,22px);row-gap:clamp(22px,2.4vw,34px)}
 .tile{margin:0;cursor:pointer;opacity:1;transition:opacity .5s,transform .6s var(--ease)}
 .tile.hide{display:none}
 .tile .frame{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#d8cfc6;box-shadow:0 22px 44px -30px rgba(27,25,26,.55);transition:transform .6s var(--ease),box-shadow .6s}
@@ -157,6 +160,26 @@ section{scroll-margin-top:70px}
 .svc h3{margin:0 0 6px;font-family:var(--grot);font-weight:800;font-stretch:115%;text-transform:uppercase;font-size:clamp(15px,1.3vw,19px);letter-spacing:.01em}
 .svc p{margin:0;color:#b8b0aa;font-size:14px;line-height:1.6}
 @media (max-width:860px){.services .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* Ablauf als eine Zeile */
+.steps{margin-top:clamp(48px,7vh,80px);padding-top:28px;border-top:1px solid rgba(242,236,228,.18)}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
+.flow span{font-family:var(--grot);font-weight:700;font-stretch:112%;text-transform:uppercase;font-size:13px;letter-spacing:.04em;display:flex;align-items:center;gap:12px}
+.flow b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;color:#e0434f}
+.flow span:not(:last-child)::after{content:"";flex:1;height:1px;background:rgba(242,236,228,.25);margin-left:6px}
+@media (max-width:720px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.flow span::after{display:none}}
+/* Instagram */
+.insta{background:var(--paper);padding:clamp(80px,12vh,140px) var(--gr) clamp(80px,12vh,140px) var(--gx)}
+.insta .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,96px);align-items:center}
+.insta h2{font-size:clamp(34px,4.4vw,76px)}
+.insta .lead{margin-top:22px}
+.feed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;border-radius:14px;overflow:hidden;box-shadow:0 40px 80px -46px rgba(27,25,26,.55);max-width:560px;justify-self:end;width:100%}
+.feed span{aspect-ratio:4/5;background:#d8cfc6;overflow:hidden}
+.feed img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.feed:hover img{transform:scale(1.05)}
+@media (max-width:860px){.insta .wrap{grid-template-columns:minmax(0,1fr)}.feed{justify-self:start}}
+.more{margin:clamp(30px,4vh,48px) 0 0;font-size:14px;color:var(--stone);text-align:center}
+.more a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--red);margin-left:6px;white-space:nowrap}
 
 /* ---------- Kontakt ---------- */
 .contact{min-height:80svh;display:grid;place-items:center;text-align:center;padding:clamp(80px,12vh,140px) var(--gr) 60px var(--gx)}
@@ -240,6 +263,7 @@ footer.site a:hover{color:#f2ece4}
   <nav class="main" aria-label="Hauptnavigation">
     <a href="#portfolio">Portfolio</a>
     <a href="#leistungen">Leistungen</a>
+    <a href="#instagram">Instagram</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
 </header>
@@ -261,8 +285,9 @@ footer.site a:hover{color:#f2ece4}
     </figure>
   </section>
   <nav class="index" aria-label="Bereiche">
-    <a href="#portfolio"><span>Portfolio</span><small><span id="count">21</span> Projekte <span class="arr">→</span></small></a>
+    <a href="#portfolio"><span>Portfolio</span><small>Einblick <span class="arr">→</span></small></a>
     <a href="#leistungen"><span>Leistungen</span><small>Web · Shop · Marke <span class="arr">→</span></small></a>
+    <a href="#instagram"><span>Instagram</span><small>Feed &amp; Content <span class="arr">→</span></small></a>
     <a href="#kontakt"><span>Kontakt</span><small>Erstgespräch <span class="arr">→</span></small></a>
   </nav>
   <div class="band" aria-hidden="true"><div class="track" id="track"></div></div>
@@ -271,32 +296,43 @@ footer.site a:hover{color:#f2ece4}
     <div class="wrap">
       <div class="head rv">
         <h2 class="display">Ausgewählte<br><i>Arbeiten.</i></h2>
-        <div class="filters" role="group" aria-label="Arbeiten filtern">
-          <button type="button" data-f="all" aria-pressed="true">Alle</button>
-          <button type="button" data-f="gastro" aria-pressed="false">Gastronomie</button>
-          <button type="button" data-f="shop" aria-pressed="false">Shops &amp; Marken</button>
-          <button type="button" data-f="handwerk" aria-pressed="false">Handwerk</button>
-          <button type="button" data-f="beauty" aria-pressed="false">Beauty &amp; Praxis</button>
-        </div>
+        <p class="lead">Ein kleiner Einblick in meine Arbeit – jede Seite mit eigenem Intro, eigener Animation und echten Bildern.</p>
       </div>
-      <p class="note rv">Eine Auswahl aus Kundenprojekten und eigenen Konzept-Entwürfen. Zum Vergrößern antippen.</p>
+      
       <div class="grid" id="grid"></div>
+      <p class="more rv">… und viele weitere Projekte für Gastronomie, Handwerk, Mode und Beauty. Gerne zeige ich Ihnen im Erstgespräch mehr. <a href="#kontakt">Erstgespräch anfragen →</a></p>
     </div>
   </section>
 
   <section class="services dark" id="leistungen" data-tone="dark">
     <div class="wrap">
       <div class="rv">
-        <span class="label">Leistungen &amp; Ablauf</span>
+        <span class="label">Leistungen</span>
         <h2 class="display" style="margin-top:18px">Alles aus<br><i>einer Hand.</i></h2>
         <p class="lead">Sie sprechen vom ersten Entwurf bis zum Launch immer direkt mit mir. Domain, Impressum, Datenschutz und SEO sind inklusive – rechtssicher nach deutschem Recht.</p>
       </div>
       <ol class="svc rv">
-        <li><em>01</em><div><h3>Erstgespräch</h3><p>Kostenlos und unverbindlich: Ihre Marke, Ihre Kunden und das Ziel der Seite.</p></div></li>
-        <li><em>02</em><div><h3>Konzept &amp; Look</h3><p>Moodboard, Farbwelt, Schriften und eine Idee, die Ihre Seite trägt – bevor gebaut wird.</p></div></li>
-        <li><em>03</em><div><h3>Website, Shop &amp; Bildwelt</h3><p>Animierte, schnelle Website oder Shopify-Shop, Bilder im passenden Look und Texte, die nach Ihnen klingen.</p></div></li>
-        <li><em>04</em><div><h3>Launch &amp; Pflege</h3><p>Domain, SSL, Rechtstexte und SEO. Danach bleibe ich für Pflege, Instagram und Kampagnen an Ihrer Seite.</p></div></li>
+        <li><em>01</em><div><h3>Webdesign</h3><p>Individuelle, animierte Websites mit eigenem Intro – schnell, mobil perfekt und für Google optimiert.</p></div></li>
+        <li><em>02</em><div><h3>Shopify-Shops</h3><p>Online-Shops, die wie eine Marke wirken: Theme, Produktseiten, Bildwelt und Rechtssicherheit.</p></div></li>
+        <li><em>03</em><div><h3>Branding &amp; Logo</h3><p>Ein Markensystem, das auf Website, Karte, Verpackung und Social Media wiedererkennbar ist.</p></div></li>
+        <li><em>04</em><div><h3>Instagram &amp; Content</h3><p>Ein Feed mit rotem Faden: Bildwelt, Kacheln, Reels und Kampagnenbilder im Look Ihrer Marke.</p></div></li>
       </ol>
+    </div>
+    <div class="wrap steps rv">
+      <span class="label">So arbeiten wir</span>
+      <div class="flow"><span><b>01</b>Erstgespräch</span><span><b>02</b>Konzept &amp; Look</span><span><b>03</b>Umsetzung</span><span><b>04</b>Launch &amp; Pflege</span></div>
+    </div>
+  </section>
+
+  <section class="insta" id="instagram" data-tone="light">
+    <div class="wrap">
+      <div class="rv">
+        <span class="label">Instagram &amp; Content</span>
+        <h2 class="display" style="margin-top:18px">Ein Feed mit<br><i>rotem Faden.</i></h2>
+        <p class="lead">Ich gestalte Ihren Instagram-Auftritt passend zur Website: einheitliche Farbwelt, echte Details, Kacheln mit Wiedererkennung und Reels, die in der ersten Sekunde fesseln. So sieht der Feed meines Ateliers aus.</p>
+        <div class="cta-row"><a class="btn" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener">@jh.digitalatelier <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <a class="feed rv" id="feed" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener" aria-label="Instagram-Feed von J.H. Digital Atelier öffnen"></a>
     </div>
   </section>
 
@@ -328,19 +364,14 @@ footer.site a:hover{color:#f2ece4}
 (function(){
 /* ---------- Projekte: nur Branche, keine Namen, keine Links ---------- */
 var W=[
- ['graziella','Restaurant','gastro'],['zitra','Getränkemarke','shop',2],['pyro','Streetwear','shop'],['magnifio','Fashion-Shop','shop'],
- ['luminoso','Schmuck-Shop','shop'],['zoia','Kindermode','shop'],['wunderbar','Café','gastro',1],['eichenhonig','Imkerei','shop',1],
- ['teambau','Bauunternehmen','handwerk',1],['pastasciutta','Pasta-Bar','gastro',1],['profix','Gebäudereinigung','handwerk',1],['kaffeekissen','Boutique-Hotel','gastro',1],
- ['huniek','Malerbetrieb','handwerk',1],['hundesalon','Hundesalon','beauty',1],['kavos','Restaurant','gastro',1],['wikinger','Restaurant','gastro',1],
- ['bohemian','Kosmetikstudio','beauty',1],['lilly','Laserstudio','beauty',1],['badraumwunder','Badsanierung','handwerk',1],['goetter','Autolackiererei','handwerk',1],
- ['zahnwelt','Zahnarztpraxis','beauty',1]
+ ['graziella','Restaurant'],['luminoso','Schmuck-Shop'],['pyro','Streetwear-Shop'],['zitra','Getränkemarke'],
+ ['eichenhonig','Imkerei'],['pastasciutta','Pasta-Bar'],['bohemian','Kosmetikstudio'],['badraumwunder','Badsanierung']
 ];
-document.getElementById('count').textContent=W.length;
 var grid=document.getElementById('grid');
 W.forEach(function(w){
-  var f=document.createElement('figure');f.className='tile rv';f.dataset.g=w[2];f.dataset.cat=w[1];f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',w[1]+' in groß ansehen');
+  var f=document.createElement('figure');f.className='tile rv';f.dataset.cat=w[1];f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',w[1]+' in groß ansehen');
   f.innerHTML='<div class="frame"><img src="media/'+w[0]+'.jpg" alt="Website-Vorschau: '+w[1]+'" loading="lazy" decoding="async"><video muted loop playsinline preload="none" data-src="media/'+w[0]+'-sm.mp4" data-big="media/'+w[0]+'.mp4"></video></div>'+
-    '<figcaption>'+w[1]+'<span class="go">Ansehen →</span>'+(w[3]===2?'<span class="tag">Eigenprojekt</span>':w[3]?'<span class="tag">Konzept</span>':'<span>Live</span>')+'</figcaption>';
+    '<figcaption>'+w[1]+'<span class="go">Ansehen →</span>'+'</figcaption>';
   f.style.transitionDelay=(grid.children.length%4)*70+'ms';
   grid.appendChild(f);
 });
@@ -351,11 +382,9 @@ var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.tar
   else{try{v.pause()}catch(_){}}});},{rootMargin:'120px'});
 [].forEach.call(grid.children,function(t){vio.observe(t)});
 
-/* Filter */
-[].forEach.call(document.querySelectorAll('.filters button'),function(b){b.addEventListener('click',function(){
-  document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
-  var f=b.dataset.f;[].forEach.call(grid.children,function(t){t.classList.toggle('hide',f!=='all'&&t.dataset.g!==f)});
-});});
+/* Instagram-Feed */
+var fh='';['01','02','03','04','05','06','07','08','09'].forEach(function(n){fh+='<span><img src="media/atelier/'+n+'-sm.jpg" alt="" loading="lazy" decoding="async"></span>'});
+document.getElementById('feed').innerHTML=fh;
 
 /* Großansicht */
 var lb=document.getElementById('lb'),lv=document.getElementById('lbVideo'),lc=document.getElementById('lbCap');
