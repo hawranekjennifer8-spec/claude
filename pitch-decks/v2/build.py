@@ -10,8 +10,9 @@ os.makedirs(OUT, exist_ok=True)
 TMP = f'tmp/{KEY}'
 os.makedirs(TMP, exist_ok=True)
 FPS = 30
-ENC = ['-c:v', 'libx264', '-preset', 'medium', '-crf', '22', '-profile:v', 'high', '-level', '4.1',
+ENC = ['-c:v', 'libx264', '-preset', 'fast', '-crf', '25', '-profile:v', 'high', '-level', '4.1',
        '-pix_fmt', 'yuv420p', '-r', str(FPS), '-g', '60', '-movflags', '+faststart', '-an']
+ENCHQ = [('18' if v == '25' else v) for v in ENC]
 ESP, CREAM = (0x17, 0x11, 0x0C), (0xF3, 0xED, 0xE2)
 
 
@@ -90,20 +91,20 @@ def seg(dev, t0, t1, out, bg=None):
     if dev == 'd':
         bar = bar_png()
         vf = f'[0:v]fps={FPS},scale=1440:900:flags=lanczos,setsar=1[v];[1:v][v]vstack=inputs=2,format=yuv420p'
-        run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-i', bar, '-filter_complex', vf] + ENC + ['-t', f'{t1 - t0:.3f}', out])
+        run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-i', bar, '-filter_complex', vf] + ENCHQ + ['-t', f'{t1 - t0:.3f}', out])
     else:
         ph = phone_png(bg)
         c = '0x%02X%02X%02X' % bg
         vf = (f'[0:v]fps={FPS},scale=592:-2:flags=lanczos,crop=592:1276:0:0,setsar=1,pad=636:1320:22:22:color={c}[v];'
               f'[v][1:v]overlay=0:0,format=yuv420p')
-        run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-loop', '1', '-i', ph, '-filter_complex', vf] + ENC + ['-t', f'{t1 - t0:.3f}', out])
+        run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-loop', '1', '-i', ph, '-filter_complex', vf] + ENCHQ + ['-t', f'{t1 - t0:.3f}', out])
 
 
 def dur(f):
     return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).decode())
 
 
-def loop(src, out, target, xf=0.6, crf='22'):
+def loop(src, out, target, xf=0.6, crf='25'):
     d = dur(src)
     n = max(1, int((target - xf) // (d - xf)) + 1) if d < target else 1
     if n == 1:
@@ -116,7 +117,7 @@ def loop(src, out, target, xf=0.6, crf='22'):
         lab = f'[x{i}]'
         fc.append(f'{prev}[{i}:v]xfade=transition=fade:duration={xf}:offset={off:.3f}{lab}')
         prev = lab
-    enc = [crf if v == '22' else v for v in ENC]
+    enc = [crf if v == '25' else v for v in ENC]
     run(['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', ';'.join(fc), '-map', prev] + enc + [out])
 
 
@@ -137,7 +138,7 @@ seg('d', md['intro_end'] - 4.0, md['intro_end'], f'{TMP}/hero1.mp4')
 loop(f'{TMP}/hero1.mp4', f'{OUT}/hero.mp4', 45, xf=0.8)
 poster(f'{OUT}/hero.mp4', 1.0, f'{OUT}/hero_p.png')
 seg('d', md['intro_end'] - 1.0, md['end'] + 1.6, f'{TMP}/full1.mp4')
-loop(f'{TMP}/full1.mp4', f'{OUT}/full.mp4', 2 * dur(f'{TMP}/full1.mp4') - 1, crf='25')
+loop(f'{TMP}/full1.mp4', f'{OUT}/full.mp4', 2 * dur(f'{TMP}/full1.mp4') - 1, crf='27')
 poster(f'{OUT}/full.mp4', 0.5, f'{OUT}/full_p.png')
 for i in (1, 2, 3):
     k = f'hl{i}'

@@ -9,7 +9,7 @@ const MOB = mode === 'mobile';
 const b = await chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required', '--disable-renderer-backgrounding', '--disable-background-timer-throttling', '--force-color-profile=srgb'] });
 const ctx = await b.newContext(MOB
   ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1' }
-  : { viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1.5 });
+  : { viewport: { width: 1280, height: 800 }, deviceScaleFactor: +(process.env.DSF || 1.5) });
 const p = await ctx.newPage();
 const cdp = await ctx.newCDPSession(p);
 const frames = [];
