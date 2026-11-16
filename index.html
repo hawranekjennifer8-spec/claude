@@ -281,27 +281,27 @@ body.intro .hero *,body.intro .hero{animation-play-state:paused!important}
 @keyframes grain{0%,100%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
 .kino{margin-top:clamp(28px,4vh,48px)}
 .kino .screen{position:relative;aspect-ratio:2.2/1;border-radius:14px;overflow:hidden;background:#0e0c0d;box-shadow:0 60px 110px -60px rgba(27,25,26,.75)}
-.kino .sc{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.kino .sc{position:absolute;left:0;right:0;top:11%;bottom:19%;overflow:hidden;opacity:0;transition:opacity 1s ease}
 .kino .sc.on{opacity:1}
 .kino .sc img,.kino .sc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
 .kino .sc video{opacity:0;transition:opacity .6s}.kino .sc video.on{opacity:1}
 .kino .sc.on img,.kino .sc.on video{animation:kb 7s linear forwards}
 @keyframes kb{from{transform:scale(1.06)}to{transform:scale(1)}}
-.kino .screen::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(10,8,9,.55));}
+.kino .screen::before{content:"";position:absolute;left:0;right:0;top:11%;bottom:19%;z-index:2;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(10,8,9,.55));}
 .kino .screen::after{content:"";position:absolute;inset:-50%;z-index:2;pointer-events:none;background-image:var(--grain);opacity:.12;animation:grain 1s steps(4) infinite}
 .kino .hud{position:absolute;z-index:3;inset:0;pointer-events:none;color:#f2ece4;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:600}
-.kino .hud .tl{position:absolute;left:clamp(16px,2.4vw,34px);top:clamp(14px,2.2vw,28px);display:flex;align-items:center;gap:10px}
+.kino .hud .tl{position:absolute;left:clamp(16px,2.4vw,34px);top:5.5%;transform:translateY(-50%);display:flex;align-items:center;gap:10px}
 .kino .hud .tl::before{content:"";width:8px;height:8px;border-radius:50%;background:#e0434f;animation:blink 1.6s steps(2) infinite}
 @keyframes blink{50%{opacity:.25}}
-.kino .hud .tr{position:absolute;right:clamp(16px,2.4vw,34px);top:clamp(14px,2.2vw,28px);font-variant-numeric:tabular-nums}
-.kino .hud .cr{position:absolute;left:clamp(16px,2.4vw,34px);bottom:clamp(14px,2.4vw,30px);display:grid;gap:8px;text-shadow:0 2px 18px rgba(0,0,0,.55)}
-.kino .hud .cr b{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;font-size:clamp(26px,3.4vw,54px);line-height:1}
+.kino .hud .tr{position:absolute;right:clamp(16px,2.4vw,34px);top:5.5%;transform:translateY(-50%);font-variant-numeric:tabular-nums}
+.kino .hud .cr{position:absolute;left:clamp(16px,2.4vw,34px);bottom:9.5%;transform:translateY(50%);display:flex;align-items:baseline;gap:clamp(12px,1.4vw,20px)}
+.kino .hud .cr b{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;font-size:clamp(22px,2.6vw,42px);line-height:1;color:#f2ece4}
 .kino .hud .cr b{transition:opacity .5s,transform .7s var(--ease)}
 .kino .hud .cr.sw b{opacity:0;transform:translateY(10px)}
-.kino .nav{position:absolute;z-index:4;right:clamp(16px,2.4vw,34px);bottom:clamp(14px,2.4vw,30px);display:flex;gap:8px}
+.kino .nav{position:absolute;z-index:4;right:clamp(16px,2.4vw,34px);bottom:9.5%;transform:translateY(50%);display:flex;gap:8px}
 .kino .nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,236,228,.5);background:rgba(14,12,13,.35);color:#f2ece4;font:inherit;font-size:16px;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .3s,border-color .3s}
 .kino .nav button:hover{background:var(--red);border-color:var(--red)}
-.kino .open{position:absolute;inset:0;z-index:3;cursor:pointer;background:none;border:0}
+.kino .open{position:absolute;left:0;right:0;top:11%;bottom:19%;z-index:3;cursor:pointer;background:none;border:0}
 .strip{position:relative;margin-top:16px;background:#0e0c0d;border-radius:8px;overflow:hidden;padding:15px 0;
   -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:7px;z-index:2;pointer-events:none;
@@ -317,7 +317,7 @@ body.intro .hero *,body.intro .hero{animation-play-state:paused!important}
 .allhead{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-top:clamp(48px,7vh,80px);padding-top:22px;border-top:1px solid var(--line)}
 .allhead .label{color:var(--ink)}
 .allhead .filters{margin-top:0}
-@media (max-width:720px){.kino .screen{aspect-ratio:16/11}.kino .hud .tr{display:none}.kino .nav button{width:38px;height:38px}}
+@media (max-width:720px){.kino .screen{aspect-ratio:4/3}.kino .sc,.kino .screen::before,.kino .open{top:12%;bottom:22%}.kino .hud .tl{top:6%}.kino .hud .cr,.kino .nav{bottom:11%}.kino .hud .cr{gap:10px}.kino .hud .cr>span{font-size:9px;letter-spacing:.22em}.kino .hud .tr{display:none}.kino .nav button{width:38px;height:38px}}
 @media (prefers-reduced-motion:reduce){.filmkorn,.kino .screen::after,.pre .grain{animation:none}.reel{animation:none;overflow-x:auto}}
 </style>
 </head>
