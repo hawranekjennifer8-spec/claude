@@ -191,3 +191,12 @@ Namen der Betriebe werden **nicht** eingeblendet, nur die Branche. Die Seite sel
 3. Keine Namen von Betrieben als Text, kein „Demo“, kein Alkohol auf Jennys Bildern.
 4. Dauer 20–25 s, Schnitte auf 0,5-s-Raster.
 5. Ehrlich bewerten: Würde Jenny das neben @idanweb posten? Wenn nein, nicht abgeben.
+
+## Erweiterung 15./16.11.2026
+Vor jedem Reel bzw. jeder Ad die Taste-Erweiterung in referenzen/PROFI-TIPPS.md lesen (Café Va Liés, Kanti, arwa.designstudio, studio.sevd, niki.aroca, stephanni_wolski).
+
+Für die Gestaltung gilt:
+- Farbpalette der Marke mit Namen und Hex-Werten festlegen.
+- Charakter bzw. Signature-Element zeigen.
+- Makro-Food und Produkt im Wechsel mit Typo-Karten.
+- Mockups statt einfach draufgeklatschter Screens.

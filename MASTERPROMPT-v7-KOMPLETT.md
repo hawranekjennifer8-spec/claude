@@ -409,3 +409,15 @@ Aus dem Reel von @itsmariahbrunner („6 Websites to give AI better taste“). B
 - Schritt 1 und 2 auf Deutsch. Die KEEP/CHANGE/SKIP-Liste stelle ich als Fragen mit Auswahl, damit Jenny nur antippen muss.
 - Den fertigen Style-Brief speichere ich pro Projekt im Memory unter /areas/<kunde>.md.
 - Danach gelten zusätzlich alle Regeln dieses Masterprompts: echte Bilder, Recht, QA.
+
+## Erweiterung 15./16.11.2026 – Taste (gilt für Webseiten, Content, Bilder, Videos, Feeds, Branding)
+Vor jedem Projekt referenzen/PROFI-TIPPS.md, Abschnitt „Taste-Erweiterung 15./16.11.2026“, lesen. Maßstab sind Café Va Liés und Kanti: edel, ästhetisch, clean.
+
+Für jede Marke festlegen:
+1. Eine benannte Farbpalette mit Hex-Werten, 4–5 Töne (nach studio.sevd/niki.aroca).
+2. Ein Signature-Element oder einen Charakter (nach arwa.designstudio).
+3. Echte Mockups (Quellen: lummi.ai, mockups.supply, madebyattic.com, moyo-studio.com, createom.com).
+4. Ein Moodboard, bevor Content entsteht (nach stephanni_wolski).
+5. Einen Feed-Rhythmus aus Makro-Fotos und Typo-Kacheln (freigestelltes Produkt auf Farbfläche, Script + Serif-Versalien, Streifen).
+
+Nie 1:1 kopieren. Immer echtes Logo und echte Daten verwenden.

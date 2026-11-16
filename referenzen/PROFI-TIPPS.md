@@ -150,3 +150,32 @@ Jennys Taste. Er wird bei jeder Aufgabe automatisch angewendet, ohne Hinweis von
   - große 4,9 als Bewertung und freier Slot live („free at 2:40 PM“)
   - Buchung in unter einer Minute
 - Feedback Zahnwelt: Arztpraxen müssen seriös, vertrauenswürdig und medizinisch wirken, „keine Spielothek“.
+
+## Taste-Erweiterung 15./16.11.2026 (IMMER vor dem Erstellen ansehen – Webseiten, Content, Bilder, Videos, Feeds, Branding)
+Jennys Wort: „ERWEITERUNG – damit unsere Bilder, Videos und Content generell besser werden.“ Café Va Liés und Kanti findet sie „richtig gut, edel und ästhetisch“. Diese Richtung ist der Maßstab.
+- `2026-11-15_cafe-va-lies_feed.png`: Salbeigrün, Dunkeloliv, Pfirsich-Creme und Kaffeebraun. Makro-Food (Espresso aus dem Siebträger, Crema-Blasen, Croissant-Waben, Latte-Art) wechselt sich mit Typo-Kacheln ab. Dort steht ein freigestelltes Produkt auf einer Farbfläche, Script und Serif-Versalien sind gemischt, dazu vertikale Streifen und eine Linien-Illustration.
+- `2026-11-16_kantiyenikoy_feed-*.png`: Kanti, wie in der Kanti-Regel beschrieben (Creme + Rot, Blitz, Hände, Typo-Kacheln, Handschrift-Notizen).
+- `2026-11-15_arwa-designstudio_*` (@arwa.designstudio): Brandings mit eigenem Charakter oder Maskottchen und einer Signalfarbe. Beispiele:
+  - MELTO-Eis: lila Plüschfigur, tropfende Schoko/Karamell, Logo als Prägung im Eis, Logo-Schürze
+  - Full Cup: Kobaltblau, tropfendes Logo-Muster
+  - weitere: FURMO, Pollos, Cloud, Mazoji
+  - Präsentation als Collage abgerundeter Kacheln mit echten Mockups
+- `2026-11-15_studio-sevd_luxury-color-palettes.mp4`: Pro Marke 4–5 Töne mit Hex.
+  - HEMLABEL: #191617 #ACA297 #F6F6F6 #462A21
+  - Streetwear: #210E13 #5A1717 #F1F3F3 #BF915E #C2B5A3
+  - state of her: #141414 #CDE1DB #F8F8F2 #59514F #DDDAC9
+  - PRINCE: #171717 #DDD0CC #5C4D48 #143040 #451313
+  - SEIDO: #1F1C17 #7D7B62 #F6F2EF #956E50 #D9CEB9
+  - Twenty OhNine: #3D121F #EDEAE2 #2D1E1C #F5EAD1
+- `2026-11-15_studio-sevd_me-vs-my-portfolio.mp4`: Portfolio als Raster aus Farbflächen, die sich mit Marken-Mockups füllen. Jedes Projekt hat eine eigene Farbwelt.
+- `2026-11-15_studio-sevd_mockup-quellen.mp4`: Mockup-Quellen lummi.ai, mockups.supply, madebyattic.com, moyo-studio.com, createom.com.
+- `2026-11-15_niki-aroca_brand-farben.mp4`: Jede Markenfarbe bekommt einen Namen und eine Rolle. Beispiele: Velvet Red / Starlight White / Cosmic Lilac, Blue Hour / Porcelain White / Solar Orange, Midnight Merlot / Ember Orange / Daybreak Yellow.
+- `2026-11-15_stephanni-wolski_moodboards.mp4`: Retro-Editorial-Moodboards in Bordeaux, Orange, Oliv und Creme. Motive: Dalmatiner, Gingham, Streifen, Rosen, Hände mit Nägeln. Erst entsteht das Moodboard, dann der Content.
+
+**Anwendung pro Marke:**
+- benannte Farbpalette mit Hex
+- Signature-Element bzw. Charakter
+- echte Mockups
+- Feed-Wechsel aus Makro-Foto und Typo-Kachel
+
+Nie 1:1 kopieren. Immer mit dem echten Logo und den echten Daten des Betriebs arbeiten.
