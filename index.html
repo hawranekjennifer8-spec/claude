@@ -123,7 +123,7 @@ section{scroll-margin-top:70px}
 .head .lead{justify-self:end}
 @media (max-width:860px){.head{grid-template-columns:minmax(0,1fr)}.head .lead{justify-self:start}}
 .head h2{font-size:clamp(34px,4.6vw,80px)}
-.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .filters button{font:inherit;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:all .3s}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .filters button:hover{border-color:var(--ink)}
@@ -312,12 +312,13 @@ footer.site a:hover{color:#f2ece4}
   <section class="work" id="portfolio" data-tone="light">
     <div class="wrap">
       <div class="head rv">
-        <h2 class="display">Ausgewählte<br><i>Arbeiten.</i></h2>
-        <p class="lead">Ein kleiner Einblick in meine Arbeit – jede Seite mit eigenem Intro, eigener Animation und echten Bildern.</p>
+        <h2 class="display">Meine<br><i>Arbeiten.</i></h2>
+        <p class="lead">Websites, Shops und Marken aus Gastronomie, Handwerk, Mode, Beauty und Gesundheit – jede mit eigenem Intro, eigener Animation und echten Bildern. Zum Ansehen einfach antippen.</p>
       </div>
+      <div class="filters rv" id="filters" role="group" aria-label="Arbeiten nach Bereich filtern"></div>
       
       <div class="grid" id="grid"></div>
-      <p class="more rv">… und viele weitere Projekte für Gastronomie, Handwerk, Mode und Beauty. Gerne zeige ich Ihnen im Erstgespräch mehr. <a href="#kontakt">Erstgespräch anfragen →</a></p>
+      <p class="more rv">Aus Rücksicht auf meine Kundinnen und Kunden zeige ich Ausschnitte ohne Namen. Gerne zeige ich Ihnen im Erstgespräch mehr. <a href="#kontakt">Erstgespräch anfragen →</a></p>
     </div>
   </section>
 
@@ -358,7 +359,7 @@ footer.site a:hover{color:#f2ece4}
       <span class="label">Kontakt</span>
       <h2 class="display" style="margin-top:18px">Lassen Sie uns<br>Ihre Marke <i>zeigen.</i></h2>
       <div class="cta-row">
-        <a class="btn fill" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener">Nachricht auf Instagram <span aria-hidden="true">↗</span></a>
+        <a class="btn fill" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener">Nachricht auf Instagram</a>
         <a class="btn" href="mailto:info@jenniferhawranekdigitalatelier.de">E-Mail schreiben</a>
       </div>
       <p class="mail">info@jenniferhawranekdigitalatelier.de</p>
@@ -381,17 +382,28 @@ footer.site a:hover{color:#f2ece4}
 (function(){
 /* ---------- Projekte: nur Branche, keine Namen, keine Links ---------- */
 var W=[
- ['graziella','Restaurant'],['luminoso','Schmuck-Shop'],['pyro','Streetwear-Shop'],['zitra','Getränkemarke'],
- ['eichenhonig','Imkerei'],['pastasciutta','Pasta-Bar'],['bohemian','Kosmetikstudio'],['badraumwunder','Badsanierung']
+ ['graziella','Restaurant','Gastronomie'],['pastasciutta','Pasta-Bar','Gastronomie'],['kavos','Griechisches Restaurant','Gastronomie'],['wikinger','Steakhaus','Gastronomie'],
+ ['wunderbar','Café','Gastronomie'],['kaffeekissen','Gästehaus','Gastronomie'],['eichenhonig','Imkerei','Marken & Shops'],['zitra','Getränkemarke','Marken & Shops'],
+ ['luminoso','Schmuck-Shop','Marken & Shops'],['magnifio','Mode-Shop','Marken & Shops'],['pyro','Streetwear-Shop','Marken & Shops'],['zoia','Kinder-Shop','Marken & Shops'],
+ ['badraumwunder','Badsanierung','Handwerk'],['profix','Gebäudereinigung','Handwerk'],['teambau','Bauunternehmen','Handwerk'],['huniek','Malerbetrieb','Handwerk'],
+ ['goetter','Autolackiererei','Handwerk'],['zahnwelt','Zahnarztpraxis','Beauty & Gesundheit'],['bohemian','Kosmetikstudio','Beauty & Gesundheit'],['lilly','Laser & Kosmetik','Beauty & Gesundheit'],
+ ['hundesalon','Hundesalon','Beauty & Gesundheit']
 ];
 var grid=document.getElementById('grid');
 W.forEach(function(w){
-  var f=document.createElement('figure');f.className='tile rv';f.dataset.cat=w[1];f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',w[1]+' in groß ansehen');
+  var f=document.createElement('figure');f.className='tile rv';f.dataset.cat=w[2];f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',w[1]+' in groß ansehen');
   f.innerHTML='<div class="frame"><img src="media/'+w[0]+'.jpg" alt="Website-Vorschau: '+w[1]+'" loading="lazy" decoding="async"><video muted loop playsinline preload="none" data-src="media/'+w[0]+'-sm.mp4" data-big="media/'+w[0]+'.mp4"></video></div>'+
     '<figcaption>'+w[1]+'<span class="go">Ansehen →</span>'+'</figcaption>';
   f.style.transitionDelay=(grid.children.length%4)*70+'ms';
   grid.appendChild(f);
 });
+
+/* Bereiche filtern */
+var fl=document.getElementById('filters');
+['Alle','Gastronomie','Handwerk','Marken & Shops','Beauty & Gesundheit'].forEach(function(c,i){var b=document.createElement('button');b.type='button';b.textContent=c;b.setAttribute('aria-pressed',i?'false':'true');
+  b.addEventListener('click',function(){[].forEach.call(fl.children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    [].forEach.call(grid.children,function(t){t.classList.toggle('hide',c!=='Alle'&&t.dataset.cat!==c)});
+    if(window.ScrollTrigger)ScrollTrigger.refresh();});fl.appendChild(b);});
 
 /* Videos laufen automatisch, sobald sie im Bild sind */
 var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target.querySelector('video');if(!v)return;
