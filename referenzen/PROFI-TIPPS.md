@@ -179,3 +179,19 @@ Jennys Wort: „ERWEITERUNG – damit unsere Bilder, Videos und Content generell
 - Feed-Wechsel aus Makro-Foto und Typo-Kachel
 
 Nie 1:1 kopieren. Immer mit dem echten Logo und den echten Daten des Betriebs arbeiten.
+
+## @blochsocialhaus – Mock-Feeds und Content-Strategie (16.11.2026)
+- Mock-Feeds `2026-11-16_blochsocialhaus_mockfeed-*`: 3x3-Raster, in der Mitte die Studio-Logo-Kachel („MOCK FEED“), darunter die Farbpalette als Streifen. Jede Marke ist Ton in Ton gehalten:
+  - **Kaffee** (Karamell/Mokka): Espresso-Makro mit Nutzen-Pills, Latte-Art mit Suchleiste, „will you … get coffee with me?“ mit Ring-Box, Bohnen mit „Good days start here.“, Hand mit Iced Latte und Accessoires
+  - **Beauty** (Bronze/Nude): Glitzer-Textur, Produkt-Flatlay, Glow-Porträt, „Made to GLOW“ über Puder-Textur
+  - **Haar** (Sand/Taupe): Schaum-Makro, Zopf vor Riesen-Typo „WASH STYLE SHINE“, Haar-Welle
+  - **Skincare** (Pfirsich/Creme): Schaum mit „clean, gentle, honest.“, Tropfen aus der Tube, Glow-Lippen, echte Menschen mit Produkt
+- Reel `2026-11-16_blochsocialhaus_content-friseur.mp4` („everything I would post for a hair salon“), daraus die Content-Säulen:
+  1. Ergebnisse und Vorher/Nachher
+  2. Erinnerungen („Zeit für ein Refresh“)
+  3. Tipps und Produktempfehlungen – genau die Fragen, die Kunden googeln
+  4. Die Person hinter dem Betrieb: Expertise, Persönlichkeit, Erlebnis
+  5. Leistungen klar zeigen: was, für wen und was man buchen muss, um das Ergebnis zu bekommen
+  
+  Leitsatz: **Strategy > pretty pictures.**
+- **Recht (DE):** Mock-Feeds nur mit eigenen Marken, echten Kunden oder als „Konzept“ gekennzeichnet. Keine fremden Markenlogos und keine fremden Produktfotos (Urheber- und Markenrecht, Irreführung nach UWG).
