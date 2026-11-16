@@ -53,7 +53,7 @@ main,header.site,footer.site{position:relative;z-index:1}
 .dark .display i{color:#e0434f}
 .label{font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--stone)}
 .lead{font-size:clamp(15px,1.15vw,18px);line-height:1.65;color:var(--stone);margin:0;max-width:46ch}
-.dark{color:#f2ece4}
+.dark{color:#f2ece4;background:radial-gradient(70% 55% at 82% 38%,rgba(110,22,32,.45),transparent 70%),radial-gradient(60% 50% at 10% 90%,rgba(58,50,52,.6),transparent 70%),#1b191a}
 .dark .lead,.dark .label{color:#b8b0aa}
 
 /* ---------- Header ---------- */
@@ -277,7 +277,7 @@ body.intro .hero *,body.intro .hero{animation-play-state:paused!important}
 
 /* ---------- Film-Look ---------- */
 :root{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.filmkorn{position:fixed;inset:-50%;z-index:60;pointer-events:none;background-image:var(--grain);opacity:.055;mix-blend-mode:multiply;animation:grain 1.1s steps(4) infinite}
+.filmkorn{position:fixed;inset:-50%;z-index:60;pointer-events:none;background-image:var(--grain);opacity:.045;animation:grain 1.1s steps(4) infinite}
 @keyframes grain{0%,100%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
 .kino{margin-top:clamp(28px,4vh,48px)}
 .kino .screen{position:relative;aspect-ratio:2.2/1;border-radius:14px;overflow:hidden;background:#0e0c0d;box-shadow:0 60px 110px -60px rgba(27,25,26,.75)}
@@ -417,7 +417,7 @@ body.intro .hero *,body.intro .hero{animation-play-state:paused!important}
         <span class="label">Instagram &amp; Content</span>
         <h2 class="display" style="margin-top:18px">Ein Feed mit<br><i>rotem Faden.</i></h2>
         <p class="lead">Ich gestalte Ihren Instagram-Auftritt passend zur Website: einheitliche Farbwelt, echte Details, Kacheln mit Wiedererkennung und Reels, die in der ersten Sekunde fesseln. So sieht der Feed meines Ateliers aus.</p>
-        <div class="cta-row"><a class="btn" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener">@jh.digitalatelier <span aria-hidden="true">↗</span></a></div>
+        <div class="cta-row"><a class="btn" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener">@jh.digitalatelier</a></div>
       </div>
       <a class="feed rv" id="feed" href="https://www.instagram.com/jh.digitalatelier/" target="_blank" rel="noopener" aria-label="Instagram-Feed von J.H. Digital Atelier öffnen"></a>
     </div>
