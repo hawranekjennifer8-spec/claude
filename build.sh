@@ -44,5 +44,7 @@ curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5
 unzip -o -q /tmp/v23.zip -d .
 curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5h/1e8f9c3a-d197-4c77-8fc0-c224f064b4fd.zip" -o /tmp/v24.zip
 unzip -o -q /tmp/v24.zip -d .
+curl -sSL "https://d2ol7oe51mr4n9.cloudfront.net/user_3DwQyx0Gmhz59plV9eJMlvUOn5h/1b4701f9-138a-4fcf-be84-4eda6fbcca12.zip" -o /tmp/v25.zip
+unzip -o -q /tmp/v25.zip -d .
 rm -f media/mira* media/goldwabe* media/rheinkante* media/lina*
 ls media
