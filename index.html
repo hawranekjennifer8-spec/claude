@@ -195,9 +195,21 @@ footer.site a:hover{color:#f2ece4}
 
 /* ---------- Bewegung: ruhig, wenige, gezielte Momente ---------- */
 /* Vorhang mit Monogramm */
-.pre{position:fixed;inset:0;z-index:100;background:var(--ink);color:var(--paper);display:grid;place-items:center;transition:transform 1.1s var(--ease) .1s}
-.pre.done{transform:translateY(-100%)}
-.pre svg{width:110px;height:110px}
+.pre{position:fixed;inset:0;z-index:100;color:var(--paper);display:grid;place-items:center;pointer-events:auto}
+.pre .lb{position:absolute;left:0;right:0;height:50.5%;background:#0e0c0d;transition:height 1.15s cubic-bezier(.7,0,.2,1)}
+.pre .lb.t{top:0}.pre .lb.b{bottom:0}
+.pre .pin{position:relative;z-index:1;display:grid;justify-items:center;gap:18px;text-align:center;padding:0 24px;transition:opacity .45s ease}
+.pre .pk{margin:0;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:#b8b0aa;opacity:0;animation:fadein .9s ease .55s forwards}
+.pre .pt{margin:0;font-family:var(--grot);font-weight:850;font-stretch:125%;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(28px,4.6vw,72px);line-height:.95;opacity:0;transform:translateY(14px);animation:rise 1.1s var(--ease) 1s forwards}
+.pre .pt i{font-family:var(--serif);font-style:italic;font-weight:400;font-stretch:100%;text-transform:none;color:#e0434f;font-size:1.25em}
+.pre .grain{position:absolute;inset:-50%;background-image:var(--grain);opacity:.16;animation:grain 1s steps(4) infinite;pointer-events:none;z-index:2}
+.pre.open{pointer-events:none}
+.pre.open .pin{opacity:0}
+.pre.open .lb{height:10.5vh}
+.pre.gone .lb{height:0;transition-duration:.9s}
+.pre.gone .grain{opacity:0;transition:opacity .6s}
+body.intro .hero *,body.intro .hero{animation-play-state:paused!important}
+.pre svg{width:96px;height:96px}
 .pre circle{stroke-dasharray:340;stroke-dashoffset:340;animation:draw 1.3s var(--ease) forwards}
 .pre text{opacity:0;animation:fadein .8s ease .45s forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -262,10 +274,58 @@ footer.site a:hover{color:#f2ece4}
   .hero h1 .row>span{transform:none}
   .band .track{animation:none}
 }
+
+/* ---------- Film-Look ---------- */
+:root{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.filmkorn{position:fixed;inset:-50%;z-index:60;pointer-events:none;background-image:var(--grain);opacity:.055;mix-blend-mode:multiply;animation:grain 1.1s steps(4) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
+.kino{margin-top:clamp(28px,4vh,48px)}
+.kino .screen{position:relative;aspect-ratio:2.2/1;border-radius:14px;overflow:hidden;background:#0e0c0d;box-shadow:0 60px 110px -60px rgba(27,25,26,.75)}
+.kino .sc{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.kino .sc.on{opacity:1}
+.kino .sc img,.kino .sc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.kino .sc video{opacity:0;transition:opacity .6s}.kino .sc video.on{opacity:1}
+.kino .sc.on img,.kino .sc.on video{animation:kb 7s linear forwards}
+@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1)}}
+.kino .screen::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(10,8,9,.55));}
+.kino .screen::after{content:"";position:absolute;inset:-50%;z-index:2;pointer-events:none;background-image:var(--grain);opacity:.12;animation:grain 1s steps(4) infinite}
+.kino .hud{position:absolute;z-index:3;inset:0;pointer-events:none;color:#f2ece4;font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:600}
+.kino .hud .tl{position:absolute;left:clamp(16px,2.4vw,34px);top:clamp(14px,2.2vw,28px);display:flex;align-items:center;gap:10px}
+.kino .hud .tl::before{content:"";width:8px;height:8px;border-radius:50%;background:#e0434f;animation:blink 1.6s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.kino .hud .tr{position:absolute;right:clamp(16px,2.4vw,34px);top:clamp(14px,2.2vw,28px);font-variant-numeric:tabular-nums}
+.kino .hud .cr{position:absolute;left:clamp(16px,2.4vw,34px);bottom:clamp(14px,2.4vw,30px);display:grid;gap:8px;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.kino .hud .cr b{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;font-size:clamp(26px,3.4vw,54px);line-height:1}
+.kino .hud .cr b{transition:opacity .5s,transform .7s var(--ease)}
+.kino .hud .cr.sw b{opacity:0;transform:translateY(10px)}
+.kino .nav{position:absolute;z-index:4;right:clamp(16px,2.4vw,34px);bottom:clamp(14px,2.4vw,30px);display:flex;gap:8px}
+.kino .nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,236,228,.5);background:rgba(14,12,13,.35);color:#f2ece4;font:inherit;font-size:16px;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .3s,border-color .3s}
+.kino .nav button:hover{background:var(--red);border-color:var(--red)}
+.kino .open{position:absolute;inset:0;z-index:3;cursor:pointer;background:none;border:0}
+.strip{position:relative;margin-top:16px;background:#0e0c0d;border-radius:8px;overflow:hidden;padding:15px 0;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:7px;z-index:2;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,#f2ece4 0 2.4px,transparent 2.6px) 0 0/18px 7px repeat-x;opacity:.55}
+.strip::before{top:4px}.strip::after{bottom:4px}
+.reel{display:flex;gap:6px;width:max-content;animation:roll 70s linear infinite}
+.strip:hover .reel{animation-play-state:paused}
+@keyframes roll{to{transform:translateX(-50%)}}
+.reel button{position:relative;flex:none;width:clamp(110px,10vw,150px);aspect-ratio:16/10;padding:0;border:0;border-radius:3px;overflow:hidden;cursor:pointer;background:#222;opacity:.55;transition:opacity .4s,outline-color .4s;outline:2px solid transparent;outline-offset:-2px}
+.reel button img{width:100%;height:100%;object-fit:cover;object-position:top;filter:sepia(.25) contrast(1.05)}
+.reel button:hover,.reel button.on{opacity:1}
+.reel button.on{outline-color:#e0434f}
+.allhead{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-top:clamp(48px,7vh,80px);padding-top:22px;border-top:1px solid var(--line)}
+.allhead .label{color:var(--ink)}
+.allhead .filters{margin-top:0}
+@media (max-width:720px){.kino .screen{aspect-ratio:16/11}.kino .hud .tr{display:none}.kino .nav button{width:38px;height:38px}}
+@media (prefers-reduced-motion:reduce){.filmkorn,.kino .screen::after,.pre .grain{animation:none}.reel{animation:none;overflow-x:auto}}
 </style>
 </head>
-<body>
-<div class="pre" id="pre" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="1"/><text x="60" y="74" text-anchor="middle" font-family="Bodoni Moda,Georgia,serif" font-size="44" font-style="italic" fill="currentColor">JH</text></svg></div>
+<body class="intro">
+<div class="pre" id="pre" aria-hidden="true"><div class="lb t"></div><div class="lb b"></div><div class="grain"></div>
+  <div class="pin"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="1"/><text x="60" y="74" text-anchor="middle" font-family="Bodoni Moda,Georgia,serif" font-size="44" font-style="italic" fill="currentColor">JH</text></svg>
+  <p class="pk">J.H. Digital Atelier präsentiert</p><p class="pt">Websites, die man <i>fühlt.</i></p></div></div>
+<div class="filmkorn" aria-hidden="true"></div>
 <div class="cur" id="cur" aria-hidden="true"><span>Ansehen</span></div>
 <canvas id="flow" aria-hidden="true"></canvas>
 
@@ -315,8 +375,17 @@ footer.site a:hover{color:#f2ece4}
         <h2 class="display">Meine<br><i>Arbeiten.</i></h2>
         <p class="lead">Websites, Shops und Marken aus Gastronomie, Handwerk, Mode, Beauty und Gesundheit – jede mit eigenem Intro, eigener Animation und echten Bildern. Zum Ansehen einfach antippen.</p>
       </div>
-      <div class="filters rv" id="filters" role="group" aria-label="Arbeiten nach Bereich filtern"></div>
-      
+      <div class="kino rv" id="kino">
+        <div class="screen" id="kScreen">
+          <div class="hud" aria-hidden="true"><span class="tl">Showreel</span><span class="tr" id="kTc">00:00:00:00</span>
+            <span class="cr" id="kCr"><span id="kNo">Szene 01 / 21</span><b id="kCat">Restaurant</b></span></div>
+          <button class="open" id="kOpen" aria-label="Aktuelle Szene groß ansehen"></button>
+          <div class="nav"><button type="button" id="kPrev" aria-label="Vorherige Szene">←</button><button type="button" id="kNext" aria-label="Nächste Szene">→</button></div>
+        </div>
+        <div class="strip" aria-label="Filmstreifen mit allen Arbeiten"><div class="reel" id="kReel"></div></div>
+      </div>
+      <div class="allhead rv"><span class="label">Alle Arbeiten im Überblick</span><div class="filters" id="filters" role="group" aria-label="Arbeiten nach Bereich filtern"></div></div>
+
       <div class="grid" id="grid"></div>
       <p class="more rv">Aus Rücksicht auf meine Kundinnen und Kunden zeige ich Ausschnitte ohne Namen. Gerne zeige ich Ihnen im Erstgespräch mehr. <a href="#kontakt">Erstgespräch anfragen →</a></p>
     </div>
@@ -391,12 +460,36 @@ var W=[
 ];
 var grid=document.getElementById('grid');
 W.forEach(function(w){
-  var f=document.createElement('figure');f.className='tile rv';f.dataset.cat=w[2];f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',w[1]+' in groß ansehen');
+  var f=document.createElement('figure');f.className='tile rv';f.dataset.cat=w[2];f.dataset.label=w[1];f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',w[1]+' in groß ansehen');
   f.innerHTML='<div class="frame"><img src="media/'+w[0]+'.jpg" alt="Website-Vorschau: '+w[1]+'" loading="lazy" decoding="async"><video muted loop playsinline preload="none" data-src="media/'+w[0]+'-sm.mp4" data-big="media/'+w[0]+'.mp4"></video></div>'+
     '<figcaption>'+w[1]+'<span class="go">Ansehen →</span>'+'</figcaption>';
   f.style.transitionDelay=(grid.children.length%4)*70+'ms';
   grid.appendChild(f);
 });
+
+/* Kino: Showreel aller Arbeiten mit Filmstreifen */
+(function(){
+  var scr=document.getElementById('kScreen'),reel=document.getElementById('kReel'),no=document.getElementById('kNo'),cat=document.getElementById('kCat'),cr=document.getElementById('kCr'),tc=document.getElementById('kTc');
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches,cur=-1,timer=null,inView=false,t0=performance.now();
+  var S=W.map(function(w,i){var d=document.createElement('div');d.className='sc';d.innerHTML='<img src="media/'+w[0]+'.jpg" alt="Website-Vorschau: '+w[1]+'" loading="lazy" decoding="async"><video muted playsinline preload="none" data-src="media/'+w[0]+'.mp4"></video>';return d});
+  S.forEach(function(d){scr.insertBefore(d,scr.querySelector('.hud'))});
+  var html='';W.forEach(function(w,i){html+='<button type="button" data-i="'+i+'" aria-label="Szene '+(i+1)+': '+w[1]+'"><img src="media/'+w[0]+'.jpg" alt="" loading="lazy" decoding="async"></button>'});
+  reel.innerHTML=html+html.replace(/<button /g,'<button tabindex="-1" aria-hidden="true" ');
+  function pad(n){return (n<10?'0':'')+n}
+  function go(n){n=(n+S.length)%S.length;if(n===cur)return;var old=S[cur];if(old){old.classList.remove('on');var ov=old.querySelector('video');try{ov.pause()}catch(_){}}
+    cur=n;var d=S[n],v=d.querySelector('video');d.classList.add('on');
+    if(!v.src){v.src=v.dataset.src;v.addEventListener('playing',function(){v.classList.add('on')},{once:true})}try{v.currentTime=0}catch(_){}var p=v.play();p&&p.catch&&p.catch(function(){});
+    cr.classList.add('sw');setTimeout(function(){no.textContent='Szene '+pad(n+1)+' / '+S.length;cat.textContent=W[n][1];cr.classList.remove('sw')},280);
+    [].forEach.call(reel.children,function(b){b.classList.toggle('on',+b.dataset.i===n)});
+    if(timer)clearTimeout(timer);if(!still&&inView)timer=setTimeout(function(){go(cur+1)},6500);}
+  reel.addEventListener('click',function(e){var b=e.target.closest('button');if(b)go(+b.dataset.i)});
+  document.getElementById('kPrev').onclick=function(){go(cur-1)};document.getElementById('kNext').onclick=function(){go(cur+1)};
+  document.getElementById('kOpen').onclick=function(){var t=grid.children[cur];if(t)openLb(t)};
+  new IntersectionObserver(function(es){inView=es[0].isIntersecting;var v=S[cur]&&S[cur].querySelector('video');
+    if(inView){if(cur<0)go(0);else{v&&v.play&&v.play().catch(function(){});if(!still){clearTimeout(timer);timer=setTimeout(function(){go(cur+1)},6500)}}}
+    else{clearTimeout(timer);try{v&&v.pause()}catch(_){}}},{threshold:.35}).observe(scr);
+  (function tick(){var s=(performance.now()-t0)/1000;tc.textContent=pad(Math.floor(s/3600))+':'+pad(Math.floor(s/60)%60)+':'+pad(Math.floor(s)%60)+':'+pad(Math.floor(s*24)%24);requestAnimationFrame(tick)})();
+})();
 
 /* Bereiche filtern */
 var fl=document.getElementById('filters');
@@ -417,7 +510,7 @@ document.getElementById('feed').innerHTML=fh;
 
 /* Großansicht */
 var lb=document.getElementById('lb'),lv=document.getElementById('lbVideo'),lc=document.getElementById('lbCap');
-function openLb(t){var v=t.querySelector('video');lv.src=v.dataset.big;lc.textContent=t.dataset.cat;lb.classList.add('open');var p=lv.play();p&&p.catch&&p.catch(function(){});document.getElementById('lbClose').focus();}
+function openLb(t){var v=t.querySelector('video');lv.src=v.dataset.big;lc.textContent=t.dataset.label||t.dataset.cat;lb.classList.add('open');var p=lv.play();p&&p.catch&&p.catch(function(){});document.getElementById('lbClose').focus();}
 function closeLb(){lb.classList.remove('open');try{lv.pause()}catch(_){};lv.removeAttribute('src');lv.load();}
 grid.addEventListener('click',function(e){var t=e.target.closest('.tile');if(t)openLb(t)});
 grid.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var t=e.target.closest('.tile');if(t){e.preventDefault();openLb(t)}}});
@@ -436,9 +529,12 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
 
 
 /* Vorhang */
-var pre=document.getElementById('pre');
-function lift(){pre.classList.add('done');setTimeout(function(){pre.remove()},1400)}
-setTimeout(lift,still?0:1250);
+var pre=document.getElementById('pre'),seen=false,lifted=false;
+try{seen=sessionStorage.getItem('jh-vorspann')==='1';sessionStorage.setItem('jh-vorspann','1')}catch(_){}
+function lift(){if(lifted)return;lifted=true;document.body.classList.remove('intro');pre.classList.add('open');
+  setTimeout(function(){pre.classList.add('gone')},still?0:1500);setTimeout(function(){pre.remove()},still?50:2600);}
+if(still){lift()}else{if(seen){pre.querySelector('.pin').style.display='none';setTimeout(lift,250)}else setTimeout(lift,2900);
+  ['pointerdown','keydown','wheel','touchstart'].forEach(function(ev){addEventListener(ev,function(){setTimeout(lift,0)},{once:true,passive:true})});}
 /* Laufband */
 var words='Webdesign <b></b> <i>Shopify-Shops</i> <b></b> Branding <b></b> <i>Kampagnenbilder</i> <b></b> Instagram-Feeds <b></b> <i>Logo &amp; Marke</i> <b></b> ';
 document.getElementById('track').innerHTML='<span>'+words+'</span><span>'+words+'</span>';
