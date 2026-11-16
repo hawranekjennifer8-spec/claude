@@ -178,6 +178,25 @@ section{scroll-margin-top:70px}
 .feed img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
 .feed:hover img{transform:scale(1.05)}
 @media (max-width:860px){.insta .wrap{grid-template-columns:minmax(0,1fr)}.feed{justify-self:start}}
+/* Konzept-Feeds */
+.feeds{background:#ebe3d9;padding:clamp(80px,12vh,140px) var(--gr) clamp(80px,12vh,140px) var(--gx);border-top:1px solid var(--line)}
+.feeds .top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.feeds h2{font-size:clamp(34px,4.4vw,76px);margin-top:18px}
+.feeds .lead{margin-top:22px;max-width:560px}
+.fstage{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,4fr);gap:clamp(28px,5vw,80px);align-items:center;margin-top:clamp(36px,5vh,60px)}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;border-radius:14px;overflow:hidden;background:#fff;padding:4px;box-shadow:0 50px 90px -50px rgba(27,25,26,.55);max-width:640px;width:100%}
+.fgrid span{aspect-ratio:4/5;overflow:hidden;background:#d8cfc6}
+.fgrid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease),opacity .5s}
+.fgrid span:hover img{transform:scale(1.05)}
+.fgrid.swap img{opacity:0}
+.finfo .label{color:var(--ink)}
+.finfo h3{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;font-size:clamp(28px,3vw,44px);margin:14px 0 12px;line-height:1.05}
+.finfo p{color:var(--stone);font-size:15px;line-height:1.6;margin:0}
+.pal{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:26px;border-radius:10px;overflow:hidden}
+.pal span{padding:16px 10px 12px;font-size:10px;letter-spacing:.12em;font-weight:700;line-height:1.5}
+.pal i{display:block;font-family:'Bodoni Moda',serif;font-size:15px;letter-spacing:0;font-weight:400}
+.fnote{margin-top:22px;font-size:12px;color:var(--stone)}
+@media (max-width:860px){.fstage{grid-template-columns:minmax(0,1fr)}.pal span{padding:12px 6px 10px;font-size:8.5px}.pal i{font-size:13px}}
 .more{margin:clamp(30px,4vh,48px) 0 0;font-size:14px;color:var(--stone);text-align:center}
 .more a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--red);margin-left:6px;white-space:nowrap}
 
@@ -423,6 +442,21 @@ body.intro .hero *,body.intro .hero{animation-play-state:paused!important}
     </div>
   </section>
 
+  <section class="feeds" id="feeds" data-tone="light">
+    <div class="wrap">
+      <div class="top rv">
+        <div><span class="label">Feeds &amp; Content</span>
+        <h2 class="display">Konzept-Feeds<br><i>nach Branche.</i></h2>
+        <p class="lead">So könnte Ihr Instagram aussehen: Bildwelt Ton in Ton, Makro-Details im Wechsel mit Typo-Kacheln und eine feste Farbpalette. Freie Konzepte ohne echte Marken – für jeden Betrieb individuell umgesetzt.</p></div>
+        <div class="filters" id="ftabs" role="group" aria-label="Konzept-Feed wählen"></div>
+      </div>
+      <div class="fstage rv">
+        <div class="fgrid" id="fgrid" aria-live="polite"></div>
+        <div class="finfo"><span class="label" id="fno">Konzept-Feed 01</span><h3 id="fttl">Café</h3><p id="ftxt"></p><div class="pal" id="fpal"></div><p class="fnote">Freie Konzeptarbeit, Bilder KI-gestützt erstellt.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="contact dark" id="kontakt" data-tone="dark">
     <div class="rv">
       <span class="label">Kontakt</span>
@@ -613,6 +647,21 @@ function frame(now){
 requestAnimationFrame(frame);
 if(still)addEventListener('scroll',function(){requestAnimationFrame(frame)},{passive:true});
 })();
+</script>
+<script>
+(()=>{const F=[
+ {k:'cafe',t:'Café',x:'Warme Karamell- und Mokkatöne, Crema in Nahaufnahme und Kacheln, die zum Vorbeikommen einladen: „Gute Tage beginnen hier.“',p:[['#3B2416','Mokka'],['#6B4430','Espresso'],['#A87C5A','Karamell'],['#D9BFA0','Milchschaum'],['#F3E9DC','Creme']]},
+ {k:'kos',t:'Kosmetik',x:'Bronze, Nude und Seide: Texturen, Glow und ruhige Produktbilder ohne Etikett – edel, hautnah und klar in der Botschaft.',p:[['#5A3A2B','Kakao'],['#A36F52','Bronze'],['#D4A588','Nude'],['#E9D2C0','Puder'],['#F6EEE8','Seide']]},
+ {k:'haar',t:'Haar & Seife',x:'Sand, Leinen und Schaum: Pflege zum Anfassen, große Typo und Naturmaterialien für eine Marke, die sanft und hochwertig wirkt.',p:[['#6E5A4B','Taupe'],['#A89382','Sand'],['#D8C8B8','Leinen'],['#EFE7DE','Hafer'],['#FBF8F4','Schaum']]}];
+const g=document.getElementById('fgrid'),tb=document.getElementById('ftabs');if(!g)return;
+const lum=h=>{const n=parseInt(h.slice(1),16);return((n>>16)+(n>>8&255)+(n&255))/3};
+function show(i,first){const f=F[i];const put=()=>{g.innerHTML=Array.from({length:9},(_,j)=>`<span><img src="media/feeds/${f.k}-${j+1}.jpg" alt="Konzept-Feed ${f.t}, Kachel ${j+1}" loading="lazy" decoding="async" width="720" height="900"></span>`).join('');g.classList.remove('swap')};
+ document.getElementById('fno').textContent='Konzept-Feed 0'+(i+1);document.getElementById('fttl').textContent=f.t;document.getElementById('ftxt').textContent=f.x;
+ document.getElementById('fpal').innerHTML=f.p.map(([h,n])=>`<span style="background:${h};color:${lum(h)<150?'#fbf7f2':'#3b281e'}"><i>${n}</i>${h}</span>`).join('');
+ tb.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));
+ if(first)put();else{g.classList.add('swap');setTimeout(put,350)}}
+tb.innerHTML=F.map(f=>`<button type="button" aria-pressed="false">${f.t}</button>`).join('');
+tb.querySelectorAll('button').forEach((b,i)=>b.addEventListener('click',()=>show(i)));show(0,true)})();
 </script>
 </body>
 </html>
