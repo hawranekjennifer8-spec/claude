@@ -5,6 +5,7 @@ Quelle: Verbote-Kit (Orange Hat Guy, Folge 12) nach github.com/multica-ai/andrej
 **IMMER (Jennys Taste, ohne Hinweis anwenden – bei Webseiten, Stamore, Apps, Instagram, Videos, Bildern):** Lenis + GSAP/ScrollTrigger, 21st.dev, Framer, alle Skills, alle Referenz-Videos in referenzen/ (zuletzt 2026-11-15/16-*: Taste-Erweiterung Café Va Liés, Kanti, arwa.designstudio, studio.sevd, niki.aroca, stephanni_wolski), smoothe flüssige Animationen, 4K-Bilder in hoch realistischer Auflösung, jedes Detail prüfen. Details: referenzen/PROFI-TIPPS.md und Memory /topics/premium-qualitaetsstandard.md.
 
 ## V0 – Start-Ritual: IMMER automatisch VOR Beginn jeder Aufgabe (nie erst auf Nachfrage von Jenny)
+0. **MASTER-INIT.md zuerst** – übergreift alle /inits und listet ALLE Memory-Dateien, Repo-Docs, Skills, Taste und Stil, die gelesen und angewendet werden (inkl. Taste-Erweiterung blochsocialhaus).
 1. Memory lesen: /topics/premium-qualitaetsstandard.md (/init), /topics/atelier-masterprompt.md, /topics/webdesign-animation-referenz.md, /topics/model-fotografie-prompts.md + passende /areas/-Datei.
 2. Repo lesen: MASTERPROMPT-v7-KOMPLETT.md, referenzen/PROFI-TIPPS.md, referenzen/REEL-ADS-MASTERPROMPT.md (Fehler-Logbuch).
 3. Referenz-Videos/-Bilder in referenzen/ zur Nische ansehen (Kontaktbogen per ffmpeg), passende auswählen.
