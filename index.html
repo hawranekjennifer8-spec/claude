@@ -533,7 +533,7 @@ function spTick(now){var dt=spLast?Math.min(.1,(now-spLast)/1000):0;spLast=now;
   spHelix.style.transform='rotateZ(-7deg) rotateX('+(-6-smy*6).toFixed(2)+'deg) rotateY('+(smx*10).toFixed(2)+'deg)';
   var best=-1,bd=1e9;
   for(var i=0;i<SN;i++){var u=i-spPos;u=((u%SN)+SN)%SN;if(u>SN/2)u-=SN;var a=u*SSTEP,rad=a*Math.PI/180,y=u*sDY;
-    var x=Math.sin(rad)*sR,z=Math.cos(rad)*sR-sR,fade=Math.min(1,Math.max(0,(2.6-Math.abs(u))/.8))*(spMob&&u<0?Math.min(1,Math.max(0,(.9+u)/.35)):1),sc=1+(spMob?.45:.32)*Math.max(0,1-Math.abs(u));
+    var x=Math.sin(rad)*sR,z=Math.cos(rad)*sR-sR,fade=Math.min(1,Math.max(0,(2.6-Math.abs(u))/.8))*(spMob?Math.min(1,Math.max(0,(u<0?.9+u:1.05-u)/.35)):1),sc=1+(spMob?.45:.32)*Math.max(0,1-Math.abs(u));
     spCards[i].style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,'+z.toFixed(1)+'px) rotateY('+a.toFixed(2)+'deg) scale('+sc.toFixed(3)+')';spCards[i].style.zIndex=Math.round(100-Math.abs(u)*10);
     spCards[i].style.opacity=fade.toFixed(3);spSh[i].style.opacity=Math.min(.85,Math.abs(a)/180*1.4).toFixed(3);
     if(Math.abs(u)<bd){bd=Math.abs(u);best=i}}
