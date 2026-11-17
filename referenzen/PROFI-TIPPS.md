@@ -195,3 +195,24 @@ Nie 1:1 kopieren. Immer mit dem echten Logo und den echten Daten des Betriebs ar
   
   Leitsatz: **Strategy > pretty pictures.**
 - **Recht (DE):** Mock-Feeds nur mit eigenen Marken, echten Kunden oder als „Konzept“ gekennzeichnet. Keine fremden Markenlogos und keine fremden Produktfotos (Urheber- und Markenrecht, Irreführung nach UWG).
+
+## Taste-Erweiterung 17.11.2026 – Website-Reels (@textura.eu, @ariana.porcelana)
+Ziel: besser, kreativer, smoother und professioneller als die Konkurrenz. Videos und Kontaktbögen: `referenzen/2026-11-17_*`.
+
+**@textura.eu – „How I build websites like these in 5 minutes with Claude“**
+- Präsentation: MacBook schräg im dunklen Raum, Hintergrund in der Signalfarbe der jeweiligen Seite (Rot, Neon-Limette, Violett). Hook „Watch it to the end“, Outro „Comment ‚Prompt‘“ + IG-Handle.
+- Gezeigte Seiten: Partikel-Kugel in Lila mit Stern im Zentrum; „The handoffs run themselves.“ mit grün leuchtenden Lichtbahnen und schwebenden UI-Karten; Fintech „Money that moves with you“ – Karte steht auf violettem Licht-Wasser.
+- Workflow: Prompt-/Template-Bibliothek **Getlayers** (Hero-Prompts mit Live-Vorschau, „Copy prompt“, Source Code, Tags landing page / three.js / next.js; Beispiel „AI Studio“: Chrome-Stern im Dunkeln mit Partikeln und Kameraflug) → Prompt in den AI-Builder / Claude → Seite fertig.
+- Für uns: vor jedem Hero zusätzlich Getlayers durchsuchen (neben 21st.dev, MotionSites, Prompt Motion …); Three.js-Heros mit Partikeln, Licht und Kamerabewegung als Wow-Moment.
+
+**@ariana.porcelana – „Client said ‚surprise me‘ so I did THIS..“**
+- Hook: Person am beleuchteten Keyboard, danach POV mit Hand am Trackpad, die Seite scrollt.
+- Scroll-Story für ein Mango-Collagen-Shot, Ursprung → Produkt → Mensch: Wolken „Grown closer to the sun.“ → Insel/Meer → Mangos am Baum „Never cold-stored. Never hurried.“ → Bewegungsunschärfe „When it lets go, we're ready.“ → Mango schwebt am Strand „Sunlight, undone and bottled.“ → Flasche am Strand „Everything the tree made. In 75 ml.“ → freigestellte Flasche dreht sich auf hellem Grund → Model am Strand mit der Flasche.
+- Stil: handschriftliche Pinsel-Typo, warme Sonnenfarben, vollflächige Film-Szenen mit weichen Übergängen, kurze poetische Zeilen pro Szene. Outro IG-Logo + Handle.
+
+**Regeln daraus (gilt ab sofort für Websites, Konzeptseiten, Portfolio, Reels)**
+1. Scroll-Storytelling vom Ursprung zum Produkt: Natur/Herkunft → Handwerk/Ernte → Produkt → Mensch, der es genießt.
+2. Pro Szene nur eine kurze, poetische Zeile – keine Textblöcke im Hero.
+3. Vollflächige Film-Szenen mit weichen Übergängen (Blur/Bewegungsunschärfe als Übergang), echte Bilder des Betriebs als Basis.
+4. Präsentation der Seiten in Reels/Portfolio: MacBook im dunklen Raum, farbiges Licht passend zur Seite, Hand am Trackpad, Hook-Satz + Outro mit Handle.
+5. Wow-Hero (Partikel, Licht, 3D-Objekt) aus Prompt-Bibliotheken (Getlayers, 21st.dev, MotionSites) als Startpunkt – nie 1:1, immer mit echtem Logo, echten Farben und Daten des Betriebs.
