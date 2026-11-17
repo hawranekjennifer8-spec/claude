@@ -10,8 +10,8 @@ Reihenfolge laut Leitfaden: erst günstig (/seo technical + /seo page Startseite
 | 2 | https://luminosojewelry.de | Shopify | geprüft 07.11. (eingeschränkt, ca. 64/100) – KRITISCH-Fix (MwSt.-Hinweis) offen, Shopify neu verbinden |
 | 3 | https://jh-digital-atelier.vercel.app (Portfolio; Domain jenniferhawranekdigitalatelier.de) | Vercel, Repo-Branch jh-portfolio-site | geprüft 14.11. (ca. 58/100) – KRITISCH: Domain .de nicht verbunden (Vercel + IONOS-DNS), offen |
 | 4 | https://ristorantedagraziella.de | Netlify | geprüft 16.11. (ca. 57/100) – nichts KRITISCH; HOCH-Punkte (Canonical, Meta-Description, Restaurant-Schema, 500 KB Base64) offen, brauchen Netlify-Deploy-Quelle |
-| 5 | PYRO (Shop-URL im Shopify-Connector nachsehen) | Shopify | offen |
-| 6 | https://zoia-kids-store.de | Shopify | offen |
+| 5 | PYRO (Shop-URL im Shopify-Connector nachsehen) | Shopify | offen – Shop-URL unbekannt (Connector auf LUMINOSO angemeldet), bitte URL in SEO-PLAN eintragen |
+| 6 | https://zoia-kids-store.de | Shopify | geprüft 17.11. (eingeschränkt, ca. 62/100) – KRITISCH: „inkl. MwSt.“ trotz § 19 UStG, Versand widersprüchlich, Kundenstimmen ohne Beleg; offen, Shopify-Zugriff auf ZOIA nötig |
 | 7+ | Zweite Runde: jede Seite erneut prüfen und mit letztem ACTION-PLAN vergleichen | – | – |
 
 Konzeptseiten (jh-konzept-*) sind absichtlich noindex – NICHT prüfen.
@@ -26,3 +26,4 @@ seo/<domain>/<datum>/FULL-AUDIT-REPORT.md, ACTION-PLAN.md, ERLEDIGT.md (was beho
 - 2026-11-07: luminosojewelry.de eingeschränkt geprüft (externer Abruf: Startseite, Produktseite, robots, Sitemap; kein Roh-HTML). Score ca. 64/100. Kritisch: „Alle Preise inkl. MwSt.“ auf der Startseite widerspricht § 19 UStG. Nicht behoben – Shopify-Connector muss neu verbunden werden. Nächster Lauf: jh-digital-atelier.vercel.app (Portfolio).
 - 2026-11-14: Portfolio jh-digital-atelier.vercel.app geprüft (Quellcode Branch jh-portfolio-site + Live-Abruf über Vercel). Score ca. 58/100. Kritisch: jenniferhawranekdigitalatelier.de zeigt auf IONOS statt Vercel. Nicht behoben – Domain-Eintrag in Vercel nicht freigegeben, DNS braucht IONOS-Zugang. Nächster Lauf: ristorantedagraziella.de.
 - 2026-11-16: ristorantedagraziella.de geprüft (Live-HTML + Netlify-Projekt lesend). Score ca. 57/100. Kein KRITISCH. Top: kein Canonical bei indexierbarem netlify.app-Zwilling, keine Meta-Description, kein Restaurant-Schema, 745 KB HTML. Nichts geändert. Nächster Lauf: PYRO (Shopify).
+- 2026-11-17: PYRO übersprungen (Shop-URL nirgends im Repo, Shopify-Connector auf LUMINOSO angemeldet). Stattdessen zoia-kids-store.de eingeschränkt geprüft (Start, Kollektion, Produkt, Impressum; robots/Sitemap 429). Score ca. 62/100. Kritisch: „inkl. MwSt.“ trotz § 19 UStG, „Kostenloser Versand“ vs. „Versand im Checkout“, fest eingebaute Kundenstimmen ohne Prüfhinweis. Nichts behoben – kein Shopify-Zugriff auf ZOIA. Hinweis: Shopify-Connector ist jetzt mit LUMINOSO verbunden → MwSt.-Fix Luminoso kann im nächsten begleiteten Lauf erledigt werden (Live-Theme braucht Jennys Ja). Nächster Lauf: zweite Runde, magnifio.de (am längsten nicht geprüft) – oder PYRO, falls URL eingetragen.
