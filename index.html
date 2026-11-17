@@ -212,7 +212,7 @@ section{scroll-margin-top:70px}
   .sp-cap{position:absolute;z-index:3;left:var(--gx);right:var(--gr);bottom:84px;min-height:0;margin:0}
   .sp-cap b{font-size:30px}.sp-cap p{font-size:14px}
   .sp-open{display:none}
-  .sp-view{left:0;right:0;top:190px;bottom:200px}
+  .sp-view{left:0;right:0;top:170px;bottom:180px}
 }
 @media (prefers-reduced-motion:reduce){.sp-stage .grainy{animation:none}}
 .hero.solo{grid-template-columns:minmax(0,1fr)}
@@ -513,7 +513,7 @@ var spCards=SPK.map(function(k,i){var b=document.createElement('button');b.type=
 var spSh=spCards.map(function(c){return c.querySelector('.sh')});
 var scw,sch,sR,sDY,sH;
 function spLayout(){var w=spView.clientWidth,h=spView.clientHeight;spMob=innerWidth<860;
-  scw=Math.min(spMob?w*.62:w*.42,560,h*.42*1.6);sch=scw/1.6;sR=scw*(spMob?.62:.78);sDY=sch*(spMob?.36:.42);sH=sDY*SN;
+  sch=h/(spMob?3.5:3.6);scw=Math.min(sch*1.6,w*(spMob?.6:.42));sch=scw/1.6;sR=scw*(spMob?.55:.7);sDY=sch*(spMob?1.28:1.22);sH=sDY*SN;
   spHelix.style.setProperty('--cw',scw+'px');spHelix.style.setProperty('--ch',sch+'px')}
 var spPos=0,spRun=false,spPaused=false,spHover=false,spFront=-1,spVidT=null,spLast=0,sAt=0,sHold=2.6,sMove=1.25,sPhase='hold',sFrom=0,sTo=0,smx=0,smy=0,stx=0,sty=0;
 function spEase(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
@@ -533,8 +533,8 @@ function spTick(now){var dt=spLast?Math.min(.1,(now-spLast)/1000):0;spLast=now;
   spHelix.style.transform='rotateZ(-7deg) rotateX('+(-6-smy*6).toFixed(2)+'deg) rotateY('+(smx*10).toFixed(2)+'deg)';
   var best=-1,bd=1e9;
   for(var i=0;i<SN;i++){var u=i-spPos;u=((u%SN)+SN)%SN;if(u>SN/2)u-=SN;var a=u*SSTEP,rad=a*Math.PI/180,y=u*sDY;
-    var x=Math.sin(rad)*sR,z=Math.cos(rad)*sR-sR,fade=Math.min(1,Math.max(0,(sH/2-Math.abs(y))/(sDY*1.6)));
-    spCards[i].style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,'+z.toFixed(1)+'px) rotateY('+a.toFixed(2)+'deg)';
+    var x=Math.sin(rad)*sR,z=Math.cos(rad)*sR-sR,fade=Math.min(1,Math.max(0,(2.6-Math.abs(u))/.8)),sc=1+(spMob?.45:.32)*Math.max(0,1-Math.abs(u));
+    spCards[i].style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,'+z.toFixed(1)+'px) rotateY('+a.toFixed(2)+'deg) scale('+sc.toFixed(3)+')';spCards[i].style.zIndex=Math.round(100-Math.abs(u)*10);
     spCards[i].style.opacity=fade.toFixed(3);spSh[i].style.opacity=Math.min(.85,Math.abs(a)/180*1.4).toFixed(3);
     if(Math.abs(u)<bd){bd=Math.abs(u);best=i}}
   spSetFront(best);requestAnimationFrame(spTick)}
