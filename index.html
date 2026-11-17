@@ -178,6 +178,41 @@ section{scroll-margin-top:70px}
 .feed img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
 .feed:hover img{transform:scale(1.05)}
 @media (max-width:860px){.insta .wrap{grid-template-columns:minmax(0,1fr)}.feed{justify-self:start}}
+/* Portfolio: 3D-Ring */
+.work.dark{padding:0;background:radial-gradient(60% 45% at 50% 62%,rgba(120,18,30,.42),transparent 72%),radial-gradient(50% 40% at 8% 10%,rgba(58,50,52,.55),transparent 70%),#141213}
+.ring-wrap{position:relative;height:440svh}
+.ring-stage{position:sticky;top:0;height:100svh;overflow:clip;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:calc(84px + env(safe-area-inset-top,0px)) var(--gr) 26px var(--gx)}
+.ring-stage::before,.ring-stage::after{content:"";position:absolute;left:0;right:0;height:clamp(10px,2.4vh,22px);background:#0b0a0a;z-index:5;pointer-events:none}
+.ring-stage::before{top:0}.ring-stage::after{bottom:0}
+.ring-stage .grainy{position:absolute;inset:-50%;background-image:var(--grain);opacity:.1;animation:grain 1s steps(4) infinite;pointer-events:none;z-index:4}
+.ring-head{position:relative;z-index:3}
+.ring-head .label{color:#b8b0aa}
+.ring-head h2{font-size:clamp(40px,5.4vw,96px);margin-top:14px;line-height:.92}
+.ring-lead{position:absolute;z-index:3;right:var(--gr);top:calc(100px + env(safe-area-inset-top,0px));max-width:340px;margin:0;color:#b8b0aa;font-size:14px;line-height:1.6}
+.ring-view{position:relative;z-index:2;perspective:1700px;perspective-origin:50% 35%}
+.ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
+.ring .card{position:absolute;left:calc(var(--cw) / -2);top:calc(var(--ch) / -2);width:var(--cw);height:var(--ch);border-radius:12px;overflow:hidden;background:#222;backface-visibility:hidden;-webkit-backface-visibility:hidden;cursor:pointer;padding:0;border:0;box-shadow:0 40px 70px -30px rgba(0,0,0,.8),0 0 0 1px rgba(242,236,228,.08)}
+.ring .card img,.ring .card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.ring .card video{opacity:0;transition:opacity .6s}.ring .card video.on{opacity:1}
+.ring .card .sh{position:absolute;inset:0;background:#0b0a0a;pointer-events:none}
+.ring .card.front{box-shadow:0 50px 90px -30px rgba(0,0,0,.85),0 0 0 1.5px rgba(194,24,42,.9)}
+.ring-hud{position:relative;z-index:3;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:16px;padding-bottom:30px}
+.ring-hud .rec{font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:#b8b0aa;display:flex;align-items:center;gap:10px}
+.ring-hud .rec::before{content:"";width:8px;height:8px;border-radius:50%;background:#e0434f;animation:blink 1.6s steps(2) infinite}
+.ring-hud .cap{text-align:center}
+.ring-hud .cap span{display:block;font-size:10px;letter-spacing:.3em;font-weight:600;color:#b8b0aa;font-variant-numeric:tabular-nums}
+.ring-hud .cap b{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(28px,3.2vw,52px);line-height:1.05;margin-top:6px;transition:opacity .35s,transform .5s var(--ease)}
+.ring-hud .cap.sw b{opacity:0;transform:translateY(10px)}
+.rnav{justify-self:end;display:flex;gap:10px}
+.rnav button{width:50px;height:50px;border-radius:50%;border:1px solid rgba(242,236,228,.45);background:rgba(20,18,19,.4);color:#f2ece4;font:inherit;font-size:17px;cursor:pointer;transition:background .3s,border-color .3s;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.rnav button:hover{background:var(--red);border-color:var(--red)}
+.ticks{position:absolute;left:var(--gx);right:var(--gr);bottom:calc(clamp(10px,2.4vh,22px) + 10px);height:10px;display:flex;justify-content:space-between;align-items:end;z-index:3}
+.ticks i{width:1px;height:5px;background:rgba(242,236,228,.3);transition:height .3s,background .3s}
+.ticks i.on{height:10px;background:var(--red-hi)}
+.ring-more{margin:0;padding:0 var(--gr) clamp(56px,8vh,90px) var(--gx);color:#b8b0aa}
+.ring-more a{color:#f2ece4}
+@media (max-width:860px){.ring-lead{display:none}.ring-wrap{height:420svh}.ring-hud{grid-template-columns:1fr auto;padding-bottom:26px}.ring-hud .rec{display:none}.ring-hud .cap{text-align:left}.rnav button{width:44px;height:44px}.ring-view{perspective:1000px}}
+@media (prefers-reduced-motion:reduce){.ring-stage .grainy{animation:none}}
 /* Beispiel-Feeds */
 .feeds{background:#ebe3d9;padding:clamp(80px,12vh,140px) 0;border-top:1px solid var(--line);overflow:hidden}
 .feeds .wrap{padding:0 var(--gr) 0 var(--gx)}
@@ -388,26 +423,24 @@ body.intro .hero *,body.intro .hero{animation-play-state:paused!important}
   </nav>
   <div class="band" aria-hidden="true"><div class="track" id="track"></div></div>
 
-  <section class="work" id="portfolio" data-tone="light">
-    <div class="wrap">
-      <div class="head rv">
-        <h2 class="display">Meine<br><i>Arbeiten.</i></h2>
-        <p class="lead">Websites, Shops und Marken aus Gastronomie, Handwerk, Mode, Beauty und Gesundheit – jede mit eigenem Intro, eigener Animation und echten Bildern. Zum Ansehen einfach antippen.</p>
-      </div>
-      <div class="kino rv" id="kino">
-        <div class="screen" id="kScreen">
-          <div class="hud" aria-hidden="true"><span class="tl">Showreel</span><span class="tr" id="kTc">00:00:00:00</span>
-            <span class="cr" id="kCr"><span id="kNo">Szene 01 / 21</span><b id="kCat">Restaurant</b></span></div>
-          <button class="open" id="kOpen" aria-label="Aktuelle Szene groß ansehen"></button>
-          <div class="nav"><button type="button" id="kPrev" aria-label="Vorherige Szene">←</button><button type="button" id="kNext" aria-label="Nächste Szene">→</button></div>
+  <section class="work dark" id="portfolio" data-tone="dark">
+    <div class="ring-wrap" id="ringWrap">
+      <div class="ring-stage" id="ringStage">
+        <div class="ring-head">
+          <span class="label">[ Portfolio · <span id="rCount">21</span> Arbeiten ]</span>
+          <h2 class="display">Meine<br><i>Arbeiten.</i></h2>
         </div>
-        <div class="strip" aria-label="Filmstreifen mit allen Arbeiten"><div class="reel" id="kReel"></div></div>
+        <p class="ring-lead">Websites, Shops und Marken – jede mit eigenem Intro, eigener Animation und echten Bildern. Scrollen dreht den Ring, Antippen spielt die Seite ab.</p>
+        <div class="ring-view" id="ringView"><div class="ring" id="ring"></div></div>
+        <div class="ring-hud" aria-live="polite">
+          <span class="rec">Showreel</span>
+          <div class="cap" id="rCap"><span id="rNo">01 / 21</span><b id="rCat">Restaurant</b></div>
+          <div class="rnav"><button type="button" id="rPrev" aria-label="Vorherige Arbeit">←</button><button type="button" id="rNext" aria-label="Nächste Arbeit">→</button></div>
+        </div>
+        <div class="ticks" id="rTicks" aria-hidden="true"></div>
       </div>
-      <div class="allhead rv"><span class="label">Alle Arbeiten im Überblick</span><div class="filters" id="filters" role="group" aria-label="Arbeiten nach Bereich filtern"></div></div>
-
-      <div class="grid" id="grid"></div>
-      <p class="more rv">Aus Rücksicht auf meine Kundinnen und Kunden zeige ich Ausschnitte ohne Namen. Gerne zeige ich Ihnen im Erstgespräch mehr. <a href="#kontakt">Erstgespräch anfragen →</a></p>
     </div>
+    <p class="more ring-more">Aus Rücksicht auf meine Kundinnen und Kunden zeige ich Ausschnitte ohne Namen. Gerne zeige ich Ihnen im Erstgespräch mehr. <a href="#kontakt">Erstgespräch anfragen</a></p>
   </section>
 
   <section class="services dark" id="leistungen" data-tone="dark">
@@ -475,59 +508,48 @@ var W=[
  ['goetter','Autolackiererei','Handwerk'],['zahnwelt','Zahnarztpraxis','Beauty & Gesundheit'],['bohemian','Kosmetikstudio','Beauty & Gesundheit'],['lilly','Laser & Kosmetik','Beauty & Gesundheit'],
  ['hundesalon','Hundesalon','Beauty & Gesundheit']
 ];
-var grid=document.getElementById('grid');
-W.forEach(function(w){
-  var f=document.createElement('figure');f.className='tile rv';f.dataset.cat=w[2];f.dataset.label=w[1];f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label',w[1]+' in groß ansehen');
-  f.innerHTML='<div class="frame"><img src="media/'+w[0]+'.jpg" alt="Website-Vorschau: '+w[1]+'" loading="lazy" decoding="async"><video muted loop playsinline preload="none" data-src="media/'+w[0]+'-sm.mp4" data-big="media/'+w[0]+'.mp4"></video></div>'+
-    '<figcaption>'+w[1]+'<span class="go">Ansehen →</span>'+'</figcaption>';
-  f.style.transitionDelay=(grid.children.length%4)*70+'ms';
-  grid.appendChild(f);
-});
-
-/* Kino: Showreel aller Arbeiten mit Filmstreifen */
-(function(){
-  var scr=document.getElementById('kScreen'),reel=document.getElementById('kReel'),no=document.getElementById('kNo'),cat=document.getElementById('kCat'),cr=document.getElementById('kCr'),tc=document.getElementById('kTc');
-  var still=matchMedia('(prefers-reduced-motion: reduce)').matches,cur=-1,timer=null,inView=false,t0=performance.now();
-  var S=W.map(function(w,i){var d=document.createElement('div');d.className='sc';d.innerHTML='<img src="media/'+w[0]+'.jpg" alt="Website-Vorschau: '+w[1]+'" loading="lazy" decoding="async"><video muted playsinline preload="none" data-src="media/'+w[0]+'.mp4"></video>';return d});
-  S.forEach(function(d){scr.insertBefore(d,scr.querySelector('.hud'))});
-  var html='';W.forEach(function(w,i){html+='<button type="button" data-i="'+i+'" aria-label="Szene '+(i+1)+': '+w[1]+'"><img src="media/'+w[0]+'.jpg" alt="" loading="lazy" decoding="async"></button>'});
-  reel.innerHTML=html+html.replace(/<button /g,'<button tabindex="-1" aria-hidden="true" ');
-  function pad(n){return (n<10?'0':'')+n}
-  function go(n){n=(n+S.length)%S.length;if(n===cur)return;var old=S[cur];if(old){old.classList.remove('on');var ov=old.querySelector('video');try{ov.pause()}catch(_){}}
-    cur=n;var d=S[n],v=d.querySelector('video');d.classList.add('on');
-    if(!v.src){v.src=v.dataset.src;v.addEventListener('playing',function(){v.classList.add('on')},{once:true})}try{v.currentTime=0}catch(_){}var p=v.play();p&&p.catch&&p.catch(function(){});
-    cr.classList.add('sw');setTimeout(function(){no.textContent='Szene '+pad(n+1)+' / '+S.length;cat.textContent=W[n][1];cr.classList.remove('sw')},280);
-    [].forEach.call(reel.children,function(b){b.classList.toggle('on',+b.dataset.i===n)});
-    if(timer)clearTimeout(timer);if(!still&&inView)timer=setTimeout(function(){go(cur+1)},6500);}
-  reel.addEventListener('click',function(e){var b=e.target.closest('button');if(b)go(+b.dataset.i)});
-  document.getElementById('kPrev').onclick=function(){go(cur-1)};document.getElementById('kNext').onclick=function(){go(cur+1)};
-  document.getElementById('kOpen').onclick=function(){var t=grid.children[cur];if(t)openLb(t)};
-  new IntersectionObserver(function(es){inView=es[0].isIntersecting;var v=S[cur]&&S[cur].querySelector('video');
-    if(inView){if(cur<0)go(0);else{v&&v.play&&v.play().catch(function(){});if(!still){clearTimeout(timer);timer=setTimeout(function(){go(cur+1)},6500)}}}
-    else{clearTimeout(timer);try{v&&v.pause()}catch(_){}}},{threshold:.35}).observe(scr);
-  (function tick(){var s=(performance.now()-t0)/1000;tc.textContent=pad(Math.floor(s/3600))+':'+pad(Math.floor(s/60)%60)+':'+pad(Math.floor(s)%60)+':'+pad(Math.floor(s*24)%24);requestAnimationFrame(tick)})();
-})();
-
-/* Bereiche filtern */
-var fl=document.getElementById('filters');
-['Alle','Gastronomie','Handwerk','Marken & Shops','Beauty & Gesundheit'].forEach(function(c,i){var b=document.createElement('button');b.type='button';b.textContent=c;b.setAttribute('aria-pressed',i?'false':'true');
-  b.addEventListener('click',function(){[].forEach.call(fl.children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
-    [].forEach.call(grid.children,function(t){t.classList.toggle('hide',c!=='Alle'&&t.dataset.cat!==c)});
-    if(window.ScrollTrigger)ScrollTrigger.refresh();});fl.appendChild(b);});
-
-/* Videos laufen automatisch, sobald sie im Bild sind */
-var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target.querySelector('video');if(!v)return;
-  if(e.isIntersecting){if(!v.src){v.src=v.dataset.src;v.addEventListener('playing',function(){v.classList.add('on')},{once:true});}var p=v.play();p&&p.catch&&p.catch(function(){});}
-  else{try{v.pause()}catch(_){}}});},{rootMargin:'120px'});
-[].forEach.call(grid.children,function(t){vio.observe(t)});
-
+/* ---------- 3D-Ring: Scrollen dreht, Antippen spielt ab ---------- */
+var N=W.length,ring=document.getElementById('ring'),wrap=document.getElementById('ringWrap'),view=document.getElementById('ringView'),stage=document.getElementById('ringStage');
+var grn=document.createElement('div');grn.className='grainy';stage.appendChild(grn);
+document.getElementById('rCount').textContent=N;
+var cards=W.map(function(w,i){var b=document.createElement('button');b.type='button';b.className='card';b.dataset.i=i;b.setAttribute('aria-label',w[1]+' ansehen');
+  b.innerHTML='<img src="media/'+w[0]+'.jpg" alt="Website-Vorschau: '+w[1]+'" decoding="async"><span class="sh"></span>';ring.appendChild(b);return b});
+var shades=cards.map(function(c){return c.querySelector('.sh')});
+var tk=document.getElementById('rTicks');tk.innerHTML=W.map(function(){return '<i></i>'}).join('');
+var STEP=360/N,R=0,rot=0,target=0,front=-1,vidT=null,stillR=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function layout(){var vw=innerWidth,mob=vw<860,h=view.clientHeight||innerHeight*.5;
+  var cw=Math.min(mob?vw*.64:vw*.3,mob?420:540,h*.8*1.6),ch=cw/1.6;
+  ring.style.setProperty('--cw',cw+'px');ring.style.setProperty('--ch',ch+'px');
+  R=(cw+(mob?12:24))*N/(2*Math.PI);
+  cards.forEach(function(c,i){c.style.transform='rotateY('+(i*STEP)+'deg) translateZ('+R+'px)'});}
+function prog(){var span=wrap.offsetHeight-innerHeight;return Math.min(1,Math.max(0,-wrap.getBoundingClientRect().top/span))}
+function setTarget(){target=-prog()*(N-1)*STEP}
+function pad(n){return (n<10?'0':'')+n}
+var rNo=document.getElementById('rNo'),rCat=document.getElementById('rCat'),rCap=document.getElementById('rCap'),tks=tk.children;
+function setFront(n){if(n===front)return;var old=cards[front];front=n;
+  if(old){old.classList.remove('front');var ov=old.querySelector('video');if(ov){try{ov.pause()}catch(_){}ov.remove()}}
+  var c=cards[n];c.classList.add('front');
+  rCap.classList.add('sw');setTimeout(function(){rNo.textContent=pad(n+1)+' / '+N;rCat.textContent=W[n][1];rCap.classList.remove('sw')},200);
+  [].forEach.call(tks,function(t,i){t.classList.toggle('on',i===n)});
+  clearTimeout(vidT);vidT=setTimeout(function(){if(front!==n||stillR)return;var v=document.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';v.src='media/'+W[n][0]+'-sm.mp4';
+    v.addEventListener('playing',function(){v.classList.add('on')},{once:true});c.insertBefore(v,c.querySelector('.sh'));var p=v.play();p&&p.catch&&p.catch(function(){});},420);}
+var visible=true;new IntersectionObserver(function(es){visible=es[0].isIntersecting},{rootMargin:'100px'}).observe(wrap);
+function frame(){if(visible){rot+=(target-rot)*(stillR?1:.08);
+  ring.style.transform='translateZ('+(-R).toFixed(1)+'px) rotateX(-5deg) rotateY('+rot.toFixed(3)+'deg)';
+  var idx=Math.round(-rot/STEP);setFront(((idx%N)+N)%N);
+  for(var i=0;i<N;i++){var a=((i*STEP+rot)%360+540)%360-180,d=Math.abs(a)/90;shades[i].style.opacity=Math.min(.9,d*d*.9).toFixed(3)}}
+  requestAnimationFrame(frame);}
+function goTo(n){n=Math.max(0,Math.min(N-1,n));var span=wrap.offsetHeight-innerHeight,y=wrap.getBoundingClientRect().top+scrollY+span*(n/(N-1))+1;
+  if(window.__lenis)window.__lenis.scrollTo(y,{duration:1.1});else scrollTo({top:y,behavior:stillR?'auto':'smooth'});}
+document.getElementById('rPrev').onclick=function(){goTo(front-1)};document.getElementById('rNext').onclick=function(){goTo(front+1)};
+ring.addEventListener('click',function(e){var c=e.target.closest('.card');if(!c)return;var i=+c.dataset.i;if(i===front)openLb(i);else goTo(i)});
+addEventListener('scroll',setTarget,{passive:true});addEventListener('resize',function(){layout();setTarget()});
+layout();setTarget();rot=target;requestAnimationFrame(frame);
 
 /* Großansicht */
 var lb=document.getElementById('lb'),lv=document.getElementById('lbVideo'),lc=document.getElementById('lbCap');
-function openLb(t){var v=t.querySelector('video');lv.src=v.dataset.big;lc.textContent=t.dataset.label||t.dataset.cat;lb.classList.add('open');var p=lv.play();p&&p.catch&&p.catch(function(){});document.getElementById('lbClose').focus();}
+function openLb(i){lv.src='media/'+W[i][0]+'.mp4';lc.textContent=W[i][1];lb.classList.add('open');var p=lv.play();p&&p.catch&&p.catch(function(){});document.getElementById('lbClose').focus();}
 function closeLb(){lb.classList.remove('open');try{lv.pause()}catch(_){};lv.removeAttribute('src');lv.load();}
-grid.addEventListener('click',function(e){var t=e.target.closest('.tile');if(t)openLb(t)});
-grid.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var t=e.target.closest('.tile');if(t){e.preventDefault();openLb(t)}}});
 document.getElementById('lbClose').onclick=closeLb;lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
 addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))closeLb()});
 
@@ -537,7 +559,7 @@ document.querySelectorAll('.rv').forEach(function(el){rio.observe(el)});
 
 /* Smooth Scroll */
 var still=matchMedia('(prefers-reduced-motion: reduce)').matches,lenis=null;
-if(window.Lenis&&!still){lenis=new Lenis({lerp:.09});(function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(0);}
+if(window.Lenis&&!still){lenis=new Lenis({lerp:.09});window.__lenis=lenis;(function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(0);}
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');var el=document.querySelector(id);if(!el)return;e.preventDefault();
   if(lenis)lenis.scrollTo(el,{offset:id==='#start'?0:-60,duration:1.4});else el.scrollIntoView({behavior:still?'auto':'smooth'});history.replaceState(null,'',id);});});
 
@@ -562,8 +584,8 @@ if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!still){
   var cx=innerWidth/2,cy=innerHeight/2,tx=cx,ty=cy;
   addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY},{passive:true});
   (function mv(){cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;curEl.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(mv)})();
-  grid.addEventListener('pointerover',function(e){curEl.classList.toggle('big',!!e.target.closest('.tile'))});
-  grid.addEventListener('pointerleave',function(){curEl.classList.remove('big')});
+  ring.addEventListener('pointerover',function(e){curEl.classList.toggle('big',!!e.target.closest('.card'))});
+  ring.addEventListener('pointerleave',function(){curEl.classList.remove('big')});
 }else{curEl.remove();}
 
 
