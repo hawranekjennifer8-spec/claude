@@ -6,7 +6,7 @@
 - /preferences.md (alle Regeln)
 - /topics/master-init.md (diese Datei als Memory-Spiegel)
 - /topics/premium-qualitaetsstandard.md – /init 22.10. + Referenz-Videos, Kanti, Café Va Liés, Fehler-Logbücher
-- /topics/taste-erweiterung.md – arwa.designstudio, studio.sevd, niki.aroca, stephanni_wolski, **blochsocialhaus (Mock-Feeds + Content-Strategie)**
+- /topics/taste-erweiterung.md – arwa.designstudio, studio.sevd, niki.aroca, stephanni_wolski, **blochsocialhaus (Mock-Feeds + Content-Strategie)**, **textura.eu + ariana.porcelana (Website-Reels, Scroll-Story, 17.11.)**
 - /topics/atelier-masterprompt.md, /topics/webdesign-animation-referenz.md (/init ZITRA), /topics/model-fotografie-prompts.md (Realismus + Detail-Checkliste), /topics/rechtssicherheit-prompt.md
 - passende /areas/-Datei (jh-digital-atelier, da-graziella, treuekarte-saas …)
 
@@ -22,7 +22,7 @@
 atelier-masterprompt · atelier-premium-webdesign · design-taste-frontend (tasteskill) · apple-design · 21st-dev-components · frontend-design · web-design-guidelines · karpathy-arbeitsregeln · stop-slop · rechtssicherheit-de-anwaeltin · fashion-campaign-director (Kampagnen/Models) · stamore-erklaervideo (Erklärvideos, Stimme Romy) · maps-lead-finder (Kundensuche)
 
 ## 4 · Quellen
-Framer, 21st.dev, React Bits, MotionSites, Prompt Motion, Eyecandy, Savee, Motionographer, tasteskill; Mockups: lummi.ai, mockups.supply, madebyattic.com, moyo-studio.com, createom.com
+Framer, 21st.dev, Getlayers (Hero-Prompts), React Bits, MotionSites, Prompt Motion, Eyecandy, Savee, Motionographer, tasteskill; Mockups: lummi.ai, mockups.supply, madebyattic.com, moyo-studio.com, createom.com
 
 ## 5 · Creative-Director-Workflow
 Referenzen zerlegen → Style-Brief (Farben mit Namen + Hex, Typo, Motion, 5 Always / 5 Never) → Prompt schreiben → bauen → selbst prüfen (Desktop + iPhone, jedes Bild Punkt für Punkt) → erst dann fertig melden.
