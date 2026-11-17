@@ -197,6 +197,7 @@ section{scroll-margin-top:70px}
 .eb-t .lb2{display:flex;align-items:center;justify-content:space-between;gap:10px;opacity:0;transform:translateY(8px);transition:opacity .6s .15s,transform .8s .15s var(--ease)}
 .eb-t.full .lb2{opacity:1;transform:none}
 .eb-t .lb2 b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:calc(var(--tw) * .075);line-height:1}
+.eb-t .lb2 .ln{flex:1;max-width:28%;height:1px;background:currentColor;opacity:.35}
 .eb-t .lb2 em{font-style:normal;font-size:calc(var(--tw) * .026);letter-spacing:.28em;font-weight:700;opacity:.7;text-transform:uppercase}
 .eb-t.tx{display:grid;align-content:end;padding:9%}
 .eb-t.tx h3{margin:0;font-family:var(--grot);font-weight:850;font-stretch:125%;text-transform:uppercase;font-size:calc(var(--tw) * .093);line-height:.95}
@@ -522,7 +523,7 @@ var tiles=ORD.map(function(k,i){var el;
   else if(k==='*m'){el=document.createElement('div');el.className='eb-t mono';el.style.setProperty('--c','#f2ece4');el.style.setProperty('--fg','#1b191a');el.innerHTML='<div><div class="ring0">JH</div><small>KONZEPT · DESIGN · CODE</small></div>'}
   else{var w=wi(k),c=COL[k];el=document.createElement('button');el.type='button';el.className='eb-t pj';el.dataset.w=w;el.setAttribute('aria-label',W[w][1]+' ansehen');
     el.style.setProperty('--c',c);el.style.setProperty('--fg',lum(c)<140?'#f2ece4':'#1b191a');
-    el.innerHTML='<div class="scr"><img src="media/'+k+'.jpg" alt="Website-Vorschau: '+W[w][1]+'" decoding="async"></div><div class="lb2"><b>'+W[w][1]+'</b><em>'+W[w][2]+'</em></div>'}
+    el.innerHTML='<div class="scr"><img src="media/'+k+'.jpg" alt="Website-Vorschau: '+W[w][1]+'" decoding="async"></div><div class="lb2"><b>'+W[w][1]+'</b><i class="ln"></i></div>'}
   el.style.transitionDelay=(i*45)+'ms';board.appendChild(el);return el});
 var PJ=tiles.filter(function(t){return t.classList.contains('pj')});
 new IntersectionObserver(function(es){if(es[0].isIntersecting){ttl.classList.add('in');tiles.forEach(function(t){t.classList.add('vis')})}},{threshold:.15}).observe(stage);
@@ -536,13 +537,13 @@ function layout(){vw=innerWidth;vh=innerHeight;var mob=vw<860;cols=mob?3:6;rows=
   bw=mob?vw*2.1:Math.max(vw*1.9,1700);var tw=bw/cols,th=tw/1.1;bh=th*rows;
   board.style.setProperty('--bw',bw+'px');board.style.setProperty('--bh',bh+'px');board.style.setProperty('--bg',(tw*.045)+'px');board.style.setProperty('--tw',tw+'px');
   board.style.setProperty('--cols',cols);board.style.setProperty('--rows',rows);
-  var fit=Math.min(vw*.9/bw,vh*.64/bh),fs=mob?Math.min(vw/(1.3*tw),vh*.62/th):Math.min(vw/(2.7*tw),vh*.62/th);
+  var fit=Math.min(vw*.9/bw,vh*(mob?.56:.64)/bh),fs=mob?Math.min(vw/(1.3*tw),vh*.62/th):Math.min(vw/(2.7*tw),vh*.62/th);
   /* Schlangenlinie: Reihe für Reihe, abwechselnd links/rechts */
   var path=[],order=[];for(var r=0;r<rows;r++){var a=r*cols,b=Math.min(tiles.length,a+cols)-1,L=r%2?[b,a]:[a,b];path.push(L[0],L[1]);
     for(var j=0;j<=b-a;j++)order.push(r%2?b-j:a+j)}
   var t0=.1,t1=.78,K=[{p:0,x:0,y:-vh*1.1/(fit*.9),s:fit*.9,rx:58,rz:-14}];
   path.forEach(function(ti,k){var c=ctr(tiles[ti]);K.push({p:t0+(t1-t0)*k/(path.length-1),x:c[0],y:c[1],s:fs,rx:k?0:18,rz:k?0:-4})});
-  K.push({p:.88,x:0,y:vh*.02/fit,s:fit,rx:0,rz:0},{p:1,x:0,y:vh*.02/fit,s:fit,rx:0,rz:0});KF=K;
+  var ey=vh*(mob?.1:.02)/fit;K.push({p:.88,x:0,y:ey,s:fit,rx:0,rz:0},{p:1,x:0,y:ey,s:fit,rx:0,rz:0});KF=K;
   RV=[];order.forEach(function(ti,k){RV[ti]=.05+(t1-.02-.05)*k/(order.length)})}
 function camAt(p){for(var i=0;i<KF.length-1;i++){var a=KF[i],b=KF[i+1];if(p<=b.p){var t=eio(cl((p-a.p)/(b.p-a.p)));
   return{x:lerp(a.x,b.x,t),y:lerp(a.y,b.y,t),s:Math.exp(lerp(Math.log(a.s),Math.log(b.s),t)),rx:lerp(a.rx,b.rx,t),rz:lerp(a.rz,b.rz,t)}}}return KF[KF.length-1]}
@@ -561,7 +562,7 @@ function ebFrame(){if(visible){ps+=(prog()-ps)*(stillR?1:.1);mx+=(tmx-mx)*.06;my
 setInterval(function(){if(!visible||stillR)return;var L=[];PJ.forEach(function(t){var r=t.getBoundingClientRect(),ix=Math.max(0,Math.min(r.right,vw)-Math.max(r.left,0)),iy=Math.max(0,Math.min(r.bottom,vh)-Math.max(r.top,0));
   L.push({t:t,a:t.classList.contains('full')?ix*iy:0})});L.sort(function(a,b){return b.a-a.a});
   L.forEach(function(o,i){var v=o.t.querySelector('video'),on=i<3&&o.a>vw*vh*.05;
-    if(on){if(!v){v=document.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.src='media/'+W[+o.t.dataset.w][0]+'-sm.mp4';v.addEventListener('playing',function(){v.classList.add('on')},{once:true});o.t.querySelector('.scr').appendChild(v)}
+    if(on){if(!v){v=document.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.src='media/'+W[+o.t.dataset.w][0]+'-sm.mp4';v.addEventListener('loadedmetadata',function(){try{v.currentTime=Math.min(4,v.duration*.4)}catch(_){}},{once:true});v.addEventListener('seeked',function(){v.classList.add('on')},{once:true});o.t.querySelector('.scr').appendChild(v)}
       if(v.paused){var p=v.play();p&&p.catch&&p.catch(function(){})}}
     else if(v&&!v.paused){try{v.pause()}catch(_){}}})},300);
 board.addEventListener('click',function(e){var t=e.target.closest('.pj');if(t)openLb(+t.dataset.w)});
