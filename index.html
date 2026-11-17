@@ -184,8 +184,8 @@ section{scroll-margin-top:70px}
 .sc-stage{position:sticky;top:0;height:100svh;overflow:clip;display:grid;grid-template-columns:minmax(220px,24%) minmax(0,1fr) 84px;grid-template-rows:auto minmax(0,1fr);gap:0 clamp(24px,3vw,56px);padding:calc(86px + env(safe-area-inset-top,0px)) var(--gr) 44px var(--gx)}
 .sc-stage::after{content:"";position:absolute;inset:-50%;background-image:var(--grain);opacity:.09;animation:grain 1s steps(4) infinite;pointer-events:none;z-index:6}
 .sc-amb{position:absolute;inset:-10%;z-index:0;pointer-events:none}
-.sc-amb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(70px) saturate(1.3);opacity:0;transform:scale(1.15);transition:opacity 1.4s ease}
-.sc-amb img.on{opacity:.42}
+.sc-amb canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1.4s ease}
+.sc-amb canvas.on{opacity:.5}
 .sc-amb::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 55% 50%,transparent,rgba(18,16,17,.85) 75%),linear-gradient(90deg,rgba(18,16,17,.75),transparent 45%)}
 .sc-head{grid-column:1 / -1;position:relative;z-index:2;display:flex;align-items:baseline;gap:22px;margin-bottom:clamp(18px,3vh,34px)}
 .sc-head .label{color:#b8b0aa}
@@ -439,7 +439,7 @@ body.intro .hero *,body.intro .hero{animation-play-state:paused!important}
   <section class="work dark" id="portfolio" data-tone="dark">
     <div class="sc-wrap" id="scWrap">
       <div class="sc-stage" id="scStage">
-        <div class="sc-amb" aria-hidden="true"><img id="scAmbA" alt=""><img id="scAmbB" alt=""></div>
+        <div class="sc-amb" aria-hidden="true"><canvas id="scAmbA" width="32" height="20"></canvas><canvas id="scAmbB" width="32" height="20"></canvas></div>
         <header class="sc-head"><span class="label">[ Einblick ]</span><h2 class="display">Ein <i>Einblick.</i></h2></header>
         <div class="sc-info" aria-live="polite">
           <span class="sc-no" id="scNo">01</span>
@@ -552,7 +552,7 @@ function show(n){if(n===scCur)return;var dir=n>scCur?1:-1,old=SL[scCur];
   var next=HL[n+1];if(next){var im=new Image();im.src='media/hl/'+next[0]+'.jpg'}
   txt.classList.add('out');setTimeout(function(){noEl.textContent=pad2(n);catEl.textContent=W[wi(HL[n][0])][1];capEl.textContent=HL[n][1];
     txt.classList.remove('out');txt.classList.add('pre');void txt.offsetWidth;txt.classList.remove('pre')},330);
-  var nx=ambOn===ambA?ambB:ambA;nx.src='media/hl/'+HL[n][0]+'.jpg';nx.classList.add('on');ambOn.classList.remove('on');ambOn=nx;
+  var nx=ambOn===ambA?ambB:ambA,ai=new Image();ai.onload=function(){try{var c=nx.getContext('2d');c.filter='blur(2px) saturate(1.3)';c.drawImage(ai,-4,-3,40,26)}catch(_){}nx.classList.add('on');ambOn.classList.remove('on');ambOn=nx};ai.src='media/hl/'+HL[n][0]+'.jpg';
   [].forEach.call(IB,function(b,i){b.classList.toggle('on',i===n)});
   var ab=IB[n];if(ab&&mobV)idx.scrollTo({left:ab.offsetLeft-idx.clientWidth/2+ab.clientWidth/2,behavior:'smooth'});
   else if(ab){var off=Math.max(0,Math.min(ab.offsetTop-idx.clientHeight/2+ab.clientHeight/2,idx.scrollHeight-idx.clientHeight));idx.scrollTo({top:off,behavior:'smooth'})}}
