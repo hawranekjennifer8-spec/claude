@@ -561,7 +561,7 @@ function scProg(){var span=scWrap.offsetHeight-innerHeight;return Math.min(1,Mat
 var sp=0,smx=0,smy=0,tsx=0,tsy=0,scVis=true;
 if(matchMedia('(hover:hover) and (pointer:fine)').matches)addEventListener('pointermove',function(e){tsx=e.clientX/innerWidth-.5;tsy=e.clientY/innerHeight-.5},{passive:true});
 new IntersectionObserver(function(es){scVis=es[0].isIntersecting;if(!scVis&&SL[scCur]){var v=SL[scCur].querySelector('video');if(v)try{v.pause()}catch(_){}}else if(SL[scCur]){var w=SL[scCur].querySelector('video');if(w){var p=w.play();p&&p.catch&&p.catch(function(){})}}},{rootMargin:'50px'}).observe(scWrap);
-function scFrame(){if(scVis){var p=scProg();sp+=(p-sp)*(stillS?1:.12);smx+=(tsx-smx)*.07;smy+=(tsy-smy)*.07;
+var scT=0;function scFrame(now){var dt=scT?Math.min(.1,(now-scT)/1000):.016;scT=now;if(scVis){var p=scProg(),k=stillS?1:1-Math.exp(-dt*7.5);sp+=(p-sp)*k;smx+=(tsx-smx)*k*.6;smy+=(tsy-smy)*k*.6;
   var f=sp*NH,n=Math.min(NH-1,Math.floor(f)),loc=f-n;show(n);
   var tilt=stillS?0:(.5-loc)*5;scr.style.transform='rotateX('+(tilt-smy*3).toFixed(2)+'deg) rotateY('+(smx*5).toFixed(2)+'deg) translateY('+((.5-loc)*-14).toFixed(1)+'px)';
   progEl.style.transform='scaleX('+sp.toFixed(4)+')'}
