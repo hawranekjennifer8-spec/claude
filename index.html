@@ -522,7 +522,7 @@ var aw,ah,abw,abh,atw,ath,OV;
 function arLayout(){aw=arStage.clientWidth;ah=arStage.clientHeight;arMob=aw<860;var cols=arMob?3:5,rows=Math.ceil(arAll.length/cols);
   abw=arMob?aw*1.9:Math.max(aw*1.4,1500);atw=abw/cols;ath=atw/1.1;abh=ath*rows;
   arBoard.style.setProperty('--bw',abw+'px');arBoard.style.setProperty('--bh',abh+'px');arBoard.style.setProperty('--bg',(atw*.045)+'px');arBoard.style.setProperty('--tw',atw+'px');arBoard.style.setProperty('--cols',cols);
-  var fit=Math.min(aw*.9/abw,ah*.76/abh);OV={x:0,y:0,s:fit,rx:9,rz:-2.5}}
+  var fit=Math.min(aw*.88/abw,ah*.68/abh);OV={x:0,y:ah*.03/fit,s:fit,rx:9,rz:-2.5}}
 function arFocus(k){var t=arTiles[k],x=t.offsetLeft+t.offsetWidth/2-abw/2,y=t.offsetTop+t.offsetHeight/2-abh/2;
   var s=arMob?Math.min(aw*.86/t.offsetWidth,ah*.62/t.offsetHeight):Math.min(aw*.5/t.offsetWidth,ah*.66/t.offsetHeight);return{x:x,y:y,s:s,rx:0,rz:0}}
 var CAM={x:0,y:0,s:.2,rx:30,rz:-8},FROM=null,TO=null,segT=0,segDur=1,hold=0,step=-1,phase='hold',arRun=false,arPaused=false,arSeen=false,curK=null,loopT=0,LOOP=0,lastNow=0,amx=0,amy=0,atx=0,aty=0;
