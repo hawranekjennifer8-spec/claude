@@ -523,7 +523,7 @@ function layout(){var vw=innerWidth,mob=vw<860,h=view.clientHeight||innerHeight*
   R=(cw+(mob?12:24))*N/(2*Math.PI);
   cards.forEach(function(c,i){c.style.transform='rotateY('+(i*STEP)+'deg) translateZ('+R+'px)'});}
 function prog(){var span=wrap.offsetHeight-innerHeight;return Math.min(1,Math.max(0,-wrap.getBoundingClientRect().top/span))}
-function setTarget(){target=-prog()*(N-1)*STEP}
+var snapT=null;function setTarget(){var f=prog()*(N-1);target=-f*STEP;clearTimeout(snapT);snapT=setTimeout(function(){target=-Math.round(prog()*(N-1))*STEP},140)}
 function pad(n){return (n<10?'0':'')+n}
 var rNo=document.getElementById('rNo'),rCat=document.getElementById('rCat'),rCap=document.getElementById('rCap'),tks=tk.children;
 function setFront(n){if(n===front)return;var old=cards[front];front=n;
