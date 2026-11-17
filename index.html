@@ -516,7 +516,7 @@ var TL=[ /* [Typ, Key/Text, grid-area, Farbe] */
  ['p','eichenhonig','3/2/5/4','#3a2c12'],
  ['m','','3/4/4/5','#f2ece4'],
  ['p','pastasciutta','4/1/5/2','#2e3a2a'],
- ['p','badraumwunder','4/4/5/5','#0f3550']];
+ ['p','wunderbar','4/4/5/5','#4a3a2c']];
 var wi=function(k){for(var i=0;i<W.length;i++)if(W[i][0]===k)return i;return -1};
 var wrap=document.getElementById('ebWrap'),stage=document.getElementById('ebStage'),cam=document.getElementById('ebCam'),board=document.getElementById('ebBoard'),ttl=document.getElementById('ebTitle'),endEl=document.getElementById('ebEnd');
 var stillR=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -529,7 +529,7 @@ var pn=0,tiles=TL.map(function(d,i){var el=document.createElement(d[0]==='p'?'bu
   else el.innerHTML='<div><div class="ring0">JH</div><small>KONZEPT · DESIGN · CODE</small></div>';
   board.appendChild(el);return el});
 var PJ=tiles.filter(function(t){return t.classList.contains('pj')});
-var RS={graziella:.05,zitra:.18,luminoso:.29,eichenhonig:.4,pyro:.52,pastasciutta:.56,badraumwunder:.63};
+var RS={graziella:.05,zitra:.18,luminoso:.29,eichenhonig:.4,pyro:.52,pastasciutta:.56,wunderbar:.63};
 new IntersectionObserver(function(es){if(es[0].isIntersecting){ttl.classList.add('in');tiles.forEach(function(t){t.classList.add('vis')})}},{threshold:.15}).observe(stage);
 function cl(v){return v<0?0:v>1?1:v}
 function eo(t){return 1-Math.pow(1-t,3)}
@@ -541,7 +541,7 @@ function fS(t){var c=ctr(t);return Math.min(vw*(vw<860?.84:.62)/c[2],vh*.6/c[3])
 function layout(){vw=innerWidth;vh=innerHeight;var mob=vw<860;bw=mob?vw*2.6:Math.max(vw*1.55,1400);bh=bw*(mob?.8:.62);
   board.style.setProperty('--bw',bw+'px');board.style.setProperty('--bh',bh+'px');board.style.setProperty('--bg',(bw*.011)+'px');
   var fit=Math.min(vw*.92/bw,vh*.78/bh),T=function(k){return PJ.filter(function(t){return W[+t.dataset.w][0]===k})[0]};
-  KF=[[0,null,fit*.9,58,-16],[.14,T('graziella'),0,22,-6],[.27,T('zitra'),0,8,-2],[.38,T('luminoso'),0,0,0],[.5,T('eichenhonig'),0,0,0],[.62,T('pyro'),0,0,0],[.72,T('badraumwunder'),0,0,0],[.86,null,fit,0,0],[1,null,fit,0,0]]
+  KF=[[0,null,fit*.9,58,-16],[.14,T('graziella'),0,22,-6],[.27,T('zitra'),0,8,-2],[.38,T('luminoso'),0,0,0],[.5,T('eichenhonig'),0,0,0],[.62,T('pyro'),0,0,0],[.72,T('wunderbar'),0,0,0],[.86,null,fit,0,0],[1,null,fit,0,0]]
     .map(function(k){var c=ctr(k[1]);return{p:k[0],x:c[0],y:c[1],s:k[1]?fS(k[1]):k[2],rx:k[3],rz:k[4]}});KF[0].y=-vh*1.05/KF[0].s}
 function camAt(p){for(var i=0;i<KF.length-1;i++){var a=KF[i],b=KF[i+1];if(p<=b.p){var t=eio(cl((p-a.p)/(b.p-a.p)));
   return{x:lerp(a.x,b.x,t),y:lerp(a.y,b.y,t),s:Math.exp(lerp(Math.log(a.s),Math.log(b.s),t)),rx:lerp(a.rx,b.rx,t),rz:lerp(a.rz,b.rz,t)}}}var l=KF[KF.length-1];return l}
@@ -551,7 +551,7 @@ if(matchMedia('(hover:hover) and (pointer:fine)').matches)addEventListener('poin
 new IntersectionObserver(function(es){visible=es[0].isIntersecting},{rootMargin:'200px'}).observe(wrap);
 function ebFrame(){if(visible){ps+=(prog()-ps)*(stillR?1:.1);mx+=(tmx-mx)*.06;my+=(tmy-my)*.06;var q=ps,c=camAt(q);
   cam.style.transform='rotateX('+(c.rx-my*4).toFixed(2)+'deg) rotateY('+(mx*5).toFixed(2)+'deg) rotateZ('+c.rz.toFixed(2)+'deg) scale('+c.s.toFixed(4)+') translate('+(-c.x).toFixed(1)+'px,'+(-c.y).toFixed(1)+'px)';
-  ttl.style.opacity=(1-cl((q-.05)/.08)).toFixed(3);ttl.style.transform='scale('+(1+q*2.4).toFixed(3)+')';
+  ttl.style.opacity=(1-cl((q-.015)/.05)).toFixed(3);ttl.style.transform='scale('+(1+q*2.4).toFixed(3)+')';
   PJ.forEach(function(t){var r=eo(cl((q-RS[W[+t.dataset.w][0]])/.07));t.querySelector('.m').style.clipPath='inset('+((1-r)*100).toFixed(2)+'% 0 0 0)';t.classList.toggle('full',r>.95)});
   endEl.classList.toggle('on',q>.88)}
   requestAnimationFrame(ebFrame)}
