@@ -540,12 +540,12 @@ scWrap.style.setProperty('--n',NH);
 var mobV=matchMedia('(max-width:860px)').matches,stillS=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var SL=HL.map(function(h){var d=document.createElement('div');d.className='sl';d.innerHTML='<img src="media/hl/'+h[0]+'.jpg" alt="Höhepunkt der Website: '+W[wi(h[0])][1]+'" decoding="async">';scr.appendChild(d);return d});
 idx.innerHTML=HL.map(function(h,i){return '<button type="button" data-i="'+i+'" aria-label="'+W[wi(h[0])][1]+'"><img src="media/hl/'+h[0]+'.jpg" alt="" loading="lazy" decoding="async"></button>'}).join('');
-var IB=idx.children,cur=-1,ambOn=ambA;
+var IB=idx.children,scCur=-1,ambOn=ambA;
 function pad2(n){return (n<9?'0':'')+(n+1)}
-function show(n){if(n===cur)return;var dir=n>cur?1:-1,old=SL[cur];
+function show(n){if(n===scCur)return;var dir=n>scCur?1:-1,old=SL[scCur];
   if(old){old.classList.remove('in');old.classList.add('out');var ov=old.querySelector('video');if(ov)try{ov.pause()}catch(_){};
-    (function(o){setTimeout(function(){if(o!==SL[cur]){o.classList.remove('out');var v=o.querySelector('video');if(v){v.remove()}}},1150)})(old)}
-  cur=n;var s=SL[n];s.classList.remove('out','in');s.classList.toggle('up',dir<0);void s.offsetWidth;s.classList.add('in');s.style.zIndex=++show.z;
+    (function(o){setTimeout(function(){if(o!==SL[scCur]){o.classList.remove('out');var v=o.querySelector('video');if(v){v.remove()}}},1150)})(old)}
+  scCur=n;var s=SL[n];s.classList.remove('out','in');s.classList.toggle('up',dir<0);void s.offsetWidth;s.classList.add('in');s.style.zIndex=++show.z;
   var v=s.querySelector('video');if(!v&&!stillS){v=document.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';
     v.src='media/hl/'+HL[n][0]+(mobV?'-m':'')+'.mp4';v.addEventListener('playing',function(){if(v.videoWidth>0)v.classList.add('on')},{once:true});s.appendChild(v)}
   if(v){try{v.currentTime=0}catch(_){}var p=v.play();p&&p.catch&&p.catch(function(){})}
@@ -560,7 +560,7 @@ show.z=1;
 function scProg(){var span=scWrap.offsetHeight-innerHeight;return Math.min(1,Math.max(0,-scWrap.getBoundingClientRect().top/span))}
 var sp=0,smx=0,smy=0,tsx=0,tsy=0,scVis=true;
 if(matchMedia('(hover:hover) and (pointer:fine)').matches)addEventListener('pointermove',function(e){tsx=e.clientX/innerWidth-.5;tsy=e.clientY/innerHeight-.5},{passive:true});
-new IntersectionObserver(function(es){scVis=es[0].isIntersecting;if(!scVis&&SL[cur]){var v=SL[cur].querySelector('video');if(v)try{v.pause()}catch(_){}}else if(SL[cur]){var w=SL[cur].querySelector('video');if(w){var p=w.play();p&&p.catch&&p.catch(function(){})}}},{rootMargin:'50px'}).observe(scWrap);
+new IntersectionObserver(function(es){scVis=es[0].isIntersecting;if(!scVis&&SL[scCur]){var v=SL[scCur].querySelector('video');if(v)try{v.pause()}catch(_){}}else if(SL[scCur]){var w=SL[scCur].querySelector('video');if(w){var p=w.play();p&&p.catch&&p.catch(function(){})}}},{rootMargin:'50px'}).observe(scWrap);
 function scFrame(){if(scVis){var p=scProg();sp+=(p-sp)*(stillS?1:.12);smx+=(tsx-smx)*.07;smy+=(tsy-smy)*.07;
   var f=sp*NH,n=Math.min(NH-1,Math.floor(f)),loc=f-n;show(n);
   var tilt=stillS?0:(.5-loc)*5;scr.style.transform='rotateX('+(tilt-smy*3).toFixed(2)+'deg) rotateY('+(smx*5).toFixed(2)+'deg) translateY('+((.5-loc)*-14).toFixed(1)+'px)';
@@ -569,8 +569,8 @@ function scFrame(){if(scVis){var p=scProg();sp+=(p-sp)*(stillS?1:.12);smx+=(tsx-
 function scGo(n){var span=scWrap.offsetHeight-innerHeight,y=scWrap.getBoundingClientRect().top+scrollY+span*((n+.5)/NH);
   if(window.__lenis)window.__lenis.scrollTo(y,{duration:1.2});else scrollTo({top:y,behavior:stillS?'auto':'smooth'})}
 idx.addEventListener('click',function(e){var b=e.target.closest('button');if(b)scGo(+b.dataset.i)});
-scr.addEventListener('click',function(){openLb(wi(HL[cur][0]))});
-scr.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(wi(HL[cur][0]))}});
+scr.addEventListener('click',function(){openLb(wi(HL[scCur][0]))});
+scr.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(wi(HL[scCur][0]))}});
 show(0);requestAnimationFrame(scFrame);
 
 /* Großansicht */
