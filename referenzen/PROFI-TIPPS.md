@@ -205,9 +205,19 @@ Ziel: besser, kreativer, smoother und professioneller als die Konkurrenz. Videos
 - Workflow: Prompt-/Template-Bibliothek **Getlayers** (Hero-Prompts mit Live-Vorschau, „Copy prompt“, Source Code, Tags landing page / three.js / next.js; Beispiel „AI Studio“: Chrome-Stern im Dunkeln mit Partikeln und Kameraflug) → Prompt in den AI-Builder / Claude → Seite fertig.
 - Für uns: vor jedem Hero zusätzlich Getlayers durchsuchen (neben 21st.dev, MotionSites, Prompt Motion …); Three.js-Heros mit Partikeln, Licht und Kamerabewegung als Wow-Moment.
 
+- Weitere Seiten im Video: Architektur-Portfolio mit blauem organischem Turm; „Relay“ (Automations-SaaS: „The handoffs run themselves.“, grüne Lichtbahnen, „Every run is on the record“, 3D-Balken, schwebende Workflow-Karten); Ergebnis am Ende „Lumen – Money that moves with you / Debit card of the next generation“.
+- Getlayers-Galerie (Beispiele im Video): Cortex, Loopstack, Pure Zero („Refreshingly Clean“), Timeless Furniture, Harmony House, „Time, Lost in Gold“, „Every mile starts before the first step“, „The clarity your business has been missing“, „Engineering Intelligence“.
+- Vorlagen-Seite „AI Studio“: Premium + Commercial licence, Buttons „Copy prompt“ und „Download source code“, Tags landing page / threejs / nextjs, Anleitung „Five steps from prompt to live site“ (01 Prompt oder Source Code kopieren, 02 in die KI einfügen, z. B. Claude Opus). Der Prompt lädt Bild-/Video-Assets direkt vom Getlayers-Speicher.
+
+**Quelle Getlayers – getlayers.ai**
+- Bibliothek für KI-gebaute Websites: Landingpage-Templates, Sections, UI-Blocks, Three.js-3D-Szenen, Video-Hintergründe, strukturierte Prompts.
+- Prompt → eigenständige HTML-Datei; Source-Dateien als Next.js-Projekt bzw. Standalone-3D-Szene; MCP-Anbindung für KI-Coding-Tools.
+- Lizenz pro Vorlage prüfen (Commercial licence / Plan), bevor etwas in eine Kundenseite geht. Nie 1:1 übernehmen – immer mit echtem Logo, echten Farben und Daten des Betriebs.
+
 **@ariana.porcelana – „Client said ‚surprise me‘ so I did THIS..“**
 - Hook: Person am beleuchteten Keyboard, danach POV mit Hand am Trackpad, die Seite scrollt.
 - Scroll-Story für ein Mango-Collagen-Shot, Ursprung → Produkt → Mensch: Wolken „Grown closer to the sun.“ → Insel/Meer → Mangos am Baum „Never cold-stored. Never hurried.“ → Bewegungsunschärfe „When it lets go, we're ready.“ → Mango schwebt am Strand „Sunlight, undone and bottled.“ → Flasche am Strand „Everything the tree made. In 75 ml.“ → freigestellte Flasche dreht sich auf hellem Grund → Model am Strand mit der Flasche.
+- Details: Hook mit Designerin am lila beleuchteten Keyboard, danach reiner Bildschirm-POV mit sichtbarem Browser; eigenes Produkt-Etikett („Mango Collagen Shot“, 75 ml); Szenenwechsel per Bewegungsunschärfe; Outro schwarz mit IG-Logo + Handle.
 - Stil: handschriftliche Pinsel-Typo, warme Sonnenfarben, vollflächige Film-Szenen mit weichen Übergängen, kurze poetische Zeilen pro Szene. Outro IG-Logo + Handle.
 
 **Regeln daraus (gilt ab sofort für Websites, Konzeptseiten, Portfolio, Reels)**
