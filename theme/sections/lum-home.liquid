@@ -1,0 +1,80 @@
+<section class="hero" aria-label="Willkommen">
+ <div class="bg"><picture><source media="(max-width:860px)" srcset="{{ 'lum-hero_ring_m.jpg' | file_url }}"><img id="heroImg" src="{{ 'lum-hero_ring.jpg' | file_url }}" alt="Goldring mit Smaragd auf einem Travertinblock im warmen Nachmittagslicht" fetchpriority="high" width="2400" height="1357"></picture></div>
+ <div class="sweep"></div><div class="shade"></div>
+ <div class="copy">
+  <span class="label">[ <b>LUMINOSO</b> · Gold & 925 Sterlingsilber ]</span>
+  <h1><span class="ln"><span>Gemacht, um</span></span><span class="ln"><span><i>Licht</i> zu fangen.</span></span></h1>
+  <p>Echtes Gold und Sterlingsilber, gefasst für die Momente, an die du dich erinnern willst.</p>
+  <div class="ctas"><a class="btn dark" href="/collections/ohrringe">Kollektion entdecken</a><a class="btn light" href="/collections/geschenke">Geschenke finden</a></div>
+ </div>
+ <div class="scroll"><span class="label" style="color:inherit">Scrollen</span><i></i></div>
+</section>
+
+<section class="sec wrap" aria-labelledby="h-cats">
+ <div class="head rv"><div><span class="label">[ 01 · <b>Schmuck</b> ]</span><h2 id="h-cats">Finde dein <i class="it">Lieblingsstück.</i></h2></div><p>Klar sortiert nach dem, was du suchst – und nach dem Material, das zu dir passt.</p></div>
+ <div class="cats" id="cats">
+  {%- assign tiles = 'ohrringe|Ohrringe|lum-cut-03.png,ketten-anhaenger|Ketten & Anhänger|lum-cut-17.png,ringe-gold-silber|Ringe|lum-cut-01.png,goldschmuck|Goldschmuck|lum-cut-07.png' | split: ',' -%}
+  {%- for t in tiles -%}{%- assign p = t | split: '|' -%}
+  <a class="cat rv" href="/collections/{{ p[0] }}"><div class="glow"></div><div class="pic"><img src="{{ p[2] | file_url }}" alt="" loading="lazy"></div><h3>{{ p[1] }}</h3><div class="meta"><span class="label">{{ collections[p[0]].products_count }} Stücke</span><span class="arrow"></span></div></a>
+  {%- endfor -%}
+ </div>
+</section>
+
+<section class="dark sec" aria-labelledby="h-gold" id="ratgeber">
+ <div class="wrap split">
+  <div class="media rv" style="aspect-ratio:4/5"><img src="{{ 'lum-niche_ring.jpg' | file_url }}" alt="Goldring mit vier Zirkonia auf einem Steinsockel im Spotlicht" loading="lazy"></div>
+  <div class="txt">
+   <span class="label rv">[ 02 · <b>Material</b> ]</span>
+   <h2 class="rv" id="h-gold">Gold, das <i class="it">Generationen</i> überdauert.</h2>
+   <p class="rv">Jedes Stück trägt seinen Feingehalt im Namen. Die Zahl verrät, wie viel reines Gold in der Legierung steckt.</p>
+   <div class="karat rv"><div><b>333</b><span>33,3 % Feingold – robust und hell</span></div><div><b>375</b><span>37,5 % Feingold – warm und alltagsfest</span></div><div><b>585</b><span>58,5 % Feingold – satte Farbe, Erbstück-Qualität</span></div></div>
+   <a class="btn light rv" href="/collections/goldschmuck">Goldschmuck ansehen <span class="arrow"></span></a>
+  </div>
+ </div>
+</section>
+
+<section class="sec" aria-labelledby="h-fav">
+ <div class="wrap head rv"><div><span class="label">[ 03 · <b>Ausgewählt</b> ]</span><h2 id="h-fav">Stücke mit <i class="it">Strahlkraft.</i></h2></div><a class="btn line" href="/collections/echtsteine-perlen">Echtsteine & Perlen <span class="arrow"></span></a></div>
+ <div class="rail">{%- assign feat = collections['echtsteine-perlen'].products | sort: 'price' | reverse -%}{%- for product in feat limit: 12 -%}{%- render 'lum-card', product: product -%}{%- endfor -%}</div>
+</section>
+
+<section class="sec wrap" aria-labelledby="h-mom" style="padding-top:0">
+ <div class="head rv"><div><span class="label">[ 04 · <b>Momente</b> ]</span><h2 id="h-mom">Für Momente, <i class="it">die bleiben.</i></h2></div><p>Schmuck erinnert an das, was war: an ein Ja, an einen ersten Atemzug, an einen ganz normalen Dienstag, der plötzlich besonders wurde.</p></div>
+ <div class="moments">
+  <a class="mo rv" href="/collections/geschenke-150-300"><img src="{{ 'lum-linen_collier.jpg' | file_url }}" alt="Goldcollier mit Rubin auf Leinen im Fensterlicht" loading="lazy"><div><h3>Zum Jahrestag</h3><p>Ein Rubin für jedes Jahr.</p></div></a>
+  <a class="mo rv" href="/collections/kinderschmuck"><img src="{{ 'lum-silk_perla.jpg' | file_url }}" alt="Goldene Perlen-Ohrhänger auf Elfenbein-Seide" loading="lazy"><div><h3>Zur Geburt</h3><p>Der erste Schmuck fürs Leben.</p></div></a>
+  <a class="mo rv" href="/collections/geschenke-50-150"><img src="{{ 'lum-sand_kette.jpg' | file_url }}" alt="Goldkette mit Zirkonia-Anhänger auf Sandstein mit Wassertropfen" loading="lazy"><div><h3>Zum Geburtstag</h3><p>Funkeln, das mitfeiert.</p></div></a>
+  <a class="mo rv" href="/collections/geschenke-bis-50"><img src="{{ 'lum-brass_creolen.jpg' | file_url }}" alt="Bicolor-Creolen in einer Messingschale" loading="lazy" style="object-position:78% 50%"><div><h3>Einfach so</h3><p>Weil heute reicht.</p></div></a>
+ </div>
+</section>
+
+{% render 'lum-trust' %}
+
+<section class="sec wrap" aria-labelledby="h-faq">
+ <div class="head rv" style="justify-content:center;text-align:center"><div><span class="label">[ 05 · <b>Fragen</b> ]</span><h2 id="h-faq">Gut zu <i class="it">wissen.</i></h2></div></div>
+ <div class="faq rv">
+  <details><summary>Was bedeuten 333, 375 und 585 bei Gold?</summary><div class="a">Die Zahl nennt den Anteil an reinem Gold in Promille: 333 Gold enthält 33,3 %, 375 Gold 37,5 % und 585 Gold 58,5 % Feingold. Der Rest der Legierung macht das Metall härter und alltagstauglich.</div></details>
+  <details><summary>Was heißt „925 Sterlingsilber rhodiniert“?</summary><div class="a">925 Silber besteht zu 92,5 % aus reinem Silber. Rhodiniert bedeutet, dass das Stück eine hauchdünne Schicht aus Rhodium trägt – sie sorgt für einen hellen Glanz und schützt vor dem Anlaufen.</div></details>
+  <details><summary>Ist Zirkonia ein Diamant?</summary><div class="a">Nein. Zirkonia ist ein synthetischer Schmuckstein mit starkem Funkeln. Wir geben bei jedem Stück genau an, welcher Stein verwendet wird – auch ob ein Stein behandelt oder synthetisch ist.</div></details>
+  <details><summary>Wie lange dauert der Versand und was kostet er?</summary><div class="a">Ab 29 € Bestellwert versenden wir kostenlos. Alle Details zu Lieferzeiten und Kosten findest du unter <a href="/pages/versand">Versand & Lieferung</a>.</div></details>
+  <details><summary>Wie kann ich widerrufen oder zurückgeben?</summary><div class="a">Du kannst innerhalb von 14 Tagen ohne Angabe von Gründen widerrufen – ganz einfach über den Button „Vertrag widerrufen“ im Fuß jeder Seite oder auf der Seite <a href="/pages/widerruf">Widerrufsrecht</a>.</div></details>
+  <details><summary>Wie pflege ich meinen Schmuck?</summary><div class="a">Lege Schmuck vor dem Duschen, Schwimmen und Sport ab und trage Parfum und Creme zuerst auf. Bewahre jedes Stück einzeln in einem weichen Beutel auf und reinige es mit einem trockenen Mikrofasertuch.</div></details>
+ </div>
+</section>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Was bedeuten 333, 375 und 585 bei Gold?","acceptedAnswer":{"@type":"Answer","text":"Die Zahl nennt den Anteil an reinem Gold in Promille: 333 Gold enthält 33,3 %, 375 Gold 37,5 % und 585 Gold 58,5 % Feingold."}},{"@type":"Question","name":"Was heißt 925 Sterlingsilber rhodiniert?","acceptedAnswer":{"@type":"Answer","text":"925 Silber besteht zu 92,5 % aus reinem Silber. Rhodiniert bedeutet, dass das Stück eine hauchdünne Schicht aus Rhodium trägt."}},{"@type":"Question","name":"Ist Zirkonia ein Diamant?","acceptedAnswer":{"@type":"Answer","text":"Nein. Zirkonia ist ein synthetischer Schmuckstein mit starkem Funkeln."}},{"@type":"Question","name":"Wie kann ich widerrufen oder zurückgeben?","acceptedAnswer":{"@type":"Answer","text":"Innerhalb von 14 Tagen ohne Angabe von Gründen über den Button Vertrag widerrufen oder die Seite Widerrufsrecht."}}]}</script>
+
+<section class="sec wrap" style="padding-top:0" aria-labelledby="h-seo">
+ <div class="seo rv"><h2 id="h-seo">Schmuck aus Gold und Silber online kaufen</h2>
+ <p>LUMINOSO steht für Schmuck aus echtem Gold und 925 Sterlingsilber. Du findest bei uns Ohrstecker, Creolen und Ohrhänger, Ketten mit Anhänger, Colliers, Armbänder, Fußketten, Ringe und Schmuck-Sets – sortiert nach Schmuckart, Material und Anlass.</p>
+ <p>Unser Goldschmuck ist in 333, 375 und 585 Gold erhältlich, unser Silberschmuck in 925 Sterlingsilber – rhodiniert, vergoldet oder rosévergoldet. Bei jedem Stück nennen wir Material, Legierung und Stein, damit du genau weißt, was du kaufst.</p>
+ <p>Du suchst ein Geschenk? In unseren Geschenkwelten findest du Schmuck nach Budget – von kleinen Aufmerksamkeiten bis zum Erbstück mit Süßwasserperle oder Smaragd.</p>
+ <p>Kinderschmuck aus Silber und Gold eignet sich zur Geburt, Taufe oder Einschulung. Für Herren gibt es klare Formen in Edelstahl, Silber und Gold.</p></div>
+</section>
+
+<section class="closing" aria-labelledby="h-close">
+ <img src="{{ 'lum-set_brass.jpg' | file_url }}" alt="" loading="lazy">
+ <span class="label">[ Geschenke ]</span>
+ <h2 id="h-close">Manche Geschenke <br><i class="it">vergisst man nie.</i></h2>
+ <a class="btn dark" href="/collections/geschenke" style="background:var(--ivory);color:var(--ink)">Geschenke nach Budget</a>
+</section>
+{% schema %}{"name":"LUMINOSO Startseite","settings":[]}{% endschema %}

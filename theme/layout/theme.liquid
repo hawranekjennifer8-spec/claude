@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{%- if template.name == 'index' -%}Schmuck aus Gold & 925 Silber kaufen | LUMINOSO Jewelry{%- elsif template.name == 'collection' -%}{{ collection.title }} aus Gold & 925 Silber kaufen | LUMINOSO Jewelry{%- if current_page > 1 %} – Seite {{ current_page }}{% endif -%}{%- elsif template.name == 'product' -%}{{ product.title }} | LUMINOSO Jewelry{%- else -%}{{ page_title }} | LUMINOSO Jewelry{%- endif -%}</title>
+{%- liquid
+ if template.name == 'index'
+  assign desc = 'Ohrringe, Ketten, Anhänger und Ringe aus 333, 375 und 585 Gold sowie 925 Sterlingsilber. Kostenloser Versand ab 29 €, 14 Tage Widerrufsrecht.'
+ elsif template.name == 'collection'
+  capture desc
+   echo collection.title | append: ' bei LUMINOSO: ' | append: collection.products_count | append: ' Stücke aus echtem Gold und 925 Sterlingsilber. Kostenloser Versand ab 29 €, 14 Tage Widerrufsrecht.'
+  endcapture
+ elsif template.name == 'product'
+  capture desc
+   echo product.title | append: ' für ' | append: product.price | money | append: '. ' | append: product.description | strip_html | truncate: 120
+  endcapture
+ else
+  assign desc = page_description
+ endif
+-%}
+{%- if desc != blank %}<meta name="description" content="{{ desc | strip_newlines | escape }}">{% endif %}
+<link rel="canonical" href="{{ canonical_url }}">
+<meta property="og:site_name" content="LUMINOSO Jewelry">
+<meta property="og:title" content="{{ page_title | escape }}">
+<meta property="og:url" content="{{ canonical_url }}">
+{%- if template.name == 'product' and product.featured_image %}<meta property="og:image" content="https:{{ product.featured_image | image_url: width: 1200 }}">{% else %}<meta property="og:image" content="{{ 'lum-hero_ring.jpg' | file_url }}">{% endif %}
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{ 'lum-logo-dark.png' | file_url }}">
+<style>
+@font-face{font-family:"Cormorant";src:url({{ 'lum-cormorant.woff2' | file_url }}) format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant";src:url({{ 'lum-cormorant-italic.woff2' | file_url }}) format("woff2");font-weight:300 700;font-style:italic;font-display:swap}
+@font-face{font-family:"Geist";src:url({{ 'lum-geist.woff2' | file_url }}) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url({{ 'lum-geist-mono.woff2' | file_url }}) format("woff2");font-weight:100 900;font-display:swap}
+</style>
+{{ 'luminoso.css' | asset_url | stylesheet_tag }}
+{{ content_for_header }}
+</head>
+<body class="tpl-{{ template.name }}">
+<a href="#MainContent" style="position:absolute;left:-9999px">Zum Inhalt springen</a>
+{% section 'lum-header' %}
+<main id="MainContent">{{ content_for_layout }}</main>
+{% section 'lum-footer' %}
+<script src="{{ 'lum-gsap.min.js' | file_url }}" defer></script>
+<script src="{{ 'lum-ScrollTrigger.min.js' | file_url }}" defer></script>
+<script src="{{ 'lum-lenis.min.js' | file_url }}" defer></script>
+<script src="{{ 'luminoso.js' | asset_url }}" defer></script>
+{%- if template.name == 'index' -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"LUMINOSO Jewelry","url":"{{ shop.url }}","logo":"{{ 'lum-logo-dark.png' | file_url }}","email":"info@luminosojewelry.de","sameAs":["https://www.instagram.com/luminosojewelry","https://www.facebook.com/luminosojewelry","https://www.pinterest.de/luminosojewelry"]}</script>
+{%- endif -%}
+</body>
+</html>

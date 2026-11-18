@@ -1,0 +1,79 @@
+{%- liquid
+ assign v = product.selected_or_first_available_variant
+ assign parts = product.title | split: ' – '
+ assign nm = parts[0]
+ assign mat = ''
+ if parts.size > 1
+  assign mat = product.title | remove_first: nm | remove_first: ' – '
+ endif
+ assign scene = ''
+ case product.handle
+  when 'giardino-ring-585-gelbgold-mit-smaragd'
+   assign scene = 'lum-hero_ring.jpg'
+  when 'rebecca-ring-375-gelbgold-mit-zirkonia'
+   assign scene = 'lum-niche_ring.jpg'
+  when 'collier-333-gelbgold-glanz-rubin-zirkonia'
+   assign scene = 'lum-linen_collier.jpg'
+  when 'anh-nger-mit-kette-375-gelbgold-zirkonia'
+   assign scene = 'lum-sand_kette.jpg'
+  when 'ohrh-nger-585-gelbgold-s-wasserzuchtperle-7-7-5mm'
+   assign scene = 'lum-silk_perla.jpg'
+  when 'ornella-creolen-333-gold-bicolor'
+   assign scene = 'lum-brass_creolen.jpg'
+ endcase
+ assign stein = 'Ohne Stein'
+ if product.title contains ' mit '
+  assign stein = product.title | split: ' mit ' | last
+ endif
+ assign coll = product.collections | where: 'handle', 'ohrringe' | first
+ for c in product.collections
+  if c.handle == 'ohrringe' or c.handle == 'ketten-anhaenger' or c.handle == 'armbaender' or c.handle == 'ringe-gold-silber' or c.handle == 'fussketten-gold-silber' or c.handle == 'schmuck-sets'
+   assign coll = c
+   break
+  endif
+ endfor
+-%}
+<div class="crumb" style="padding-top:28px"><a href="/">Startseite</a>{% if coll %}<span>/</span><a href="{{ coll.url }}">{{ coll.title }}</a>{% endif %}<span>/</span>{{ nm }}</div>
+<div class="pwrap">
+ <div class="gal">
+  <div class="thumbs" id="th">
+   {%- for im in product.images limit: 8 -%}
+    <button class="{% if forloop.first %}on{% endif %}" data-src="{{ im | image_url: width: 1400 }}" aria-label="Bild {{ forloop.index }}"><img src="{{ im | image_url: width: 200 }}" alt="" width="200" height="200"></button>
+    {%- if forloop.first and scene != '' -%}<button class="scene" data-src="{{ scene | file_url }}" data-scene="1" aria-label="Stimmungsbild"><img src="{{ scene | file_url }}" alt=""></button>{%- endif -%}
+   {%- endfor -%}
+  </div>
+  <div class="main" id="mainImg">{%- if product.featured_image -%}<img src="{{ product.featured_image | image_url: width: 1400 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" width="1400" height="1400">{%- endif -%}</div>
+ </div>
+ <div class="pinfo">
+  <span class="label">[ {% if coll %}{{ coll.title }}{% else %}Schmuck{% endif %} ]</span>
+  <h1>{{ nm }}</h1>{% if mat != '' %}<div class="mat">{{ mat }}</div>{% endif %}
+  <div class="price" id="pr">{{ v.price | money }}</div>
+  <div class="vat">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. zzgl. <a href="/pages/versand">Versandkosten</a> – ab 29 € versandkostenfrei.</div>
+  {%- form 'product', product, id: 'pform' -%}
+   <input type="hidden" name="id" id="vid" value="{{ v.id }}">
+   {%- unless product.has_only_default_variant -%}
+   <div class="opt"><span class="label">{{ product.options.first }}</span><div class="chips">
+    {%- for x in product.variants -%}<button type="button" class="chip{% if x.id == v.id %} on{% endif %}" data-id="{{ x.id }}" data-price="{{ x.price | money }}" {% unless x.available %}disabled style="opacity:.4" title="Ausverkauft"{% endunless %}>{{ x.title }}</button>{%- endfor -%}
+   </div></div>
+   {%- endunless -%}
+   <div class="buy"><div class="qty"><button type="button" id="qm" aria-label="Weniger">−</button><span id="qn">1</span><button type="button" id="qp" aria-label="Mehr">+</button></div><input type="hidden" name="quantity" id="qv" value="1"><button type="submit" class="btn dark" id="cartBtn" {% unless v.available %}disabled{% endunless %}>{% if v.available %}In den Warenkorb{% else %}Ausverkauft{% endif %}</button></div>
+  {%- endform -%}
+  <div class="assure">
+   <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/></svg>Kostenloser Versand ab 29 €</div>
+   <div><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>14 Tage Widerrufsrecht – einfach online</div>
+   <div><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M12 8v12M3 12h18"/></svg>Liebevoll verpackt – bereit zum Verschenken</div>
+  </div>
+  <div class="acc">
+   <details open><summary>Beschreibung</summary><div class="a">{{ product.description }}</div></details>
+   <details><summary>Details & Material</summary><div class="a"><table><tr><td>Material</td><td>{{ mat | default: '–' }}</td></tr><tr><td>Schmuckart</td><td>{{ product.type }}</td></tr><tr><td>Stein</td><td>{{ stein }}</td></tr>{% if v.sku != blank %}<tr><td>Artikelnummer</td><td>{{ v.sku }}</td></tr>{% endif %}</table></div></details>
+   <details><summary>Pflege</summary><div class="a">Vor dem Duschen, Schwimmen und Sport ablegen. Parfum und Creme zuerst auftragen. Einzeln in einem weichen Beutel aufbewahren und mit einem trockenen Mikrofasertuch reinigen.</div></details>
+   <details><summary>Versand & Rückgabe</summary><div class="a">Kostenloser Versand ab 29 €. Alle Details unter <a href="/pages/versand">Versand & Lieferung</a>. 14 Tage Widerrufsrecht – über den Button „Vertrag widerrufen“ oder unter <a href="/pages/widerruf">Widerrufsrecht</a>.</div></details>
+  </div>
+  <div class="paysm">{%- for type in shop.enabled_payment_types limit: 8 -%}{{ type | replace: '_', ' ' | capitalize }}{% unless forloop.last %} · {% endunless %}{%- endfor -%}</div>
+ </div>
+</div>
+{%- if coll -%}
+<section class="sec" style="padding-top:60px"><div class="wrap head"><div><span class="label">[ <b>Passt dazu</b> ]</span><h2>Aus derselben <i class="it">Welt.</i></h2></div></div><div class="rail">{%- assign n = 0 -%}{%- for p in coll.products -%}{%- if p.id != product.id and n < 8 -%}{%- render 'lum-card', product: p -%}{%- assign n = n | plus: 1 -%}{%- endif -%}{%- endfor -%}</div></section>
+{%- endif -%}
+<script type="application/ld+json">{{ product | structured_data }}</script>
+{% schema %}{"name":"LUMINOSO Produkt","settings":[]}{% endschema %}

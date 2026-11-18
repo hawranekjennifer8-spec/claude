@@ -1,0 +1,32 @@
+{%- liquid
+ assign dark = false
+ if template.name == 'index' or template.name == 'collection'
+  assign dark = true
+ endif
+ assign schmuck = 'ohrringe|Ohrringe,ketten-anhaenger|Ketten & Anhänger,armbaender|Armbänder,ringe-gold-silber|Ringe,fussketten-gold-silber|Fußketten,schmuck-sets|Schmuck-Sets' | split: ','
+ assign material = 'goldschmuck|Goldschmuck,silberschmuck|Silberschmuck,edelstahlschmuck|Edelstahl' | split: ','
+ assign welten = 'echtsteine-perlen|Echtsteine & Perlen,kinderschmuck|Kinderschmuck,unisex-herren|Herren & Unisex' | split: ','
+ assign geschenke = 'geschenke-bis-50|Bis 50 €,geschenke-50-150|50 – 150 €,geschenke-150-300|150 – 300 €,geschenke-ueber-300|Über 300 €' | split: ','
+-%}
+<div class="topbar"><span>Kostenloser Versand ab 29 €</span><i class="dot"></i><span>14 Tage Widerrufsrecht</span><i class="dot opt2"></i><span class="opt2">Echtes Gold & 925 Sterlingsilber</span></div>
+<header class="site" id="hdr" data-dark="{{ dark }}">
+ <div class="hbar">
+  <nav class="nav" aria-label="Hauptnavigation"><button id="megaBtn" aria-expanded="false" aria-controls="mega">Schmuck</button><a href="/collections/goldschmuck">Gold</a><a href="/collections/silberschmuck">Silber</a><a href="/collections/geschenke">Geschenke</a></nav>
+  <a class="logo" href="/" aria-label="LUMINOSO Jewelry – Startseite"><img class="d" src="{{ 'lum-logo-dark.png' | file_url }}" alt="LUMINOSO Jewelry" width="160" height="80"><img class="l" src="{{ 'lum-logo-light.png' | file_url }}" alt="" width="160" height="80"></a>
+  <div class="hact"><a class="t" href="/search">Suche</a><a class="t" href="/pages/contact">Kontakt</a><a href="/cart" aria-label="Warenkorb, {{ cart.item_count }} Artikel" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>{% if cart.item_count > 0 %}<span style="position:absolute;right:-8px;top:-6px;font:500 9px var(--mono);background:var(--gold);color:#fff;border-radius:999px;padding:2px 5px">{{ cart.item_count }}</span>{% endif %}</a><button class="burger" id="burger" aria-label="Menü öffnen">Menü</button></div>
+ </div>
+ <div class="mega" id="mega">
+  {%- for grp in (1..4) -%}
+   {%- case grp -%}{%- when 1 -%}{%- assign items = schmuck -%}{%- assign t = 'Schmuck' -%}{%- when 2 -%}{%- assign items = material -%}{%- assign t = 'Material' -%}{%- when 3 -%}{%- assign items = welten -%}{%- assign t = 'Welten' -%}{%- when 4 -%}{%- assign items = geschenke -%}{%- assign t = 'Geschenke' -%}{%- endcase -%}
+   <div><h4>{{ t }}</h4>{%- for it in items -%}{%- assign p = it | split: '|' -%}<a href="/collections/{{ p[0] }}">{{ p[1] }}{% if grp < 4 %}<small>{{ collections[p[0]].products_count }}</small>{% endif %}</a>{%- endfor -%}</div>
+  {%- endfor -%}
+  <figure><img src="{{ 'lum-niche_ring.jpg' | file_url }}" alt="Goldring mit Zirkonia auf einem Steinsockel im Spotlicht" loading="lazy"><figcaption>Gold, das bleibt.</figcaption></figure>
+ </div>
+</header>
+<div class="mmenu" id="mmenu" aria-hidden="true"><button class="x" id="mclose">Schließen</button><img src="{{ 'lum-logo-dark.png' | file_url }}" alt="LUMINOSO" style="height:32px">
+ {%- for grp in (1..4) -%}
+  {%- case grp -%}{%- when 1 -%}{%- assign items = schmuck -%}{%- assign t = 'Schmuck' -%}{%- when 2 -%}{%- assign items = material -%}{%- assign t = 'Material' -%}{%- when 3 -%}{%- assign items = welten -%}{%- assign t = 'Welten' -%}{%- when 4 -%}{%- assign items = geschenke -%}{%- assign t = 'Geschenke' -%}{%- endcase -%}
+  <h4>{{ t }}</h4>{%- for it in items -%}{%- assign p = it | split: '|' -%}<a href="/collections/{{ p[0] }}">{{ p[1] }}</a>{%- endfor -%}
+ {%- endfor -%}
+ <h4>Service</h4><a href="/search">Suche</a><a href="/pages/contact">Kontakt</a><a href="/account">Kundenkonto</a>
+</div>

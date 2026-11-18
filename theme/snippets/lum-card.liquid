@@ -1,0 +1,19 @@
+{%- liquid
+ assign parts = product.title | split: ' – '
+ assign nm = parts[0]
+ assign mat = ''
+ if parts.size > 1
+  assign mat = product.title | remove_first: nm | remove_first: ' – '
+ endif
+ assign two = false
+ if product.images.size > 1
+  assign two = true
+ endif
+ assign tg = ''
+ if product.title contains '333' or product.title contains '375' or product.title contains '585'
+  assign tg = 'Gold'
+ elsif product.title contains 'Perle'
+  assign tg = 'Perle'
+ endif
+-%}
+<a class="card{% if two %} two{% endif %}" href="{{ product.url }}"><div class="ph">{%- if product.featured_image -%}<img class="a" src="{{ product.featured_image | image_url: width: 700 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy" width="700" height="700">{%- endif -%}{%- if two -%}<img class="b" src="{{ product.images[1] | image_url: width: 700 }}" alt="" loading="lazy" width="700" height="700">{%- endif -%}{%- if tg != '' -%}<span class="tag">{{ tg }}</span>{%- endif -%}</div><div class="nm">{{ nm }}</div><div class="mt">{{ mat }}</div><div class="pr">{% if product.price_varies %}ab {% endif %}{{ product.price | money }}</div></a>

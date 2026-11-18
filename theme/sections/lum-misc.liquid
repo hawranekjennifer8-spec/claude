@@ -1,0 +1,14 @@
+{%- if template.name == 'search' -%}
+<div class="rte" style="max-width:none"><span class="label">[ Suche ]</span><h1 style="margin-top:14px">Was suchst <i class="it">du?</i></h1>
+ <form class="srch" action="{{ routes.search_url }}" method="get"><input type="search" name="q" value="{{ search.terms | escape }}" placeholder="z. B. Creolen 585 Gold" aria-label="Suchbegriff"><input type="hidden" name="type" value="product"><button class="btn dark">Suchen</button></form>
+ {%- if search.performed -%}<p class="count">{{ search.results_count }} Ergebnisse</p>
+ {%- paginate search.results by 24 -%}<div class="grid" style="margin-top:24px">{%- for r in search.results -%}{%- if r.object_type == 'product' -%}{%- render 'lum-card', product: r -%}{%- endif -%}{%- endfor -%}</div>
+ {%- if paginate.next -%}<div class="more"><a class="btn line" href="{{ paginate.next.url }}">Mehr anzeigen</a></div>{%- endif -%}{%- endpaginate -%}{%- endif -%}
+</div>
+{%- elsif template.name == '404' -%}
+<div class="rte" style="text-align:center"><span class="label">[ 404 ]</span><h1 style="margin-top:14px">Diese Seite hat sich <i class="it">versteckt.</i></h1><p style="color:var(--smoke)">Vielleicht findest du dein Lieblingsstück hier:</p><a class="btn dark" href="/collections/ohrringe">Kollektion entdecken</a></div>
+{%- elsif template.name == 'list-collections' -%}
+<div class="wrap sec"><span class="label">[ Kollektionen ]</span><h1 style="margin:14px 0 40px;font-size:clamp(44px,5vw,72px)">Alle <i class="it">Welten.</i></h1>
+ <div class="moments">{%- assign hs = 'ohrringe,ketten-anhaenger,armbaender,ringe-gold-silber,goldschmuck,silberschmuck,echtsteine-perlen,geschenke' | split: ',' -%}{%- for hh in hs -%}{%- assign c = collections[hh] -%}<a class="mo" href="{{ c.url }}" style="background:var(--card)">{% if c.featured_image %}<img src="{{ c.featured_image | image_url: width: 800 }}" alt="" loading="lazy" style="object-fit:contain;padding:18%;mix-blend-mode:multiply">{% endif %}<div><h3 style="color:var(--ink)">{{ c.title }}</h3></div></a>{%- endfor -%}</div></div>
+{%- endif -%}
+{% schema %}{"name":"LUMINOSO Sonstige","settings":[]}{% endschema %}

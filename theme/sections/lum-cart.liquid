@@ -1,0 +1,27 @@
+<div class="cart">
+ <span class="label">[ Warenkorb ]</span>
+ <h1 style="margin-top:14px">Deine <i class="it">Auswahl.</i></h1>
+ {%- if cart.item_count > 0 -%}
+ <form action="{{ routes.cart_url }}" method="post">
+  {%- for item in cart.items -%}
+  {%- assign parts = item.product.title | split: ' – ' -%}
+  <div class="ci">
+   <a class="ph" href="{{ item.url }}">{% if item.image %}<img src="{{ item.image | image_url: width: 300 }}" alt="{{ item.title | escape }}" width="300" height="300">{% endif %}</a>
+   <div><h3><a href="{{ item.url }}">{{ parts[0] }}</a></h3><div class="v">{{ item.product.title | remove_first: parts[0] | remove_first: ' – ' }}{% unless item.product.has_only_default_variant %} · {{ item.variant.title }}{% endunless %}</div>
+    <div class="q"><a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | minus: 1 }}" aria-label="Weniger">−</a><span>{{ item.quantity }}</span><a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | plus: 1 }}" aria-label="Mehr">+</a><a class="rm" href="{{ item.url_to_remove }}">Entfernen</a></div></div>
+   <div style="font:400 22px var(--serif)">{{ item.final_line_price | money }}</div>
+  </div>
+  {%- endfor -%}
+  <div class="ctot">
+   <span class="label">Zwischensumme</span><div class="sum">{{ cart.total_price | money }}</div>
+   <div class="n">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Versandkosten werden im nächsten Schritt berechnet – ab 29 € versandkostenfrei.</div>
+   <button type="submit" name="checkout" class="btn dark" style="height:58px;min-width:280px">Zur Kasse</button>
+   <a class="label" href="/collections/ohrringe" style="text-decoration:underline">Weiter einkaufen</a>
+  </div>
+ </form>
+ {%- else -%}
+ <p style="color:var(--smoke);margin:10px 0 30px">Dein Warenkorb ist noch leer.</p><a class="btn dark" href="/collections/ohrringe">Kollektion entdecken</a>
+ {%- endif -%}
+</div>
+{% render 'lum-trust' %}<div style="height:80px"></div>
+{% schema %}{"name":"LUMINOSO Warenkorb","settings":[]}{% endschema %}

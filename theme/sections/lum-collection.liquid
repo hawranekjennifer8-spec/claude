@@ -1,0 +1,131 @@
+{%- liquid
+ assign h = collection.handle
+ assign hero = 'lum-set_trav.jpg'
+ assign kind = 'Schmuck'
+ assign parent = ''
+ assign subs = ''
+ assign h1 = collection.title
+ assign intro = ''
+ case h
+  when 'ohrringe', 'ohrstecker-gold-silber', 'creolen', 'ohrhaenger'
+   assign hero = 'lum-silk_perla.jpg'
+   assign parent = 'ohrringe|Ohrringe'
+   assign subs = 'ohrstecker-gold-silber|Ohrstecker,creolen|Creolen,ohrhaenger|Ohrhänger'
+   if h == 'ohrringe'
+    assign h1 = 'Ohrringe, die <i>Licht</i> einfangen.'
+    assign intro = 'Ohrstecker, Creolen und Ohrhänger aus echtem Gold und 925 Sterlingsilber – vom feinen Alltagsstück bis zur Perle für besondere Abende.'
+   endif
+  when 'ketten-anhaenger', 'anhaenger', 'anhaenger-mit-kette', 'ketten-colliers'
+   assign hero = 'lum-linen_collier.jpg'
+   assign parent = 'ketten-anhaenger|Ketten & Anhänger'
+   assign subs = 'anhaenger|Anhänger,anhaenger-mit-kette|Anhänger mit Kette,ketten-colliers|Ketten & Colliers'
+   if h == 'ketten-anhaenger'
+    assign h1 = 'Ketten & Anhänger, <i>nah am Herzen.</i>'
+    assign intro = 'Feine Colliers, Ketten mit Anhänger und einzelne Anhänger – als Zeichen, Erinnerung oder Geschenk.'
+   endif
+  when 'armbaender'
+   assign hero = 'lum-set_sand.jpg'
+   assign h1 = 'Armbänder mit <i>leisem Glanz.</i>'
+   assign intro = 'Feine Armbänder aus Gold, Silber und Edelstahl – zum Kombinieren oder als einzelnes Statement.'
+  when 'ringe-gold-silber'
+   assign hero = 'lum-niche_ring.jpg'
+   assign h1 = 'Ringe für <i>Momente, die bleiben.</i>'
+   assign intro = 'Ringe mit Smaragd, Rubin oder Zirkonia in Gold und Silber – zeitlos gefasst.'
+  when 'fussketten-gold-silber'
+   assign hero = 'lum-set_sand.jpg'
+   assign h1 = 'Fußketten für <i>helle Tage.</i>'
+   assign intro = 'Zarte Fußketten aus Gold und Silber – für Sommer, Strand und barfuß im Garten.'
+  when 'schmuck-sets'
+   assign hero = 'lum-set_silk.jpg'
+   assign h1 = 'Sets, die <i>zusammengehören.</i>'
+   assign intro = 'Kette und Ohrstecker im Duo – aufeinander abgestimmt und bereit zum Verschenken.'
+  when 'goldschmuck', 'gold-333', 'gold-375', 'gold-585'
+   assign hero = 'lum-niche_ring.jpg'
+   assign kind = 'Material'
+   assign parent = 'goldschmuck|Goldschmuck'
+   assign subs = 'gold-333|333 Gold,gold-375|375 Gold,gold-585|585 Gold'
+   if h == 'goldschmuck'
+    assign h1 = 'Gold, das <i>Generationen</i> überdauert.'
+    assign intro = 'Schmuck aus 333, 375 und 585 Gold. Die Zahl nennt den Feingoldanteil in Promille.'
+   endif
+  when 'silberschmuck', 'silber-rhodiniert', 'silber-vergoldet', 'silber-rosevergoldet'
+   assign hero = 'lum-set_silk.jpg'
+   assign kind = 'Material'
+   assign parent = 'silberschmuck|Silberschmuck'
+   assign subs = 'silber-rhodiniert|Rhodiniert,silber-vergoldet|Vergoldet,silber-rosevergoldet|Rosévergoldet'
+   if h == 'silberschmuck'
+    assign h1 = '925 Sterlingsilber, <i>hell wie Mondlicht.</i>'
+    assign intro = 'Sterlingsilber besteht zu 92,5 % aus reinem Silber – rhodiniert, vergoldet oder rosévergoldet.'
+   endif
+  when 'edelstahlschmuck'
+   assign kind = 'Material'
+   assign h1 = 'Edelstahl, <i>gemacht für jeden Tag.</i>'
+   assign intro = 'Robuste Schmuckstücke aus Edelstahl – pflegeleicht und widerstandsfähig.'
+  when 'echtsteine-perlen', 'perlenschmuck', 'edelsteinschmuck'
+   assign hero = 'lum-silk_perla.jpg'
+   assign kind = 'Welt'
+   assign parent = 'echtsteine-perlen|Echtsteine & Perlen'
+   assign subs = 'perlenschmuck|Perlen,edelsteinschmuck|Edelsteine'
+   if h == 'echtsteine-perlen'
+    assign h1 = 'Echtsteine & <i>Perlen.</i>'
+    assign intro = 'Süßwasserperlen, Smaragd, Rubin, Saphir und Topas – jeder Stein mit eigener Zeichnung.'
+   endif
+  when 'kinderschmuck'
+   assign hero = 'lum-set_linen.jpg'
+   assign kind = 'Welt'
+   assign h1 = 'Kinderschmuck, <i>der mitwächst.</i>'
+   assign intro = 'Kleine Ohrstecker und Anhänger aus Silber und Gold – zur Geburt, Taufe oder Einschulung.'
+  when 'unisex-herren'
+   assign hero = 'lum-set_niche.jpg'
+   assign kind = 'Welt'
+   assign h1 = 'Herren & <i>Unisex.</i>'
+   assign intro = 'Klare Formen in Edelstahl, Silber und Gold.'
+  when 'geschenke', 'geschenke-bis-50', 'geschenke-50-150', 'geschenke-150-300', 'geschenke-ueber-300'
+   assign hero = 'lum-brass_creolen.jpg'
+   assign kind = 'Geschenke'
+   assign parent = 'geschenke|Geschenke'
+   assign subs = 'geschenke-bis-50|Bis 50 €,geschenke-50-150|50 – 150 €,geschenke-150-300|150 – 300 €,geschenke-ueber-300|Über 300 €'
+   if h == 'geschenke'
+    assign h1 = 'Geschenke, die man <i>nie vergisst.</i>'
+    assign intro = 'Nach Budget sortiert – liebevoll verpackt und bereit zum Verschenken.'
+   endif
+ endcase
+ if intro == '' and collection.description != blank
+  assign intro = collection.description | strip_html | truncatewords: 30
+ endif
+ assign subList = subs | split: ','
+ assign par = parent | split: '|'
+-%}
+<section class="chero"><img src="{{ hero | file_url }}" alt="" fetchpriority="high"><div class="copy"><span class="label">[ {{ kind }} ]</span><h1>{{ h1 }}</h1>{% if intro != '' %}<p>{{ intro }}</p>{% endif %}</div></section>
+<div class="crumb"><a href="/">Startseite</a>{% if parent != '' and par[0] != h %}<span>/</span><a href="/collections/{{ par[0] }}">{{ par[1] }}</a>{% endif %}<span>/</span>{{ collection.title }}</div>
+{%- if subList.size > 0 -%}
+<div class="chips">{% if parent != '' %}<a class="chip{% if par[0] == h %} on{% endif %}" href="/collections/{{ par[0] }}">Alle<small>{{ collections[par[0]].products_count }}</small></a>{% endif %}{%- for s in subList -%}{%- assign p = s | split: '|' -%}<a class="chip{% if p[0] == h %} on{% endif %}" href="/collections/{{ p[0] }}">{{ p[1] }}<small>{{ collections[p[0]].products_count }}</small></a>{%- endfor -%}</div>
+{%- endif -%}
+{%- paginate collection.products by 24 -%}
+<form class="fbar" id="fbar" method="get" action="{{ collection.url }}">
+ <div class="fl">
+  {%- assign pf = nil -%}{%- for f in collection.filters -%}{%- if f.type == 'price_range' -%}{%- assign pf = f -%}{%- endif -%}{%- endfor -%}
+  {%- if pf -%}
+  {%- assign gte = pf.min_value.value | divided_by: 100 -%}{%- assign lte = pf.max_value.value | divided_by: 100 -%}
+  <div class="sel"><select aria-label="Preis" data-price>
+   <option value="">Alle Preise</option>
+   <option value="0-50" {% if lte == 50 %}selected{% endif %}>Bis 50 €</option>
+   <option value="50-150" {% if gte == 50 and lte == 150 %}selected{% endif %}>50 – 150 €</option>
+   <option value="150-300" {% if gte == 150 and lte == 300 %}selected{% endif %}>150 – 300 €</option>
+   <option value="300-" {% if gte == 300 and lte == 0 %}selected{% endif %}>Über 300 €</option>
+  </select></div>
+  {%- endif -%}
+ </div>
+ <div style="display:flex;gap:16px;align-items:center"><span class="count">{{ collection.products_count }} Stücke</span>
+  <div class="sel"><select name="sort_by" aria-label="Sortierung" onchange="this.form.submit()">
+   {%- for o in collection.sort_options -%}<option value="{{ o.value }}" {% if o.value == collection.sort_by or o.value == collection.default_sort_by and collection.sort_by == blank %}selected{% endif %}>{{ o.name }}</option>{%- endfor -%}
+  </select></div></div>
+</form>
+<section class="wrap" style="padding-top:34px">
+ <div class="grid" id="grid">{%- for product in collection.products -%}{%- render 'lum-card', product: product -%}{%- else -%}<p style="grid-column:1/-1;color:var(--smoke)">Für diese Auswahl gibt es gerade keine Stücke. Probiere einen anderen Filter.</p>{%- endfor -%}</div>
+ {%- if paginate.next -%}<div class="more"><a class="btn line" id="more" href="{{ paginate.next.url }}">Mehr anzeigen</a></div>{%- endif -%}
+</section>
+{%- endpaginate -%}
+{%- if collection.description != blank -%}<section class="sec wrap"><div class="seo rte-c">{{ collection.description }}</div></section>{%- else -%}<div style="height:120px"></div>{%- endif -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"{{ shop.url }}"},{"@type":"ListItem","position":2,"name":{{ collection.title | json }},"item":"{{ shop.url }}{{ collection.url }}"}]}</script>
+{% schema %}{"name":"LUMINOSO Kollektion","settings":[]}{% endschema %}
