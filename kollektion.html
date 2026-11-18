@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kollektion | LUMINOSO Jewelry</title>
+<meta name="description" content="Schmuck aus Gold und 925 Sterlingsilber bei LUMINOSO.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preload" href="fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="img/logo-dark.png">
+</head>
+<body>
+<div id="top"></div>
+<main id="main"></main>
+<div id="foot"></div>
+<script src="js/gsap.min.js"></script><script src="js/ScrollTrigger.min.js"></script><script src="js/lenis.min.js"></script><script src="app.js"></script>
+<script>
+(async()=>{await data();
+ const q=new URLSearchParams(location.search);const k=CATS[q.get('k')]?q.get('k'):'ohrringe';const C=CATS[k];
+ let sub=q.get('s')||'',mat='',sort='empf',shown=24;
+ document.getElementById('top').innerHTML=header(k);document.getElementById('foot').innerHTML=footer();
+ const base=DATA.filter(C.test);
+ document.title=`${C.n} aus Gold & 925 Silber kaufen | LUMINOSO Jewelry`;
+ document.querySelector('meta[name=description]').content=`${C.n} bei LUMINOSO: ${base.length} Stücke aus echtem Gold und 925 Sterlingsilber. Kostenloser Versand ab 29 €, 14 Tage Widerrufsrecht.`;
+ const showMat=C.kind!=='Material';
+ document.getElementById('main').innerHTML=`
+ <section class="chero"><img src="${C.hero}" alt=""><div class="copy"><span class="label">[ ${C.kind} ]</span><h1>${C.h1}</h1><p>${C.intro}</p></div></section>
+ <div class="crumb"><a href="index.html">Startseite</a><span>/</span><a href="kollektion.html?k=${k}">${C.n}</a><b id="crSub"></b></div>
+ ${C.subs.length?`<div class="chips" id="subs"><button class="chip" data-s="">Alle<small>${base.length}</small></button>${C.subs.map(s=>`<button class="chip" data-s="${s[0]}">${s[1]}<small>${base.filter(s[2]).length}</small></button>`).join('')}</div>`:''}
+ <div class="fbar"><div class="fl">${showMat?`<div class="sel"><select id="mat" aria-label="Material"><option value="">Alle Materialien</option><option value="gold">Gold</option><option value="silber">925 Silber</option><option value="edelstahl">Edelstahl</option></select></div>`:''}<div class="sel"><select id="price" aria-label="Preis"><option value="">Alle Preise</option><option value="0-50">Bis 50 €</option><option value="50-150">50 – 150 €</option><option value="150-300">150 – 300 €</option><option value="300-99999">Über 300 €</option></select></div></div>
+ <div style="display:flex;gap:16px;align-items:center"><span class="count" id="cnt"></span><div class="sel"><select id="sort" aria-label="Sortierung"><option value="empf">Empfohlen</option><option value="asc">Preis aufsteigend</option><option value="desc">Preis absteigend</option><option value="az">A – Z</option></select></div></div></div>
+ <section class="wrap" style="padding-top:34px"><div class="grid" id="grid"></div><div class="more"><button class="btn line" id="more">Mehr anzeigen</button></div></section>
+ ${C.seo?`<section class="sec wrap"><div class="seo"><h2>${C.seo[0]}</h2>${C.seo.slice(1).map(t=>`<p>${t}</p>`).join('')}</div></section>`:'<div style="height:120px"></div>'}`;
+ let price='';
+ const g=document.getElementById('grid'),cnt=document.getElementById('cnt'),more=document.getElementById('more');
+ function list(){let L=base;
+  if(sub){const s=C.subs.find(x=>x[0]===sub);if(s)L=L.filter(s[2])}
+  if(mat)L=L.filter(mat==='gold'?isGold:mat==='silber'?isSilver:p=>/Edelstahl/i.test(p.t));
+  if(price){const[a,b]=price.split('-').map(Number);L=L.filter(p=>p.p>a&&p.p<=b)}
+  L=[...L];if(sort==='asc')L.sort((a,b)=>a.p-b.p);else if(sort==='desc')L.sort((a,b)=>b.p-a.p);else if(sort==='az')L.sort((a,b)=>a.name.localeCompare(b.name,'de'));else L.sort((a,b)=>b.score-a.score||b.p-a.p);return L}
+ function render(reset){const L=list();if(reset)shown=24;g.innerHTML=L.slice(0,shown).map(card).join('')||'<p style="grid-column:1/-1;color:var(--smoke)">Für diese Auswahl gibt es gerade keine Stücke. Probiere einen anderen Filter.</p>';
+  cnt.textContent=L.length+' Stücke';more.style.display=L.length>shown?'':'none';
+  document.querySelectorAll('#subs .chip').forEach(c=>c.classList.toggle('on',c.dataset.s===sub));
+  const s=C.subs.find(x=>x[0]===sub);document.getElementById('crSub').innerHTML=s?`<span>/</span>${s[1]}`:'';
+  if(window.ScrollTrigger)ScrollTrigger.refresh()}
+ document.querySelectorAll('#subs .chip').forEach(c=>c.onclick=()=>{sub=c.dataset.s;history.replaceState(null,'',`?k=${k}${sub?'&s='+sub:''}`);render(true)});
+ const m=document.getElementById('mat');if(m)m.onchange=e=>{mat=e.target.value;render(true)};
+ document.getElementById('price').onchange=e=>{price=e.target.value;render(true)};
+ document.getElementById('sort').onchange=e=>{sort=e.target.value;render(true)};
+ more.onclick=()=>{shown+=24;render(false)};
+ render(true);
+ ld({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://luminosojewelry.de/"},{"@type":"ListItem","position":2,"name":C.n}]});
+ wire(true);
+ if(window.gsap&&!document.documentElement.classList.contains('reduced')){gsap.from('.chero h1,.chero p,.chero .label',{y:30,opacity:0,duration:1.3,ease:'expo.out',stagger:.1});gsap.fromTo('.chero img',{scale:1.12},{scale:1,duration:2.4,ease:'expo.out'})}
+})();
+</script>
+</body>
+</html>

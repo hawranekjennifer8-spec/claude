@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Schmuck | LUMINOSO Jewelry</title>
+<meta name="description" content="Schmuck aus Gold und 925 Sterlingsilber bei LUMINOSO.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preload" href="fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="img/logo-dark.png">
+</head>
+<body>
+<div id="top"></div>
+<main id="main"></main>
+<div id="foot"></div>
+<script src="js/gsap.min.js"></script><script src="js/ScrollTrigger.min.js"></script><script src="js/lenis.min.js"></script><script src="app.js"></script>
+<script>
+const SCENES={'giardino-ring-585-gelbgold-mit-smaragd':'img/hero_ring.jpg','rebecca-ring-375-gelbgold-mit-zirkonia':'img/niche_ring.jpg','collier-333-gelbgold-glanz-rubin-zirkonia':'img/linen_collier.jpg','anh-nger-mit-kette-375-gelbgold-zirkonia':'img/sand_kette.jpg','ohrh-nger-585-gelbgold-s-wasserzuchtperle-7-7-5mm':'img/silk_perla.jpg','ornella-creolen-333-gold-bicolor':'img/brass_creolen.jpg'};
+(async()=>{await data();
+ const h=new URLSearchParams(location.search).get('h');const p=DATA.find(x=>x.h===h)||DATA.find(x=>x.named&&isGold(x));
+ document.getElementById('top').innerHTML=header('');document.getElementById('foot').innerHTML=footer();
+ const ck=Object.keys(CATS).find(k=>CATS[k].kind==='Schmuck'&&CATS[k].test(p))||'geschenke';
+ const scene=SCENES[p.h];const pics=[...p.im.map(u=>({u:img(u,1400),t:img(u,200),s:false}))];if(scene)pics.splice(1,0,{u:scene,t:scene,s:true});
+ document.title=`${p.name}${p.mat?' – '+p.mat:''} | LUMINOSO Jewelry`;
+ const desc=(p.d||'').slice(0,155);document.querySelector('meta[name=description]').content=`${p.t} für ${fmt(p.p)}. ${desc}`.slice(0,158);
+ const rel=DATA.filter(x=>x.h!==p.h&&CATS[ck].test(x)&&(isGold(x)===isGold(p))).sort((a,b)=>b.score-a.score||Math.abs(a.p-p.p)-Math.abs(b.p-p.p)).slice(0,8);
+ let vi=0,qty=1;
+ const det=[['Material',p.mat||materialFrom(p)||'–'],['Schmuckart',p.ty],['Stein',(p.t.match(/mit (.+)$/)||[,'Ohne Stein'])[1]]];
+ document.getElementById('main').innerHTML=`
+ <div class="crumb" style="padding-top:28px"><a href="index.html">Startseite</a><span>/</span><a href="kollektion.html?k=${ck}">${CATS[ck].n}</a><span>/</span>${esc(p.name)}</div>
+ <div class="pwrap">
+  <div class="gal"><div class="thumbs" id="th">${pics.map((x,i)=>`<button class="${x.s?'scene':''} ${i?'':'on'}" data-i="${i}" aria-label="Bild ${i+1}"><img src="${x.t}" alt=""></button>`).join('')}</div>
+   <div class="main ${pics[0].s?'scene':''}" id="mainImg"><img src="${pics[0].u}" alt="${esc(p.t)}"></div></div>
+  <div class="pinfo">
+   <span class="label">[ ${esc(CATS[ck].n)} ]</span>
+   <h1>${esc(p.name)}</h1>${p.mat?`<div class="mat">${esc(p.mat)}</div>`:''}
+   <div class="price" id="pr">${fmt(p.v[0].p)}</div>
+   <div class="vat">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. zzgl. <a href="${SHOP}/pages/versand">Versandkosten</a> – ab 29 € versandkostenfrei.</div>
+   ${p.v.length>1?`<div class="opt"><span class="label">${esc((p.o[0]||{}).n||'Ausführung')}</span><div class="chips">${p.v.map((v,i)=>`<button class="chip ${i?'':'on'}" data-v="${i}" ${v.a?'':'disabled style="opacity:.4"'}>${esc(v.t)}</button>`).join('')}</div></div>`:''}
+   <div class="buy"><div class="qty"><button id="qm" aria-label="Weniger">−</button><span id="qn">1</span><button id="qp" aria-label="Mehr">+</button></div><a class="btn dark" id="cart" href="#">In den Warenkorb</a></div>
+   <div class="assure">
+    <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/></svg>Kostenloser Versand ab 29 €</div>
+    <div><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>14 Tage Widerrufsrecht – einfach online</div>
+    <div><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M12 8v12M3 12h18"/></svg>Liebevoll verpackt – bereit zum Verschenken</div>
+   </div>
+   <div class="acc">
+    <details open><summary>Beschreibung</summary><div class="a">${esc(p.d||'')}</div></details>
+    <details><summary>Details & Material</summary><div class="a"><table>${det.map(r=>`<tr><td>${r[0]}</td><td>${esc(r[1])}</td></tr>`).join('')}</table></div></details>
+    <details><summary>Pflege</summary><div class="a">Vor dem Duschen, Schwimmen und Sport ablegen. Parfum und Creme zuerst auftragen. Einzeln in einem weichen Beutel aufbewahren und mit einem trockenen Mikrofasertuch reinigen.</div></details>
+    <details><summary>Versand & Rückgabe</summary><div class="a">Kostenloser Versand ab 29 €. Alle Details unter <a href="${SHOP}/pages/versand">Versand & Lieferung</a>. 14 Tage Widerrufsrecht – über den Button „Vertrag widerrufen“ oder unter <a href="${SHOP}/pages/widerruf">Widerrufsrecht</a>.</div></details>
+   </div>
+   <div class="paysm">PayPal · Klarna · Apple Pay · Google Pay · Visa · Mastercard · Amex</div>
+  </div>
+ </div>
+ <section class="sec" style="padding-top:60px"><div class="wrap head"><div><span class="label">[ <b>Passt dazu</b> ]</span><h2>Aus derselben <i class="it">Welt.</i></h2></div></div><div class="rail">${rel.map(card).join('')}</div></section>`;
+ const th=document.querySelectorAll('#th button'),mi=document.getElementById('mainImg');
+ th.forEach(b=>b.onclick=()=>{const x=pics[+b.dataset.i];th.forEach(t=>t.classList.toggle('on',t===b));mi.classList.toggle('scene',x.s);mi.classList.remove('zoom');const im=mi.querySelector('img');im.style.opacity=0;setTimeout(()=>{im.src=x.u;im.style.opacity=1},180)});
+ mi.onclick=()=>mi.classList.toggle('zoom');
+ mi.onmousemove=e=>{if(!mi.classList.contains('zoom'))return;const r=mi.getBoundingClientRect();mi.querySelector('img').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`};
+ const upd=()=>{document.getElementById('pr').textContent=fmt(p.v[vi].p);document.getElementById('qn').textContent=qty;document.getElementById('cart').href=`${SHOP}/cart/${p.v[vi].id}:${qty}`};
+ document.querySelectorAll('.opt .chip').forEach(c=>c.onclick=()=>{vi=+c.dataset.v;document.querySelectorAll('.opt .chip').forEach(x=>x.classList.toggle('on',x===c));upd()});
+ document.getElementById('qm').onclick=()=>{qty=Math.max(1,qty-1);upd()};document.getElementById('qp').onclick=()=>{qty=Math.min(9,qty+1);upd()};upd();
+ ld({"@context":"https://schema.org","@type":"Product","name":p.t,"image":p.im,"description":p.d,"brand":{"@type":"Brand","name":"LUMINOSO"},"offers":p.v.map(v=>({"@type":"Offer","price":v.p.toFixed(2),"priceCurrency":"EUR","availability":v.a?"https://schema.org/InStock":"https://schema.org/OutOfStock","url":`${SHOP}/products/${p.h}`}))});
+ ld({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://luminosojewelry.de/"},{"@type":"ListItem","position":2,"name":CATS[ck].n},{"@type":"ListItem","position":3,"name":p.name}]});
+ wire(false);
+})();
+</script>
+</body>
+</html>
