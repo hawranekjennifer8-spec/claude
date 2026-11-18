@@ -15,6 +15,7 @@
 - MASTERPROMPT-v7-KOMPLETT.md
 - referenzen/PROFI-TIPPS.md (alle Taste-Erweiterungen)
 - referenzen/REEL-ADS-MASTERPROMPT.md (Fehler-Logbuch), referenzen/SHOWREEL-PROMPT.md
+- referenzen/CONTENT-REELS-PROMPT.md (18.11.: Instagram-Content- und Reel-Formate, Profil-Aufbau, Vorher/Nachher, Plakat-Reel, Collage, Realismus-Pflicht, Regeln für Jennys eigenen Kanal ohne Menschen) – vor JEDEM Content lesen
 - pitch-decks/v2/README.md (Deck-Pipeline, Keynote-sicher)
 - Referenz-Videos/-Bilder in referenzen/ (Kontaktbogen per ffmpeg ansehen)
 
