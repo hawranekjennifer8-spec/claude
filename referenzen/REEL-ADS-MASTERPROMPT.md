@@ -200,3 +200,18 @@ Für die Gestaltung gilt:
 - Charakter bzw. Signature-Element zeigen.
 - Makro-Food und Produkt im Wechsel mit Typo-Karten.
 - Mockups statt einfach draufgeklatschter Screens.
+
+## Erkenntnisse 18.11.2026 – Reel „Dein Feed. Aber als Marke.“ (fotoreal)
+Pipeline, die funktioniert hat:
+1. Startbilder mit gpt_image_2_6 (9:16): Hände mit Nägeln und Schmuck, Handy-Screen als reines Chroma-Grün (#00FF00), Finger nur am Rand. Jede Hand einzeln zoomen und Finger zählen.
+2. seedance_2_5 im Modus omni_reference mit start_image, 720p, 5 s, ohne Audio, kostet 35 Credits pro Clip. Im Prompt ausdrücklich verlangen, dass der Screen die ganze Zeit flach grün bleibt. Das hat bei allen 4 Clips gehalten.
+3. Die echten Feeds als generisches Profil rendern (Handle „ihr.feed“, kein Plattform-Logo, keine Betriebsnamen) und per OpenCV einsetzen:
+   - Grün-Maske in HSV, vier Ecken über approxPolyDP, Ecken über die Frames glätten (EMA), Quad um 2,5 % nach außen erweitern.
+   - Rand-Despill.
+   - Den Grünkanal des Screens als Licht- und Schattenkarte auf den eingesetzten Inhalt multiplizieren, damit Fensterschatten über das Display laufen. Das ist der Realismus-Hebel.
+   - Den Screen leicht wärmer einfärben (B×0,84, G×0,91).
+4. Feed-Wechsel im Handy auf den Beat (Sushi → Kosmetik → Haar → Café) zeigt die Bandbreite ohne zusätzlichen Text.
+5. Fehler: Das erste Grading war zu dunkel und matschig (vignette PI/4.6, Kontrast 0.93). Korrigiert auf eq contrast 0.97, gamma 1.06, brightness 0.035, Vignette PI/6.5 und Rauschen 5. Die Blacks bleiben leicht angehoben, das Bild wirkt aber luftig.
+6. Fehler: Bei Kachel-Cutaways im 9:16-Crop werden Bildtexte angeschnitten. Für Vollbild nur Kacheln ohne Text nehmen.
+7. Fehler: Grain bei CRF 18 ergab 176 MB. CRF 20 mit preset slow ergab rund 45 MB für 17,5 s.
+8. Text: „DEIN FEED.“ in Archivo 900 / Breite 125 in Tinte auf hellem Marmor, „Aber als Marke.“ in Instrument Serif Italic Rot #B3121F auf Strick-Creme. Beide mit Masken-Reveal. Endcard v5 auf Papier mit maximal 118 px Groteskgröße, damit nichts an den Rand stößt.
