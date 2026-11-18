@@ -98,3 +98,34 @@ Die Referenzen sind Stil-Vorbild. NIE 1:1 kopieren, nie fremde Namen, Logos, Han
 - Dauer 10–18 s. Hook in der 1. Sekunde ohne Ton verständlich.
 - Kontaktbogen jeder Sekunde ansehen, Hände und Gesichter bei 100 % prüfen, Ränder und Linien gerade, kein Text angeschnitten.
 - Erst dann ausliefern.
+
+## 7. Produktvideos und Produktbilder (Referenz 18.11.: Pflegeprodukt-Video, REGEL)
+Ziel: Details schön herausarbeiten, Töne perfekt, Texturen sichtbar ECHT (Schaum, Creme, Wasser). Man muss sehen, dass es echt ist.
+
+**Farbwelt:** Ton in Ton warm, z. B. Elfenbein #F1EADB, Creme #E6D6B8, Honig #C99A55, Bernstein #8A3E1C, Rost #5A2414. Höchstens eine Produktfarbe plus Hintergrund aus derselben Familie.
+
+**Licht:**
+- Gegenlicht, damit Glas und Flüssigkeit von innen leuchten.
+- Weiche Kante und ein heller, nahtloser Hintergrund mit sanftem Verlauf.
+- Keine harten Spiegelungen, kein Studio-Weiß-Clipping.
+
+**Einstellungen:**
+1. Einstieg unscharf hinter Riffel- oder Milchglas, dann zieht die Schärfe auf (Reveal).
+2. Das Produkt fällt bzw. schwebt mit echter Physik ins Bild (leichte Rotation, Bewegungsunschärfe).
+3. Wasser und Schaum laufen über das Produkt: echte Blasen in verschiedenen Größen, Schaum, der zerfällt, Tropfen mit Lichtpunkt.
+4. Makro: Creme quillt aus der Tube, Gewinde und Falz sind scharf.
+5. Textur-Makro: Creme mit Glanz, Rillen und Spitzen, Schärfeebene auf der Kante.
+6. Mehrere Produkte fallen gemeinsam ins Bild bzw. stehen als Gruppe.
+7. Requisiten aus dem Material des Produkts (Naturschwamm, Holz, Stein). Keine Fremdmarken.
+
+**Schnitt:**
+- Harte Schnitte auf Sound-Effekte (Whoosh, Squish, Tropfen, Klick).
+- 0,4–0,8 s pro Einstellung, Rhythmus durch Sounddesign.
+- Musik bzw. Sounds erst in Instagram oder mit lizenzfreien SFX.
+
+**Echtheit prüfen:**
+- Schaum mit unterschiedlich großen Blasen und Lichtreflex in jeder Blase, kein Wiederholungsmuster.
+- Flüssigkeit mit richtiger Lichtbrechung.
+- Etikett gerade und lesbar, mit dem ECHTEN Produktnamen bzw. Logo des Kunden (nie erfinden).
+- Keine verbogenen Kanten, keine schmelzenden Formen.
+- Bei KI-Bildern jedes Bild bei 100 % prüfen. Wenn es nach KI aussieht, nicht ausliefern. Wenn möglich, echte Produktfotos des Kunden als Basis nehmen.
