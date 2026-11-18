@@ -226,3 +226,35 @@ Ziel: besser, kreativer, smoother und professioneller als die Konkurrenz. Videos
 3. Vollflächige Film-Szenen mit weichen Übergängen (Blur/Bewegungsunschärfe als Übergang), echte Bilder des Betriebs als Basis.
 4. Präsentation der Seiten in Reels/Portfolio: MacBook im dunklen Raum, farbiges Licht passend zur Seite, Hand am Trackpad, Hook-Satz + Outro mit Handle.
 5. Wow-Hero (Partikel, Licht, 3D-Objekt) aus Prompt-Bibliotheken (Getlayers, 21st.dev, MotionSites) als Startpunkt – nie 1:1, immer mit echtem Logo, echten Farben und Daten des Betriebs.
+
+## Taste-Erweiterung 18.11.2026 – Bildlook + Auge fürs Detail (Luis Ganssloser, @karellabs) – GANZ WICHTIGE REGEL
+Jennys Regel: Alles für Kunden muss so ästhetisch, stilvoll, edel, exklusiv und hochprofessionell wirken wie diese Arbeiten. Der Unterschied liegt in der **Bearbeitung** (Filter, Korn, Farblook), nicht in der Kamera – Luis fotografiert teils mit dem Handy. Videos/Kontaktbögen: `referenzen/2026-11-18_*`.
+
+**Luis Ganssloser – luisganssloser.com, IG @luisganssloserr (Frankfurt, Dokumentar- und Eventfotografie)**
+- Arbeiten: Lavazza, Porsche, Leica, Hyundai x Goodwood, Wacko Maria, Freescape, eatDOORI, Automobil, rarebird london, Tatcraft Kantine, Taunus-Feldberg, Architektur, Bunsters, Charity4Paws, vanessa x sensai.
+- Bildlook:
+  - Film-Look mit feinem Korn, Schwarz leicht angehoben (matt), weiche Spitzlichter.
+  - Nebenfarben (Grün, Blau, Grau) gedämpft – **eine** kräftige Akzentfarbe pro Bild/Serie (Rot, Pink, Gelb).
+  - Warme, natürliche Haut.
+  - Ganze Serie in **einer** Farbwelt: eatDOORI komplett tiefblau, Lavazza Pink/Rot/Neon, Autos Golden Hour mit Oliv/Creme.
+  - Nachts Blitz + Langzeitbelichtung: Farbschlieren, Bewegungsunschärfe, candid.
+  - Motive: echte Momente statt Pose, Anschnitte und Details (Hände, Zapfsäule, Felge, Spiegel, Teller), viel ruhige Fläche (Betonwand, Garage, Himmel), grafische Komposition.
+- Website: schwarzer Hintergrund, kleine kondensierte Versalien-Navigation (WORK / CONTACT), zentrierter Projekttitel, Mosaik-Raster aus Hoch- und Querformaten mit schmalen Fugen, „Weitere Arbeiten" am Ende. Startseite: körniges Retro-Video, Logo als blaue Box mit fetter Grotesk, Schreibmaschinen-Monotypo, Live-Uhr.
+- Reel „THIS IS MY WORK": weißer Grund, gelbe kondensierte Versalien vertikal gestapelt, Fotos fallen als Collage-Stapel übereinander und verschwinden einzeln wieder, Outro grau mit IG-Logo + Handle.
+
+**@karellabs – „Steal my brand guidelines presentation"**
+- Laptop auf Schreibtisch mit rosa Blumen; Cover Bordeaux mit Serif-Versalien „BRAND GUIDELINES".
+- Inhaltsseite mit Foto; Kapitel mit riesigen kursiven Serif-Zahlen: 02 Logo Design, 03 Colour Palette, 04 Typography, 05 Graphic Elements & Applications.
+- Script-Logo + Logomark, Schutzzone, Mindestgröße, Farbkombinationen (Bordeaux, Creme, Hellblau, Oliv, Anthrazit), Schriften Ortica (Serif), Fustat, Poppins, Blüten-/Kleeblatt-Muster als Schachbrett, Anwendungen (Tasche, Model).
+
+**@karellabs – Matcha-Branding „tomo"**
+- Grün Ton in Ton; runde Wortmarke + „authentic · 日本語 · matcha"; Markise am Laden; Plakat „MATCHA Iced Latte" (Grotesk-Versalien + Script); Teefeld mit Pflücker; weiße Linien-Icons (Besen, Schale, Kessel, Lampe, Löffel) auf Matcha-Pulver-Textur; Iced Matcha mit Logo auf grünem Tisch; Social-Posts „PROMO", „WE ARE OPEN", „SAVOR the Green DREAM"; Claim „A ritual worth repeating".
+
+**Regeln daraus (gilt für jedes Bild, jeden Feed, jede Website, jedes Branding)**
+1. Jedes Bild bekommt einen bewussten **Farblook (Grading)** passend zur Marke – nie roh, nie KI-Glanz.
+2. Grading-Standard „J.H. Film": Schwarz leicht anheben (matt), Kontrast weich, Nebenfarben gedämpft, **eine** Akzentfarbe der Marke kräftig lassen, Haut warm, feines Filmkorn, leichte Halation an Spitzlichtern, ggf. leichte Vignette.
+3. Ganze Serie/Feed/Website in **einer** Farbwelt graden – gleiche Kurven, gleiche Weißbalance.
+4. Motive candid und dokumentarisch, mit Details und Anschnitten, viel ruhiger Fläche; nachts Blitz + Bewegung.
+5. Branding immer als komplettes System zeigen: Guidelines (Logo, Farben mit Namen + Hex, Typo, Muster) + Anwendungen + Social-Posts.
+6. Portfolios/Projektseiten: dunkle Bühne, Mosaik aus Hoch- und Querformaten, kleine Versalien-Navigation, Bilder sprechen lassen.
+7. Vor Auslieferung jedes Bild mit Auge fürs Detail prüfen: Look einheitlich? Akzentfarbe klar? Wirkt es edel und exklusiv? Sonst nachbearbeiten.

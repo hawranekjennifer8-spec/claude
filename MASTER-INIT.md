@@ -6,7 +6,7 @@
 - /preferences.md (alle Regeln)
 - /topics/master-init.md (diese Datei als Memory-Spiegel)
 - /topics/premium-qualitaetsstandard.md – /init 22.10. + Referenz-Videos, Kanti, Café Va Liés, Fehler-Logbücher
-- /topics/taste-erweiterung.md – arwa.designstudio, studio.sevd, niki.aroca, stephanni_wolski, **blochsocialhaus (Mock-Feeds + Content-Strategie)**, **textura.eu + ariana.porcelana (Website-Reels, Scroll-Story, 17.11.)**
+- /topics/taste-erweiterung.md – arwa.designstudio, studio.sevd, niki.aroca, stephanni_wolski, **blochsocialhaus (Mock-Feeds + Content-Strategie)**, **textura.eu + ariana.porcelana (Website-Reels, Scroll-Story, 17.11.)**, **Luis Ganssloser + karellabs (Bildlook/Grading + Brand-Systeme, 18.11. – ganz wichtig)**
 - /topics/atelier-masterprompt.md, /topics/webdesign-animation-referenz.md (/init ZITRA), /topics/model-fotografie-prompts.md (Realismus + Detail-Checkliste), /topics/rechtssicherheit-prompt.md
 - passende /areas/-Datei (jh-digital-atelier, da-graziella, treuekarte-saas …)
 
