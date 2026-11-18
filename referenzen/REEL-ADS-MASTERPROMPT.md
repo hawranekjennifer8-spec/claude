@@ -215,3 +215,14 @@ Pipeline, die funktioniert hat:
 6. Fehler: Bei Kachel-Cutaways im 9:16-Crop werden Bildtexte angeschnitten. Für Vollbild nur Kacheln ohne Text nehmen.
 7. Fehler: Grain bei CRF 18 ergab 176 MB. CRF 20 mit preset slow ergab rund 45 MB für 17,5 s.
 8. Text: „DEIN FEED.“ in Archivo 900 / Breite 125 in Tinte auf hellem Marmor, „Aber als Marke.“ in Instrument Serif Italic Rot #B3121F auf Strick-Creme. Beide mit Masken-Reveal. Endcard v5 auf Papier mit maximal 118 px Groteskgröße, damit nichts an den Rand stößt.
+
+## KORREKTUR 18.11.2026 (Jenny: „katastrophal“) – gilt ab sofort für Jennys Portfolio- und Eigenwerbungs-Content
+- KEINE Hände, KEINE Menschen, KEINE KI-Footage, KEIN Handy mit eingesetztem Screen. Green-Screen-Compositing sah aufgeklatscht, schief und verzerrt aus, und man hat die KI gesehen. Die Pipeline oben (fotoreal + Green Screen) ist für Jennys Eigenwerbung VERBOTEN.
+- Stattdessen ein Werbefilm wie von einer Top-Agentur: reines Motion Design aus den ECHTEN Feed-Kacheln. Als HTML-Szene bauen, mit render(t) pro Frame und Playwright-Screenshots mit 30 fps. Das ist mathematisch exakt: nichts wird verzerrt, alles sitzt gerade.
+- Aufbau v3, der funktioniert:
+  1. Hook „DEIN FEED. / Aber als Marke.“ mit Masken-Reveal auf Papier.
+  2. Vollbild-Makro OHNE Menschen (Kosmetik-Puder), Kamera zieht zurück in die Feed-Karte (Profilkopf „ihr.feed“, 3×3-Raster, leichte 3D-Neigung).
+  3. Branchenwechsel auf den Beat als Kachel-Wipe mit Farbwelt-Wechsel des Hintergrunds und Zähler 01/05.
+  4. Dunkle 3D-Kachelwand mit diagonaler Kamerafahrt.
+  5. Endcard v5.
+- Vollbild-Kacheln: nur Kacheln ohne Menschen oder Hände und ohne Text, der im Crop angeschnitten würde.
