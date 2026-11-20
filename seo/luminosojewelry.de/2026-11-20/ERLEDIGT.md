@@ -56,3 +56,11 @@ Offen:
 - Eingangsbestätigung des Widerrufsformulars (EmailJS) einmal mit echter Test-Bestellnummer testen.
 - Gewährleistungs-Hinweis zusätzlich in die Bestellbestätigungs-Mail (empfohlen).
 - Black Week: Rabatt nur auf den aktuellen Preis. Keine Artikel aufnehmen, deren Preis in den letzten 30 Tagen erhöht wurde (§ 11 PAngV).
+
+### Nachtrag (Jennys Vorgabe: 20 % auf alle Artikel, alle Produkte von Kleckow)
+- Code LUMINOSO20 (23.11. 0:00 bis 30.11. 23:59): gilt jetzt für **alle Artikel** statt nur für die Kollektion „Black Week“, kombinierbar mit Gratisversand. **Woran man es merkt:** Ab 23.11. gibt der Code im Checkout bei jedem Artikel 20 %.
+- Theme „Echt + Gewährleistung“: Texte auf „20 % auf alle Stücke“ geändert, Bedingungen ohne die ungeprüfte Behauptung zum „niedrigsten Preis der letzten 30 Tage“, Link „Alle Stücke“.
+- GPSR-Block jetzt bei **allen** Produkten (Kleckow GmbH als Hersteller und verantwortliche Person in der EU, Produktname und Artikelnummer).
+- /en vorerst `noindex`, bis es übersetzt ist. Damit gibt es keine Duplikate mehr.
+- Alte doppelte Kollektionen löschen: von der Sicherheitsprüfung blockiert. Die Kollektionen sind per noindex schon unsichtbar für Google.
+- § 11 PAngV: Jenny bestätigt, dass in den letzten 30 Tagen keine Preise erhöht wurden. Andernfalls gilt der Rabatt nur gegenüber dem niedrigsten Preis.
