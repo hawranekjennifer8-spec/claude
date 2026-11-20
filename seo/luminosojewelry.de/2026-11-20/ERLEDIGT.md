@@ -63,4 +63,4 @@ Offen:
 - GPSR-Block jetzt bei **allen** Produkten (Kleckow GmbH als Hersteller und verantwortliche Person in der EU, Produktname und Artikelnummer).
 - /en vorerst `noindex`, bis es übersetzt ist. Damit gibt es keine Duplikate mehr.
 - Alte doppelte Kollektionen löschen: von der Sicherheitsprüfung blockiert. Die Kollektionen sind per noindex schon unsichtbar für Google.
-- § 11 PAngV: Jenny bestätigt, dass in den letzten 30 Tagen keine Preise erhöht wurden. Andernfalls gilt der Rabatt nur gegenüber dem niedrigsten Preis.
+- § 11 PAngV, Voraussetzung (von Jenny noch zu bestätigen): In den letzten 30 Tagen wurden keine Preise erhöht. Sonst muss sich der Rabatt auf den niedrigsten Preis dieser 30 Tage beziehen.
