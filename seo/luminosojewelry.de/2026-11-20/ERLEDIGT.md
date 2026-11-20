@@ -36,3 +36,23 @@ Die erste Umbenennung hat die fest eingebaute Hero-Kette im Live-Theme gebrochen
 - Englische Suchbegriffe in den deutschen Kollektionstexten („Hoops“, „Huggies“, „Charms“, „Layering“).
 - Alte Kollektionen löschen bzw. aus dem Onlineshop nehmen (der Connector darf das nicht), danach greifen die 301-Weiterleitungen.
 - Footer: „Widerrufsrecht“ verlinkt auf „Vertrag widerrufen“, die Widerrufsbelehrung (`/pages/widerrufsrecht`) ist im Footer nicht verlinkt. Bitte rechtlich prüfen lassen bzw. ergänzen.
+
+---
+
+## Rechts-Check 20.11.2026 (Stand der Gesetze per Websuche geprüft)
+**Grund für die Lücke:** Das Theme „LUMINOSO – Echt + Gewährleistung“ vom 19.11. wurde nie veröffentlicht. Live läuft „LUMINOSO 2026 – Clean“ ohne Gewährleistungslabel. Der Connector darf nur Themes veröffentlichen, die er selbst angelegt hat. Deshalb ist **ein Klick von Jenny im Admin nötig**: Onlineshop › Themes › „LUMINOSO – Echt + Gewährleistung“ › ⋯ › Veröffentlichen. (Die Kopie „LUMINOSO – Live 20.11. (Recht + SEO)“ ist ein gescheiterter Umweg und kann gelöscht werden.)
+
+Im Theme „Echt + Gewährleistung“ fertig (Vorschau geprüft):
+- EU-Mitteilung „Gesetzliche Gewährleistung“ (amtliche Grafik, farbig, QR) auf jeder Produktseite und im Warenkorb. Pflicht seit 27.09.2026. **Woran man es merkt:** Auf der Produktseite steht unter den Zahlungsarten der blaue Kasten „GESETZLICHE GEWÄHRLEISTUNG“.
+- GPSR: „Produktsicherheit (GPSR)“ mit Hersteller Kleckow GmbH, Ersinger Straße 7-9, 75172 Pforzheim, service@kleckow.de, plus Artikelnummer. Gilt für Produkte mit Kleckow-Artikelnummer (SKU beginnt mit einer Ziffer, mindestens 9 Zeichen). Quelle: Kleckows eigene GPSR-Angabe bei eBay. **Woran man es merkt:** eigener Aufklapp-Punkt auf der Produktseite.
+- Footer: „Widerrufsbelehrung“ (/pages/widerrufsrecht) im Service-Bereich und in der Rechtsleiste, dazu „Vertrag widerrufen“ als Button und Link.
+- Art.-Nr. aus der H1, Sets-Link, neue Produkt-Adressen in den Szenenbildern.
+
+Geprüft und in Ordnung: Widerrufsbutton § 356a BGB (auf jeder Seite, hervorgehoben, zweistufig mit „Widerruf bestätigen“, nur Name, Bestellnummer und E-Mail als Pflichtfelder), Belehrung mit Online-Funktion und Muster-Formular, § 19 UStG ohne „inkl. MwSt.“, Versandkosten-Hinweis am Preis, Impressum § 5 DDG, VSBG-Hinweis ohne OS-Link, Cookie-Banner, Schriften selbst gehostet, keine Fake-Bewertungen, KI-Hinweis im Impressum.
+
+Offen:
+- Produkte ohne Kleckow-Artikelnummer (z. B. Perla Reale, Edelstahl): Hersteller nennen.
+- Prüfen, ob TikTok- oder Snapchat-Pixel aktiv sind. Die Datenschutzerklärung nennt TikTok nicht.
+- Eingangsbestätigung des Widerrufsformulars (EmailJS) einmal mit echter Test-Bestellnummer testen.
+- Gewährleistungs-Hinweis zusätzlich in die Bestellbestätigungs-Mail (empfohlen).
+- Black Week: Rabatt nur auf den aktuellen Preis. Keine Artikel aufnehmen, deren Preis in den letzten 30 Tagen erhöht wurde (§ 11 PAngV).
